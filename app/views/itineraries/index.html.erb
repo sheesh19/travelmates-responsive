@@ -1,10 +1,9 @@
 <div>
-    <h1>Itineraries Index</h1>
-      <div>
-        <h2>Current Itineraries (<%= @itineraries.count %>)</h2>
-        <p>Click on an itinerary to view more details</p>
-      </div>
-  <div class="card-container">
+  <div>
+    <h2>Current Itineraries (<%= @itineraries.count %>)</h2>
+    <p>Click on an itinerary to view more details</p>
+  </div>
+  <div>
     <% @itineraries.each do |itinerary| %>
       <div class="card-detail d-flex justify-content-between">
         <h2><%= itinerary.title %></h2>
