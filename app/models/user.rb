@@ -10,5 +10,5 @@ class User < ApplicationRecord
 
   has_many :favorite_itineraries
   has_many :favorite_users
-  has_many :favorite_events
+  has_many :event_favorites
 end

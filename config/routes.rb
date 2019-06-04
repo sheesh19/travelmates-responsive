@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :events, except: [ :index ] do
       resources :event_reviews, only: [ :create, :show, :new ]
       resources :event_registrations, only: [ :create, :show, :new, :update ]
+      resources :event_favorites, only: :create
 
       member do
         patch :cancel
