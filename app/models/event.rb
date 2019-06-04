@@ -2,7 +2,6 @@ class Event < ApplicationRecord
   belongs_to :location
   belongs_to :itinerary
   belongs_to :activity
-  belongs_to :user, through: :itinerary
 
   has_many :event_reviews
 
