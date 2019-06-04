@@ -1,0 +1,17 @@
+<div>
+  <p><strong>Event Name: <%= @event.title %></strong></p>
+</div>
+
+<div>
+  <p>Details: <%= @event.description %></p>
+    <p>Dates:
+      <%= @event.start_date.strftime("%d %b %Y") %> to
+      <%= @event.end_date.strftime("%d %b %Y") %>
+    </p>
+  <p>Maximum spots: <%= @event.max_spots %></p>
+  <p>Location: <%= @event.location.city %></p>
+</div>
+
+<div>
+  <%= link_to "Back", itinerary_path(@event.itinerary), class: 'btn btn-primary'%>
+</div>

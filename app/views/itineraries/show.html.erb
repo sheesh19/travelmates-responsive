@@ -1,10 +1,9 @@
 <div>
   <div>
-    <p>Placeholder for itinerary show (logged in user)</p>
     <p><%= link_to "back to itineraries", itineraries_path, class: 'btn btn-primary'%></p>
   </div>
   <div class="d-flex flex-column">
-    <h2><%= @itinerary.title %></h2>
+    <h2><strong><%= @itinerary.title %></strong></h2>
       <p>Details: <%= @itinerary.description %></p>
         <p>Dates:
         <%= @itinerary.start_date.strftime("%d %b %Y") %> to
@@ -12,6 +11,7 @@
         </p>
   </div>
   <div>
+      <h2><strong>Events</strong></h2>
     <% @itinerary.events.each do |event| %>
       <div class="d-flex flex-column">
         <div><p><strong><%= event.title %></strong></p></div>
@@ -22,6 +22,7 @@
                 <%= event.end_date.strftime("%d %b %Y") %>
               </p>
             <p>Maximum spots: <%= event.max_spots %></p>
+            <%= link_to "VIEW", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
           </div>
       </div>
     <% end %>
