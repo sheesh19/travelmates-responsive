@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :favorite_itineraries, only: :create
 
     # Nested Event
-    resources :events do
+    resources :events, except: [ :index ] do
       resources :event_reviews, only: [ :create, :show, :new ]
       resources :event_registrations, only: [ :create, :show, :new, :update ]
 
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :events, only: [ :index ]
 
   # Locations
   resources :locations, only: [ :index, :show ]
