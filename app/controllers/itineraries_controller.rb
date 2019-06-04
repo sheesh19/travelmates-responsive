@@ -6,6 +6,9 @@ class ItinerariesController < ApplicationController
     @itineraries = Itinerary.all
   end
 
+  def show
+  end
+
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
