@@ -28,6 +28,7 @@ class ItinerariesController < ApplicationController
   end
 
   def update
+    Itinerary.update(slug: to_slug(title))
   end
 
   def destroy

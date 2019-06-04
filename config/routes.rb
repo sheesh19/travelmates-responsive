@@ -7,13 +7,12 @@ Rails.application.routes.draw do
 
   # Nested Itinerary
   resources :itineraries do
-    resources :events, only: [ :create, :show ]
     resources :favorite_itineraries, only: :create
 
     # Nested Event
     resources :events do
-      resources :event_reviews, only: [ :create, :show ]
-      resources :event_registrations, only: [ :create, :show ]
+      resources :event_reviews, only: [ :create, :show, :new ]
+      resources :event_registrations, only: [ :create, :show, :new, :update ]
 
       member do
         patch :cancel
@@ -21,14 +20,14 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-
   # Locations
-  resources :locations, only: :show
+  resources :locations, only: [ :index, :show ]
 
-  # Favorites
+  # Favorites and Reviews Destroy
   resources :favorite_itineraries, only: :destroy
   resources :event_favorites, only: :destroy
   resources :favorite_users, only: :destroy
+  resources :event_reviews, only: :destroy
+  resources :event_registrations, only: :destroy
+
 end
