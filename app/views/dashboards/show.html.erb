@@ -1,17 +1,4 @@
 <h2>Your dashboard</h2>
-<!-- <div class="nav-dash">
-  <ul class="nav nav-pills" id="dash-nav">
-    <li class="nav-item">
-      <%#= link_to "Upcoming events", dashboard_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%#= link_to "Upcoming events", dashboard_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%#= link_to "Upcoming events", dashboard_path, class: "nav-link" %>
-    </li>
-  </ul>
-</div> -->
 
 <div class="nav-dash">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -31,10 +18,10 @@
       <%= render 'upcoming_events' %>
     </div>
     <div class="tab-pane fade" id="pills-open" role="tabpanel" aria-labelledby="pills-open-tab">
-
+      <%= render 'open_listings' %>
     </div>
     <div class="tab-pane fade" id="pills-favourites" role="tabpanel" aria-labelledby="pills-favourites-tab">
-
+      <%= render 'favorites' %>
     </div>
   </div>
 </div>
