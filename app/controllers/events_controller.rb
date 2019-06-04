@@ -4,11 +4,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    events_markers
+    # event_markers
   end
 
   def show
-    events_markers
+    # event_markers
   end
 
   def create
