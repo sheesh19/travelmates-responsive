@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :favorite_itineraries
   has_many :favorite_users
   has_many :event_favorites # update the name in order to inline with schema and event_favorite model
+
 end
