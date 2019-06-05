@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :itineraries
+  # not sure abt this relation
+  # user should be able to access event directly??
   has_many :events, through: :itineraries
   has_many :event_registrations
 
@@ -18,5 +20,13 @@ class User < ApplicationRecord
 
   def find_favorite_itinerary(itinerary)
     favorite_itineraries.where(itinerary: itinerary).first
+  end
+
+  def favorited_event?(event)
+    event_favorites.where(event: event).any?
+  end
+
+  def find_event_favorite(event)
+    event_favorites.where(event: event).first
   end
 end
