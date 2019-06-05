@@ -12,7 +12,7 @@
 <div class="container__featured">
   <h5>Featured Events</h5>
   <div class="card__grid">
-      <% @events[0..2].each do |event| %>
+    <% @events[0..2].each do |event| %>
       <div class="card__event">
         <div class="card__event__content">
           <p><%= event.start_date.strftime("%d %b %Y") %></p>
@@ -22,17 +22,12 @@
         <div class="card__event__button">
           <p>button placeholder</p>
         </div>
+        <div data-event-id="<%= event.id %>" class="event-heart-icon">
+          <%= render 'heart', event: event %>
+        </div>
       </div>
-
     <% end %>
   </div>
-
-      <div data-event-id="<%= event.id %>" class="event-heart-icon">
-          <%= render 'heart', event: event %>
-      </div>
-    </div>
-  <% end %>
-
 </div>
 
 
@@ -47,6 +42,9 @@
         </div>
         <div class="card__event__button">
           <p>button placeholder</p>
+        </div>
+        <div data-event-id="<%= event.id %>" class="event-heart-icon">
+          <%= render 'heart', event: event %>
         </div>
       </div>
     <% end %>
