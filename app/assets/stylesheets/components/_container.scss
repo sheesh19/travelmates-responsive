@@ -18,11 +18,7 @@
 // Featured Container
 
 .container__featured {
-  display: grid;
-  grid-template-columns: 1fr 1 fr 1fr;
-  flex-grow: 1;
-  grid-gap: 16px;
-  background: $light-gray;
-  height: 20vh;
+  background: #ccc;
+  height: 24vh;
   width: 100%;
 }

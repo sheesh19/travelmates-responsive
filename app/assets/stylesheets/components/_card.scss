@@ -1,3 +1,28 @@
+// 3 Card Grid
+
+.card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 16px;
+  justify-items: center;
+  align-items: center;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+  .card__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Cards for Events
+
+.card__event {
+  width: 16rem;
+}
+
+
 // Cards for Dashboard
 
 .card__event {
@@ -29,3 +54,6 @@
 .card__time {
   margin-left: 12px;
 }
+
+
+
