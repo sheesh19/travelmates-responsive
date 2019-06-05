@@ -1,5 +1,5 @@
 <div>
-<h4>Favourite Items...</h4>
+<p>Favourite Itineraries (<%= @favorite_itineraries.count %>)</p>
   <% @favorite_itineraries.each do |favourite_itinerary| %>
   <div class="d-flex flex-column">
     <h2><strong><%= favourite_itinerary.itinerary.title %></strong></h2>
