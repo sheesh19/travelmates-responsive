@@ -70,9 +70,14 @@
   right: 0;
 }
 
+.card-title {
+  margin-bottom: 8px;
+}
+
 #travel-plan-card-title {
   margin-bottom: 24px;
   color: $medium-gray;
+  font-size: 14px;
 }
 
 #map-card-info {
@@ -100,6 +105,7 @@
   justify-content: center;
   align-items: center;
   background-position: center;
+  position: relative;
   // Colour
   color: $almost-white;
   // Font
@@ -120,7 +126,7 @@
 // Card applied to event index (listing)
 .event-card {
   // Border
-  border-radius: 0.5em;
+  border-radius: 8px;
   h4 {
     font-size: 20px;
     font-weight: 550;
@@ -139,7 +145,7 @@
 // Card applied to location index (listing)
 .map-card {
   // Border
-  border-radius: 0.5em;
+  border-radius: 8px;
   h4 {
     font-size: 20px;
     font-weight: 550;

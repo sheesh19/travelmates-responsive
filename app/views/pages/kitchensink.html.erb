@@ -3,11 +3,10 @@
   <!-- BUTTON SECTION -->
   <h1>Buttons</h1><br>
   <p>Filled</p>
-  <button type="button" class="btn btn-filled"> Sentence case </button>
+  <%= render "shared/components/button", variant: "filled", label: "Add button text", href: "#" %>
   <br><br>
   <p>Outlined</p>
-  <button type="button" class="btn btn-outlined"> Sentence case </button>
-
+  <%= render "shared/components/button", variant: "outlined", label: "Add button text", href: "" %>
   <br><br><br>
 
   <h1>Tags</h1><br>
@@ -20,15 +19,19 @@
   <h1>Cards</h1><br>
 
   <!-- Photo card -->
-  <p>Photo card</p>
-  <div class="photo-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
+  <p><strong>Photo card</strong></p>
+  <div
+    class="photo-card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)),
+      url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
     Snorkling
     <a href="#who" class="make-card-clickable"></a>
   </div>
   <br><br>
 
   <!-- Event card -->
-  <p>Event card</p>
+  <p><strong>Event card</strong> used for activity</p>
    <div class="card map-card p-2" style="width: 18rem;">
     <div class="card-body">
       <p class="card-text">
@@ -49,22 +52,19 @@
   <br><br>
 
   <!-- Map card -->
-  <p> Map card</p>
-  <div class="card map-card p-2" style="width: 24rem;">
-    <div id="map">
-      <%= render "shared/map" %>
-    </div>
-    <div class="card-body">
+  <p> <strong>Map card</strong> used for location</p>
+  <div class="card map-card" style="width: 24rem;">
+    <%= render "shared/mapstatic" %>
+    <div class="card-body px-4 pb-4 pt-0">
       <h4 class="card-title">
         <i class="fas fa-map-marker-alt pr-1"></i>
         Melbourne, Australia
       </h4>
-      <p class="card-text">
-        <div id="map-card-info">
-          <i class="fas fa-info-circle"></i>
-            88 travel mates going here
-        </div>
-      </p>
+      <div id="map-card-info">
+        <i class="fas fa-info-circle"></i>
+          88 travel mates going here
+      </div>
+
     </div>
     <a href="#who" class="make-card-clickable"></a>
   </div>
@@ -72,11 +72,11 @@
 
   <!-- Travel plan card -->
   <p> Travel plan card</p>
-  <div class="card map-card p-2" style="width: 24rem;">
-    <div id="map">
-      <%= render "shared/map" %>
+  <div class="card map-card" style="width: 24rem;">
+    <div>
+      <%= render "shared/mapstatic" %>
     </div>
-    <div class="card-body">
+    <div class="card-body px-4 pb-4 pt-0">
       <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
         <div>30 day plan</div>
         <div>
@@ -85,7 +85,7 @@
         </div>
       </div>
       <h4 class="card-title">
-        Going to Queen Victoria night market
+        Amazing trip down under in 2019
       </h4>
       <span class="tag-outline">Scuba diving</span>
       <span class="tag-outline">Shark</span>
