@@ -1,12 +1,24 @@
-.navbar-lewagon {
+.navbar-travelmates {
   justify-content: space-between;
   background: white;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-weight: lighter;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-travelmates .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-travelmates .navbar-brand img {
   width: 40px;
+}
+
+
+.nav-pills {
+
+}
+
+#navbar__welcome {
+  margin: 8px;
 }

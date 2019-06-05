@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Travel Mates</title>
+    <title>TravelMates</title>
+    <meta name="description" content="TravelMates: combine the best of solo traveling with the best of group travel.">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -15,7 +16,7 @@
       <% if user_signed_in? %>
         <%= render 'shared/sidebar' %>
       <% end %>
-      <div class="container">
+      <div class="container__main">
         <%= yield %>
       </div>
     </div>
