@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
   before_action :set_itinerary, only: :show
 
   def show
+    @favorite_itineraries = FavoriteItinerary.all
   end
 
   private
