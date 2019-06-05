@@ -1,0 +1,14 @@
+.header-row {
+  border-bottom: solid 0.5px $light-gray;
+}
+
+.data-row {
+  border-top: solid 0.5px $light-gray;
+  border-bottom: solid 0.5px $light-gray;
+}
+
+.row-link {
+    display: flex;
+    text-decoration: none;
+    justify-content: flex-end;
+}
