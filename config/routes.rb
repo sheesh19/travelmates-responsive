@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resource :dashboard, only: :show
-  # resources :home, only: :index  # dashboard
-
+  # resources :pages, only: :explore
+  get 'pages/explore', to: 'pages#explore'
 
   # Nested Itinerary
   resources :itineraries do
