@@ -2,16 +2,38 @@
   width: 100%;
 }
 
-
 .simple-calendar {
   table {
+    border-style: none;
+    background-color: white;
+    margin-top: 16px;
+  }
+
+  th {
+    border: none;
+    color: $medium-gray;
+    border-image-width: 0;
+  }
+
+  thead {
+    border: none;
   }
 
   tr {
     border-collapse: collapse;
+    border: none;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: $medium-gray;
+    background-color: white;
   }
 
-  .day {}
+  .day {
+    font-weight: 400;
+    font-size: 12px;
+    color: $dark-gray;
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -21,15 +43,49 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
-  .past {}
-  .future {}
+  .today {
+    background-color: $teal;
+    color: $almost-white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-weight: 600;
+    display: inline-block;
+    border-style: none;
+    align-content: center;
+  }
+
+  .past {
+    color: $gray;
+    background-color: white;
+    border-style: none;
+  }
+  .future {
+    color: $gray;
+    background-color: white;
+    border-style: none;
+  }
 
   .start-date {}
-
   .prev-month {}
-  .next-month { }
-  .current-month {}
+  .next-month {}
+  .current-month {
+    color: $medium-gray;
+  }
 
   .has-events {}
+}
+
+.calendar-heading {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  & a {
+    text-decoration: none;
+    color: $teal;
+  }
+}
+.calendar-title {
+  font-weight: bold;
+  color: $medium-gray;
 }
