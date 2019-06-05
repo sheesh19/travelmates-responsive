@@ -1,0 +1,2 @@
+var eventFavoriteHeart = document.querySelector('.event-heart-icon[data-event-id="<%= @event.id %>"]');
+eventFavoriteHeart.innerHTML = '<%= j render "events/heart", event: @event %>'

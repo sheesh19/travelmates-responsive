@@ -5,10 +5,13 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     # event_markers
+
+    # add @event_favorite to index
+    @event_favorite = EventFavorite.find_by(event_id: params[:event_id], user_id: current_user)
   end
 
   def show
-    # event_markers
+    event_markers
   end
 
   def create

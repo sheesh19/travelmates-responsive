@@ -19,6 +19,18 @@
 
 .container__featured {
   background: #ccc;
-  height: 24vh;
+  height: 32vh;
   width: 100%;
+  margin-bottom: 8%;
+  padding-top: 2%;
+}
+
+
+// Dashboard Container
+
+.container__dashboard {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  flex-grow: 1;
+  grid-gap: 16px;
 }

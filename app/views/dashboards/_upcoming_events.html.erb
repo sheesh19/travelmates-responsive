@@ -1,5 +1,6 @@
 
 <% @user.itineraries.each do |itinerary| %>
+
   <h3><%= itinerary.title %></h3>
       <%= link_to "VIEW", itinerary_path(itinerary), class: 'btn btn-primary'%>
   <% itinerary.events.each do |event| %>
@@ -17,14 +18,38 @@
         <div class="card__content__location">
           <p><%= event.location.city %></p>
           <p><%= event.location.country %></p>
+
+  <div class="container__dashboard">
+    <div class="display__itinerary">
+      <h3><%= itinerary.title %></h3>
+      <% itinerary.events.each do |event| %>
+        <div class="card__event__date">
+          <%= event.start_date.strftime("%d %b %Y") %>
         </div>
-      </div>
-      <div class="card__content__image">
-        <%= image_tag "captain_cat.jpg", class: "avatar" %>
-      </div>
+        <div class="card__event d-flex flex-column">
+          <div class="card__time">
+            <p>7:00 pm</p>
+          </div>
+          <div class="card__content">
+            <div class="card__content__info">
+              <h4><%= event.title %></h4>
+              <p><%= event.description %></p>
+              <div class="card__content__location">
+                <p><%= event.location.city %></p>
+                <p><%= event.location.country %></p>
+              </div>
+            </div>
+            <div class="card__content__image">
+              <%= image_tag "captain_cat.jpg", class: "avatar" %>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+    <div class="dash__calendar">
+      <%= render 'calendar_events' %>
     </div>
   </div>
-
-  <% end %>
 <% end %>
 

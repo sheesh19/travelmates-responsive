@@ -7,6 +7,15 @@ class Event < ApplicationRecord
 
   enum status: %i[open full cancelled]
 
+
+  def start_time
+    self.start_date
+  end
+
+  def end_time
+    self.end_date
+  end
+
   private
 
   def cancel

@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resource :dashboard, only: :show
-  # resources :home, only: :index  # dashboard
+
+  # resources :pages, only: :explore
+  get 'pages/explore', to: 'pages#explore'
 
 
   # Nested Itinerary
   resources :itineraries do
+    get :user_itineraries, on: :collection
     resources :favorite_itineraries, only: :create
 
     # Nested Event
@@ -32,5 +35,10 @@ Rails.application.routes.draw do
   resources :favorite_users, only: :destroy
   resources :event_reviews, only: :destroy
   resources :event_registrations, only: :destroy
+
+  # Component kitchensink page only for development
+  if Rails.env.development?
+    get 'kitchensink', to: 'pages#kitchensink'
+  end
 
 end
