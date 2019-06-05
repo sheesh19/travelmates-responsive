@@ -1,3 +1,5 @@
+// Main Page Container
+
 #container-wrapper {
   display: grid;
   grid-gap: 16px;
@@ -10,4 +12,17 @@
   overflow: hidden;
   width: 90%;
   margin-top: 4%;
+}
+
+
+// Featured Container
+
+.container__featured {
+  display: grid;
+  grid-template-columns: 1fr 1 fr 1fr;
+  flex-grow: 1;
+  grid-gap: 16px;
+  background: $light-gray;
+  height: 20vh;
+  width: 100%;
 }
