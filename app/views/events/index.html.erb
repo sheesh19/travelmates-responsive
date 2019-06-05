@@ -1,0 +1,10 @@
+<div class="card-group">
+  <h1>all the Events</h1>
+
+  <% @events.each do |event| %>
+  <div class="card">
+    <%= event.title, class:"card-title"  %>
+  </div>
+  <% end %>
+</div>
+

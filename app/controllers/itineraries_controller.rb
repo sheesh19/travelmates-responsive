@@ -4,6 +4,9 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = Itinerary.all
+
+    # add @favorite_itinerary to index
+    @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
   end
 
   def show
