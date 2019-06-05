@@ -3,7 +3,9 @@
   background: white;
   padding-left: 32px;
   padding-right: 32px;
-  font-weight: lighter;
+  font-weight: bold;
+  color: $almost-black;
+  border-bottom: solid 0.5px $light-gray;
 }
 
 .navbar-travelmates .navbar-collapse {
