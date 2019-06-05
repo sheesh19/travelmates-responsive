@@ -1,0 +1,101 @@
+<div class="container">
+
+  <!-- BUTTON SECTION -->
+  <h1>Buttons</h1><br>
+  <p>Filled</p>
+  <%= render "shared/components/button", variant: "filled", label: "Add button text", href: "#" %>
+  <br><br>
+  <p>Outlined</p>
+  <%= render "shared/components/button", variant: "outlined", label: "Add button text", href: "" %>
+  <br><br><br>
+
+  <h1>Tags</h1><br>
+  <span class="tag-outline">Scuba diving</span>
+  <span class="tag-outline">Shark</span>
+  <span class="tag-outline">Amazing</span>
+  <br><br><br>
+
+  <!-- CARD SECTION -->
+  <h1>Cards</h1><br>
+
+  <!-- Photo card -->
+  <p><strong>Photo card</strong></p>
+  <div
+    class="photo-card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)),
+      url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
+    Snorkling
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Event card -->
+  <p><strong>Event card</strong> used for activity</p>
+   <div class="card map-card p-2" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">
+        Tue, 3 Jun 19, 6pm
+      </p>
+      <h4 class="card-title">
+        Going to Queen Victoria night market
+      </h4>
+      <p class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </p>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <a href="#" class="btn btn-outlined mt-3">Tag along</a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <!-- Map card -->
+  <p> <strong>Map card</strong> used for location</p>
+  <div class="card map-card" style="width: 24rem;">
+    <%= render "shared/mapstatic" %>
+    <div class="card-body px-4 pb-4 pt-0">
+      <h4 class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </h4>
+      <div id="map-card-info">
+        <i class="fas fa-info-circle"></i>
+          88 travel mates going here
+      </div>
+
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+  <!-- Travel plan card -->
+  <p> Travel plan card</p>
+  <div class="card map-card" style="width: 24rem;">
+    <div>
+      <%= render "shared/mapstatic" %>
+    </div>
+    <div class="card-body px-4 pb-4 pt-0">
+      <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+        <div>30 day plan</div>
+        <div>
+          400
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+      <h4 class="card-title">
+        Amazing trip down under in 2019
+      </h4>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+    </div>
+    <a href="#who" class="make-card-clickable"></a>
+  </div>
+  <br><br>
+
+</div>

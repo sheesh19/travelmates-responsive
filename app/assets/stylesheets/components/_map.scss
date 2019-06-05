@@ -4,3 +4,11 @@
   margin-top: 8%;
   margin-bottom: 8%;
 }
+
+#map-static-image {
+  background: cover;
+  img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}

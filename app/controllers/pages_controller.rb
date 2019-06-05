@@ -5,4 +5,7 @@ class PagesController < ApplicationController
   def home
     @itineraries = Itinerary.all
   end
+
+  def kitchensink
+  end
 end
