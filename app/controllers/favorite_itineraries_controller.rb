@@ -3,7 +3,6 @@ class FavoriteItinerariesController < ApplicationController
   before_action :set_favorite_itinerary, only: :destroy
   before_action :set_itinerary, only: :create
 
-
   def create
     if !current_user
       flash[:alert] = 'You need to be logged in to add a favorite itinerary!'

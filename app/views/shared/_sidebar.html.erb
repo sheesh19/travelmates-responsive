@@ -7,9 +7,15 @@
     <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Travel Planner", dashboard_path, class: "nav-link" %>
+    <%= link_to "Travel Planner", user_itineraries_itineraries_path, class: "nav-link" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Explore", itineraries_path, class: "nav-link" %>
+    <%= link_to "Explore: Itineraries", itineraries_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Explore: Events", events_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Explore: Locations", locations_path, class: "nav-link" %>
   </li>
 </ul>

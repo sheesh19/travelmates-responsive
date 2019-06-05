@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Nested Itinerary
   resources :itineraries do
+    get :user_itineraries, on: :collection
     resources :favorite_itineraries, only: :create
 
     # Nested Event
