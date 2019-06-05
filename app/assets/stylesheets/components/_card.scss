@@ -19,3 +19,68 @@
 .card__content {
   display: flex;
 }
+
+// CARD OPTIONS
+
+.photo-card {
+  // Dimension
+  height: 196px;
+  width: 24rem;
+  background-size: cover;
+  // Position
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  // Colour
+  color: $almost-white;
+  // Font
+  font-size: 24px;
+  font-weight: bold;
+  // Border
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // Animation
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
+  transform: scale3d(1.006, 1.006, 1);
+  }
+}
+
+.event-card {
+  // Border
+  border-radius: 0.5em;
+  h4 {
+    font-size: 20px;
+    font-weight: 550;
+    color: $teal;
+  }
+  p {
+    font-size: 14px;
+    color: $almost-black;
+  }
+  &:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
+  transform: scale3d(1.006, 1.006, 1);
+  }
+}
+
+.map-card {
+  // Border
+  border-radius: 0.5em;
+  h4 {
+    font-size: 20px;
+    font-weight: 550;
+    color: $teal;
+  }
+  p {
+    font-size: 14px;
+    color: $almost-black;
+  }
+  &:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
+  transform: scale3d(1.006, 1.006, 1);
+  }
+}

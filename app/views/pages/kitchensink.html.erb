@@ -1,1 +1,87 @@
-<h1>Hello</h1>
+<div class="container">
+
+  <!-- BUTTON SECTION -->
+  <h1>Buttons</h1><br>
+  <p>Filled</p>
+  <button type="button" class="btn btn-filled"> Sentence case </button>
+  <br><br>
+  <p>Outlined</p>
+  <button type="button" class="btn btn-outlined"> Sentence case </button>
+
+  <br><br><br>
+
+  <h1>Tags</h1><br>
+  <span class="tag-outline">Scuba diving</span>
+  <span class="tag-outline">Shark</span>
+  <span class="tag-outline">Amazing</span>
+  <br><br><br>
+
+  <!-- CARD SECTION -->
+  <h1>Cards</h1><br>
+
+  <p>Photo card</p>
+  <div class="photo-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
+    Snorkling
+  </div>
+  <br><br>
+
+  <p>Event card</p>
+   <div class="card map-card p-2" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">
+        Tue, 3 Jun 19, 6pm
+      </p>
+      <h4 class="card-title">
+        Going to Queen Victoria night market
+      </h4>
+      <p class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </p>
+      <a href="#" class="btn btn-outlined mt-3">Tag along</a>
+    </div>
+  </div>
+  <br><br>
+
+  <div id="map">
+    <%= render "shared/map" %>
+  </div>
+
+  <p> Map card</p>
+  <div class="card map-card p-2" style="width: 24rem;">
+    <div id="map">
+      <%= render "shared/map" %>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">
+        <i class="fas fa-map-marker-alt pr-1"></i>
+        Melbourne, Australia
+      </h4>
+      <p class="card-text">
+        88 mates travelling here in next 3 months
+      </p>
+      <a href="#" class="btn btn-outlined mt-3">Check it out</a>
+    </div>
+  </div>
+  <br><br>
+
+  <p> Travel plan card</p>
+  <div class="card map-card p-2" style="width: 24rem;">
+    <div id="map">
+      <%= render "shared/map" %>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">
+        Going to Queen Victoria night market
+      </h4>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+    </div>
+  </div>
+  <br><br>
+
+</div>

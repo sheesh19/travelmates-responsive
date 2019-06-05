@@ -1,0 +1,15 @@
+.tag-outline {
+  // Borders
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 1em;
+  border-color: $medium-gray;
+  // Spacing
+  padding: 4px 8px 4px 8px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  // Font
+  font-size: 12px;
+  font-weight: 500;
+  color: $medium-gray;
+}
