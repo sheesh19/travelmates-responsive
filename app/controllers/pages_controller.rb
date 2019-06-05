@@ -5,9 +5,12 @@ class PagesController < ApplicationController
     @itineraries = Itinerary.all
   end
 
+
   def explore
     @itineraries = Itinerary.all
     @events = Event.all
     @locations = Location.all
+
+  def kitchensink
   end
 end

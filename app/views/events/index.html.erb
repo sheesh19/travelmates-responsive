@@ -23,8 +23,16 @@
           <p>button placeholder</p>
         </div>
       </div>
+
     <% end %>
   </div>
+
+      <div data-event-id="<%= event.id %>" class="event-heart-icon">
+          <%= render 'heart', event: event %>
+      </div>
+    </div>
+  <% end %>
+
 </div>
 
 
