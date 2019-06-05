@@ -1,6 +1,7 @@
 
 <% @user.itineraries.each do |itinerary| %>
   <h3><%= itinerary.title %></h3>
+      <%= link_to "VIEW", itinerary_path(itinerary), class: 'btn btn-primary'%>
   <% itinerary.events.each do |event| %>
   <div class="card__event__date">
     <%= event.start_date.strftime("%d %b %Y") %>

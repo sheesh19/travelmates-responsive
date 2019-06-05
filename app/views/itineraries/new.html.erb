@@ -1,0 +1,61 @@
+<div>
+  <%= link_to "Back", itineraries_path, class: "btn btn-primary" %>
+</div>
+
+<div>
+  <h2>Make a new travel plan</h2>
+</div>
+
+<div>
+  <h2>1. Basic trip details</h2>
+    <p><strong>Trip name</strong></p>
+      <p>Start with a great name for your trip</p>
+        <%= simple_form_for @itinerary do |f|  %>
+          <%= f.input :title, error: 'Please provide a trip name' %>
+            <p><strong>When do you wish to go?</strong></p>
+              <%= f.input :start_date, as: :date, order: [:day, :month, :year], required: true, start_year: Date.today.year, error: 'Start date can not be in the past'%>
+            <%= f.input :end_date, as: :date, order: [:day, :month, :year], required: true, start_year: Date.today.year, error: 'End date can not be earlier than start date' %>
+        <%= f.button :button, 'Reset dates', type: 'reset', class: 'btn btn-primary' %>
+        <!-- need to work out how to move simple form submit button to bottom of page -->
+      <%= f.submit "Ready to make it", class: 'btn btn-primary' %>
+    <% end %>
+
+  <div class="btn btn-primary">Confirm (placeholder)</div>
+</div>
+
+  <div>
+  <h2>2. Trip Confirmation</h2>
+    <p><strong>Have you confirmed that you are going on this trip?</strong></p>
+    <p>No/Yes</p>
+      <div class="btn btn-secondary">toggle to be added</div>
+    <!-- toggles to be added later -->
+    <p><strong>Are you travelling alone?</strong></p>
+        <p>No/Yes</p>
+              <div class="btn btn-secondary">toggle to be added</div>
+    <!-- toggles to be added later -->
+    <!-- confirm button for this section to be added later -->
+      <div class="btn btn-primary">Confirm (placeholder)</div>
+  </div>
+
+<div>
+  <h2>3. Add photos (optional)</h2>
+  <div class="d-flex flex-column">
+<div class="card__event mb-2">Photo.jpg</div>
+<div class="card__event mb-2">+ Add another photo</div>
+</div>
+</div>
+
+<div>
+  <h2>4. Add events (optional)</h2>
+    <div class="d-flex flex-column">
+<div class="card__event mb-2">Going to Queen Victoria Night market</div>
+<div class="card__event mb-2">+ Add another event</div>
+</div>
+</div>
+
+
+
+  <div>
+      <div class="btn btn-primary">Ready to make it (placeholder)</div>
+  </div>
+
