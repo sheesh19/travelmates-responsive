@@ -15,6 +15,9 @@
     <div id="container-wrapper" class="row">
       <% if user_signed_in? %>
         <%= render 'shared/sidebar' %>
+      <% else %>
+      <!-- For Kevin - the empty div class might not be required for the hero page -->
+        <div class="empty"></div>
       <% end %>
       <div class="container__main">
         <%= yield %>
