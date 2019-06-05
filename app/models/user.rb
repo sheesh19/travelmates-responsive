@@ -12,4 +12,11 @@ class User < ApplicationRecord
   has_many :favorite_users
   has_many :event_favorites # update the name in order to inline with schema and event_favorite model
 
+  def favorited_itinerary?(itinerary)
+    favorite_itineraries.where(itinerary: itinerary).any?
+  end
+
+  def find_favorite_itinerary(itinerary)
+    favorite_itineraries.where(itinerary: itinerary).first
+  end
 end

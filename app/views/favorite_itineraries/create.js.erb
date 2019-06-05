@@ -1,0 +1,2 @@
+var favoriteItineraryHeart = document.querySelector('.itinerary-heart-icon[data-itinerary-id="<%= @itinerary.id %>"]');
+favoriteItineraryHeart.innerHTML = '<%= j render "itineraries/heart", itinerary: @itinerary %>'
