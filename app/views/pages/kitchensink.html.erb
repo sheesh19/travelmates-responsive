@@ -19,12 +19,15 @@
   <!-- CARD SECTION -->
   <h1>Cards</h1><br>
 
+  <!-- Photo card -->
   <p>Photo card</p>
   <div class="photo-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg)">
     Snorkling
+    <a href="#who" class="make-card-clickable"></a>
   </div>
   <br><br>
 
+  <!-- Event card -->
   <p>Event card</p>
    <div class="card map-card p-2" style="width: 18rem;">
     <div class="card-body">
@@ -38,15 +41,14 @@
         <i class="fas fa-map-marker-alt pr-1"></i>
         Melbourne, Australia
       </p>
-      <a href="#" class="btn btn-outlined mt-3">Tag along</a>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <a href="#" class="btn btn-outlined mt-3">Tag along</a>
+      </div>
     </div>
   </div>
   <br><br>
 
-  <div id="map">
-    <%= render "shared/map" %>
-  </div>
-
+  <!-- Map card -->
   <p> Map card</p>
   <div class="card map-card p-2" style="width: 24rem;">
     <div id="map">
@@ -58,19 +60,30 @@
         Melbourne, Australia
       </h4>
       <p class="card-text">
-        88 mates travelling here in next 3 months
+        <div id="map-card-info">
+          <i class="fas fa-info-circle"></i>
+            88 travel mates going here
+        </div>
       </p>
-      <a href="#" class="btn btn-outlined mt-3">Check it out</a>
     </div>
+    <a href="#who" class="make-card-clickable"></a>
   </div>
   <br><br>
 
+  <!-- Travel plan card -->
   <p> Travel plan card</p>
   <div class="card map-card p-2" style="width: 24rem;">
     <div id="map">
       <%= render "shared/map" %>
     </div>
     <div class="card-body">
+      <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+        <div>30 day plan</div>
+        <div>
+          400
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
       <h4 class="card-title">
         Going to Queen Victoria night market
       </h4>
@@ -81,6 +94,7 @@
       <span class="tag-outline">Shark</span>
       <span class="tag-outline">Amazing</span>
     </div>
+    <a href="#who" class="make-card-clickable"></a>
   </div>
   <br><br>
 

@@ -51,8 +51,45 @@
   margin-left: 12px;
 }
 
-// CARD OPTIONS
+.card__time {
+  margin-left: 12px;
+}
 
+//////////////////////////////////////////////////
+// COMPONENT SECTION
+//////////////////////////////////////////////////
+
+
+// Utility
+.make-card-clickable {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#travel-plan-card-title {
+  margin-bottom: 24px;
+  color: $medium-gray;
+}
+
+#map-card-info {
+  background-color: $light-gray;
+  border-radius: 1em;
+  padding: 6px 16px 6px 16px;
+  color: $medium-gray;
+  font-size: 12px;
+}
+
+
+//////////////////////////////////////////////////
+// ORGANISM SECTION
+//////////////////////////////////////////////////
+
+
+// Card applied to Activity index (listing)
 .photo-card {
   // Dimension
   height: 196px;
@@ -80,6 +117,7 @@
   }
 }
 
+// Card applied to event index (listing)
 .event-card {
   // Border
   border-radius: 0.5em;
@@ -98,6 +136,7 @@
   }
 }
 
+// Card applied to location index (listing)
 .map-card {
   // Border
   border-radius: 0.5em;
@@ -116,7 +155,4 @@
   }
 }
 
-.card__time {
-  margin-left: 12px;
-}
 
