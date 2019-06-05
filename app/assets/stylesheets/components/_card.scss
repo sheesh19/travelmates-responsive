@@ -6,7 +6,7 @@
   overflow: hidden;
   height: 156px;
   background: white;
-  align-items: center;
+  align-items: left;
   border-color: $light-gray;
   border-style: solid;
   border-width: 0.4px;
@@ -16,6 +16,16 @@
   }
 }
 
+.card__event__date {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
 .card__content {
   display: flex;
+  margin-left: 12px;
+}
+
+.card__time {
+  margin-left: 12px;
 }
