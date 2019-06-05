@@ -15,8 +15,8 @@
     <div id="container-wrapper" class="row">
       <% if user_signed_in? %>
         <%= render 'shared/sidebar' %>
-      <% end %>
       <div class="container__main">
+
         <%= yield %>
       </div>
     </div>
