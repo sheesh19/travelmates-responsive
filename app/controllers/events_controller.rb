@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    # event_markers
+    event_markers
   end
 
   def create
