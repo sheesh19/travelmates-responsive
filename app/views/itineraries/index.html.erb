@@ -1,11 +1,15 @@
 <div>
-  <h1>Itineraries Index</h1>
     <div>
       <h2>Current Itineraries (<%= @itineraries.count %>)</h2>
-      <p>Click on an itinerary to view more details</p>
+    </div>
+
+    <div class="d-flex flex-row">
+      <p>Create a new itinerary</p>
+      <%= link_to "Create", new_itinerary_path, class: 'btn btn-primary'%>
     </div>
 
     <div>
+      <p>Click on an itinerary to view more details</p>
       <% @itineraries.each do |itinerary| %>
       <div class="card-detail d-flex justify-content-between">
         <h2><%= itinerary.title %></h2>

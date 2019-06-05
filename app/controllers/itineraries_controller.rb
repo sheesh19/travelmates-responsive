@@ -21,7 +21,7 @@ class ItinerariesController < ApplicationController
     @itinerary.user = current_user
 
     if @itinerary.save
-      redirect_to itinerary_path
+      redirect_to itinerary_path(@itinerary)
     else
       render :new
     end
