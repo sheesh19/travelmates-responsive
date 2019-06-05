@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resource :dashboard, only: :show
   # resources :home, only: :index  # dashboard
 
-
   # Nested Itinerary
   resources :itineraries do
     resources :favorite_itineraries, only: :create
@@ -32,5 +31,10 @@ Rails.application.routes.draw do
   resources :favorite_users, only: :destroy
   resources :event_reviews, only: :destroy
   resources :event_registrations, only: :destroy
+
+  # Component kitchensink page only for development
+  if Rails.env.development?
+    get 'kitchensink', to: 'pages#kitchensink'
+  end
 
 end
