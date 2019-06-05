@@ -1,0 +1,9 @@
+<% if current_user && current_user.favorited_event?(event) %>
+  <%= link_to event_favorite_path(current_user.find_event_favorite(event)), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to itinerary_event_event_favorites_path(event.itinerary, event), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
