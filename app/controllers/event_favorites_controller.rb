@@ -9,6 +9,7 @@ class EventFavoritesController < ApplicationController
       render js: "window.location = '/users/sign_in"
       return
     end
+
     current_user.event_favorites.create(event: @event)
 
     respond_to do |format|
