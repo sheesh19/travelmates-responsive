@@ -1,3 +1,28 @@
+// 3 Card Grid
+
+.card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 16px;
+  justify-items: center;
+  align-items: center;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+  .card__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Cards for Events
+
+.card__event {
+  width: 16rem;
+}
+
+
 // Cards for Dashboard
 
 .card__event {
@@ -6,7 +31,7 @@
   overflow: hidden;
   height: 156px;
   background: white;
-  align-items: center;
+  align-items: left;
   border-color: $light-gray;
   border-style: solid;
   border-width: 0.4px;
@@ -16,8 +41,14 @@
   }
 }
 
+.card__event__date {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
 .card__content {
   display: flex;
+  margin-left: 12px;
 }
 
 // CARD OPTIONS
@@ -84,3 +115,8 @@
   transform: scale3d(1.006, 1.006, 1);
   }
 }
+
+.card__time {
+  margin-left: 12px;
+}
+

@@ -1,1 +1,13 @@
-<h4>Favourite Items...</h4>
+<div>
+<p>Favourite Itineraries (<%= @favorite_itineraries.count %>)</p>
+  <% @favorite_itineraries.each do |favourite_itinerary| %>
+  <div class="d-flex flex-column">
+    <h2><strong><%= favourite_itinerary.itinerary.title %></strong></h2>
+      <p>Details: <%= favourite_itinerary.itinerary.description %></p>
+        <p>Dates:
+        <%= favourite_itinerary.itinerary.start_date.strftime("%d %b %Y") %> to
+        <%= favourite_itinerary.itinerary.end_date.strftime("%d %b %Y") %>
+        </p>
+  </div>
+  <% end %>
+</div>
