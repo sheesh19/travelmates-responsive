@@ -1,10 +1,27 @@
-<div class="card-group">
-  <h1>all the Events</h1>
 
-  <% @events.each do |event| %>
-  <div class="card">
-    <%= event.title, class:"card-title"  %>
-  </div>
+<div class="search__box">
+  <%= render 'shared/search' %>
+</div>
+
+<div class="map">
+  <%= render 'shared/map' %>
+</div>
+
+<div class="card__grid container__featured">
+    <% @events[0..2].each do |event| %>
+    <div class="card__event">
+      <div class="card__event__content">
+        <p><%= event.start_date.strftime("%d %b %Y") %></p>
+        <h6><%= event.title %></h6>
+        <p><%= event.location.city%>,<%= event.location.country %></p>
+      </div>
+      <div class="card__event__button">
+        <p>button placeholder</p>
+      </div>
+    </div>
   <% end %>
 </div>
 
+<div class="events__upcoming">
+
+</div>

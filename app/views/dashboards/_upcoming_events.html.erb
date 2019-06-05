@@ -3,7 +3,7 @@
   <h3><%= itinerary.title %></h3>
   <% itinerary.events.each do |event| %>
   <div class="card__event__date">
-    <%= "#{Date::MONTHNAMES[event.start_date.month]} #{event.start_date.day}, #{event.start_date.year}" %>
+    <%= event.start_date.strftime("%d %b %Y") %>
   </div>
   <div class="card__event d-flex flex-column">
     <div class="card__time">
