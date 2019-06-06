@@ -6,6 +6,14 @@ class Itinerary < ApplicationRecord
   validate :start_date_cannot_be_in_the_past
   validate :end_date_is_after_start_date
 
+  def start_time
+    self.start_date
+  end
+
+  def end_time
+    self.end_date
+  end
+
   private
 
   def start_date_cannot_be_in_the_past
