@@ -147,6 +147,10 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+  &:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
+  transform: scale3d(1.006, 1.006, 1);
+  }
 }
 
 .reminder-map {
