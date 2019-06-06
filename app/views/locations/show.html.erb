@@ -18,27 +18,30 @@
   <div class="display__itinerary">
     <h4>Upcoming Events in <%= @location.city %></h4>
     <% @location.location_events.each do |event| %>
-      <div class="card__event__date">
-        <%= event.start_date.strftime("%d %b %Y") %>
-      </div>
-      <div class="card__event d-flex flex-column">
-        <div class="card__time">
-          <p>7:00 pm</p>
+      <!-- Events must be in the future to be displayed -->
+      <% if event.start_date >= Date.today %>
+        <div class="card__event__date">
+          <%= event.start_date.strftime("%d %b %Y") %>
         </div>
-        <div class="card__content">
-          <div class="card__content__info">
-            <h6><%= event.title %></h6>
-            <p><%= event.description %></p>
-            <div class="card__content__location">
-              <p><%= event.location.city %></p>
-              <p><%= event.location.country %></p>
+        <div class="card__event d-flex flex-column">
+          <div class="card__time">
+            <p>7:00 pm</p>
+          </div>
+          <div class="card__content">
+            <div class="card__content__info">
+              <h6><%= event.title %></h6>
+              <p><%= event.description %></p>
+              <div class="card__content__location">
+                <p><%= event.location.city %></p>
+                <p><%= event.location.country %></p>
+              </div>
+            </div>
+            <div class="card__content__image">
+              <%= image_tag "captain_cat.jpg", class: "avatar" %>
             </div>
           </div>
-          <div class="card__content__image">
-            <%= image_tag "captain_cat.jpg", class: "avatar" %>
-          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div class="dash__calendar">

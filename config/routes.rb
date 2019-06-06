@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # Events Index
   resources :events, only: [ :index ]
+
+  #Activities Pages
+  resource :activities, only: [ :index, :show ]
 
   # Locations
   resources :locations, only: [ :index, :show ]
