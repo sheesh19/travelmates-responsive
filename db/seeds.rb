@@ -1,6 +1,6 @@
 puts "Clean database..."
 
-
+EventFavorite.destroy_all
 Event.destroy_all
 Location.destroy_all
 Activity.destroy_all
