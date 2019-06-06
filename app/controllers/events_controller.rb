@@ -15,17 +15,18 @@ class EventsController < ApplicationController
   end
 
   def create
+    @itinerary = Itinerary.find(params[:itinerary_id])
     @event = Event.new(event_params)
-    @event.user = current_user
 
     if @event.save
-      redirect_to itinerary_path
+      redirect_to itinerary_path(@itinerary)
     else
       render :new
     end
   end
 
   def new
+    @itinerary = Itinerary.find(params[:itinerary_id])
     @event = Event.new
   end
 
