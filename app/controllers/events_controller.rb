@@ -44,24 +44,21 @@ class EventsController < ApplicationController
   private
 
   def event_markers
-    @markers = @event.location.map do |event|
+    @markers =
       {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event })
+        lat: @event.location.latitude,
+        lng: @event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: @event.title })
       }
-    end
   end
 
   def event_markers_all
-    @events.each do |event|
-      @markers = event.location do |ev|
-        {
-          lat: ev.latitude,
-          lng: ev.longitude,
-          infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: ev })
-        }
-      end
+    @markers = @events.map do |event|
+      {
+        lat: event.location.latitude,
+        lng: event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
+      }
     end
   end
 

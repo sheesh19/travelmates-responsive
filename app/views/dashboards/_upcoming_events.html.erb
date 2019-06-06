@@ -4,8 +4,8 @@
     <div class="display__itinerary">
       <h3><%= itinerary.title %></h3>
       <%= link_to "VIEW", itinerary_path(itinerary), class: 'btn btn-primary'%>
-      <% if event.start_date >= Date.today %>
         <% itinerary.events.each do |event| %>
+          <% if event.start_date >= Date.today %>
           <div class="card__event__date">
             <%= event.start_date.strftime("%d %b %Y") %>
           </div>
