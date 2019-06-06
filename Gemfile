@@ -19,6 +19,7 @@ gem 'geocoder'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem "simple_calendar", "~> 2.0"
+gem 'traveller', '~> 0.0.010'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
