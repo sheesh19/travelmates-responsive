@@ -6,7 +6,7 @@ class EventFavoritesController < ApplicationController
   def create
     if !current_user
       flash[:alert] = 'You need to be logged in to add a favorite event!'
-      render js: "window.location = '/users/sign_in"
+      render js: "window.location = '/users/sign_in'"
       return
     end
 
@@ -24,7 +24,7 @@ class EventFavoritesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @event }
-      format.js
+      format.js { render action: :create }
     end
   end
 
