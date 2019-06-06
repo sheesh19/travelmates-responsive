@@ -5,6 +5,4 @@ class EventRegistration < ApplicationRecord
   # enum status: %i[open full]
 
   private
-
-
 end
