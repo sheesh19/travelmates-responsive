@@ -1,9 +1,19 @@
 
 <div class="search__box">
-  <h4>Looking for an event</h4>
+  <h4>Search for locations</h4>
   <%= render 'shared/search' %>
 </div>
 
-<div class="map">
-  <%= render 'shared/map' %>
+<h4>Top 10 Locations</h4>
+
+
+<div>
+  <p>Destination Discovery</p>
+  <% @locations.each do |location| %>
+    <div class="card-detail d-flex justify-content-between">
+      <h2><%= location.city %>, <%= location.country %></h2>
+        <ul><%= Event.all.select{|e| e.location_id == location.id}.map.count %></ul>
+        <ul><%= link_to "VIEW", location_path(location), class: 'btn btn-primary'%></ul>
+    </div>
+  <% end %>
 </div>

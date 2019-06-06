@@ -1,0 +1,8 @@
+<!-- Calendar of events per Location -->
+
+<%= month_calendar events: @location.location_events do |date, events| %>
+  <%= date.day %>
+  <%#= events.each do |e| %>
+    <div><%#= e.title %></div>
+  <%# end %>
+<% end %>
