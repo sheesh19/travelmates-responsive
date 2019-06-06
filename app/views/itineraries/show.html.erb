@@ -12,6 +12,7 @@
   </div>
   <div>
       <h2><strong>Events</strong></h2>
+      <%= link_to "Add an event", new_itinerary_event_path(@itinerary), class: 'btn btn-primary'%>
     <% @itinerary.events.each do |event| %>
       <div class="d-flex flex-column">
         <div><p><strong><%= event.title %></strong></p></div>
