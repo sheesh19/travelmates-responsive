@@ -9,6 +9,7 @@ $small-cell-width-min: 144px;
 .data-row {
   border-top: solid 0.5px $light-gray;
   border-bottom: solid 0.5px $light-gray;
+  position: relative;
 }
 
 .row-link {
@@ -38,6 +39,7 @@ $small-cell-width-min: 144px;
 
 .data-rows {
   display: flex;
+  position: relative;
   border: solid 0.5px $lightish-gray;
   margin-top: 12px;
   margin-bottom: 12px;
