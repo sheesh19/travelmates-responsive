@@ -24,7 +24,7 @@ class EventFavoritesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @event }
-      format.js
+      format.js { render action :create}
     end
   end
 

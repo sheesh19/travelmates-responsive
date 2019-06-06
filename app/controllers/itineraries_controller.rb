@@ -10,6 +10,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @user = User.find(@itinerary.user_id)
   end
 
   def user_itineraries
