@@ -1,5 +1,15 @@
 <!-- Upcoming calendar events for the user -->
 
+
+<%= month_calendar events: @user.itineraries do |date, itineraries| %>
+  <%= date.day %>
+  <%= itineraries.each do |i| %>
+    <div><%= i.title %></div>
+  <% end %>
+<% end %>
+
+
+<!-- Calendar for events -->
 <% @user.itineraries.each do |itinerary| %>
     <%= month_calendar events: itinerary.events do |date, events| %>
       <%= date.day %>

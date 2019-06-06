@@ -44,6 +44,9 @@ puts "Creating activities"
 activity_list = [
 {
   title: "Food Markets"
+},
+{
+  title: "Snorkeling"
 }]
 Activity.create!(activity_list)
 puts "Created #{Activity.count} activit(y/ies)"
