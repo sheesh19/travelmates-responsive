@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resource :dashboard, only: :show
 
+  # resources :users
+  resources :users, only: [:index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
+
   # resources :pages, only: :explore
   get 'pages/explore', to: 'pages#explore'
 
