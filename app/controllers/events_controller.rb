@@ -4,8 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    # event_markers
-
+    event_markers_all
     # add @event_favorite to index
     @event_favorite = EventFavorite.find_by(event_id: params[:event_id], user_id: current_user)
   end
@@ -45,11 +44,20 @@ class EventsController < ApplicationController
   private
 
   def event_markers
-    @markers = @event.location.map do |event|
+    @markers =
       {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event })
+        lat: @event.location.latitude,
+        lng: @event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: @event.title })
+      }
+  end
+
+  def event_markers_all
+    @markers = @events.map do |event|
+      {
+        lat: event.location.latitude,
+        lng: event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
       }
     end
   end
