@@ -3,12 +3,11 @@
     <!-- #placeholder, may change in the future -->
     <%= user.email %>
     <% if current_user.following?(user.id) %>
-      <i class="fas fa-toggle-on"></i>
+      <i class="fas fa-user-check"></i>
       <i>Following</i>
 
     <% else %>
-      <i class="fas fa-toggle-off"></i>
-      <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+      <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn-filled" %>
     <% end %>
   <% end %>
 </div>
