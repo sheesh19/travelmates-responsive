@@ -12,7 +12,7 @@
 <div class="container__featured">
   <h5>Featured Events</h5>
     <div class="card__grid">
-      <% @events[0..2].each do |event| %>
+      <% @events.first(3).each do |event| %>
         <div class="card__event">
           <div class="card__event__content">
             <p><%= event.start_date.strftime("%d %b %Y") %></p>
@@ -28,7 +28,6 @@
         </div>
       <% end %>
     </div>
-
 </div>
 
 
