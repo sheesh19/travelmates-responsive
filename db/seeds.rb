@@ -5,6 +5,7 @@ Event.destroy_all
 Location.destroy_all
 Activity.destroy_all
 
+FavoriteItinerary.destroy_all
 Itinerary.destroy_all #child of user, user model updated to destroy dependent when user is destroyed.
 User.destroy_all #parent (normally child should be destroyed before parent unless specified in model)
 

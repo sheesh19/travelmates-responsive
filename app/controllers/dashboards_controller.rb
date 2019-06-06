@@ -3,7 +3,8 @@ class DashboardsController < ApplicationController
   before_action :set_itinerary, only: :show
 
   def show
-    @favorite_itineraries = FavoriteItinerary.all
+    @total_events = @user.itineraries.map { |iti| iti.events.count }.reduce(&:+)
+    @favorite_itineraries = FavoriteItinerary.where(user_id: @user.id)
   end
 
   private
