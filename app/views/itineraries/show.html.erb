@@ -9,7 +9,12 @@
         <%= @itinerary.start_date.strftime("%d %b %Y") %> to
         <%= @itinerary.end_date.strftime("%d %b %Y") %>
         </p>
-  </div>
+      <div>
+        <div>
+          <%= render @user %>
+        </div>
+      </div>
+    </div>
   <div>
       <h2><strong>Events</strong></h2>
     <% @itinerary.events.each do |event| %>
