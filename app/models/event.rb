@@ -47,5 +47,4 @@ class Event < ApplicationRecord
       errors.add(:end_date, "cannot be before the start date")
     end
   end
-
 end
