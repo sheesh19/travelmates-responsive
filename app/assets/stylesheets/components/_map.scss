@@ -7,8 +7,11 @@
 
 #map-static-image {
   background: cover;
-  img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
+}
+
+.card-map-img {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  filter: brightness(80%)
 }

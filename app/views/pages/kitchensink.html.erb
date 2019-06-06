@@ -9,10 +9,24 @@
   <%= render "shared/components/button", variant: "outlined", label: "Add button text", href: "" %>
   <br><br><br>
 
+  <!-- TAG SECTION -->
   <h1>Tags</h1><br>
   <span class="tag-outline">Scuba diving</span>
   <span class="tag-outline">Shark</span>
   <span class="tag-outline">Amazing</span>
+  <br><br><br>
+
+  <!-- PILL SECTION -->
+  <h1>Pills</h1><br>
+
+  <!-- Event pill -->
+  <p><strong>Event pill</strong></p>
+  <div class="event-pill">
+    <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+    <div class="event-pill-text">
+      <p>Captain Cat</p>
+    </div>
+  </div>
   <br><br><br>
 
   <!-- CARD SECTION -->
@@ -32,7 +46,7 @@
 
   <!-- Event card -->
   <p><strong>Event card</strong> used for activity</p>
-   <div class="card map-card p-2" style="width: 18rem;">
+  <div class="card map-card p-2" style="width: 18rem;">
     <div class="card-body">
       <p class="card-text">
         Tue, 3 Jun 19, 6pm
@@ -51,6 +65,58 @@
   </div>
   <br><br>
 
+  <!-- Reminder card -->
+  <p><strong>Reminder card</strong> used for upcoming events</p>
+  <div class="card reminder-card-with-location d-flex">
+    <div class="reminder-text d-flex">
+      <div class="reminder-time p-4">
+        7:00PM
+      </div>
+      <div class="reminder-details p-4">
+        <h5>Going to Queen Victoria Night market</h5>
+        <div class="reminder-travel-plan"><p>Amazing trip down under!</p></div>
+      </div>
+    </div>
+    <div class="event-pill reminder-organiser-avatar">
+      <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+      <div class="event-pill-text">
+        <p>Captain Cat</p>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <!-- Reminder card with location -->
+  <p><strong>Reminder card with location</strong> used for upcoming events</p>
+  <div class="card reminder-card-with-location d-flex">
+    <div class="reminder-text d-flex">
+      <div class="reminder-time p-4">
+        7:00PM
+      </div>
+      <div class="reminder-details p-4">
+        <h5>Going to Queen Victoria Night market</h5>
+        <div class="reminder-travel-plan"><p>Amazing trip down under!</p></div>
+        <div class="reminder-location d-flex">
+          <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+          <div class="reminder-address">
+            <p>Queen Victoria Market</p>
+            <p>Queen St, Melbourne VIC 3000</p>
+          </div>
+        </div>
+      </div>
+      <div class="reminder-map">
+        <%= render "shared/mapstatic" %>
+      </div>
+    </div>
+    <div class="event-pill reminder-organiser-avatar">
+      <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+      <div class="event-pill-text">
+        <p>Captain Cat</p>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
   <!-- Map card -->
   <p> <strong>Map card</strong> used for location</p>
   <div class="card map-card" style="width: 24rem;">
@@ -64,7 +130,6 @@
         <i class="fas fa-info-circle"></i>
           88 travel mates going here
       </div>
-
     </div>
     <a href="#who" class="make-card-clickable"></a>
   </div>
