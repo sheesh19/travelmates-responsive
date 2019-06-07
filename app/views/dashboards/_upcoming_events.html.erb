@@ -3,7 +3,7 @@
   <div class="container__dashboard">
     <div class="display__itinerary">
       <h3><%= itinerary.title %></h3>
-      <%= link_to "VIEW", itinerary_path(itinerary), class: 'btn btn-primary'%>
+      <%= link_to "View", itinerary_path(itinerary), class: 'btn btn-primary'%>
         <% itinerary.events.each do |event| %>
           <% if event.start_date >= Date.today %>
           <div class="card__event__date">

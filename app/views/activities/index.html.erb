@@ -6,11 +6,14 @@
 <div class="container__featured">
   <h5>Top Activities</h5>
     <div class="card__grid">
-      <% @activities[0..3].each do |activity| %>
-        <div class="card__event">
-          <div class="card__event__content">
-            <%= link_to activity.title, activity_path(activity) %>
-          </div>
+      <% @activities[0..2].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity.photo %>')">
+          <%= activity.title %>
+          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
         </div>
       <% end %>
     </div>
@@ -19,11 +22,14 @@
 
 <div class="events__upcoming">
   <div class="card__grid">
-      <% @activities.each do |activity| %>
-      <div class="card__event">
-        <div class="card__event__content">
-          <%= link_to activity.title, activity_path(activity) %>
-        </div>
+    <% @activities[3..@activities.all.count].each do |activity| %>
+      <div
+        class="photo-card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3),
+          rgba(0,0,0,0.3)),
+          url('<%= image_path activity.photo %>')">
+        <%= activity.title %>
+        <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
       </div>
     <% end %>
   </div>

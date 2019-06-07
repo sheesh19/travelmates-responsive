@@ -1,0 +1,11 @@
+<!-- Calendar for events -->
+<% @user.itineraries.each do |itinerary| %>
+    <%= month_calendar events: itinerary.events do |date, events| %>
+      <%= date.day %>
+      <% events.each do |event| %>
+      <div>
+        <%= event.title %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

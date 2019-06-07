@@ -34,9 +34,38 @@ location_list = [
   city: "Melbourne",
   country: "Australia",
   state: "Victoria",
-  latitude: -37.814,
+  latitude: -37.8136,
   longitude: 144.96332
-}]
+},
+{
+  city: "Sydney",
+  country: "Australia",
+  state: "NSW",
+  latitude: -33.865143,
+  longitude: 151.209900
+},
+{
+  city: "Singapore",
+  country: "Singapore",
+  state: "Singapore",
+  latitude: 1.286025,
+  longitude: 103.860812
+},
+{
+  city: "London",
+  country: "England",
+  state: "England",
+  latitude: 51.500923,
+  longitude: 0.124604
+},
+{
+  city: "New York",
+  country: "USA",
+  state: "NY",
+  latitude: 40.783076,
+  longitude: -73.965334
+},
+]
 Location.create!(location_list)
 puts "Created #{Location.count} location(s)"
 
