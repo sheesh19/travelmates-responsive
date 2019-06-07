@@ -1,7 +1,6 @@
 <div class="container">
-  <div id="banner">
-    <%#= image_tag "bonaire.jpg", class: "banner" %>
-  </div>
+  <div class="banner__image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= image_path Activity.all.sample(1)[0].photo %>')"></div>
   <h1>Travel Mates</h1>
 
   <p>Mix the best of traveling solo with the best of traveling with groups.</p>

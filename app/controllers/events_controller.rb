@@ -4,8 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    # event_markers
-
+    event_markers_all
     # add @event_favorite to index
     @event_favorite = EventFavorite.find_by(event_id: params[:event_id], user_id: current_user)
   end
@@ -16,10 +15,17 @@ class EventsController < ApplicationController
 
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:event][:activity_id])
+    @location = Location.event_geocoder(params[:event][:location])
     @event = Event.new(event_params)
+    @event.location = @location
+    @event.itinerary = @itinerary
 
-    if @event.save
+    if @location && @event.save
       redirect_to itinerary_path(@itinerary)
+    elsif @location.nil?
+      flash[:notice] = 'Please locate your location.'
+      render :new
     else
       render :new
     end
@@ -45,11 +51,20 @@ class EventsController < ApplicationController
   private
 
   def event_markers
-    @markers = @event.location.map do |event|
+    @markers =
       {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event })
+        lat: @event.location.latitude,
+        lng: @event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: @event.title })
+      }
+  end
+
+  def event_markers_all
+    @markers = @events.map do |event|
+      {
+        lat: event.location.latitude,
+        lng: event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
       }
     end
   end

@@ -8,10 +8,10 @@
 
 
 <div>
-  <p>Destination Discovery</p>
+  <h4>Destination Discovery</h4>
   <% @locations.each do |location| %>
     <div class="card-detail d-flex justify-content-between">
-      <h2><%= location.city %>, <%= location.country %></h2>
+      <h6><%= location.city %>, <%= location.country %></h6>
         <ul><%= Event.all.select{|e| e.location_id == location.id}.map.count %></ul>
         <ul><%= link_to "VIEW", location_path(location), class: 'btn btn-primary'%></ul>
     </div>
