@@ -3,11 +3,6 @@
       <h2>Current Itineraries (<%= @itineraries.count %>)</h2>
     </div>
 
-    <div class="d-flex flex-row">
-      <p>Create a new itinerary</p>
-      <%= link_to "Create", new_itinerary_path, class: 'btn btn-primary'%>
-    </div>
-
     <div>
       <p>Click on an itinerary to view more details</p>
       <% @itineraries.each do |itinerary| %>
