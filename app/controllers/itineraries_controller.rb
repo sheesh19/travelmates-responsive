@@ -30,6 +30,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    render layout: 'application_without_sidebar'
   end
 
   def edit

@@ -1,0 +1,28 @@
+.main-title {
+  padding-top: 24px;
+  padding-bottom: 40px;
+  margin: 16px 2.5% 16px 2.5%;
+  color: $darkish-gray;
+}
+
+.main-title-width-reduced {
+  padding-top: 24px;
+  padding-bottom: 40px;
+  margin: 16px % 16px 25%;
+  width: 50%;
+  color: $darkish-gray;
+}
+
+.breadcrumb {
+  background-color: white;
+  padding-left: 0;
+  color: $gray;
+
+  a {
+    text-decoration: none;
+    color: $gray;
+    &:hover {
+      color: $medium-gray;
+    }
+  }
+}

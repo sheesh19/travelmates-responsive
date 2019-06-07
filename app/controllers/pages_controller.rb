@@ -12,5 +12,6 @@ class PagesController < ApplicationController
   end
 
   def kitchensink
+    render layout: 'application_without_sidebar'
   end
 end

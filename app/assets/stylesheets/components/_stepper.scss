@@ -1,0 +1,49 @@
+.stepper {
+  display: block;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.step-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  color: $almost-white;
+  background-color: $teal;
+  border-radius: 50%;
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.step {
+  position: relative;
+}
+
+.step-title {
+  margin-left: 72px;
+  height: 40px;
+  margin-bottom: 32px;
+  color: $teal;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  h5 {
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.step-content {
+  display: block;
+  margin-left: 72px;
+}
+
+.step-action {
+  padding-top: 16px;
+}
+
