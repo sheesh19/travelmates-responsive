@@ -1,6 +1,33 @@
-<div>
-  <h1>User:</h1>
+<div class="container">
   <div>
-    <%= render @user %>
+    <%= image_tag "captain_cat.jpg", class: "rounded-circle", style: "width: 150px" %>
+  </div>
+    <div>
+      <h2><strong>
+        <%= current_user.first_name %>
+        <%= current_user.last_name %>
+      </strong></h2>
+        <span class="tag-outline">Scuba Diving</span>
+        <span class="tag-outline">Boats</span>
+      <span class="tag-outline">Food</span>
+    </div>
+</div>
+
+<div class="d-flex flex-column">
+  <div class="p-2">
+    <p><strong>About me</strong></p>
+    <p>An adventurous and outgoing kitty</p>
+  </div>
+  <div class="p-2">
+    <p><strong>Date of birth</strong></p>
+    <p>16 Jan 2001</p>
+  </div>
+  <div class="p-2">
+    <p><strong>Email address</strong></p>
+    <p>capt.cat@gmail.com</p>
+  </div>
+  <div class="p-2">
+    <p><strong>Password</strong></p>
+    <p>********</p>
   </div>
 </div>
