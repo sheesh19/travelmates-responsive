@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
   has_many :events
+  default_scope { order('title ASC') }
 
   # TITLE = [
   #   "Snorkeling",
