@@ -17,7 +17,9 @@
       <div class="container d-flex justify-content-start">
         <%= f.label :city %>
           <div class="p-2">
-            <%= f.collection_select :location_id, Location.all, :id, :city %>
+            <!-- Adding location geocoder -->
+            <%= f.input :location %>
+            <%#= f.collection_select :location, Location.all, :id, :city %>
           </div>
             <%= f.label :activity %>
           <div class="p-2">

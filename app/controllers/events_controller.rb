@@ -16,12 +16,16 @@ class EventsController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity = Activity.find(params[:event][:activity_id])
-    @location = Location.find(params[:event][:location_id])
+    @location = Location.event_geocoder(params[:event][:location])
     @event = Event.new(event_params)
+    @event.location = @location
     @event.itinerary = @itinerary
 
-    if @event.save
+    if @location && @event.save
       redirect_to itinerary_path(@itinerary)
+    elsif @location.nil?
+      flash[:notice] = 'Please locate your location.'
+      render :new
     else
       render :new
     end
