@@ -42,13 +42,105 @@ puts "Created #{Location.count} location(s)"
 
 # activities
 puts "Creating activities"
+
 activity_list = [
 {
-  title: "Food Markets"
+  title: "Food Markets",
+  photo: ""
 },
 {
-  title: "Snorkeling"
+  title: "Snorkeling",
+  photo: ""
+},
+{
+  title: "Scuba Diving",
+  photo: ""
+},
+{
+  title: "Night Life",
+  photo: ""
+},
+{
+  title: "Hiking",
+  photo: ""
+},
+{
+  title: "Sightseeing",
+  photo: ""
+},
+{
+  title: "Walking Tours",
+  photo: ""
+},
+{
+  title: "Cultural Events",
+  photo: ""
+},
+{
+  title: "Street Food",
+  photo: ""
+},
+{
+  title: "Night Markets",
+  photo: ""
+},
+{
+  title: "Music Events",
+  photo: ""
+},
+{
+  title: "Cycling",
+  photo: ""
+},
+{
+  title: "Massage & Spas",
+  photo: ""
+},
+{
+  title: "Art Events",
+  photo: ""
+},
+{
+  title: "Surfing",
+  photo: ""
+},
+{
+  title: "Paddle Boarding",
+  photo: ""
+},
+{
+  title: "Vista Points",
+  photo: ""
+},
+{
+  title: "Clubbing",
+  photo: ""
+},
+{
+  title: "Skate Boarding",
+  photo: ""
+},
+{
+  title: "Shopping",
+  photo: ""
+},
+{
+  title: "Fishing",
+  photo: ""
+},
+{
+  title: "Road Trip",
+  photo: ""
+},
+{
+  title: "Volunteering",
+  photo: ""
+},
+{
+  title: "Camping",
+  photo: ""
 }]
+
 Activity.create!(activity_list)
 puts "Created #{Activity.count} activit(y/ies)"
 
