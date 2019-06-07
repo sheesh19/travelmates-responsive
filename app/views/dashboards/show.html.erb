@@ -12,6 +12,10 @@
       <a class="nav-link" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">Favourites (<%= @favorite_itineraries.count + @event_favorites.count %>)</a>
       <!-- count will need updating once favourite events and users are added -->
     </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-follwers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">Followers(placeholder count)</a>
+      <!-- count will need updating once favourite events and users are added -->
+    </li>
   </ul>
 
   <div class="tab-content" id="pills-tabContent">
@@ -24,5 +28,9 @@
     <div class="tab-pane fade" id="pills-favourites" role="tabpanel" aria-labelledby="pills-favourites-tab">
       <%= render 'favorites' %>
     </div>
+    <div class="tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab">
+      <%= render 'followers' %>
+    </div>
+
   </div>
 </div>

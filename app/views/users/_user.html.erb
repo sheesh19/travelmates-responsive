@@ -1,6 +1,5 @@
 <div data-user=<%= user.id %>>
   <% unless user.id == current_user.id %>
-    <!-- #placeholder, may change in the future -->
     <%= user.email %>
     <% if current_user.following?(user.id) %>
       <i class="fas fa-user-check"></i>
