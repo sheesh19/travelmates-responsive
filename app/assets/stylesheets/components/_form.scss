@@ -1,4 +1,14 @@
 //////////////////////////////////////////////////
+// GLOBAL
+//////////////////////////////////////////////////
+
+::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  color: $form-border-gray;
+}
+
+//////////////////////////////////////////////////
 // UTILITY
 //////////////////////////////////////////////////
 
@@ -9,11 +19,12 @@
 
 .form-title {
   font-size: 16px;
+  font-weight: 500;
   color: $medium-gray;
 }
 
 .form-border {
-  border: solid 0.5px red;
+  border: solid 1px $form-border-gray;
 }
 
 .form-date-range {

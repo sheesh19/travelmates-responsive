@@ -27,12 +27,13 @@
   margin-left: 72px;
   height: 40px;
   margin-bottom: 32px;
-  color: $teal;
+  color: $darkish-gray;
   font-weight: 500;
   display: flex;
   align-items: center;
   h5 {
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 500;
     padding: 0;
     margin: 0;
   }
@@ -44,6 +45,49 @@
 }
 
 .step-action {
-  padding-top: 16px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
 }
+
+.step-question {}
+
+
+
+
+
+
+.step-number:first-child {
+  margin-top: 0;
+}
+
+.step-connection-line:before {
+  position: absolute;
+  width: 2px;
+  background-color: $lightish-gray;
+  display: block;
+  content: '';
+  left: 20px;
+  z-index: 1;
+  top: 64px;
+  bottom: -10px;
+}
+
+.step-number:first-child:before {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
