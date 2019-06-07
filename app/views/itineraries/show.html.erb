@@ -28,7 +28,7 @@
                 <%= event.end_date.strftime("%d %b %Y") %>
               </p>
             <p>Maximum spots: <%= event.max_spots %></p>
-            <%= link_to "VIEW", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
+            <%= link_to "View", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
           </div>
       </div>
     <% end %>
