@@ -11,3 +11,18 @@
   </div>
   <% end %>
 </div>
+<br>
+<div>
+  <p>Favourite Events (<%= @event_favorites.count %>)</p>
+  <% @event_favorites.each do |event_favourite| %>
+  <div class="d-flex flex-column">
+    <h2><strong>Event Name: <%= event_favourite.event.title %></strong></h2>
+      <p>Details: <%= event_favourite.event.description %></p>
+        <p>Dates:
+        <%= event_favourite.event.start_date.strftime("%d %b %Y") %> to
+        <%= event_favourite.event.end_date.strftime("%d %b %Y") %>
+        </p>
+  </div>
+  <% end %>
+</div>
+
