@@ -15,7 +15,10 @@ class EventsController < ApplicationController
 
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:event][:activity_id])
+    @location = Location.find(params[:event][:location_id])
     @event = Event.new(event_params)
+    @event.itinerary = @itinerary
 
     if @event.save
       redirect_to itinerary_path(@itinerary)
