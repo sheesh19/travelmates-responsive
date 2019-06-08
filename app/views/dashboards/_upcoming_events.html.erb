@@ -2,7 +2,7 @@
 <% @user.itineraries.each do |itinerary| %>
   <div class="container__dashboard">
     <div class="display__itinerary">
-      <h4><%= itinerary.title %></h4>
+      <h3><%= itinerary.title %></h3>
       <% itinerary.events.each do |event| %>
         <% if event.start_date >= Date.today %>
           <div class="card reminder-card-with-location d-flex">
