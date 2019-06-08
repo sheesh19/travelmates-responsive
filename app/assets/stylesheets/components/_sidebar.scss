@@ -17,4 +17,8 @@
 
 .nav-link {
   text-decoration: none;
+  color: $gray;
+  &:hover {
+    color: $medium-gray;
+  }
 }
