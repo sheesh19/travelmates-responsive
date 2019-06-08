@@ -1,11 +1,17 @@
 <div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: itineraries_path %>
+  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
 </div>
 
 
 <div class="map">
   <%= render 'shared/map' %>
-  <%= render "shared/components/button", variant: "outlined", label: "Back to Itineraries", href: itineraries_path %>
+</div>
+
+<div class="breadcrumb">
+  <%= link_to itineraries_path do %>
+    <i class="fas fa-angle-left"></i>
+    Back
+  <% end %>
 </div>
 
 <div class="container">
@@ -35,71 +41,42 @@
 <div>
   <%= render "shared/components/button", variant: "outlined", label: "Add an event", href: new_itinerary_event_path(@itinerary) %>
   <% @itinerary.events.each do |event| %>
-  <div class="data-table-grouped">
-    <div class="data-table-date-header">
-      <h5>Tuesday, 3 June 2019 | FIX GROUP BY</h5>
-    </div>
-    <div class="data-table">
-      <div class="data-rows">
-        <div class="data-content-cell-growable"><%= event.title %></div>
-        <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
-        <div class="data-content-cell-small"><%= event.location.city %></div>
-        <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Going alone</div>
-        <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
+    <div class="data-table-grouped">
+      <div class="data-table-date-header">
+        <h5>Tuesday, 3 June 2019 | FIX GROUP BY</h5>
       </div>
-      <div class="data-rows">
-        <div class="data-content-cell-growable">Tennis at Rod Laver Arena with Patrick Rafter</div>
-        <div class="data-content-cell-small">3pm</div>
-        <div class="data-content-cell-small">Melbourne</div>
-        <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">Awaiting mates</div>
-        <a href="#who" class="make-card-clickable"></a>
-      </div>
-      <div class="data-rows">
-        <div class="data-content-cell-growable">Climbing the Sydney Harbour Bridge</div>
-        <div class="data-content-cell-small">6am</div>
-        <div class="data-content-cell-small">Sydney</div>
-        <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
-        <a href="#who" class="make-card-clickable"></a>
-      </div>
-      <div class="data-rows">
-        <div class="data-content-cell-growable">Star casino here we come</div>
-        <div class="data-content-cell-small">9pm</div>
-        <div class="data-content-cell-small">Sydney</div>
-        <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
-        <a href="#who" class="make-card-clickable"></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <div class="d-flex flex-column">
-      <div><p><strong><%= event.title %></strong></p></div>
-        <div>
-          <p>Details: <%= event.description %></p>
-            <p>Dates:
-              <%= event.start_date.strftime("%l:%M %P") %> to
-              <%= event.end_date.strftime("%d %b %Y") %>
-            </p>
-          <p>Maximum spots: <%= event.max_spots %></p>
-          <%= link_to "View", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
+      <div class="data-table">
+        <div class="data-rows">
+          <div class="data-content-cell-growable"><%= event.title %></div>
+          <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
+          <div class="data-content-cell-small"><%= event.location.city %></div>
+          <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Going alone</div>
+          <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
         </div>
+        <div class="data-rows">
+          <div class="data-content-cell-growable">Tennis at Rod Laver Arena with Patrick Rafter</div>
+          <div class="data-content-cell-small">3pm</div>
+          <div class="data-content-cell-small">Melbourne</div>
+          <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">Awaiting mates</div>
+          <a href="#who" class="make-card-clickable"></a>
+        </div>
+        <div class="data-rows">
+          <div class="data-content-cell-growable">Climbing the Sydney Harbour Bridge</div>
+          <div class="data-content-cell-small">6am</div>
+          <div class="data-content-cell-small">Sydney</div>
+          <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
+          <a href="#who" class="make-card-clickable"></a>
+        </div>
+        <div class="data-rows">
+          <div class="data-content-cell-growable">Star casino here we come</div>
+          <div class="data-content-cell-small">9pm</div>
+          <div class="data-content-cell-small">Sydney</div>
+          <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
+          <a href="#who" class="make-card-clickable"></a>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
-
-
-<div>
-  <div>
-    <p></p>
-  </div>
-  <div class="d-flex flex-column">
-
-    </div>
-  <div>
-      <h2><strong>Events</strong></h2>
-
-  </div>
-</div>
 
