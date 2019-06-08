@@ -3,36 +3,43 @@
   <div class="container__dashboard">
     <div class="display__itinerary">
       <h3><%= itinerary.title %></h3>
-      <%= link_to "View", itinerary_path(itinerary), class: 'btn btn-primary'%>
-        <% itinerary.events.each do |event| %>
-          <% if event.start_date >= Date.today %>
-          <div class="card__event__date">
-            <%= event.start_date.strftime("%d %b %Y") %>
-          </div>
-          <div class="card__event d-flex flex-column">
-            <div class="card__time">
-              <p>7:00 pm</p>
-            </div>
-            <div class="card__content">
-              <div class="card__content__info">
-                <h4><%= event.title %></h4>
-                <p><%= event.description %></p>
-                <div class="card__content__location">
-                  <p><%= event.location.city %></p>
-                  <p><%= event.location.country %></p>
+      <% itinerary.events.each do |event| %>
+        <% if event.start_date >= Date.today %>
+          <div class="card reminder-card-with-location d-flex">
+            <div class="reminder-text d-flex">
+              <div class="reminder-time p-4">
+                <%= event.start_date.strftime("%d %b %Y") %>
+              </div>
+              <div class="reminder-details p-4">
+                <h5><%= event.title %></h5>
+                <div class="reminder-travel-plan"><p><%= itinerary.title %></p></div>
+                <div class="reminder-location d-flex">
+                  <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+                  <div class="reminder-address">
+                    <p>Queen Victoria Market</p>
+                    <p><%= event.location.city %><%= event.location.country %></p>
+                  </div>
                 </div>
               </div>
-              <div class="card__content__image">
-                <%= image_tag "captain_cat.jpg", class: "avatar" %>
+              <div class="reminder-map">
+                <%= render "shared/mapstatic" %>
               </div>
             </div>
+            <div class="event-pill-expandable reminder-organiser-avatar">
+              <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+              <div class="event-pill-text">
+                <p><%= event.itinerary.user.first_name %></p>
+              </div>
+            </div>
+            <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
           </div>
         <% end %>
       <% end %>
     </div>
-    <div class="dash__calendar">
-      <%= render 'calendar_events' %>
-    </div>
+  <div class="dash__calendar">
+    <%= render 'calendar_events' %>
+  </div>
   </div>
 <% end %>
+
 

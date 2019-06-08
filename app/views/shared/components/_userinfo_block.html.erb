@@ -1,0 +1,12 @@
+<div id="user_block">
+  <div class="user-info d-flex justify-space-around">
+    <div><%= image_tag @itinerary.user.avatar, class: "avatar" %></div>
+    <div>
+      <h4><%= @itinerary.user.first_name %></h4>
+      <p><%= @itinerary.user.date_of_birth %> | FIX ME! </p>
+    </div>
+
+  </div>
+  <p><%= @itinerary.user.description %></p>
+
+</div>

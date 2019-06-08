@@ -1,37 +1,67 @@
 <div>
+  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: itineraries_path %>
+</div>
+
+
+<div class="map">
+  <%= render 'shared/map' %>
+  <%= render "shared/components/button", variant: "outlined", label: "Back to Itineraries", href: itineraries_path %>
+</div>
+
+<div class="container">
+  <div class="d-flex row justify-content-between">
+    <div class="about">
+      <h3><%= @itinerary.title %></h3>
+      <p><%= @itinerary.end_date - @itinerary.start_date %> days | FIX ME</p>
+      <p><%= @itinerary.description %></p>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+      <span class="tag-outline">Scuba diving</span>
+      <span class="tag-outline">Shark</span>
+      <span class="tag-outline">Amazing</span>
+    </div>
+    <div>
+      <div>
+        <%= render @user %>
+        <%= render "shared/components/userinfo_block" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>Trip Timeline</h4>
+
+<div>
+  <%= render "shared/components/button", variant: "outlined", label: "Add an event", href: new_itinerary_event_path(@itinerary) %>
+  <% @itinerary.events.each do |event| %>
+    <div class="d-flex flex-column">
+      <div><p><strong><%= event.title %></strong></p></div>
+        <div>
+          <p>Details: <%= event.description %></p>
+            <p>Dates:
+              <%= event.start_date.strftime("%d %b %Y") %> to
+              <%= event.end_date.strftime("%d %b %Y") %>
+            </p>
+          <p>Maximum spots: <%= event.max_spots %></p>
+          <%= link_to "View", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<div>
   <div>
-    <p><%= link_to "back to itineraries", itineraries_path, class: 'btn btn-primary'%></p>
+    <p></p>
   </div>
   <div class="d-flex flex-column">
-    <h2><strong><%= @itinerary.title %></strong></h2>
-      <p>Details: <%= @itinerary.description %></p>
-        <p>Dates:
-        <%= @itinerary.start_date.strftime("%d %b %Y") %> to
-        <%= @itinerary.end_date.strftime("%d %b %Y") %>
-        </p>
-      <div>
-        <div>
-          <%= render @user %>
-        </div>
-      </div>
+
     </div>
   <div>
       <h2><strong>Events</strong></h2>
-      <%= link_to "Add an event", new_itinerary_event_path(@itinerary), class: 'btn btn-primary'%>
-    <% @itinerary.events.each do |event| %>
-      <div class="d-flex flex-column">
-        <div><p><strong><%= event.title %></strong></p></div>
-          <div>
-            <p>Details: <%= event.description %></p>
-              <p>Dates:
-                <%= event.start_date.strftime("%d %b %Y") %> to
-                <%= event.end_date.strftime("%d %b %Y") %>
-              </p>
-            <p>Maximum spots: <%= event.max_spots %></p>
-            <%= link_to "View", itinerary_event_path(event.itinerary, event), class: 'btn btn-primary'%>
-          </div>
-      </div>
-    <% end %>
+
   </div>
 </div>
 
