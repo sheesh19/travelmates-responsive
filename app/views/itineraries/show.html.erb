@@ -42,7 +42,7 @@
     <div class="data-table">
       <div class="data-rows">
         <div class="data-content-cell-growable"><%= event.title %></div>
-        <div class="data-content-cell-small"><%= event.start_date %></div>
+        <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
         <div class="data-content-cell-small"><%= event.location.city %></div>
         <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Going alone</div>
         <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
@@ -78,7 +78,7 @@
         <div>
           <p>Details: <%= event.description %></p>
             <p>Dates:
-              <%= event.start_date.strftime("%d %b %Y") %> to
+              <%= event.start_date.strftime("%l:%M %P") %> to
               <%= event.end_date.strftime("%d %b %Y") %>
             </p>
           <p>Maximum spots: <%= event.max_spots %></p>
