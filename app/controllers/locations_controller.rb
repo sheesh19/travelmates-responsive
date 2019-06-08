@@ -3,6 +3,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+    @locations_sorted = @locations.sort_by_events
   end
 
   def show

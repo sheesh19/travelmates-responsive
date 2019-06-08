@@ -3,21 +3,55 @@
 
 </div>
 
+<!-- Add Card Carousel -->
 <h5>Upcoming <%= @activity.title %> Inspiration</h5>
+
 <div class="events__upcoming">
   <div class="card__grid">
       <% @events.each do |event| %>
-      <div class="card__event">
-        <div class="card__event__content">
-          <p><%= event.start_date.strftime("%d %b %Y") %></p>
-          <h6><%= event.title %></h6>
-          <p><%= event.location.city%>,<%= event.location.country %></p>
+        <div class="card map-card p-2" style="width: 18rem;">
+          <div class="card-body">
+            <p class="card-text">
+              <%= event.start_date.strftime("%d %b %Y") %>
+            </p>
+            <h4 class="card-title">
+              <%= event.title %>
+            </h4>
+            <p class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= event.location.city%>,<%= event.location.country %>
+            </p>
+            <div class="d-flex flex-row-reverse bd-highlight">
+              <a href="#" class="btn btn-outlined mt-3">Tag along / Fix me!</a>
+              <!-- Add to event register!! -->
+            </div>
+          </div>
         </div>
-        <div class="card__event__button">
-          <p>button placeholder</p>
-        </div>
+    <% end %>
+  </div>
+</div>
 
+
+<h5>Top Locations for <%= @activity.title %></h5>
+
+<div class="events__upcoming">
+  <div class="card__grid">
+    <% @activity.top_act_by_location.each do |location| %>
+      <div class="card map-card" style="width: 24rem;">
+        <%= render "shared/mapstatic" %>
+        <div class="card-body px-4 pb-4 pt-0">
+          <h4 class="card-title">
+            <i class="fas fa-map-marker-alt pr-1"></i>
+            <%= location[0].city %>, <%= location[0].country %>
+          </h4>
+          <div id="map-card-info">
+            <i class="fas fa-info-circle"></i>
+              88 travel mates going here (FIX ME!)
+          </div>
+        </div>
+        <%= link_to "", location_path(location), class: "make-card-clickable" %>
       </div>
     <% end %>
   </div>
 </div>
+

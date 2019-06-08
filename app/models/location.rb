@@ -7,6 +7,15 @@ class Location < ApplicationRecord
     [street, city, state, country].compact.join(', ')
   end
 
+  def self.sort_by_events
+    # Top ten locations by number of events
+    self
+      .left_joins(:events)
+      .group(:id)
+      .order('COUNT(events.id) DESC')
+      .limit(10)
+  end
+
   def top_ten_activities
     @events = Event.all
     @events_location = @events.select { |event| event.location_id == id }
