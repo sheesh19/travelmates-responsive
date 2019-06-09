@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
     event_markers
+    @event_registration = EventRegistration.new
   end
 
   def create
