@@ -34,6 +34,10 @@
 
   <div class="event-description-side">
 
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <%= link_to "Mate Up", new_itinerary_event_event_registration_path(@event.itinerary, @event), class: "btn btn-outlined mt-3" %>
+    </div>
+
     <div>
       <!-- Owner Description -->
       <h6>About the organiser</h6>

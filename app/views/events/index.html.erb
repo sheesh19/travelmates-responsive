@@ -31,7 +31,7 @@
               <%= event.location.city%>,<%= event.location.country %>
             </p>
             <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "Mate Up", event_registration_path(event), class: "btn btn-outlined mt-3" %>
+              <%= link_to "Mate Up", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
             </div>
           </div>
         </div>
