@@ -3,17 +3,17 @@
 <div class="nav-dash">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="true">Upcoming Events (<%= @total_events %>)</a>
+      <a class="nav-link active dash-inner-nav" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="true">Upcoming Events (<%= @total_events %>)</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">Open listing ()</a>
+      <a class="nav-link  dash-inner-nav" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">Open listing ()</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">Favourites (<%= @favorite_itineraries.count + @event_favorites.count %>)</a>
+      <a class="nav-link dash-inner-nav" id="pills-favourites-tab" data-toggle="pill" href="#pills-favourites" role="tab" aria-controls="pills-favourites" aria-selected="false">Favourites (<%= @favorite_itineraries.count + @event_favorites.count %>)</a>
       <!-- count will need updating once favourite events and users are added -->
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-follwers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">Followers(placeholder count)</a>
+      <a class="nav-link dash-inner-nav" id="pills-followers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">Followers(placeholder count)</a>
       <!-- count will need updating once favourite events and users are added -->
     </li>
   </ul>

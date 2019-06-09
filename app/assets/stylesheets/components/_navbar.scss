@@ -16,11 +16,43 @@
   width: 40px;
 }
 
-
-.nav-pills {
-
-}
-
 #navbar__welcome {
   margin: 8px;
 }
+
+// Inner Pills in the Navbar Dashboard
+
+
+.nav-pills {
+  background-color: transparent;
+  margin-top: 2em;
+}
+
+.dash-inner-nav {
+  background-color: transparent;
+  // Font
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  // Spacing
+  padding: 8px 24px 8px 24px;
+  margin: 0px;
+  display: inline-block;
+  border-radius: 4em;
+}
+
+.dash-inner-nav[aria-selected="true"] {
+  // Colour
+  background-color: $teal !important;
+  border-color: $teal;
+  color: $almost-white;
+  border-radius: 4em;
+  font-weight: 600;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+  &:hover {
+    color: $almost-white;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+

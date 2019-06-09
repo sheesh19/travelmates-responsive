@@ -7,11 +7,25 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @markers =
+      {
+        lat: @location.latitude,
+        lng: @location.longitude
+      }
+    Event.all.where(location_id: @location.id)
   end
 
   private
 
   def set_location
     @location = Location.find(params[:id])
+  end
+
+  def location_markers
+    @markers =
+      {
+        lat: @location.latitude,
+        lng: @location.longitude
+      }
   end
 end
