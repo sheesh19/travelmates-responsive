@@ -17,7 +17,7 @@
   <div class="d-flex row justify-content-between">
     <div class="about">
       <h3><%= @itinerary.title %></h3>
-      <p><%= @itinerary.end_date - @itinerary.start_date %> days | FIX ME</p>
+      <p><%= @itinerary.end_date.strftime("%d %b %Y") - @itinerary.start_date.strftime("%d %b %Y") %> days | FIX ME</p>
       <p><%= @itinerary.description %></p>
       <span class="tag-outline">Scuba diving</span>
       <span class="tag-outline">Shark</span>
