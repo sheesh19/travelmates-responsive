@@ -7,12 +7,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @markers =
-      {
-        lat: @location.latitude,
-        lng: @location.longitude
-      }
     Event.all.where(location_id: @location.id)
+    location_markers
   end
 
   private

@@ -5,6 +5,7 @@
   grid-gap: 16px;
   grid-template-columns: 2fr 10fr;
   flex-grow: 1;
+  width: 98%;
 }
 
 .container__main {
@@ -16,7 +17,7 @@
 // Featured Container
 
 .container__featured {
-  height: 48vh;
+  height: 68vh;
   width: 100%;
   margin-bottom: 8%;
   padding-top: 2%;
