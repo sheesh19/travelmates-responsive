@@ -1,0 +1,19 @@
+.search-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  height: 16em;
+  align-content: center;
+  vertical-align: baseline;
+  border-bottom: $light-gray solid 1px;
+  padding-bottom: 4em;
+}
+
+
+#query {
+  border-radius: 4px;
+  width: 24em;
+  border: $form-border-gray solid 1px;
+}
+

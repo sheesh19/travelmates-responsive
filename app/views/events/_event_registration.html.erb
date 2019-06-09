@@ -1,0 +1,12 @@
+<div class="booking-container pb-3">
+  <%= simple_form_for [@event, @event_registration] do |f|  %>
+    <!-- INPUT: START DATE -->
+    <%#= f.input :start_date, required: true, start_year: Date.today.year, error: 'A valid start date is required' %>
+    <%= f.input :status, required: true, error: 'Please submit your interest!' %>
+
+    <!-- Booking button -->
+    <div>
+      <%= f.submit "Mate Up", class: "btn btn-outlined mt-3", method: :post %>
+    </div>
+  <% end %>
+</div>

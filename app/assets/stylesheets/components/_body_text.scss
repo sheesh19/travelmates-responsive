@@ -1,15 +1,33 @@
-.fab {
+
+h3, h4, h5 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+h3, h4 {
+  color: $teal;
+}
+
+h5 {
+  color: $travelmate-gray;
+}
+
+p {
+  color: $travelmate-gray;
+}
+
+// Icons
+
+.far {
   color: $form-border-gray;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &:hover {
-    color: $teal;
+    color: $gray-ccc;
   }
 }
 
-.footer > a {
-  color: $form-border-gray;
+.fas {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  &:hover {
-    color: $teal;
-  }
+  color: $gray-ccc;
 }

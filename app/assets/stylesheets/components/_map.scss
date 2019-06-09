@@ -20,3 +20,11 @@
   height: auto;
   filter: brightness(90%)
 }
+
+.popup {
+  border: none;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}

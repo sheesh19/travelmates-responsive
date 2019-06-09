@@ -1,0 +1,13 @@
+<div class="search-banner justify-content-center">
+  <!-- Search bar -->
+  <div class="search-banner-text"><h4><strong>Discover activities<strong></h4></div>
+  <div class="index-search">
+    <%= form_tag(activities_path, method: :get, placeholder: "Search") do %>
+      <%= text_field_tag :query %>
+      <%#= submit_tag 'Search' %>
+      <%= link_to request.path do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

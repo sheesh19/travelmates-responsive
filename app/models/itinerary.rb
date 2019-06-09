@@ -14,6 +14,10 @@ class Itinerary < ApplicationRecord
     self.end_date
   end
 
+  # Work out top 10 Itineraries by number of times it is favourited
+  def top_itinerary_by_favorites
+  end
+
   private
 
   def start_date_cannot_be_in_the_past

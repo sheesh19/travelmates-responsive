@@ -1,3 +1,6 @@
+<div>
+  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
+</div>
 
 <div class="container__dashboard">
   <div class="event-description-side">
@@ -35,7 +38,10 @@
   <div class="event-description-side">
 
     <div class="d-flex flex-row-reverse bd-highlight">
-      <%= link_to "Mate Up", new_itinerary_event_event_registration_path(@event.itinerary, @event), class: "btn btn-outlined mt-3" %>
+      <!-- <div> -->
+        <%#= render "events/event_registration" %>
+      <!-- </div> -->
+      <%= link_to "Mate Up", itinerary_event_event_registrations_path(@event.itinerary, @event), class: "btn btn-outlined" %>
     </div>
 
     <div>
@@ -53,6 +59,7 @@
               <div>
                 <!-- Owner Description Info -->
                 <p><%= @event.itinerary.user.first_name %></p>
+                <p><%= @event.itinerary.user.email %></p>
                 <p><%= @event.itinerary.user.date_of_birth %></p>
                 <p><%= @event.itinerary.user.gender %></p>
               </div>
