@@ -13,7 +13,10 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/sheesh19/cjwoekbcu37781cmf1tzv17fs'
+      // style monochrome gray: mapbox://styles/sheesh19/cjwoecanw2ted1cqn4b9bkcpd
+      // style outdoors: mapbox://styles/sheesh19/cjwoekbcu37781cmf1tzv17fs
+      // style streets: mapbox://styles/mapbox/streets-v10
     });
 
     map.scrollZoom.disable();

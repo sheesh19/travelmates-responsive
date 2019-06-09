@@ -3,13 +3,17 @@
   background: white;
   padding-left: 32px;
   padding-right: 32px;
-  font-weight: bold;
-  color: $almost-black;
+  // font-weight: bold;
+  color: $travelmate-gray;
   border-bottom: solid 0.5px $light-gray;
 }
 
 .navbar-travelmates .navbar-collapse {
   flex-grow: 0;
+}
+
+.navbar-brand {
+  font-weight: bold;
 }
 
 .navbar-travelmates .navbar-brand img {

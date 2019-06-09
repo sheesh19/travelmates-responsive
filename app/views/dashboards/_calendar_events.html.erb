@@ -1,6 +1,6 @@
     <!-- Upcoming calendar events for the user -->
 
-<h2>Your upcoming events</h2>
+<h5>Your upcoming events</h5>
 <%= month_calendar events: @user.itineraries do |date, itineraries| %>
   <%= date.day %>
   <% itineraries.each do |i| %>

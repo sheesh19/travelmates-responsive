@@ -2,7 +2,7 @@
 <% @user.itineraries.each do |itinerary| %>
   <div class="container__dashboard">
     <div class="display__itinerary">
-      <h3><%= itinerary.title %></h3>
+      <h5><%= itinerary.title %></h5>
       <% itinerary.events.each do |event| %>
         <% if event.start_date >= Date.today %>
           <div class="card reminder-card-with-location d-flex">
@@ -16,8 +16,7 @@
                 <div class="reminder-location d-flex">
                   <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
                   <div class="reminder-address">
-                    <p>Queen Victoria Market</p>
-                    <p><%= event.location.city %><%= event.location.country %></p>
+                    <p><%= event.location.city %>, <%= event.location.country %></p>
                   </div>
                 </div>
               </div>
@@ -26,7 +25,7 @@
               </div>
             </div>
             <div class="event-pill-expandable reminder-organiser-avatar">
-              <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+              <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
               <div class="event-pill-text">
                 <p><%= event.itinerary.user.first_name %></p>
               </div>

@@ -10,16 +10,18 @@
 
 
 <div class="container__featured">
-  <h5>Featured Events</h5>
+  <h4>Featured Events</h4>
     <div class="card__grid">
       <% @events.first(3).each do |event| %>
         <div class="card map-card p-2" style="width: 18rem;">
           <div class="card-body">
-            <p class="card-text">
-              <%= event.start_date.strftime("%d %b %Y") %>
-            </p>
-            <div data-event-id="<%= event.id %>" class="event-heart-icon">
-              <%= render 'heart', event: event %>
+            <div class= "card-date-heart d-flex justify-content-between">
+              <p class="card-text">
+                <%= event.start_date.strftime("%d %b %Y") %>
+              </p>
+              <div data-event-id="<%= event.id %>" class="event-heart-icon">
+                <%= render 'heart', event: event %>
+              </div>
             </div>
             <h4 class="card-title">
               <%= event.title %>
@@ -44,11 +46,13 @@
       <% @events.each do |event| %>
       <div class="card map-card p-2" style="width: 18rem;">
         <div class="card-body">
-          <p class="card-text">
-            <%= event.start_date.strftime("%d %b %Y") %>
-          </p>
-          <div data-event-id="<%= event.id %>" class="event-heart-icon">
-            <%= render 'heart', event: event %>
+          <div class= "card-date-heart d-flex justify-content-between">
+            <p class="card-text">
+              <%= event.start_date.strftime("%d %b %Y") %>
+            </p>
+            <div data-event-id="<%= event.id %>" class="event-heart-icon">
+              <%= render 'heart', event: event %>
+            </div>
           </div>
           <h4 class="card-title">
             <%= event.title %>
