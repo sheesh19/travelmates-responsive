@@ -7,19 +7,21 @@
 </div>
 
 <div class="top__ten">
+  <div class="container__featured">
   <h4>10 Top Activities in <%= @location.city %></h4>
   <!-- Carousel Top 10 -->
-  <div class="card__grid">
-    <% @location.top_ten_activities.each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity[0].photo %>')">
-        <%= activity[0].title %>
-        <%= link_to "", activity_path(activity[0]), class: "make-card-clickable" %>
-      </div>
-    <% end %>
+    <div class="card__grid">
+      <% @location.top_ten_activities.each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity[0].photo %>')">
+          <%= activity[0].title %>
+          <%= link_to "", activity_path(activity[0]), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
