@@ -11,6 +11,15 @@ class ItinerariesController < ApplicationController
 
   def show
     @user = User.find(@itinerary.user_id)
+
+    # Markers for the itinerary map
+    @markers = @itinerary.events.map do |event|
+      {
+        lat: event.location.latitude,
+        lng: event.location.longitude,
+        infoWindow: render_to_string(partial: "shared/infowindow", locals: { event: event.title })
+      }
+    end
   end
 
   def user_itineraries
