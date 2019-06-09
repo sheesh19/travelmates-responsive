@@ -27,16 +27,17 @@
   }
 }
 
-h3, h4, h5 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
+// Icons
+
+.far {
+  color: $form-border-gray;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    color: $gray-ccc;
+  }
 }
 
-h3, h4 {
-  color: $teal;
-}
-
-h5 {
-  color: $travelmate-gray;
+.fas {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: $gray-ccc;
 }

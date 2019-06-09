@@ -22,8 +22,7 @@
               <%= event.location.city%>,<%= event.location.country %>
             </p>
             <div class="d-flex flex-row-reverse bd-highlight">
-              <a href="#" class="btn btn-outlined mt-3">Tag along / Fix me!</a>
-              <!-- Add to event register!! -->
+              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
             </div>
           </div>
         </div>

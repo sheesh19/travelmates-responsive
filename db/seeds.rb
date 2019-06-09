@@ -23,6 +23,17 @@ user_list = [
   gender: "Male",
   date_of_birth: "2010-05-15",
   avatar: "captain_cat.jpg"
+},
+{
+  email: "sheila.crikey@gmail.com",
+  password: "password",
+  first_name: "Sheila",
+  last_name: "Leveille",
+  username: "sheilz",
+  description: "Solo traveller starting an unexpected journey. Sam Gamgee is the character I identify with most. I trend towards adventure travel and love the outdoors.",
+  gender: "Female",
+  date_of_birth: "1994-04-09",
+  avatar: "sheila-avatar.jpg"
 }]
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
