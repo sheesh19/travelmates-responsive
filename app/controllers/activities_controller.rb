@@ -3,7 +3,14 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: :show
 
   def index
-    @activities = Activity.all
+    @all_activities = Activity.all
+    unless params[:query].nil?
+      @query = true
+      @activities = Activity.where('title ILIKE ?', "%#{params[:query]}%")
+    else
+      @query = false
+      @activities = Activity.all
+    end
   end
 
   def show

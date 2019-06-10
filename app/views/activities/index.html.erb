@@ -6,10 +6,34 @@
   <%= render 'shared/search/search_activities' %>
 </div>
 
+<% if @query %>
+  <div>
+    <h4>Search results</h4>
+      <div class="card__grid">
+        <% if @activities.any? %>
+          <% @activities[0..@activities.count].each do |activity| %>
+          <div
+            class="photo-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+              rgba(0,0,0,0.3)),
+              url('<%= image_path activity.photo %>')">
+            <%= activity.title %>
+            <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+          </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <span>No results found</span>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
 <div class="container__featured">
   <h4>Top Activities</h4>
     <div class="card__grid">
-      <% @activities[0..2].each do |activity| %>
+      <% @all_activities[0..2].each do |activity| %>
         <div
           class="photo-card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3),
@@ -24,16 +48,17 @@
 
 
 <div class="events__upcoming">
-  <div class="card__grid">
-    <% @activities[3..@activities.count].each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity.photo %>')">
-        <%= activity.title %>
-        <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
-      </div>
-    <% end %>
-  </div>
+  <h4>Upcoming Activities</h4>
+    <div class="card__grid">
+      <% @all_activities[3..@all_activities.count].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity.photo %>')">
+          <%= activity.title %>
+          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
 </div>
