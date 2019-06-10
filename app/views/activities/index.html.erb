@@ -19,7 +19,7 @@
 <div class="search__box">
   <%= render 'shared/search/search_activities' %>
 </div>
-
+<!-- Displays search results dynamically -->
 <% if @query %>
   <div class="page-container">
     <h4>Search results</h4>
@@ -57,7 +57,8 @@
             /* REMOVE [1] CHECK WITH WHOEVER DID IT */
             url('<%= image_path activity[1].photo %>')">
           <%= activity[1].title %>
-          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+          <!--  REMOVE [1] CHECK WITH WHOEVER DID IT -->
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
         </div>
       <% end %>
     </div>

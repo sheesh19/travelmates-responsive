@@ -25,6 +25,10 @@ class Event < ApplicationRecord
     EventRegistration.where(event_id: id).count <= max_spots
   end
 
+  def solo?
+    max_spots.zero?
+  end
+
   private
 
   def cancel

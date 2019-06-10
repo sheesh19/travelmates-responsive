@@ -1,1 +1,11 @@
-<%= @event.full? ? 'badge-mates-joining' : 'badge-awaiting-mates' %>
+<!-- Variants: badge-dark, badge-awaiting-mates, badge-mates-joining -->
+<!-- Label: Solo, Awaiting Mates, Mates Joining -->
+
+<% if event.solo? %>
+  <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Solo</div>
+<% elsif event.full? %>
+  <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates Joining</div>
+<% else %>
+  <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">Awaiting Mates</div>
+<% end %>
+

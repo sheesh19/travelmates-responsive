@@ -2,6 +2,13 @@
   <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
 </div>
 
+<div class="breadcrumb">
+  <%= link_to request.referer.present? ? request.referer : default_path do %>
+    <i class="fas fa-angle-left"></i>
+    Back
+  <% end %>
+</div>
+
 <div class="map">
   <%= render 'shared/map' %>
 </div>

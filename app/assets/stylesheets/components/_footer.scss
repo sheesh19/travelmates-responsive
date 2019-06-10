@@ -6,10 +6,17 @@
   }
 }
 
-.footer > a {
+#footer > a {
   color: $form-border-gray;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &:hover {
     color: $teal;
   }
 }
+
+.footer-icons {
+   position: absolute;
+   bottom: 0;
+   width: 80%;
+   height: 10px;   /* Height of the footer */
+ }
