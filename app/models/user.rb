@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :itineraries
-  # not sure abt this relation
-  # user should be able to access event directly??
+
   has_many :events, through: :itineraries
   has_many :event_registrations
 
@@ -47,6 +46,10 @@ class User < ApplicationRecord
   def following?(user_id)
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
+  end
+
+  def registered?(event)
+    event_registrations.where(event: event).first
   end
 
   def age

@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   belongs_to :activity
 
   has_many :event_reviews
+  has_many :event_registrations
   default_scope { order('start_date ASC') }
 
   validates_presence_of :start_date, :end_date, :title
