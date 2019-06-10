@@ -1,19 +1,16 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
-</div>
-
-<div class="search__box">
-  <%= render 'shared/search/search_events' %>
+<div class="page-container">
+  <div class="search__box">
+    <%= render 'shared/search/search_events' %>
+  </div>
 </div>
 
 <div class="map">
   <%= render 'shared/map' %>
 </div>
 
-
 <div class="container__featured">
-  <h4>Featured Events</h4>
-    <div class="card__grid">
+  <h4>Featured events</h4>
+    <div class="card__grid_x4">
       <% @events.first(3).each do |event| %>
         <div class="card map-card p-2" style="width: 18rem;">
           <div class="card-body">
@@ -33,7 +30,7 @@
               <%= event.location.city%>, <%= event.location.country %>
             </p>
             <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
+              <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
             </div>
           </div>
         </div>
@@ -41,33 +38,33 @@
     </div>
 </div>
 
-
-
-<div class="events__upcoming">
-  <div class="card__grid">
-      <% @events.each do |event| %>
-      <div class="card map-card p-2" style="width: 18rem;">
-        <div class="card-body">
-          <div class= "card-date-heart d-flex justify-content-between">
-            <p class="card-text">
-              <%= event.start_date.strftime("%d %b %Y") %>
+<div class="page-container">
+  <div class="events__upcoming">
+    <div class="card__grid_x4">
+        <% @events.each do |event| %>
+        <div class="card map-card p-2" style="width: 18rem;">
+          <div class="card-body">
+            <div class= "card-date-heart d-flex justify-content-between">
+              <p class="card-text">
+                <%= event.start_date.strftime("%d %b %Y") %>
+              </p>
+              <div data-event-id="<%= event.id %>" class="event-heart-icon">
+                <%= render 'heart', event: event %>
+              </div>
+            </div>
+            <h4 class="card-title">
+              <%= event.title %>
+            </h4>
+            <p class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= event.location.city%>, <%= event.location.country %>
             </p>
-            <div data-event-id="<%= event.id %>" class="event-heart-icon">
-              <%= render 'heart', event: event %>
+            <div class="d-flex flex-row-reverse bd-highlight">
+              <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
             </div>
           </div>
-          <h4 class="card-title">
-            <%= event.title %>
-          </h4>
-          <p class="card-title">
-            <i class="fas fa-map-marker-alt pr-1"></i>
-            <%= event.location.city%>, <%= event.location.country %>
-          </p>
-          <div class="d-flex flex-row-reverse bd-highlight">
-            <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

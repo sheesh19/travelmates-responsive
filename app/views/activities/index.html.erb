@@ -1,15 +1,27 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
-</div>
+<div class="page-container">
+  <div class="search__box">
+    <%= render 'shared/search/search_activities' %>
+  </div>
 
-<div class="search__box">
-  <%= render 'shared/search/search_activities' %>
-</div>
+  <div class="container__featured">
+    <h4>Top Activities</h4>
+      <div class="card__grid">
+        <% @activities[0..2].each do |activity| %>
+          <div
+            class="photo-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+              rgba(0,0,0,0.3)),
+              url('<%= image_path activity.photo %>')">
+            <%= activity.title %>
+            <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
 
-<div class="container__featured">
-  <h4>Top Activities</h4>
+  <div class="events__upcoming">
     <div class="card__grid">
-      <% @activities[0..2].each do |activity| %>
+      <% @activities[3..@activities.count].each do |activity| %>
         <div
           class="photo-card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3),
@@ -20,20 +32,5 @@
         </div>
       <% end %>
     </div>
-</div>
-
-
-<div class="events__upcoming">
-  <div class="card__grid">
-    <% @activities[3..@activities.count].each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity.photo %>')">
-        <%= activity.title %>
-        <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
-      </div>
-    <% end %>
   </div>
 </div>

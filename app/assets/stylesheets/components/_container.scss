@@ -2,10 +2,10 @@
 
 #container-wrapper {
   display: grid;
-  grid-gap: 16px;
+  // grid-gap: 16px;
   grid-template-columns: 2fr 10fr;
-  flex-grow: 1;
-  width: 98%;
+  // flex-grow: 1;
+  // width: 98%;
 }
 
 .container__main {
@@ -13,16 +13,22 @@
   margin-top: 32px;
 }
 
+.page-container {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 
 // Featured Container
 
 .container__featured {
-  height: 68vh;
+  height: 450px;
   width: 100%;
   margin-bottom: 8%;
   padding-top: 2%;
   border-top: $light-gray solid 1px;
   border-bottom: $light-gray solid 1px;
+  background-color: $almost-white;
 }
 
 

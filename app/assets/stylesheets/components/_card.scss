@@ -16,6 +16,24 @@
   }
 }
 
+// 4 Card Grid
+
+.card__grid_x4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-grow: 1;
+  grid-gap: 16px;
+  justify-items: center;
+  align-items: center;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+  .card__grid_x4 {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 // Cards for Dashboard
 
@@ -165,6 +183,7 @@
 }
 
 .reminder-details {
+  flex: 1;
   h5 {
     color: $teal;
     font-size: 18px;

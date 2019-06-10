@@ -1,40 +1,38 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
-</div>
+<div class="page-container">
+  <h1>Your travel plans</h1>
 
-<h3>Your Travel Plans</h3>
-
-<div class="d-flex flex-row">
-  <div class="box-count">
-    <!-- Upcoming Trip -->
-    <h3><%= current_user.itineraries.count %></h3>
-    <h6>Upcoming Trips</h6>
-  </div>
-  <div class="box-count">
-    <!-- Number of Drafts -->
-    <h3><%= current_user.itineraries.count %> FIX ME! </h3>
-    <h6>Draft Trip Plans</h6>
-  </div>
-  <div class="box-count">
-    <!-- Past Trips -->
-    <h3><%= current_user.itineraries.count %></h3>
-    <h6>Past Trips</h6>
-  </div>
-</div>
-
-
-<div class="data-table">
-  <div class="data-header">
-    <div class="data-header-cell-growable">Name</div>
-    <div class="data-header-cell">Travel dates</div>
-    <div class="data-content-cell-small">Status</div>
-  </div>
-  <% current_user.itineraries.each do |itinerary| %>
-    <div class="data-rows">
-      <div class="data-content-cell-growable"><%= itinerary.title %></div>
-      <div class="data-content-cell"><%= itinerary.start_date.strftime("%d %b %Y")%> - <%= itinerary.end_date.strftime("%d %b %Y") %></div>
-      <div class="data-content-cell-small">Confirmed | FIX ME!</div>
-      <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
+  <div class="d-flex flex-row">
+    <div class="box-count">
+      <!-- Upcoming Trip -->
+      <h3><%= current_user.itineraries.count %></h3>
+      <h6>Upcoming Trips</h6>
     </div>
-  <% end %>
+    <div class="box-count">
+      <!-- Number of Drafts -->
+      <h3><%= current_user.itineraries.count %> FIX ME! </h3>
+      <h6>Draft Trip Plans</h6>
+    </div>
+    <div class="box-count">
+      <!-- Past Trips -->
+      <h3><%= current_user.itineraries.count %></h3>
+      <h6>Past Trips</h6>
+    </div>
+  </div>
+
+
+  <div class="data-table">
+    <div class="data-header">
+      <div class="data-header-cell-growable">Name</div>
+      <div class="data-header-cell">Travel dates</div>
+      <div class="data-content-cell-small">Status</div>
+    </div>
+    <% current_user.itineraries.each do |itinerary| %>
+      <div class="data-rows">
+        <div class="data-content-cell-growable"><%= itinerary.title %></div>
+        <div class="data-content-cell"><%= itinerary.start_date.strftime("%d %b %Y")%> - <%= itinerary.end_date.strftime("%d %b %Y") %></div>
+        <div class="data-content-cell-small">Confirmed | FIX ME!</div>
+        <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
+      </div>
+    <% end %>
+  </div>
 </div>
