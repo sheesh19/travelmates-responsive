@@ -20,9 +20,11 @@ class Itinerary < ApplicationRecord
   diff = difference.to_i / 86400
   end
 
-  # Work out top 10 Itineraries by number of times it is favourited
-  def top_itinerary_by_favorites
+  def self.most_popular_itineraries
+    # Top ten activites by number of events
+    Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
   end
+
 
   private
 

@@ -6,13 +6,8 @@
   <%= render 'shared/search/search_events' %>
 </div>
 
-<div class="map">
-  <%= render 'shared/map' %>
-</div>
-
-
 <div class="container__featured">
-  <h4>Featured Events</h4>
+  <h4>Upcoming Events</h4>
     <div class="card__grid">
       <% @events.first(3).each do |event| %>
         <div class="card map-card p-2" style="width: 18rem;">
@@ -41,11 +36,14 @@
     </div>
 </div>
 
-
+<div class="map">
+  <%= render 'shared/map' %>
+</div>
 
 <div class="events__upcoming">
+  <h4>All Events</h4>
   <div class="card__grid">
-      <% @events.each do |event| %>
+    <% @events.each do |event| %>
       <div class="card map-card p-2" style="width: 18rem;">
         <div class="card-body">
           <div class= "card-date-heart d-flex justify-content-between">
