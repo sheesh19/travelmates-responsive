@@ -3,10 +3,21 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    @events = Event.all
+    @all_events = Event.all
     event_markers_all
     # add @event_favorite to index
     @event_favorite = EventFavorite.find_by(event_id: params[:event_id], user_id: current_user)
+    unless params[:query].nil?
+      @query = true
+      sql_query = " \
+      events.title ILIKE :query \
+      OR locations.city ILIKE :query \
+      "
+      @events = Event.joins(:location).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @query = false
+      @events = Event.all
+    end
   end
 
   def show
@@ -61,7 +72,7 @@ class EventsController < ApplicationController
   end
 
   def event_markers_all
-    @markers = @events.map do |event|
+    @markers = @all_events.map do |event|
       {
         lat: event.location.latitude,
         lng: event.location.longitude,
