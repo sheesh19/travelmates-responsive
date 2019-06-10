@@ -1,27 +1,31 @@
 <ul class="nav flex-column bd-sidebar" id="sidebar">
-  <li class="nav-item">
-    <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+  <div class="sidebar-primary-button">
+    <%= render "shared/components/button", variant: "filled", label: "+ NEW TRAVEL PLAN", href: new_itinerary_path %>
+  </div>
+  <li class="nav-item-active">
+    <%= link_to "DASHBOARD", dashboard_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Find A Mate", events_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "FIND A MATE", events_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Travel Planner", user_itineraries_itineraries_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "TRAVEL PLANNER", user_itineraries_itineraries_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Explore: Global", pages_explore_path, class: "nav-link" %>
+  <div class="side-bar-divider"></div>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "POPULAR", pages_explore_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "- Explore: Activities", activities_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "ACTIVITIES", activities_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "- Explore: Events", events_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "EVENTS", events_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "- Explore: Itineraries", itineraries_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "ITINERARIES", itineraries_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "- Explore: Locations", locations_path, class: "nav-link" %>
+  <li class="nav-item nav-item-highlighht">
+    <%= link_to "DESTINATIONS", locations_path, class: "nav-link" %>
   </li>
-
 </ul>
+

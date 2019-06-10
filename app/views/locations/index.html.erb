@@ -1,5 +1,30 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
+<!-- FEATURE LOCATION -->
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>FEATURED DESTINATIONS</h2>
+  </div>
+  <div class="">
+    <!-- Card Carousel -->
+    <div class="card__grid">
+      <% @locations.sort_by_events.first(3).each do |location| %>
+        <div class="card map-card" style="width: 24rem;">
+          <%= render "shared/mapstatic" %>
+          <div class="card-body px-4 pb-4 pt-0">
+            <h4 class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= location.city %>, <%= location.country %>
+            </h4>
+            <div id="map-card-info">
+              <i class="fas fa-info-circle"></i>
+                <!-- Number of events in this location coming up -->
+                <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
+            </div>
+          </div>
+          <%= link_to "", location_path(location), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <!-- Search bar -->
@@ -39,53 +64,33 @@
   </div>
 <% end %>
 
-<div class="">
-  <h4>Top 10 Locations</h4>
-  <!-- Card Carousel -->
-  <div class="card__grid">
-    <% @all_locations.sort_by_events.each do |location| %>
-      <div class="card map-card" style="width: 20rem;">
-        <%= render "shared/mapstatic" %>
-        <div class="card-body px-4 pb-4 pt-0">
-          <h4 class="card-title">
-            <i class="fas fa-map-marker-alt pr-1"></i>
-            <%= location.city %>, <%= location.country %>
-          </h4>
-          <div id="map-card-info">
-            <i class="fas fa-info-circle"></i>
-              <!-- Number of events in this location coming up -->
-              <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
-          </div>
-        </div>
-        <%= link_to "", location_path(location), class: "make-card-clickable" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div>
-  <h4>Destination Discovery | FIX ME!</h4>
-  <div class="events__upcoming">
-    <div class="card__grid">
-      <% @all_locations.each do |location| %>
-        <div class="card map-card" style="width: 20rem;">
-          <%= render "shared/mapstatic" %>
-          <div class="card-body px-4 pb-4 pt-0">
-            <h4 class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= location.city %>, <%= location.country %>
-            </h4>
-            <div id="map-card-info">
-              <i class="fas fa-info-circle"></i>
-                <!-- Number of events in this location coming up -->
-                <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
+<!-- ALL LOCATIONS -->
+<div class="page-container">
+  <div>
+    <div class="featured-title">
+      <h2>DESTINATION DISCOVERY</h2>
+    </div>
+    <div class="events__upcoming">
+      <div class="card__grid">
+        <% @locations.each do |location| %>
+          <div class="card map-card" style="width: 24rem;">
+            <%= render "shared/mapstatic" %>
+            <div class="card-body px-4 pb-4 pt-0">
+              <h4 class="card-title">
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= location.city %>, <%= location.country %>
+              </h4>
+              <div id="map-card-info">
+                <i class="fas fa-info-circle"></i>
+                  <!-- Number of events in this location coming up -->
+                  <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
+              </div>
             </div>
+            <%= link_to "", location_path(location), class: "make-card-clickable" %>
           </div>
-          <%= link_to "", location_path(location), class: "make-card-clickable" %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
 

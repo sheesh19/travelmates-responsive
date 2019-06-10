@@ -1,5 +1,19 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>TOP ACTIVITIES</h2>
+  </div>
+    <div class="card__grid">
+      <% @all_activities.most_popular_activities[0..2].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity[1].photo %>')">
+          <%= activity[1].title %>
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
 </div>
 
 <div class="search__box">
@@ -7,7 +21,7 @@
 </div>
 <!-- Displays search results dynamically -->
 <% if @query %>
-  <div>
+  <div class="page-container">
     <h4>Search results</h4>
       <div class="card__grid">
         <% if @activities.any? %>
@@ -30,34 +44,22 @@
   </div>
 <% end %>
 
-<div class="container__featured">
-  <h4>Top Activities</h4>
-  <div class="card__grid">
-    <% @all_activities.most_popular_activities[0..2].each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity[1].photo %>')">
-        <%= activity[1].title %>
-        <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="events__upcoming">
-  <div class="card__grid">
-    <% @all_activities.most_popular_activities[3..@activities.count].each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity[1].photo %>')">
-        <%= activity[1].title %>
-        <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
-      </div>
-    <% end %>
+<div class="page-container">
+  <div class="events__upcoming">
+    <div class="card__grid">
+      <%# @activities[3..@activities.count].each do |activity| %>
+      <% @all_activities.most_popular_activities[3..@activities.count].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            /* REMOVE [1] CHECK WITH WHOEVER DID IT */
+            url('<%= image_path activity[1].photo %>')">
+          <%= activity[1].title %>
+          <!--  REMOVE [1] CHECK WITH WHOEVER DID IT -->
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

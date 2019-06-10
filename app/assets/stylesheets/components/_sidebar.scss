@@ -1,7 +1,5 @@
 #sidebar {
   text-align: left;
-  margin-left: 24px;
-  margin-top: 2%;
   text-decoration: none;
   border-right: $light-gray solid 1px;
   // Font
@@ -22,10 +20,45 @@
 
 .nav-link {
   text-decoration: none;
-  color: $gray;
+  padding-left: 48px;
+  height: 56px;
+  color: $medium-gray;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
   &:hover {
-    color: $medium-gray;
+    color: $teal;
   }
 }
 
 // Sidebar Active Button
+
+.nav-item-active {
+  border-right-color: $teal;
+  border-right-style: solid;
+  border-right-width: 4px;
+  background-color: $lighest-teal;
+  a {
+    color: $teal;
+  }
+}
+
+.nav-item-highlighht {
+  padding-right: 16px;
+  &:hover {
+    background-color: $almost-white;
+    a {
+      color: $teal;
+    }
+  }
+}
+
+.sidebar-primary-button {
+  margin: 16px 0 24px 40px;
+}
+
+.side-bar-divider {
+  padding: 16px 0 8px 0;
+  margin: 0 48px 0 48px;
+  border-top: solid 0.5px $lightish-gray;
+}

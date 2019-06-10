@@ -1,10 +1,26 @@
+.travel-planner {
+  margin: 8px 0 32px 0;
+}
+
 .box-count {
-  height: 10em;
-  width: 10em;
-  border: $form-border-gray solid 1px;
-  padding-left: 2%;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  height: auto;
+  width: auto;
+  border: $lightish-gray solid 1px;
+  background-color: $almost-white;
+  color: $darkish-gray;
+  padding: 32px;
+  margin: 1rem;
+  flex: 1;
+  h1 {
+    font-size: 80px;
+    padding-left: 16px;
+  }
+  h6 {
+    align-content: center;
+  }
+  .active {
+    color: $teal;
+  }
 }
 
 
