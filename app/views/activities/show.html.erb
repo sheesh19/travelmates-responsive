@@ -2,10 +2,18 @@
   <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
 </div>
 
+<div class="breadcrumb">
+  <%= link_to request.referer.present? ? request.referer : default_path do %>
+    <i class="fas fa-angle-left"></i>
+    Back
+  <% end %>
+</div>
+
 <div class="banner__image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= image_path @activity.photo %>')">
 
 </div>
+
 
 <!-- Add Card Carousel -->
 <h5>Upcoming <%= @activity.title %> Inspiration</h5>

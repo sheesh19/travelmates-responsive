@@ -7,8 +7,10 @@ class PagesController < ApplicationController
 
   def explore
     @itineraries = Itinerary.all
+    @activities = Activity.all
     @events = Event.all
     @locations = Location.all
+    @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
   end
 
   def kitchensink
