@@ -3,10 +3,22 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: %i[show edit update destroy]
 
   def index
-    @itineraries = Itinerary.all
+    @all_itineraries = Itinerary.all
 
     # add @favorite_itinerary to index
     @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
+
+    unless params[:query].nil?
+      @query = true
+      sql_query = " \
+      itineraries.title ILIKE :query \
+      OR itineraries.description ILIKE :query \
+      "
+      @itineraries = Itinerary.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @query = false
+      @itineraries = Itinerary.all
+    end
   end
 
   def show
