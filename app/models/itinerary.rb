@@ -21,7 +21,7 @@ class Itinerary < ApplicationRecord
   end
 
   def self.most_popular_itineraries
-    # Top ten activites by number of events
+    # Top ten itineraries by number of favs
     Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
   end
 
