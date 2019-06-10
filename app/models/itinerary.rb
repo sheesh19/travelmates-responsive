@@ -16,8 +16,8 @@ class Itinerary < ApplicationRecord
   end
 
   def total_time
-  difference = self.end_date - self.start_date
-  diff = difference.to_i / 86400
+    difference = self.end_date - self.start_date
+    diff = difference.to_i / 86400
   end
 
   def self.most_popular_itineraries
