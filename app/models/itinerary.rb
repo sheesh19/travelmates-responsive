@@ -14,6 +14,11 @@ class Itinerary < ApplicationRecord
     self.end_date
   end
 
+  def total_time
+  difference = self.end_date - self.start_date
+  diff = difference.to_i / 86400
+  end
+
   # Work out top 10 Itineraries by number of times it is favourited
   def top_itinerary_by_favorites
   end

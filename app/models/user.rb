@@ -48,4 +48,11 @@ class User < ApplicationRecord
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
   end
+
+  def age
+    today = Date.today
+    age = today.year - date_of_birth.year
+    age -= 1 if date_of_birth.strftime("%m%d").to_i > today.strftime("%m%d").to_i
+    age
+  end
 end
