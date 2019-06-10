@@ -33,14 +33,14 @@
 <div class="container__featured">
   <h4>Top Activities</h4>
     <div class="card__grid">
-      <% @all_activities[0..2].each do |activity| %>
+      <% @all_activities.most_popular_activities[0..2].each do |activity| %>
         <div
           class="photo-card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3),
             rgba(0,0,0,0.3)),
-            url('<%= image_path activity.photo %>')">
-          <%= activity.title %>
-          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
+            url('<%= image_path activity[1].photo %>')">
+          <%= activity[1].title %>
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
         </div>
       <% end %>
     </div>
@@ -48,17 +48,16 @@
 
 
 <div class="events__upcoming">
-  <h4>Upcoming Activities</h4>
-    <div class="card__grid">
-      <% @all_activities[3..@all_activities.count].each do |activity| %>
-        <div
-          class="photo-card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)),
-            url('<%= image_path activity.photo %>')">
-          <%= activity.title %>
-          <%= link_to "", activity_path(activity), class: "make-card-clickable" %>
-        </div>
-      <% end %>
-    </div>
+  <div class="card__grid">
+    <% @all_activities.most_popular_activities[3..@activities.count].each do |activity| %>
+      <div
+        class="photo-card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3),
+          rgba(0,0,0,0.3)),
+          url('<%= image_path activity[1].photo %>')">
+        <%= activity[1].title %>
+        <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+      </div>
+    <% end %>
+  </div>
 </div>
