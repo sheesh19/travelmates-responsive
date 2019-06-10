@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @all_activities = Activity.all
+    # required for search
     unless params[:query].nil?
       @query = true
       @activities = Activity.where('title ILIKE ?', "%#{params[:query]}%")
