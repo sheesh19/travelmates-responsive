@@ -7,7 +7,7 @@
 </div>
 
 <div class="breadcrumb">
-  <%= link_to itineraries_path do %>
+  <%= link_to request.referer.present? ? request.referer : default_path do %>
     <i class="fas fa-angle-left"></i>
     Back
   <% end %>

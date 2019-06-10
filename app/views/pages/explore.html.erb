@@ -2,7 +2,22 @@
   <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
 </div>
 
-<h4>Most Favourited Travel Plans</h4>
+<h4>Do more</h4>
+
+<div class="card__grid">
+  <% @activities.most_popular_activities[0..2].each do |activity| %>
+    <div
+      class="photo-card"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)),
+        url('<%= image_path activity[1].photo %>')">
+      <%= activity[1].title %>
+      <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+    </div>
+  <% end %>
+</div>
+
+<h4>Get inspired</h4>
 
 <div class="events__upcoming">
   <!-- Card Carousel (?) -->
@@ -16,7 +31,7 @@
           <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
             <div><%= itinerary[1].total_time %> day plan</div>
               <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                400 <%= render 'heart', itinerary: itinerary[1] %>
+                400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
             </div>
           </div>
           <h4 class="card-title">
@@ -35,7 +50,7 @@
   </div>
 </div>
 
-<h4>Top 10 Locations</h4>
+<h4>Discover destinations</h4>
 
 <div class="">
   <!-- Card Carousel (?) -->
@@ -59,5 +74,3 @@
     <% end %>
   </div>
 </div>
-
-<h4>Most Planned Activities</h4>
