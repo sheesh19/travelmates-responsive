@@ -118,7 +118,7 @@ activity_list = [
 },
 {
   title: "Cultural Events",
-  photo: "https://images.unsplash.com/photo-1489993360877-883980cc7333?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+  photo: ""
 },
 {
   title: "Street Food",
@@ -203,6 +203,14 @@ activity_list = [
 {
   title: "Nature Tours",
   photo: "https://images.unsplash.com/photo-1548429930-163885742a36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+},
+{
+  title: "Dancing",
+  photo: "https://images.unsplash.com/photo-1463592177119-bab2a00f3ccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+},
+{
+  title: "Cultural Festival",
+  photo: "https://images.unsplash.com/photo-1559760434-0981df057e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 }
 ]
 

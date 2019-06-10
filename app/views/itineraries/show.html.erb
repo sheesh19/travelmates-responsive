@@ -52,32 +52,10 @@
             <div class="data-content-cell-growable"><%= event.title %></div>
             <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
             <div class="data-content-cell-small"><%= event.location.city %></div>
-            <div class="data-content-cell-small badge badge-pill badge-dark d-flex align-items-center justify-content-center">Going alone</div>
+            <%= render "shared/components/event_status_pill", event: event %>
             <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
           </div>
       <% end %>
-
-        <div class="data-rows">
-          <div class="data-content-cell-growable">Tennis at Rod Laver Arena with Patrick Rafter</div>
-          <div class="data-content-cell-small">3pm</div>
-          <div class="data-content-cell-small">Melbourne</div>
-          <div class="data-content-cell-small badge badge-pill badge-awaiting-mates d-flex align-items-center justify-content-center">Awaiting mates</div>
-          <a href="#who" class="make-card-clickable"></a>
-        </div>
-        <div class="data-rows">
-          <div class="data-content-cell-growable">Climbing the Sydney Harbour Bridge</div>
-          <div class="data-content-cell-small">6am</div>
-          <div class="data-content-cell-small">Sydney</div>
-          <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
-          <a href="#who" class="make-card-clickable"></a>
-        </div>
-        <div class="data-rows">
-          <div class="data-content-cell-growable">Star casino here we come</div>
-          <div class="data-content-cell-small">9pm</div>
-          <div class="data-content-cell-small">Sydney</div>
-          <div class="data-content-cell-small badge badge-pill badge-mates-joining d-flex align-items-center justify-content-center">Mates joining</div>
-          <a href="#who" class="make-card-clickable"></a>
-        </div>
       </div>
     </div>
   <% end %>
