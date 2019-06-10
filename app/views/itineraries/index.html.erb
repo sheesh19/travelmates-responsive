@@ -1,10 +1,7 @@
-<div class="page-container">
-  <div class="search__box">
-    <%= render 'shared/search/search_itineraries' %>
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>MOST FAVOURITED</h2>
   </div>
-
-  <h4>Most Favourited</h4>
-
   <div class="events__upcoming">
     <div class="card__grid">
         <% @itineraries.each do |itinerary| %>
@@ -34,9 +31,15 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class="search__box">
+  <%= render 'shared/search/search_itineraries' %>
+</div>
 
-  <h4>Latest</h4>
-
+<div class="page-container">
+  <div class="featured-title">
+    <h2>Latest</h2>
+  </div>
   <div class="events__upcoming">
     <div class="card__grid">
         <% @itineraries.each do |itinerary| %>

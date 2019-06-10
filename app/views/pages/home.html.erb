@@ -1,9 +1,11 @@
-<div class="container">
-  <div class="banner__image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-           url('<%= image_path Activity.all.sample(1)[0].photo %>')"></div>
-  <h1>Travel Mates</h1>
-
-  <p>Mix the best of traveling solo with the best of traveling with groups.</p>
-
-  <%= render "shared/components/button", variant: "filled", label: "GET STARTED", href: itineraries_path %>
+<div class="banner__image"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3),
+    rgba(0,0,0,0.2)),
+    url('<%= image_path Activity.all.sample(1)[0].photo %>')">
+  <div class="banner-container">
+    <p>Mix the best of traveling solo with the best of traveling with groups.</p>
+    <%= render "shared/components/button", variant: "filled", label: "GET STARTED", href: itineraries_path %>
+  </div>
 </div>
+
+

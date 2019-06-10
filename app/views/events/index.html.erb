@@ -1,15 +1,7 @@
-<div class="page-container">
-  <div class="search__box">
-    <%= render 'shared/search/search_events' %>
-  </div>
-</div>
-
-<div class="map">
-  <%= render 'shared/map' %>
-</div>
-
 <div class="container__featured">
-  <h4>Featured events</h4>
+  <div class="featured-title">
+    <h2>FEATURED EVENTS</h2>
+  </div>
     <div class="card__grid_x4">
       <% @events.first(3).each do |event| %>
         <div class="card map-card p-2" style="width: 18rem;">
@@ -25,7 +17,7 @@
             <h4 class="card-title">
               <%= event.title %>
             </h4>
-            <p class="card-title">
+            <p class="card-location">
               <i class="fas fa-map-marker-alt pr-1"></i>
               <%= event.location.city%>, <%= event.location.country %>
             </p>
@@ -37,6 +29,16 @@
       <% end %>
     </div>
 </div>
+
+<div class="search__box">
+  <%= render 'shared/search/search_events' %>
+</div>
+
+<div class="map">
+  <%= render 'shared/map' %>
+</div>
+
+
 
 <div class="page-container">
   <div class="events__upcoming">
@@ -55,7 +57,7 @@
             <h4 class="card-title">
               <%= event.title %>
             </h4>
-            <p class="card-title">
+            <p class="card-location">
               <i class="fas fa-map-marker-alt pr-1"></i>
               <%= event.location.city%>, <%= event.location.country %>
             </p>

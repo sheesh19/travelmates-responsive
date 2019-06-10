@@ -7,13 +7,51 @@
   align-content: center;
   vertical-align: baseline;
   border-bottom: $light-gray solid 1px;
-  padding-bottom: 4em;
+  // padding-bottom: 4em;
 }
 
 
 #query {
   border-radius: 4px;
-  width: 24em;
-  border: $form-border-gray solid 1px;
+  // width: 24em;
+  // border: $form-border-gray solid 1px;
 }
 
+.search__box {
+  background-color: $darkest-teal;
+  // border-color: $teal;
+}
+
+.search-banner-text {
+  color: $light-teal;
+  padding-bottom: 8px;
+  h1 {
+    font-size: 40px;
+    font-weight: 200;
+  }
+}
+
+
+.index-search {
+  width: 560px;
+  justify-item: center;
+  border: none;
+
+  form {
+    background-color: $almost-white;
+    border-radius: 4px;
+    width: 560px;
+    height: 52px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+  }
+  input {
+    width: 530px;
+    background-color: $almost-white;
+    height: 52px;
+    border: none;
+    border-radius: 4px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

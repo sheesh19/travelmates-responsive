@@ -1,21 +1,22 @@
 <div class="page-container">
-  <h1>Your travel plans</h1>
-
-  <div class="d-flex flex-row">
+  <div class="main-title">
+    <h1>Your travel plans</h1>
+  </div>
+  <div class="travel-planner d-flex">
     <div class="box-count">
       <!-- Upcoming Trip -->
-      <h3><%= current_user.itineraries.count %></h3>
-      <h6>Upcoming Trips</h6>
+      <h1><%= current_user.itineraries.count %></h1>
+      <h6>Upcoming trips</h6>
     </div>
     <div class="box-count">
       <!-- Number of Drafts -->
-      <h3><%= current_user.itineraries.count %> FIX ME! </h3>
-      <h6>Draft Trip Plans</h6>
+      <h1><%= current_user.itineraries.count %></h1>
+      <h6>Draft trip plan</h6>
     </div>
     <div class="box-count">
       <!-- Past Trips -->
-      <h3><%= current_user.itineraries.count %></h3>
-      <h6>Past Trips</h6>
+      <h1><%= current_user.itineraries.count %></h1>
+      <h6>Past trips</h6>
     </div>
   </div>
 

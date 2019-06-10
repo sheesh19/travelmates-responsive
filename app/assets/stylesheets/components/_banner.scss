@@ -1,17 +1,29 @@
 .banner {
-  height: 40vh;
+  height: 560px;
   width: 100%;
   background-image: linear-gradient(35deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 80%);
   background-size: cover;
 }
 
 .banner__image {
-  height: 40vh;
+  height: 560px;
   width: 100%;
   background-size: cover;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-position: center;
   position: relative;
+  filter: brightness(60%);
+}
+
+.banner-container {
+  justify-content: center;
+  align-items: center;
+  height: 560px;
+  padding: 200px 360px;
+  color: white;
+  p {
+    color: white;
+    font-size: 40px;
+  }
 }

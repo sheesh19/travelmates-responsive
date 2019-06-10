@@ -1,14 +1,11 @@
-<div class="page-container">
-  <div class="search__box">
-    <%= render 'shared/search/search_locations' %>
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>FEATURED DESTINATIONS</h2>
   </div>
-
-  <h4>Top 10 Locations</h4>
-
   <div class="">
     <!-- Card Carousel -->
     <div class="card__grid">
-      <% @locations.sort_by_events.each do |location| %>
+      <% @locations.sort_by_events.first(3).each do |location| %>
         <div class="card map-card" style="width: 24rem;">
           <%= render "shared/mapstatic" %>
           <div class="card-body px-4 pb-4 pt-0">
@@ -27,11 +24,15 @@
       <% end %>
     </div>
   </div>
-
-
-
+</div>
+<div class="search__box">
+  <%= render 'shared/search/search_locations' %>
+</div>
+<div class="page-container">
   <div>
-    <h4>Destination Discovery | FIX ME!</h4>
+    <div class="featured-title">
+      <h2>Destination Discovery | FIX ME!</h2>
+    </div>
     <div class="events__upcoming">
       <div class="card__grid">
         <% @locations.each do |location| %>
