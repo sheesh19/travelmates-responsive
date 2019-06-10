@@ -94,11 +94,11 @@ activity_list = [
 },
 {
   title: "Snorkeling",
-  photo: "https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg"
+  photo: "https://images.unsplash.com/photo-1499242611767-cf8b9be02854?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1480&q=80"
 },
 {
   title: "Scuba Diving",
-  photo: "https://images.unsplash.com/photo-1559600837-d0ced1da77d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1250&q=80"
+  photo: "https://www.dive.is/thumbs/diving-snorkeling-tours/diving-day-tours/silfra-diving-day-tour/colorful-clear-water-silfra-1800x1199.jpg"
 },
 {
   title: "Night Life",
@@ -195,7 +195,16 @@ activity_list = [
 {
   title: "Kayaking",
   photo: "https://images.unsplash.com/photo-1463694372132-6c267f6ba561?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80"
-}]
+},
+{
+  title: "Adrenaline Rush",
+  photo: "https://images.unsplash.com/photo-1526385604508-05e4e7f0bc61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80"
+},
+{
+  title: "Nature Tours",
+  photo: "https://images.unsplash.com/photo-1548429930-163885742a36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+}
+]
 
 Activity.create!(activity_list)
 puts "Created #{Activity.count} activit(y/ies)"
