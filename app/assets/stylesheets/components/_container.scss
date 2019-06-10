@@ -18,6 +18,11 @@
   margin-right: 40px;
 }
 
+.small-page-container {
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
 
 // Featured Container
 
@@ -39,7 +44,10 @@
 
 .container__dashboard {
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 8fr 4fr;
   flex-grow: 1;
   grid-gap: 16px;
 }
+
+
+
