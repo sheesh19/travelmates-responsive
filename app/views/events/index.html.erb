@@ -6,10 +6,49 @@
   <%= render 'shared/search/search_events' %>
 </div>
 
+<% if @query %>
+  <div>
+    <h4>Search results</h4>
+      <div class="card__grid">
+        <% if @events.any? %>
+          <% @events[0..@events.count].each do |event| %>
+        <div class="card map-card p-2" style="width: 18rem;">
+          <div class="card-body">
+            <div class= "card-date-heart d-flex justify-content-between">
+              <p class="card-text">
+                <%= event.start_date.strftime("%d %b %Y") %>
+              </p>
+              <div data-event-id="<%= event.id %>" class="event-heart-icon">
+                <%= render 'heart', event: event %>
+              </div>
+            </div>
+            <h4 class="card-title">
+              <%= event.title %>
+            </h4>
+            <p class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= event.location.city%>, <%= event.location.country %>
+            </p>
+            <div class="d-flex flex-row-reverse bd-highlight">
+              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <span>No results found</span>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+
 <div class="container__featured">
   <h4>Upcoming Events</h4>
     <div class="card__grid">
-      <% @events.first(3).each do |event| %>
+      <% @all_events.first(3).each do |event| %>
         <div class="card map-card p-2" style="width: 18rem;">
           <div class="card-body">
             <div class= "card-date-heart d-flex justify-content-between">
@@ -36,6 +75,7 @@
     </div>
 </div>
 
+
 <div class="map">
   <%= render 'shared/map' %>
 </div>
@@ -43,7 +83,7 @@
 <div class="events__upcoming">
   <h4>All Events</h4>
   <div class="card__grid">
-    <% @events.each do |event| %>
+    <% @all_events.each do |event| %>
       <div class="card map-card p-2" style="width: 18rem;">
         <div class="card-body">
           <div class= "card-date-heart d-flex justify-content-between">
