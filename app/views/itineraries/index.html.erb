@@ -4,20 +4,23 @@
   </div>
   <div class="events__upcoming">
     <div class="card__grid">
-        <% @itineraries.each do |itinerary| %>
+        <%# @itineraries.each do |itinerary| %>
+        <% @itineraries.most_popular_itineraries[0..2].each do |itinerary| %>
           <div class="card map-card" style="width: 24rem;">
             <div>
               <%= render "shared/mapstatic" %>
             </div>
             <div class="card-body px-4 pb-4 pt-0">
               <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-                <div>30 day plan FIX ME!</div>
-                  <div data-itinerary-id="<%= itinerary.id %>" class="itinerary-heart-icon">
-                    400 <%= render 'heart', itinerary: itinerary %>
+                <div>
+                  <%= itinerary[1].total_time %> day plan
+                </div>
+                  <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
+                    400 <%= render 'heart', itinerary: itinerary[1] %>
                 </div>
               </div>
               <h4 class="card-title">
-                <%= itinerary.title %>
+                <%= itinerary[1].title %>
               </h4>
               <span class="tag-outline">Scuba diving</span>
               <span class="tag-outline">Shark</span>

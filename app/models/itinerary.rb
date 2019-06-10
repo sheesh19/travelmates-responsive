@@ -1,6 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
-  has_many :events, -> { order "start_date" }
+  has_many :events, -> { order :start_date }
+  default_scope { order('start_date ASC') }
 
   validates_presence_of :start_date, :end_date, :title
   validate :start_date_cannot_be_in_the_past
@@ -14,9 +15,16 @@ class Itinerary < ApplicationRecord
     self.end_date
   end
 
-  # Work out top 10 Itineraries by number of times it is favourited
-  def top_itinerary_by_favorites
+  def total_time
+  difference = self.end_date - self.start_date
+  diff = difference.to_i / 86400
   end
+
+  def self.most_popular_itineraries
+    # Top ten itineraries by number of favs
+    Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
+  end
+
 
   private
 

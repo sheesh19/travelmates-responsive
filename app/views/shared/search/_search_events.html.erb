@@ -2,9 +2,8 @@
   <!-- Search bar -->
   <div class="search-banner-text"><h1><strong>Find events to join<strong></h1></div>
   <div class="index-search">
-    <%= form_tag(events_path, method: :get, placeholder: "Search") do %>
+    <%= form_tag(events_path, method: :get, placeholder: "Search events") do %>
       <%= text_field_tag :query %>
-      <%#= submit_tag 'Search' %>
       <%= link_to request.path do %>
         <i class="far fa-times-circle"></i>
       <% end %>
