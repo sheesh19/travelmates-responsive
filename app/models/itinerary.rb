@@ -4,7 +4,8 @@ class Itinerary < ApplicationRecord
   default_scope { order('start_date ASC') }
 
   validates_presence_of :start_date, :end_date, :title
-  validate :start_date_cannot_be_in_the_past
+  # Turned off validation so we can create seeds
+  # validate :start_date_cannot_be_in_the_past
   validate :end_date_is_after_start_date
 
                   #  0     1
