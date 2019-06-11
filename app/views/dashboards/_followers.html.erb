@@ -39,9 +39,8 @@
         <%= following.created_at.strftime("%d %b %Y") %>
       </div>
       <div data-user-id="<%= @users.find(following.following_id).id %>" class="user-heart-icon">
-        <%= link_to unfollow_user_path(@users.find(following.following_id)), method: :post, remote: true do %>
+        <%= link_to unfollow_user_path(@users.find(following.following_id)), method: :post do %>
         <i class="fas fa-heart"></i>
-        <% redirect_to dashboard#who %>
       <% end %>
       </div>
 

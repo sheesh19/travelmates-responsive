@@ -1,0 +1,14 @@
+<div class="data-rows">
+  <div class="data-content-cell">
+    <img src="/assets/<%= @users.find(following.following_id).avatar %>" class="avatar"></img>
+    <%= @users.find(following.following_id).first_name%>
+    <%= @users.find(following.following_id).last_name %>
+  </div>
+  <div class="data-content-cell-growable">
+    <%= following.created_at.strftime("%d %b %Y") %>
+  </div>
+  <div>
+    <i class="fas fa-user-check"></i>
+    <%= link_to "Unfollow", unfollow_user_path(following.following_id), method: :post, remote: true, class: "btn btn-unfill" %>
+  </div>
+</div>
