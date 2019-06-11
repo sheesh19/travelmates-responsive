@@ -25,7 +25,6 @@ class Itinerary < ApplicationRecord
     Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
   end
 
-
   private
 
   def start_date_cannot_be_in_the_past

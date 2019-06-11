@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :itineraries
+  has_many :interests
 
   has_many :events, through: :itineraries
   has_many :event_registrations

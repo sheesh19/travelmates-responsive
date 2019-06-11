@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 
   has_many :event_reviews
   has_many :event_registrations
+  has_many :tags, through: :event_tags
   default_scope { order('start_date ASC') }
 
   validates_presence_of :start_date, :end_date, :title
