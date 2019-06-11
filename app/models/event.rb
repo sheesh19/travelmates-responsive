@@ -35,6 +35,12 @@ class Event < ApplicationRecord
     max_spots - EventRegistration.where(event_id: id).count
   end
 
+  def list_of_mates
+    self.event_registrations.map do |registration|
+      [registration.user.username, registration.status]
+    end
+  end
+
   private
 
   def cancel
