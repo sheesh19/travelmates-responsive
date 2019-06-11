@@ -2,29 +2,70 @@
   <div class="sidebar-primary-button">
     <%= render "shared/components/button", variant: "filled", label: "+ NEW TRAVEL PLAN", href: new_itinerary_path %>
   </div>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- FIND A MATE -->
+  <% if current_page? events_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "FIND A MATE", events_path, class: "nav-link" %>
   </li>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- TRAVEL PLANNER -->
+  <% if current_page? user_itineraries_itineraries_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "TRAVEL PLANNER", user_itineraries_itineraries_path, class: "nav-link" %>
   </li>
-  <li class="nav-item-active">
+
+  <!-- DASHBOARD -->
+  <% if current_page? dashboard_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "DASHBOARD", dashboard_path, class: "nav-link" %>
   </li>
+
+  <!-- DIVIDER -->
   <div class="side-bar-divider"></div>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- SUGGESTIONS -->
+  <% if current_page? pages_explore_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "SUGGESTIONS", pages_explore_path, class: "nav-link" %>
   </li>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- ACTVITIES -->
+  <% if current_page? activities_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "ACTIVITIES", activities_path, class: "nav-link" %>
   </li>
-  <li class="nav-item nav-item-highlighht">
-    <%= link_to "EVENTS", events_path, class: "nav-link" %>
-  </li>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- ITINERARY -->
+  <% if current_page? itineraries_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "ITINERARIES", itineraries_path, class: "nav-link" %>
   </li>
-  <li class="nav-item nav-item-highlighht">
+
+  <!-- DESTINATIONS -->
+  <% if current_page? locations_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
     <%= link_to "DESTINATIONS", locations_path, class: "nav-link" %>
   </li>
 </ul>
