@@ -37,6 +37,10 @@ $small-cell-width-min: 144px;
   flex: 1;
 }
 
+.data-header-cell-small {
+  min-width: 144px;
+}
+
 .data-rows {
   display: flex;
   position: relative;
@@ -64,6 +68,18 @@ $small-cell-width-min: 144px;
 .data-content-cell-growable {
   font-weight: 600;
   flex: 1;
+  // DOESN'T WORK!!!
+  // display: -webkit-box;
+  // -webkit-line-clamp: 1;
+  // -webkit-box-orient: vertical;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0;
+    color: $medium-gray;
+  }
 }
 
 .data-table-date-header {

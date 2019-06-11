@@ -2,12 +2,17 @@
   <div class="user-info d-flex justify-space-around">
     <div><%= image_tag @itinerary.user.avatar, class: "avatar-large" %></div>
     <div class="ml-3 mb-3">
-      <p class="mb-0"><%= @itinerary.user.first_name %></p>
+      <p class="mb-0">
+        <strong>
+          <%= @itinerary.user.first_name %>
+          <%= @itinerary.user.last_name %>
+        </strong>
+      </p>
       <p class="mb-0">
         <%= @itinerary.user.age %>
         <%= @itinerary.user.gender.downcase %>
       </p>
     </div>
   </div>
-  <p><%= @itinerary.user.description %></p>
+  <p class="mb-0"><%= @itinerary.user.description %></p>
 </div>

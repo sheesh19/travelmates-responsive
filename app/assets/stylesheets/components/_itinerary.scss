@@ -2,3 +2,10 @@
   // display: flex;
   flex: 1;
 }
+
+#user_block {
+  padding: 32px;
+  border: solid 0.5px $form-border-gray;
+  border-radius: 8px;
+  // background-color: white;
+}
