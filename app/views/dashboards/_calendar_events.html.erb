@@ -4,7 +4,7 @@
 <%= month_calendar events: @user.itineraries do |date, itineraries| %>
   <%= date.day %>
   <% itineraries.each do |i| %>
-    <div><%= i.title %></div>
+    <div><i class="fas fa-plane"></i></div>
   <% end %>
 <% end %>
 
