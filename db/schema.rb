@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_235903) do
+ActiveRecord::Schema.define(version: 2019_06_10_235115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_235903) do
     t.index ["event_id"], name: "index_event_reviews_on_event_id"
   end
 
+  create_table "event_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_tags_on_event_id"
+    t.index ["tag_id"], name: "index_event_tags_on_tag_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "location_id"
     t.bigint "itinerary_id"
@@ -85,6 +94,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_235903) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_interests_on_tag_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
   create_table "itineraries", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
@@ -94,6 +112,8 @@ ActiveRecord::Schema.define(version: 2019_06_06_235903) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_type"
+    t.integer "visibility"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -115,6 +135,12 @@ ActiveRecord::Schema.define(version: 2019_06_06_235903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["itinerary_id"], name: "index_photos_on_itinerary_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -141,11 +167,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_235903) do
   add_foreign_key "event_registrations", "events"
   add_foreign_key "event_registrations", "users"
   add_foreign_key "event_reviews", "events"
+  add_foreign_key "event_tags", "events"
+  add_foreign_key "event_tags", "tags"
   add_foreign_key "events", "activities"
   add_foreign_key "events", "itineraries"
   add_foreign_key "events", "locations"
   add_foreign_key "favorite_itineraries", "itineraries"
   add_foreign_key "favorite_itineraries", "users"
+  add_foreign_key "interests", "tags"
+  add_foreign_key "interests", "users"
   add_foreign_key "itineraries", "users"
   add_foreign_key "photos", "itineraries"
 end
