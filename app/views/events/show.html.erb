@@ -41,7 +41,16 @@
       <!-- <div> -->
         <%#= render "events/event_registration" %>
       <!-- </div> -->
-      <%= link_to "Mate Up", itinerary_event_event_registrations_path(@event.itinerary, @event), class: "btn btn-outlined" %>
+
+      <!-- Button logic for Mate Up from NON OWNER perspective -->
+      <% if @event.start_date >= Date.today %>
+        <% if current_user.registered?(@event)%>
+          <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
+        <% else %>
+          <%= link_to "Mate Up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
+        <% end %>
+      <% end %>
+
     </div>
 
     <div>
@@ -64,7 +73,7 @@
                 <p><%= @event.itinerary.user.gender %></p>
               </div>
               <!-- Owner avatar -->
-              <div><%= image_tag "captain_cat.jpg", class: "avatar" %></div>
+              <div><%= image_tag @event.itinerary.user.avatar, class: "avatar" %></div>
             </div>
           </div>
           <div>
