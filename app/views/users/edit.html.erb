@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row d-flex justify-content-between">
+    <div>
+      <%= simple_form_for(current_user) do |f| %>
+        <div>
+          <%= image_tag current_user.avatar, class: "rounded-circle", style: "width: 150px" %>
+          <div>
+            <h4>
+              <%= f.input :first_name, placeholder: current_user.first_name, label: false %>
+              <%= f.input :last_name, placeholder: current_user.last_name, label: false %>
+            </h4>
+            <span class="tag-outline">Scuba Diving</span>
+            <span class="tag-outline">Boats</span>
+            <span class="tag-outline">Food</span>
+          </div>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="p-2">
+            <p><strong>About me</strong></p>
+            <p><%= f.input :description, as: :text, placeholder: current_user.description, label: false %></p>
+          </div>
+          <div class="p-2">
+            <p><strong>Date of birth</strong></p>
+            <p><%= f.input :date_of_birth, placeholder: current_user.date_of_birth, label: false %></p>
+          </div>
+          <div class="p-2">
+            <p><strong>Email address</strong></p>
+            <p><%= f.input :email, placeholder: current_user.email, label: false %></p>
+          </div>
+          <div class="p-2">
+            <p><strong>Password</strong></p>
+            <p><%= f.input :password, placeholder: current_user.password, label: false %></p>
+          </div>
+        </div>
+
+    </div>
+    <div>
+      <%= f.submit "Submit Changes", class: "btn btn-outlined"%>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
