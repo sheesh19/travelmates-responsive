@@ -1,6 +1,2 @@
-function renderUser(userHTML) {
-  const user = document.querySelector("[data-user='<%= @user.id %>']");
-  user.outerHTML = userHTML;
-}
-
-renderUser('<%= j render @user %>');
+var favoriteUserHeart = document.querySelector('.user-heart-icon[data-user-id="<%= @user.id %>"]');
+favoriteUserHeart.innerHTML = '<%= j render "users/user", user: @user %>'
