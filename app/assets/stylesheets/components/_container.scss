@@ -31,14 +31,20 @@
 .container__featured {
   height: auto;
   width: 100%;
-  // margin-bottom: 8%;
-  // padding-top: 2%;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 72px;
+  padding-right: 72px;
   padding-bottom: 24px;
   border-top: $light-gray solid 1px;
   border-bottom: $light-gray solid 1px;
   background-color: $almost-white;
+}
+
+.container__body {
+  height: auto;
+  width: 100%;
+  padding-left: 72px;
+  padding-right: 72px;
+  padding-bottom: 24px;
 }
 
 

@@ -8,19 +8,19 @@
     <!-- Card Carousel -->
     <div class="card__grid">
       <% @locations.sort_by_events.each do |location| %>
-        <div class="card map-card" style="width: 24rem;">
+        <div class="map-card">
           <%= render "shared/mapstatic" %>
           <div class="card-body px-4 pb-4 pt-0">
-            <h4 class="card-title">
+            <h2 class="card-title">
               <i class="fas fa-map-marker-alt pr-1"></i>
               <%= location.city %>, <%= location.country %>
-            </h4>
-            <div id="map-card-info">
+            </h2>
+            <div class="map-card-info">
               <i class="fas fa-info-circle"></i>
                 <!-- Number of events in this location coming up -->
                 <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
             </div>
-            </div>
+          </div>
           <%= link_to "", location_path(location), class: "make-card-clickable" %>
         </div>
       <% end %>
@@ -49,11 +49,11 @@
   <div class="featured-title">
     <h2>GET INSPIRED BY OTHERS</h2>
   </div>
-  <div class="events__upcoming">
+  <div class="">
     <!-- Card Carousel (?) -->
     <div class="card__grid">
       <% @itineraries.most_popular_itineraries[0..5].each do |itinerary| %>
-        <div class="card map-card" style="width: 24rem;">
+        <div class="card map-card">
           <div>
             <%= render "shared/mapstatic" %>
           </div>
@@ -64,15 +64,15 @@
                   400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
               </div>
             </div>
-            <h4 class="card-title">
+            <h2 class="card-title">
               <%= itinerary[1].title %>
-            </h4>
-            <span class="tag-outline">Scuba diving</span>
-            <span class="tag-outline">Shark</span>
-            <span class="tag-outline">Amazing</span>
-            <span class="tag-outline">Scuba diving</span>
-            <span class="tag-outline">Shark</span>
-            <span class="tag-outline">Amazing</span>
+            </h2>
+            <span class="tag-filled">Scuba diving</span>
+            <span class="tag-filled">Shark</span>
+            <span class="tag-filled">Amazing</span>
+            <span class="tag-filled">Scuba diving</span>
+            <span class="tag-filled">Shark</span>
+            <span class="tag-filled">Amazing</span>
           </div>
           <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
         </div>

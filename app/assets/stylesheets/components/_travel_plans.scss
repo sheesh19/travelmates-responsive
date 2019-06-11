@@ -14,24 +14,24 @@
 .box-count {
   height: auto;
   width: auto;
-  border: $lightish-gray solid 1px;
-  background-color: $almost-white;
+  border: $dark-teal solid 2px;
   color: $darkish-gray;
   padding: 16px 32px 32px 32px;
+  border-radius: 8px;
   flex: 1;
   h1 {
-    font-size: 80px;
+    font-size: 64px;
     padding-left: 16px;
-    color: $teal;
+    color: $dark-teal;
     margin-bottom: 0;
   }
   p {
     align-content: center;
     margin-bottom: 8px;
-    padding-left: 8px;
+    padding-left: 16px;
     font-size: 14px;
     font-weight: 400;
-    color: $medium-gray;
+    color: $dark-teal;
   }
   .active {
     color: $teal;

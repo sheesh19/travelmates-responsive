@@ -10,14 +10,16 @@
   // margin-bottom: 2%;
 }
 
-#map-static-image {
+.map-static-image {
   background: cover;
+  width: 304px;
+  height: 200px;
 }
 
 .card-map-img {
   display: inline-block;
-  width: auto;
-  height: auto;
+  width: 340px;
+  height: 100%;
   filter: brightness(90%)
 }
 

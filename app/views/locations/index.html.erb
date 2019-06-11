@@ -7,14 +7,14 @@
     <!-- Card Carousel -->
     <div class="card__grid">
       <% @locations.sort_by_events.first(3).each do |location| %>
-        <div class="card map-card" style="width: 24rem;">
+        <div class="map-card">
           <%= render "shared/mapstatic" %>
           <div class="card-body px-4 pb-4 pt-0">
-            <h4 class="card-title">
+            <h2 class="card-title">
               <i class="fas fa-map-marker-alt pr-1"></i>
               <%= location.city %>, <%= location.country %>
-            </h4>
-            <div id="map-card-info">
+            </h2>
+            <div class="map-card-info">
               <i class="fas fa-info-circle"></i>
                 <!-- Number of events in this location coming up -->
                 <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
@@ -28,68 +28,34 @@
 </div>
 
 <!-- Search bar -->
-<div class="search__box">
+<div>
   <%= render 'shared/search/search_locations' %>
 </div>
 
-<!-- Displays search results dynamically -->
-<% if @query %>
-  <div>
-    <h4>Search results</h4>
-      <div class="card__grid">
-        <% if @locations.any? %>
-          <% @locations[0..@locations.count].each do |location| %>
-      <div class="card map-card" style="width: 20rem;">
-        <%= render "shared/mapstatic" %>
-        <div class="card-body px-4 pb-4 pt-0">
-          <h4 class="card-title">
-            <i class="fas fa-map-marker-alt pr-1"></i>
-            <%= location.city %>, <%= location.country %>
-          </h4>
-          <div id="map-card-info">
-            <i class="fas fa-info-circle"></i>
-              <!-- Number of events in this location coming up -->
-              <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
-          </div>
-        </div>
-        <%= link_to "", location_path(location), class: "make-card-clickable" %>
-      </div>
-    <% end %>
-  </div>
-  <% else %>
-    <div>
-      <span>No results found</span>
-    </div>
-  <% end %>
-  </div>
-<% end %>
-
 <!-- ALL LOCATIONS -->
-<div class="page-container">
-  <div>
-    <div class="featured-title">
-      <h2>DESTINATION DISCOVERY</h2>
-    </div>
-    <div class="events__upcoming">
-      <div class="card__grid">
-        <% @locations.each do |location| %>
-          <div class="card map-card" style="width: 24rem;">
-            <%= render "shared/mapstatic" %>
-            <div class="card-body px-4 pb-4 pt-0">
-              <h4 class="card-title">
-                <i class="fas fa-map-marker-alt pr-1"></i>
-                <%= location.city %>, <%= location.country %>
-              </h4>
-              <div id="map-card-info">
-                <i class="fas fa-info-circle"></i>
-                  <!-- Number of events in this location coming up -->
-                  <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
-              </div>
+<div class="container__body">
+  <div class="featured-title">
+    <h2>DESTINATION DISCOVERY</h2>
+  </div>
+  <div class="">
+    <div class="card__grid">
+      <% @locations.each do |location| %>
+        <div class="map-card">
+          <%= render "shared/mapstatic" %>
+          <div class="card-body px-4 pb-4 pt-0">
+            <h2 class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= location.city %>, <%= location.country %>
+            </h2>
+            <div class="map-card-info">
+              <i class="fas fa-info-circle"></i>
+                <!-- Number of events in this location coming up -->
+                <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
             </div>
-            <%= link_to "", location_path(location), class: "make-card-clickable" %>
           </div>
-        <% end %>
-      </div>
+          <%= link_to "", location_path(location), class: "make-card-clickable" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
