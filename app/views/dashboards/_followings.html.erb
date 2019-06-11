@@ -1,0 +1,24 @@
+<strong>Followings <%= followings.count %></strong><br><br>
+<div class="data-table">
+  <div class="data-header">
+    <div class="data-header-cell">People</div>
+    <div class="data-content-cell-growable">Folowing since</div>
+  </div>
+  <% followings.each do |following| %>
+    <div class="data-rows">
+      <div class="data-content-cell">
+        <img src="/assets/<%= users.find(following.following_id).avatar %>" class="avatar"></img>
+        <%= users.find(following.following_id).first_name%>
+        <%= users.find(following.following_id).last_name %>
+      </div>
+      <div class="data-content-cell-growable">
+        <%= following.created_at.strftime("%d %b %Y") %>
+      </div>
+      <div data-user-id="<%= users.find(following.following_id).id %>" class="user-heart-icon">
+        <%= link_to unfollow_user_path(users.find(following.following_id)), method: :post, remote: true do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

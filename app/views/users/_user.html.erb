@@ -1,12 +1,14 @@
-<div data-user=<%= user.id %>>
+<div data-user-id="<%= user.id %>" class="user-heart-icon">
   <% unless user.id == current_user.id %>
-    <%= user.email %>
     <% if current_user.following?(user.id) %>
-      <i class="fas fa-user-check"></i>
-      <i>Following</i>
-
+      <%= link_to unfollow_user_path(user.id), method: :post, remote: true do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
     <% else %>
-      <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn-filled" %>
+      <%= link_to follow_user_path(user.id), method: :post, remote: true do %>
+        <i class="far fa-heart"></i>
+      <% end %>
     <% end %>
   <% end %>
 </div>
+
