@@ -24,13 +24,17 @@
   <div class="data-table">
     <div class="data-header">
       <div class="data-header-cell-growable">Name</div>
+      <div class="data-header-cell-growable">Description</div>
       <div class="data-header-cell">Travel dates</div>
       <div class="data-content-cell-small">Status</div>
     </div>
     <% current_user.itineraries.each do |itinerary| %>
       <div class="data-rows">
         <div class="data-content-cell-growable"><%= itinerary.title %></div>
-        <div class="data-content-cell"><%= itinerary.start_date.strftime("%d %b %Y")%> - <%= itinerary.end_date.strftime("%d %b %Y") %></div>
+        <div class="data-content-cell-growable"><%= itinerary.description %></div>
+        <div class="data-content-cell">
+          <%= itinerary.start_date.strftime("%d %b %Y")%> - <%= itinerary.end_date.strftime("%d %b %Y") %>
+        </div>
         <div class="data-content-cell-small">Confirmed | FIX ME!</div>
         <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
       </div>

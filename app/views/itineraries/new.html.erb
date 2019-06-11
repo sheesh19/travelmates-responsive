@@ -1,7 +1,7 @@
 <div class="main-title-width-reduced">
   <h1>Make a new travel plan</h1>
   <div class="breadcrumb">
-    <%= link_to itineraries_path do %>
+    <%= link_to user_itineraries_itineraries_path do %>
       <i class="fas fa-angle-left"></i>
       Back
     <% end %>
@@ -25,7 +25,7 @@
                   label: 'Name',
                   error: 'Enter a trip name',
                   placeholder: 'Give a name to your amazing trip',
-                  label_html: { class: "form-titltstylinge" },
+                  label_html: { class: "form-title" },
                   input_html: { class: "form-border" }
                   %>
                 <div class="form-date-range">
