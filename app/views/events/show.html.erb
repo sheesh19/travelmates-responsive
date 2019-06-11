@@ -1,14 +1,15 @@
 <div class="page-container">
-  <div class="breadcrumb">
-    <%= link_to request.referer.present? ? request.referer : default_path do %>
-      <i class="fas fa-angle-left"></i>
-      Back
-    <% end %>
+  <!-- EVENT TITLE -->
+  <div class="main-title">
+    <h1><%= @event.title %></h1>
+    <div class="breadcrumb">
+      <%= link_to request.referer.present? ? request.referer : default_path do %>
+        <i class="fas fa-angle-left"></i>
+        Back
+      <% end %>
+    </div>
   </div>
 
-  <div>
-    <h3><%= @event.title %></h3>
-  </div>
   <div class="container__dashboard">
     <div class="event-description-side">
       <!-- Event Description Placeholder -->
@@ -17,16 +18,64 @@
                  url('<%= image_path @event.activity.photo %>')">
         <!-- Placeholder! Carousel of Event Images -->
         </div>
-        <h4>Event Description</h4>
+        <h4>Event description</h4>
         <p><%= @event.description %></p>
-          <p>Dates:
-            <%= @event.start_date.strftime("%d %b %Y") %> to
+        <div class="d-flex">
+          <p>
+            <i class="far fa-calendar-alt pr-1"></i>
+            <%= @event.start_date.strftime("%d %b %Y") %> -
             <%= @event.end_date.strftime("%d %b %Y") %>
           </p>
-        <p>Maximum spots: <%= @event.max_spots %></p>
-        <p>Location: <%= @event.location.city %>, <%= @event.location.country %></p>
+          <p>
+            <i class="fas fa-user-friends pr-1 ml-5"></i>
+            <%= pluralize(@event.max_spots, "mate") %> needed
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt pr-1 ml-5"></i>
+            <%= @event.location.city %>, <%= @event.location.country %>
+          </p>
+        </div>
       </div>
+      <div class="horizontal-divider"></div>
+      <h4>About the organiser</h4>
+      <div>
+        <div class="organiser-info-header d-flex mb-3">
 
+          <!-- Organiser avatar -->
+          <div><%= image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
+          <!-- Organiser info -->
+          <div class="organiser-info d-flex align-items-center justify-content-between">
+            <div class="organiser-details ml-5">
+              <!-- Organiser details -->
+              <p>
+                <strong><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></strong>
+              </p>
+              <p><%= pluralize(@event.itinerary.user.age, "year") %> old</p>
+              <p><%= @event.itinerary.user.gender %></p>
+            </div>
+            <!-- Organiser rating -->
+            <div class="organiser-rating-box">
+              <div class="rating-section d-flex">
+                <div class="organiser-rating pr-2">4</div>
+                <span class="total-rating-score">/5</span>
+              </div>
+              <div>
+                <% 4.to_i.times do  %>
+                  <span class="review-star"><i class="fas fa-star solid"></i></span>
+                <% end %>
+                <% 1.to_i.times do  %>
+                  <span class="blank-star"><i class="far fa-star regular"></i></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="organiser-about-me">
+          An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty
+          <%= @event.itinerary.user.description  %>
+        </div>
+      </div>
+      <div class="horizontal-divider"></div>
       <div>
         <h6>Reviews from previous travel mates</h6>
       </div>
@@ -39,46 +88,77 @@
         <%#= render "events/event_registration" %>
       <!-- </div> -->
 
-      <!-- Button logic for Mate Up from NON OWNER perspective -->
-      <% if @event.start_date >= Date.today %>
-        <% if current_user.registered?(@event)%>
-          <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
-        <% else %>
-          <%= link_to "Mate Up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
-        <% end %>
-      <% end %>
-
     </div>
-
       <div>
-        <!-- Owner Description -->
-        <h6>About the organiser</h6>
         <div>
-          <!-- Owner Card -->
+          <!-- SIDE CARD -->
           <div>
-            <div>
-              <!-- Owner Top Card -->
-              <div>
-                <p><%= rand(0..5) %>/5 ⭐️</p>
-              </div>
-              <div>
-                <div>
-                  <!-- Owner Description Info -->
-                  <p><%= @event.itinerary.user.first_name %></p>
-                  <p><%= @event.itinerary.user.email %></p>
-                  <p><%= @event.itinerary.user.date_of_birth %></p>
-                  <p><%= @event.itinerary.user.gender %></p>
+            <!-- Side title section -->
+            <div class="event-side-title d-flex">
+              <!-- Name title -->
+              <div class="d-flex">
+                <!-- Organiser avatar -->
+                <div class="mr-3">
+                  <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
                 </div>
-                <!-- Owner avatar -->
-                <div><%= image_tag "captain_cat.jpg", class: "avatar" %></div>
+                <div>
+                  <!-- Organiser Name -->
+                  <p id="event-join-organiser-label" class="mb-0">Organised by</p>
+                  <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></p>
+                </div>
               </div>
-
-              <!-- Owner avatar -->
-              <div><%= image_tag @event.itinerary.user.avatar, class: "avatar" %></div>
+              <!-- Join button -->
+              <div id="event-join-button">
+                <!-- Button logic for Mate Up from NON OWNER perspective -->
+                <% if @event.start_date >= Date.today %>
+                  <% if current_user.registered?(@event)%>
+                    <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
+                  <% else %>
+                    <%= link_to "Mate up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-            <div>
-              <!-- Owner description paragraph -->
-              <p><%= @event.itinerary.user.description %></p>
+            <!-- Side bottom section -->
+            <div class="event-side-bottom">
+              <div id="event-date-time" class="d-flex">
+                <div id="event-date-card">
+                  <div id="event-day-text">
+                    <%= @event.start_date.strftime("%d") %>
+                  </div>
+                  <div id="event-month-text">
+                    <%= @event.start_date.strftime("%b") %>
+                  </div>
+                </div>
+                <div id="event-date-details" class="ml-5 align-items-center">
+                  <div><%= @event.start_date.strftime("%A, %d %b %Y") %></div>
+                  <div>
+                    <%= @event.start_time.strftime("%I:%M%p") %> -
+                    <%= @event.end_time.strftime("%I:%M%p") %>
+                  </div>
+                  <div id="event-location">
+                    <i class="fas fa-map-marker-alt event-location-icon"></i>
+                    <%= @event.location.city %>, <%= @event.location.country %>
+                  </div>
+                </div>
+              </div>
+              <div id="event-map">
+                <div class="map">
+                  <%= render 'shared/map' %>
+                </div>
+              </div>
+            </div>
+            <div id="remaining-spots" class="d-flex align-items-center justify-content-between">
+              <div class="mr-3">
+                <% if @event.spots_left == 0 %>
+                  "All spots taken"
+                <% else %>
+                  <%= pluralize(@event.spots_left, "spot") %> remaining
+                <% end %>
+              </div>
+              <div>
+                <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
+              </div>
             </div>
           </div>
         </div>

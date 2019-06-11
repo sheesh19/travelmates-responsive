@@ -17,31 +17,11 @@
       </div>
       <div class="data-content-cell-small">
       </div>
-      <a href="#who" class="make-card-clickable"></a>
+
     </div>
   </div>
 <% end %>
 
-<strong>Followings <%= @followings.count %></strong><br><br>
-<% @followings.each do |following| %>
-  <div class="data-table">
-    <div class="data-header">
-      <div class="data-header-cell">People</div>
-      <div class="data-content-cell-growable">Folowing since</div>
-    </div>
-    <div class="data-rows">
-      <div class="data-content-cell">
-        <img src="/assets/<%= @users.find(following.following_id).avatar %>" class="avatar"></img>
-        <%= @users.find(following.following_id).first_name%>
-        <%= @users.find(following.following_id).last_name %>
-      </div>
-      <div class="data-content-cell-growable">
-        <%= following.created_at.strftime("%d %b %Y") %>
-      </div>
-      <div>
-        <i class="fas fa-user-check"></i>
-      </div>
-      <a href="#who" class="make-card-clickable"></a>
-    </div>
-  </div>
-<% end %>
+<div class='user-followings'>
+  <%= render 'followings', users: @users, followings: @followings %>
+</div>
