@@ -3,41 +3,57 @@
     <h1>Your travel plans</h1>
   </div>
   <div class="travel-planner d-flex">
-    <div class="box-count">
+    <div class="box-count d-flex align-items-end mr-3">
       <!-- Upcoming Trip -->
-      <h1><%= current_user.itineraries.count %></h1>
-      <h6>Upcoming trips</h6>
+      <h1><%= current_user.itineraries.confirmed.count %></h1>
+      <p>Upcoming trips</p>
     </div>
-    <div class="box-count">
+    <div class="box-count d-flex align-items-end mr-3">
       <!-- Number of Drafts -->
-      <h1><%= current_user.itineraries.count %></h1>
-      <h6>Draft trip plan</h6>
+      <h1><%= current_user.itineraries.draft.count %></h1>
+      <p>Draft trip plan</p>
     </div>
-    <div class="box-count">
+    <div class="box-count d-flex align-items-end">
       <!-- Past Trips -->
       <h1><%= current_user.itineraries.count %></h1>
-      <h6>Past trips</h6>
+      <p>Past trips</p>
     </div>
   </div>
 
+  <div class="d-flex flex-row-reverse mb-4">
+    <%= render "shared/components/button", variant: "outlined", label: "+ Add another travel plan", href: new_itinerary_path %>
+  </div>
 
   <div class="data-table">
     <div class="data-header">
       <div class="data-header-cell-growable">Name</div>
-      <div class="data-header-cell-growable">Description</div>
+      <div class="data-header-cell-small">No. of events</div>
       <div class="data-header-cell">Travel dates</div>
       <div class="data-content-cell-small">Status</div>
     </div>
     <% current_user.itineraries.each do |itinerary| %>
       <div class="data-rows">
-        <div class="data-content-cell-growable"><%= itinerary.title %></div>
-        <div class="data-content-cell-growable"><%= itinerary.description %></div>
+        <div class="data-content-cell-growable">
+          <div><%= itinerary.title %></div>
+          <div><p><%= itinerary.description %></p></div>
+        </div>
+        <div class="data-content-cell-small">
+          <% if itinerary.events.count == 0 %>
+            <%= "-" %>
+          <% else %>
+            <%= itinerary.events.count %>
+          <% end %>
+        </div>
         <div class="data-content-cell">
           <%= itinerary.start_date.strftime("%d %b %Y")%> - <%= itinerary.end_date.strftime("%d %b %Y") %>
         </div>
-        <div class="data-content-cell-small">Confirmed | FIX ME!</div>
+        <div class="data-content-cell-small">
+          <%= itinerary.status.capitalize %>
+        </div>
         <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
       </div>
     <% end %>
   </div>
 </div>
+
+<div class="page-bottom-spacer"></div>
