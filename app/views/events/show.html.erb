@@ -20,45 +20,59 @@
         </div>
         <h4>Event description</h4>
         <p><%= @event.description %></p>
-          <p>Dates:
-            <%= @event.start_date.strftime("%d %b %Y") %> to
+        <div class="d-flex">
+          <p>
+            <i class="far fa-calendar-alt pr-1"></i>
+            <%= @event.start_date.strftime("%d %b %Y") %> -
             <%= @event.end_date.strftime("%d %b %Y") %>
           </p>
-        <p>Maximum spots: <%= @event.max_spots %></p>
-        <p>Location: <%= @event.location.city %>, <%= @event.location.country %></p>
+          <p>
+            <i class="fas fa-user-friends pr-1 ml-5"></i>
+            <%= pluralize(@event.max_spots, "mate") %> needed
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt pr-1 ml-5"></i>
+            <%= @event.location.city %>, <%= @event.location.country %>
+          </p>
+        </div>
       </div>
       <div class="horizontal-divider"></div>
       <h4>About the organiser</h4>
       <div>
         <div class="organiser-info-header d-flex mb-3">
-          <!-- Organiser rating -->
-          <div class="organiser-rating-box">
-            <div class="rating-section d-flex">
-              <div class="organiser-rating">4</div>
-              <span class="total-rating-score">/5</span>
-            </div>
-            <div>
-              <% 4.to_i.times do  %>
-                <span class="review-star"><i class="fas fa-star solid"></i></span>
-              <% end %>
-              <% 1.to_i.times do  %>
-                <span class="blank-star"><i class="far fa-star regular"></i></span>
-              <% end %>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class="ml-5">
-              <!-- Organiser description Info -->
-              <p><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></p>
+
+          <!-- Organiser avatar -->
+          <div><%= image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
+          <!-- Organiser info -->
+          <div class="organiser-info d-flex align-items-center justify-content-between">
+            <div class="organiser-details ml-5">
+              <!-- Organiser details -->
+              <p>
+                <strong><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></strong>
+              </p>
               <p><%= pluralize(@event.itinerary.user.age, "year") %> old</p>
               <p><%= @event.itinerary.user.gender %></p>
             </div>
-            <!-- Organiser avatar -->
-            <div><%= image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
+            <!-- Organiser rating -->
+            <div class="organiser-rating-box">
+              <div class="rating-section d-flex">
+                <div class="organiser-rating pr-2">4</div>
+                <span class="total-rating-score">/5</span>
+              </div>
+              <div>
+                <% 4.to_i.times do  %>
+                  <span class="review-star"><i class="fas fa-star solid"></i></span>
+                <% end %>
+                <% 1.to_i.times do  %>
+                  <span class="blank-star"><i class="far fa-star regular"></i></span>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
         <div class="organiser-about-me">
           An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty
+          <%= @event.itinerary.user.description  %>
         </div>
       </div>
       <div class="horizontal-divider"></div>
@@ -73,8 +87,6 @@
       <!-- <div> -->
         <%#= render "events/event_registration" %>
       <!-- </div> -->
-
-
 
     </div>
       <div>
