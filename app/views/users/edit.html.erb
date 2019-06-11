@@ -1,17 +1,21 @@
 <div class="container">
-  <div class="row d-flex justify-content-between">
+  <div class="description">
     <div>
       <%= simple_form_for(current_user) do |f| %>
         <div>
           <%= image_tag current_user.avatar, class: "rounded-circle", style: "width: 150px" %>
           <div>
             <h4>
-              <%= f.input :first_name, placeholder: current_user.first_name, label: false %>
-              <%= f.input :last_name, placeholder: current_user.last_name, label: false %>
+              <%= f.input :first_name, placeholder: current_user.first_name, label: false %><%= f.input :last_name, placeholder: current_user.last_name, label: false %>
             </h4>
-            <span class="tag-outline">Scuba Diving</span>
-            <span class="tag-outline">Boats</span>
-            <span class="tag-outline">Food</span>
+
+                <!-- Select Tags as checkboxes -->
+                <%#= f.association :interests,
+                                  collection: Tag.all.map { |tag| [tag.tag_name ] },
+                                  wrapper_html: { class: 'form-group' },
+                                  as: :check_boxes, label: false %>
+
+              <%#= f.association :interests, label_method: :interest, value_method: :id, include_blank: false %>
           </div>
         </div>
         <div class="d-flex flex-column">
@@ -27,10 +31,10 @@
             <p><strong>Email address</strong></p>
             <p><%= f.input :email, placeholder: current_user.email, label: false %></p>
           </div>
-          <div class="p-2">
+<!--           <div class="p-2">
             <p><strong>Password</strong></p>
-            <p><%= f.input :password, placeholder: current_user.password, label: false %></p>
-          </div>
+            <p><#%= f.input :password, placeholder: current_user.password, label: false %></p>
+          </div> -->
         </div>
 
     </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex justify-content-between">
+  <div class="description">
     <div>
       <div>
         <%= image_tag current_user.avatar, class: "rounded-circle", style: "width: 150px" %>
@@ -8,8 +8,8 @@
             <%= current_user.first_name %>
             <%= current_user.last_name %>
           </h4>
-          <% current_user.interests.each do |tag| %>
-            <span class="tag-outline"><%= Tag.find(tag).tag_name %></span>
+          <% current_user.tags.each do |tag| %>
+            <span class="tag-outline"><%= tag.tag_name %></span>
           <% end %>
         </div>
       </div>
@@ -26,10 +26,10 @@
           <p><strong>Email address</strong></p>
           <p><%= current_user.email %></p>
         </div>
-        <div class="p-2">
+<!--         <div class="p-2">
           <p><strong>Password</strong></p>
           <p>********</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <div>
