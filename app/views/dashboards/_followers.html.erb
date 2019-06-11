@@ -17,7 +17,7 @@
       </div>
       <div class="data-content-cell-small">
       </div>
-      <a href="#who" class="make-card-clickable"></a>
+
     </div>
   </div>
 <% end %>
@@ -38,10 +38,13 @@
       <div class="data-content-cell-growable">
         <%= following.created_at.strftime("%d %b %Y") %>
       </div>
-      <div>
-        <i class="fas fa-user-check"></i>
+      <div data-user-id="<%= @users.find(following.following_id).id %>" class="user-heart-icon">
+        <%= link_to unfollow_user_path(@users.find(following.following_id)), method: :post, remote: true do %>
+        <i class="fas fa-heart"></i>
+        <% redirect_to dashboard#who %>
+      <% end %>
       </div>
-      <a href="#who" class="make-card-clickable"></a>
+
     </div>
   </div>
 <% end %>
