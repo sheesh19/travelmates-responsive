@@ -31,6 +31,10 @@ class Event < ApplicationRecord
     max_spots == 0 || max_spots.nil?
   end
 
+  def spots_left
+    max_spots - EventRegistration.where(event_id: id).count
+  end
+
   private
 
   def cancel
