@@ -1,3 +1,6 @@
+
+<!-- Renders if the user is not the owner of the event -->
+
 <div class="event-side-title d-flex">
   <!-- Name title -->
   <div class="d-flex">
@@ -8,7 +11,7 @@
     <div>
       <!-- Organiser Name -->
       <p id="event-join-organiser-label" class="mb-0">Organised by</p>
-      <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></p>
+      <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.username %></p>
     </div>
   </div>
   <!-- Join button -->

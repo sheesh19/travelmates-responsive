@@ -34,13 +34,18 @@ const initMapbox = () => {
 
       } else {
         const markers = JSON.parse(mapElement.dataset.markers);
+        console.log(markers);
 
-        new mapboxgl.Marker(markers)
+        new mapboxgl.Marker()
           .setLngLat([ markers.lng, markers.lat ])
           .addTo(map);
+
+        const bounds = new mapboxgl.LngLatBounds();
+        bounds.extend([ markers.lng, markers.lat ]);
+        map.fitBounds(bounds, { padding: 70, maxZoom: 14 });
+
       }
     };
-  fitMapToMarkers(map, markers);
   map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
 };
 
