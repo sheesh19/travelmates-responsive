@@ -1,5 +1,6 @@
 puts "Clean database..."
 
+Tag.destroy_all
 EventRegistration.destroy_all
 EventFavorite.destroy_all
 Event.destroy_all
@@ -37,6 +38,163 @@ user_list = [
 }]
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
+
+# activities
+puts "Creating tags"
+tag_list = [
+{
+  tag_name: "I'm on a Boat"
+},
+{
+  tag_name: "History"
+},
+{
+  tag_name: "Night Life"
+},
+{
+  tag_name: "Swimming"
+},
+{
+  tag_name: "Mountains"
+},
+{
+  tag_name: "Hiking"
+},
+{
+  tag_name: "Markets"
+},
+{
+  tag_name: "Fashion"
+},
+{
+  tag_name: "Style"
+},
+{
+  tag_name: "Education"
+},
+{
+  tag_name: "Great Outdoors"
+},
+{
+  tag_name: "Adventure"
+},
+{
+  tag_name: "Foodie"
+},
+{
+  tag_name: "Nature"
+},
+{
+  tag_name: "Long Walks"
+},
+{
+  tag_name: "Water Activities"
+},
+{
+  tag_name: "Exploration"
+},
+{
+  tag_name: "Indoors"
+},
+{
+  tag_name: "Photography"
+},
+{
+  tag_name: "Off the Beaten Track"
+},
+{
+  tag_name: "South America"
+},
+{
+  tag_name: "North America"
+},
+{
+  tag_name: "Asia"
+},
+{
+  tag_name: "Africa"
+},
+{
+  tag_name: "Europe"
+},
+{
+  tag_name: "Pacific"
+},
+{
+  tag_name: "Middle East"
+},
+{
+  tag_name: "Latin America"
+},
+{
+  tag_name: "Animal Sightings"
+},
+{
+  tag_name: "Artsy"
+},
+{
+  tag_name: "Fancy"
+},
+{
+  tag_name: "Budget Friendly"
+},
+{
+  tag_name: "Drinks"
+},
+{
+  tag_name: "Techy"
+},
+{
+  tag_name: "Music"
+},
+{
+  tag_name: "Kid Friendly"
+},
+{
+  tag_name: "Trendy AF"
+},
+{
+  tag_name: "Sports"
+},
+{
+  tag_name: "Do Good"
+},
+{
+  tag_name: "Environmentally Friendly"
+},
+{
+  tag_name: "Adrenaline Rush"
+},
+{
+  tag_name: "Cultural Immersion"
+},
+{
+  tag_name: "Religious"
+},
+{
+  tag_name: "Relaxing"
+},
+{
+  tag_name: "Scuba Diving"
+},
+{
+  tag_name: "Snorkeling"
+},
+{
+  tag_name: "Kayaking"
+},
+{
+  tag_name: "Paddle Boarding"
+},
+{
+  tag_name: "Flying"
+},
+{
+  tag_name: "Cooking"
+},
+]
+Tag.create!(tag_list)
+puts "Created #{Tag.count} tag/s"
 
 # locations
 puts "Creating locations"
@@ -76,6 +234,41 @@ location_list = [
   latitude: 40.783076,
   longitude: -73.965334
 },
+{
+  city: "Koh Tao",
+  country: "Thailand",
+  state: "Thailand",
+  latitude: 10.101695,
+  longitude: 99.827190
+},
+{
+  city: "Hong Kong",
+  country: "China",
+  state: "Hong Kong",
+  latitude: 22.342605,
+  longitude: 114.193774
+},
+{
+  city: "Yoshinoyama",
+  country: "Japan",
+  state: "Nara",
+  latitude: 34.373577,
+  longitude: 135.854152
+},
+{
+  city: "San Francisco",
+  country: "USA",
+  state: "California",
+  latitude: 37.820192,
+  longitude: -122.478213
+},
+{
+  city: "Florence",
+  country: "Italy",
+  state: "Italy",
+  latitude: 43.776935,
+  longitude: 11.258739
+}
 ]
 Location.create!(location_list)
 puts "Created #{Location.count} location(s)"
@@ -222,12 +415,95 @@ puts "Creating itineraries"
 itinerary_list = [
 {
   user_id: User.first.id,
-  title: "Australia Trip",
-  start_date: "2019-10-15",
-  end_date: "2019-10-21",
-  description: "An ozzie adventure",
-  status: 0
-}]
+  title: "Le Wagon Full Stack Bootcamp",
+  start_date: "2019-04-15",
+  end_date: "2019-06-14",
+  description: "A Melbourne coding adventure",
+  status: 1,
+  visibility: 1,
+  trip_type: 1
+},
+{
+  user_id: User.first.id,
+  title: "Singapore Foodie Feast",
+  start_date: "2019-06-17",
+  end_date: "2019-06-21",
+  description: "A culinary tour of Singapore's finest hawker markets",
+  status: 0,
+  visibility: 1,
+  trip_type: 1
+},
+{
+  user_id: User.first.id,
+  title: "Thai Scuba Adventure",
+  start_date: "2019-06-24",
+  end_date: "2019-06-28",
+  description: "Best scuba diving spots in Thailand",
+  status: 1,
+  visibility: 0,
+  trip_type: 0
+},
+{
+  user_id: User.first.id,
+  title: "Hong Kong Shopping",
+  start_date: "2019-07-01",
+  end_date: "2019-07-05",
+  description: "Tasty Dim Sum and shopping fun!",
+  status: 1,
+  visibility: 1,
+  trip_type: 0
+},
+{
+  user_id: User.first.id,
+  title: "Yoshinoyama Cherry Blossoms",
+  start_date: "2019-07-08",
+  end_date: "2019-07-12",
+  description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
+  status: 1,
+  visibility: 0,
+  trip_type: 1
+},
+{
+  user_id: User.first.id,
+  title: "Sightseeing in San Francisco",
+  start_date: "2019-07-15",
+  end_date: "2019-07-19",
+  description: "Golden Gate Bridge and networking in Silicon Valley",
+  status: 0,
+  visibility: 0,
+  trip_type: 1
+},
+{
+  user_id: User.first.id,
+  title: "New York New York",
+  start_date: "2019-07-22",
+  end_date: "2019-07-26",
+  description: "Relaxing in the sun in Central Park",
+  status: 1,
+  visibility: 1,
+  trip_type: 0
+},
+{
+  user_id: User.first.id,
+  title: "London Fare",
+  start_date: "2019-07-29",
+  end_date: "2019-08-02",
+  description: "Afternoon tea in Mayfair",
+  status: 0,
+  visibility: 1,
+  trip_type: 0
+},
+{
+  user_id: User.first.id,
+  title: "Italian Cultural Tour",
+  start_date: "2019-08-05",
+  end_date: "2019-08-09",
+  description: "Food, Museums and Shopping",
+  status: 0,
+  visibility: 0,
+  trip_type: 0
+}
+]
 Itinerary.create!(itinerary_list)
 puts "Created #{Itinerary.count} itinerar(y/ies)"
 
