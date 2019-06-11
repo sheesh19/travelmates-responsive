@@ -33,10 +33,10 @@
 
 // Sidebar Active Button
 
-.nav-item-active {
-  border-right-color: $teal;
-  border-right-style: solid;
-  border-right-width: 4px;
+.active-bar {
+  border-left-color: $teal;
+  border-left-style: solid;
+  border-left-width: 4px;
   background-color: $lighest-teal;
   a {
     color: $teal;
