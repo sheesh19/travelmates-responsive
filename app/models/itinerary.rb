@@ -7,6 +7,11 @@ class Itinerary < ApplicationRecord
   validate :start_date_cannot_be_in_the_past
   validate :end_date_is_after_start_date
 
+                  #  0     1
+  enum status: %i[draft confirmed]
+  enum group_type: %i[solo group]
+  enum visibility: %i[private public]
+
   def start_time
     self.start_date
   end
