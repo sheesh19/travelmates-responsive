@@ -9,8 +9,8 @@ class Itinerary < ApplicationRecord
 
                   #  0     1
   enum status: %i[draft confirmed]
-  enum group_type: %i[solo grouped]
-  enum visibility: %i[hidden shared]
+  enum trip_type: %i[solo grouped]
+  enum visibility: %i[hidden visible]
 
   def start_time
     self.start_date
