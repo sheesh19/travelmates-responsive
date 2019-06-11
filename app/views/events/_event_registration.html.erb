@@ -1,15 +1,27 @@
-<div class="booking-container pb-3">
-  <%= simple_form_for [@event, @event_registration] url: itinerary_event_event_registrations_path, method: :create do |f|  %>
-    <!-- INPUT: START DATE -->
-    <%#= f.input :start_date, required: true, start_year: Date.today.year, error: 'A valid start date is required' %>
-    <%= f.input :status, required: true, error: 'Please submit your interest!' %>
-
-    <!-- Booking button -->
-    <div>
-      <%= f.submit "Mate Up", class: "btn btn-outlined mt-3", method: :post %>
+<div class="event-side-title d-flex">
+  <!-- Name title -->
+  <div class="d-flex">
+    <!-- Organiser avatar -->
+    <div class="mr-3">
+      <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
     </div>
-  <% end %>
-</div>
+    <div>
+      <!-- Organiser Name -->
+      <p id="event-join-organiser-label" class="mb-0">Organised by</p>
+      <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></p>
+    </div>
+  </div>
+  <!-- Join button -->
+  <div id="event-join-button">
+    <!-- Button logic for Mate Up from NON OWNER perspective -->
+    <% if @event.start_date >= Date.today %>
+      <% if current_user.registered?(@event)%>
+        <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
+      <% else %>
+        <%= link_to "Mate up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
+      <% end %>
+    <% end %>
+  </div>
 
-<%#= button_to "Ask to mate up", itinerary_event_event_registrations(@event.itinerary, @event, @event_registration :method => :post) %>
+</div>
 
