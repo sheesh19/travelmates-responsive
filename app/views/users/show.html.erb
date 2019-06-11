@@ -8,9 +8,9 @@
             <%= current_user.first_name %>
             <%= current_user.last_name %>
           </h4>
-          <span class="tag-outline">Scuba Diving</span>
-          <span class="tag-outline">Boats</span>
-          <span class="tag-outline">Food</span>
+          <% current_user.interests.each do |tag| %>
+            <span class="tag-outline"><%= Tag.find(tag).tag_name %></span>
+          <% end %>
         </div>
       </div>
       <div class="d-flex flex-column">
