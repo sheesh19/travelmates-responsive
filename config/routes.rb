@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: :show
 
   # resources :users
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :show, :edit, :update] do
     member do
       post :follow
       post :unfollow

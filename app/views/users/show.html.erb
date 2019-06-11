@@ -16,15 +16,15 @@
 <div class="d-flex flex-column">
   <div class="p-2">
     <p><strong>About me</strong></p>
-    <p>An adventurous and outgoing kitty</p>
+    <p><%= current_user.description %></p>
   </div>
   <div class="p-2">
     <p><strong>Date of birth</strong></p>
-    <p>16 Jan 2001</p>
+    <p><%= current_user.date_of_birth %></p>
   </div>
   <div class="p-2">
     <p><strong>Email address</strong></p>
-    <p>capt.cat@gmail.com</p>
+    <p><%= current_user.email %></p>
   </div>
   <div class="p-2">
     <p><strong>Password</strong></p>
