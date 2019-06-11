@@ -15,6 +15,9 @@ class EventRegistrationsController < ApplicationController
     @event_registration.status = 0
 
     if @event_registration.save
+      # trigger email notification
+      mail = UserMailer.with(user: current_user, event: @event).event_mate_up
+      mail.deliver_now
       redirect_to itinerary_event_path(@event.itinerary, @event)#, #flash[:notice] = 'Your mate up request is pending!'
     else
       render "events/show"
@@ -39,4 +42,5 @@ class EventRegistrationsController < ApplicationController
   def event_registration_params
     #params.require(:event_registration).permit({ user_id: current_user.id}, :event_id, { status: :pending })
   end
+
 end
