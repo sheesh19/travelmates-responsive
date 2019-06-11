@@ -1,64 +1,64 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
-</div>
-
 <div class="map">
   <%= render 'shared/map' %>
 </div>
 
-<div class="breadcrumb">
-  <%= link_to request.referer.present? ? request.referer : default_path do %>
-    <i class="fas fa-angle-left"></i>
-    Back
-  <% end %>
-</div>
-
-<div class="container">
-  <div class="d-flex row justify-content-between">
-    <div class="about">
-      <h3><%= @itinerary.title %></h3>
-      <p><%= @itinerary.total_time %> days </p>
-      <p><%= @itinerary.description %></p>
-      <span class="tag-outline">Scuba diving</span>
-      <span class="tag-outline">Shark</span>
-      <span class="tag-outline">Amazing</span>
-      <span class="tag-outline">Scuba diving</span>
-      <span class="tag-outline">Shark</span>
-      <span class="tag-outline">Amazing</span>
-    </div>
-    <div>
+<div class="travel-plan-banner">
+  <div class="small-page-container travel-plan-banner-container ">
+    <div class="d-flex row justify-content-between">
+      <div class="about">
+        <h3><%= @itinerary.title %></h3>
+        <p><%= @itinerary.total_time %> days </p>
+        <p><%= @itinerary.description %></p>
+        <span class="tag-outline">Scuba diving</span>
+        <span class="tag-outline">Shark</span>
+        <span class="tag-outline">Amazing</span>
+        <span class="tag-outline">Scuba diving</span>
+        <span class="tag-outline">Shark</span>
+        <span class="tag-outline">Amazing</span>
+      </div>
       <div>
-        <%= render @user %>
-        <%= render "shared/components/userinfo_block" %>
+        <div>
+          <%= render @user %>
+          <%= render "shared/components/userinfo_block" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<h4>Trip Timeline</h4>
+<div class="small-page-container">
+  <div class="main-title">
+    <h1>Trip Timeline</h1>
+  </div>
+  <div class="breadcrumb">
+    <%= link_to request.referer.present? ? request.referer : default_path do %>
+      <i class="fas fa-angle-left"></i>
+      Back
+    <% end %>
+  </div>
+  <div>
+    <%= render "shared/components/button", variant: "outlined", label: "Add an event", href: new_itinerary_event_path(@itinerary) %>
 
-<div>
-  <%= render "shared/components/button", variant: "outlined", label: "Add an event", href: new_itinerary_event_path(@itinerary) %>
+      <% @itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
 
-    <% @itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
-
-    <div class="data-table-grouped">
-      <div class="data-table-date-header">
-        <h5><%= eventgroup[0].strftime("%d %b %Y") %></h5>
+      <div class="data-table-grouped">
+        <div class="data-table-date-header">
+          <h5><%= eventgroup[0].strftime("%d %b %Y") %></h5>
+        </div>
+        <% eventgroup[1].each do |event| %>
+          <div class="data-table">
+            <div class="data-rows">
+              <div class="data-content-cell-growable"><%= event.title %></div>
+              <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
+              <div class="data-content-cell-small"><%= event.location.city %></div>
+              <%= render "shared/components/event_status_pill", event: event %>
+              <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
+            </div>
+        <% end %>
+        </div>
       </div>
-      <% eventgroup[1].each do |event| %>
-        <div class="data-table">
-          <div class="data-rows">
-            <div class="data-content-cell-growable"><%= event.title %></div>
-            <div class="data-content-cell-small"><%= event.start_date.strftime("%l:%M %P") %></div>
-            <div class="data-content-cell-small"><%= event.location.city %></div>
-            <%= render "shared/components/event_status_pill", event: event %>
-            <%= link_to "", itinerary_event_path(@itinerary, event), class: 'make-card-clickable'%>
-          </div>
-      <% end %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 

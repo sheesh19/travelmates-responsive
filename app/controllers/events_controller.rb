@@ -47,6 +47,7 @@ class EventsController < ApplicationController
   def new
     @itinerary = Itinerary.find(params[:itinerary_id])
     @event = Event.new
+    render layout: 'application_without_sidebar'
   end
 
   def edit
