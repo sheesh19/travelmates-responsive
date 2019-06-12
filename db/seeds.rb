@@ -203,8 +203,8 @@ location_list = [
   city: "Melbourne",
   country: "Australia",
   state: "Victoria",
-  latitude: -37.8136,
-  longitude: 144.96332
+  latitude: -37.8238,
+  longitude: 144.9913
 },
 {
   city: "Sydney",
