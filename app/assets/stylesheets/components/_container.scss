@@ -57,5 +57,17 @@
   grid-gap: 16px;
 }
 
+// Empty state container
 
-
+.empty-state-container {
+  height: 140px;
+  border: dashed 1px $gray-ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin: 0;
+    color: $medium-gray;
+  }
+}

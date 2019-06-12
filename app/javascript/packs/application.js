@@ -9,3 +9,5 @@ import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
 
 import "../plugins/date-picker";
+
+import "../plugins/multi-step-form";
