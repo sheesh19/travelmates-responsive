@@ -14,24 +14,24 @@
     <div class="event-description-side">
       <!-- Event Description Placeholder -->
       <div class="event-description-block">
-        <div class="banner__image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                 url('<%= image_path @event.activity.photo %>')">
+        <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= image_path @event.activity.photo %>')">
         <!-- Placeholder! Carousel of Event Images -->
         </div>
         <h4>Event description</h4>
         <p><%= @event.description %></p>
-        <div class="d-flex">
+        <div class="">
           <p>
             <i class="far fa-calendar-alt pr-1"></i>
             <%= @event.start_date.strftime("%d %b %Y") %> -
             <%= @event.end_date.strftime("%d %b %Y") %>
           </p>
           <p>
-            <i class="fas fa-user-friends pr-1 ml-5"></i>
+            <i class="fas fa-user-friends pr-1"></i>
             <%= pluralize(@event.max_spots, "mate") %> needed
           </p>
           <p>
-            <i class="fas fa-map-marker-alt pr-1 ml-5"></i>
+            <i class="fas fa-map-marker-alt pr-1"></i>
             <%= @event.location.city %>, <%= @event.location.country %>
           </p>
         </div>

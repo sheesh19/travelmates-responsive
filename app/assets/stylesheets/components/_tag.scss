@@ -9,7 +9,26 @@
   margin-right: 2px;
   margin-bottom: 8px;
   // Font
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 400;
+  color: $medium-gray;
+
+  display: inline-block;
+}
+
+.tag-filled {
+  // Borders
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 1em;
+  border-color: $light-gray;
+  background-color: $light-gray;
+  // Spacing
+  padding: 4px 8px 4px 8px;
+  margin-right: 2px;
+  margin-bottom: 8px;
+  // Font
+  font-size: 10px;
   font-weight: 400;
   color: $medium-gray;
 

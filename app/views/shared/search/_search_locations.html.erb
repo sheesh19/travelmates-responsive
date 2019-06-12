@@ -1,12 +1,47 @@
-<div class="search-banner justify-content-center">
-  <!-- Search bar -->
-  <div class="search-banner-text"><h1><strong>Discover destinations<strong></h1></div>
-  <div class="index-search">
-    <%= form_tag(locations_path, method: :get, placeholder: "Search locations") do %>
-      <%= text_field_tag :query %>
-      <%= link_to request.path do %>
-        <i class="far fa-times-circle"></i>
+<div class="search__box">
+  <div class="search-banner justify-content-center">
+    <!-- Search bar -->
+    <div class="search-banner-text"><h1><strong>Discover destinations<strong></h1></div>
+    <div class="index-search">
+      <%= form_tag(locations_path, method: :get, placeholder: "Search locations") do %>
+        <%= text_field_tag :query %>
+        <%= link_to request.path do %>
+          <i class="far fa-times-circle"></i>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
+
+
+<!-- Displays search results dynamically -->
+<% if @query %>
+  <div>
+    <h4>Search results</h4>
+      <div class="card__grid">
+        <% if @locations.any? %>
+          <% @locations[0..@locations.count].each do |location| %>
+      <div class="card map-card">
+        <%= render "shared/mapstatic" %>
+        <div class="card-body px-4 pb-4 pt-0">
+          <h2 class="card-title">
+            <i class="fas fa-map-marker-alt pr-1"></i>
+            <%= location.city %>, <%= location.country %>
+          </h2>
+          <div id="map-card-info">
+            <i class="fas fa-info-circle"></i>
+              <!-- Number of events in this location coming up -->
+              <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
+          </div>
+        </div>
+        <%= link_to "", location_path(location), class: "make-card-clickable" %>
+      </div>
+    <% end %>
+  </div>
+  <% else %>
+    <div>
+      <span>No results found</span>
+    </div>
+  <% end %>
+  </div>
+<% end %>
