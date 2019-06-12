@@ -1,9 +1,13 @@
 .avatar {
   width: 40px;
+  max-width: 40px;
+  max-height: 40px;
   border-radius: 50%;
 }
 .avatar-large {
   width: 56px;
+  max-width: 56px;
+  max-height: 56px;
   border-radius: 50%;
 }
 

@@ -4,6 +4,39 @@
   margin: 40px 0 40px 0;
 }
 
+.horizontal-page-divider {
+  height: 1px;
+  border: solid 0.5px $lightish-gray;
+}
+
+.page-top-margin {
+  margin-top: 64px;
+}
+
 .page-bottom-spacer {
   height: 160px;
+}
+
+.teal-background {
+  background-color: $teal;
+}
+
+.lighten-opacity {
+  opacity: 50%;
+}
+
+.dark-teal-background {
+  background-color: $dark-teal;
+}
+
+.almost-white-background {
+  background-color: $almost-white;
+}
+
+.dark-background {
+  background-color: $dark-gray;
+}
+
+.gray-background {
+  background-color: $light-gray;
 }
