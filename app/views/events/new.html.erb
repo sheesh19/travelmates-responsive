@@ -102,14 +102,18 @@
       <!-- FORM SECTION 3: PHOTOS -->
         <li class="step step-connection-line">
           <div class="step-title">
-            <h5>Upload photos</h5>
+            <h5>Upload a photo (optional)</h5>
             <div class="step-number">
               3
             </div>
           </div>
           <div class="step-content">
             <%= f.input :photo,
-                label_html: { class: "form-title" }%>
+              label: "Select and upload a file",
+              label_html: { class: "form-title" },
+              input_html: { class: "" },
+              wrapper_html: { class: "empty-state-container" }
+              %>
             <%= f.input :photo_cache, as: :hidden %>
             <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->
             <div class="step-action">
@@ -117,7 +121,9 @@
             </div>
           </div>
         </li>
-        <%= f.submit "Save and create", class: 'btn btn-filled mr-0 d-flex flex-row-reverse' %>
+        <div class="d-flex flex-row-reverse">
+          <%= f.submit "Save and create", class: 'btn btn-filled mr-0' %>
+        </div>
         <% end %>
       </ul>
   </div>
