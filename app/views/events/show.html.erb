@@ -76,13 +76,13 @@
             </div>
           </div>
         </div>
-        <div class="organiser-about-me">
+        <div class="organiser-about-me mb-5">
           <%= @event.itinerary.user.description  %>
         </div>
       </div>
-      <div class="horizontal-divider"></div>
+
       <div>
-        <h6>Reviews from previous travel mates</h6>
+        <%= render 'shared/event_reviews' %>
       </div>
     </div>
 

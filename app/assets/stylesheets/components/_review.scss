@@ -1,0 +1,39 @@
+.individual-review-title {
+  font-size: 18px;
+  padding-bottom: 8px;
+}
+
+.review-card {
+  border-top: 0.5px solid $light-gray;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.name-date-info {
+  padding-left: 16px;
+}
+
+.name-date-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.name-date-info p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.review-star i {
+  color: $gold;
+  &:hover {
+    color: $gold;
+  }
+}
+
+.blank-star i {
+  color: $medium-gray;
+}
