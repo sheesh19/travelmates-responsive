@@ -18,7 +18,8 @@
           <%= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
-        <span id="navbar__welcome">Welcome back, <%= current_user.first_name %>!</span>
+        <span id="navbar__welcome">Welcome back, </span>
+        <p id="sidebar__name"><%= current_user.first_name %></p>
       </li>
     <% else %>
       <li class="nav-item">
