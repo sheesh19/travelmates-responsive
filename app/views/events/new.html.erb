@@ -108,7 +108,10 @@
             </div>
           </div>
           <div class="step-content">
-            PHOTO UPLOAD
+            <%= f.input :photo,
+                label_html: { class: "form-title" }%>
+            <%= f.input :photo_cache, as: :hidden %>
+            <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->
             <div class="step-action">
               <%= render "shared/components/button", variant: "outlined", label: "Continue", href: "#" %>
             </div>

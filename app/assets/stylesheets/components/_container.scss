@@ -59,6 +59,7 @@
 
 // Empty state container
 
+
 .empty-state-container {
   height: 140px;
   border: dashed 1px $gray-ccc;
@@ -70,4 +71,12 @@
     margin: 0;
     color: $medium-gray;
   }
+}
+
+// Profile Container
+
+.user-description {
+  width: 80%;
+  padding-top: 2rem;
+  text-align: center;
 }

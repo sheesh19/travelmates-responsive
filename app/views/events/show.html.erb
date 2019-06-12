@@ -14,10 +14,16 @@
     <div class="event-description-side">
       <!-- Event Description Placeholder -->
       <div class="event-description-block">
-        <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= image_path @event.activity.photo %>')">
+        <% if @event.photo.present? %>
+          <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= image_path @event.photo %>')">
+          </div>
+        <% else %>
+          <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= cl_image_path @event.activity.photo %>')">
+          </div>
+        <% end %>
         <!-- Placeholder! Carousel of Event Images -->
-        </div>
         <h4>Event description</h4>
         <p><%= @event.description %></p>
         <div class="">
@@ -71,7 +77,6 @@
           </div>
         </div>
         <div class="organiser-about-me">
-          An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty An adventurous and outgoing kitty
           <%= @event.itinerary.user.description  %>
         </div>
       </div>
@@ -94,31 +99,12 @@
           <!-- SIDE CARD -->
           <div>
             <!-- Side title section -->
-            <div class="event-side-title d-flex">
-              <!-- Name title -->
-              <div class="d-flex">
-                <!-- Organiser avatar -->
-                <div class="mr-3">
-                  <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
-                </div>
-                <div>
-                  <!-- Organiser Name -->
-                  <p id="event-join-organiser-label" class="mb-0">Organised by</p>
-                  <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></p>
-                </div>
-              </div>
-              <!-- Join button -->
-              <div id="event-join-button">
-                <!-- Button logic for Mate Up from NON OWNER perspective -->
-                <% if @event.start_date >= Date.today %>
-                  <% if current_user.registered?(@event)%>
-                    <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
-                  <% else %>
-                    <%= link_to "Mate up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
+            <% if @event.itinerary.user == current_user %>
+              <%= render 'event_registration_owner' %>
+            <% else %>
+              <%= render 'event_registration' %>
+            <% end %>
+
             <!-- Side bottom section -->
             <div class="event-side-bottom">
               <div id="event-date-time" class="d-flex">
@@ -133,8 +119,8 @@
                 <div id="event-date-details" class="ml-5 align-items-center">
                   <div><%= @event.start_date.strftime("%A, %d %b %Y") %></div>
                   <div>
-                    <%= @event.start_time.strftime("%I:%M%p") %> -
-                    <%= @event.end_time.strftime("%I:%M%p") %>
+                    <%= @event.start_time.strftime("%I:%M %p") %> -
+                    <%= @event.end_time.strftime("%I:%M %p") %>
                   </div>
                   <div id="event-location">
                     <i class="fas fa-map-marker-alt event-location-icon"></i>

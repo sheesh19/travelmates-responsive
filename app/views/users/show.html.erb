@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="user-description">
+    <div>
+      <div>
+        <%= image_tag current_user.avatar, class: "rounded-circle", style: "width: 150px" %>
+        <div>
+          <h4>
+            <%= current_user.first_name %>
+            <%= current_user.last_name %>
+          </h4>
+          <% current_user.tags.each do |tag| %>
+            <span class="tag-outline"><%= tag.tag_name %></span>
+          <% end %>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div class="p-2">
+          <p><strong>About me</strong></p>
+          <p><%= current_user.description %></p>
+        </div>
+        <div class="p-2">
+          <p><strong>Date of birth</strong></p>
+          <p><%= current_user.date_of_birth %></p>
+        </div>
+        <div class="p-2">
+          <p><strong>Email address</strong></p>
+          <p><%= current_user.email %></p>
+        </div>
+<!--         <div class="p-2">
+          <p><strong>Password</strong></p>
+          <p>********</p>
+        </div> -->
+      </div>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-outlined" %>
+    </div>
+  </div>
+</div>
+
