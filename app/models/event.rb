@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :location
   belongs_to :itinerary
   belongs_to :activity
