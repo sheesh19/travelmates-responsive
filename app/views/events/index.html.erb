@@ -30,7 +30,11 @@
                 </div>
               </div>
               <div class="reminder-map">
-                <%= render "shared/mapstatic" %>
+                <% if event.photo.present? %>
+                  <%= cl_image_tag event.photo, class: "photo-card"%>
+                <% else %>
+                  <%= render "shared/mapstatic" %>
+                <% end %>
               </div>
             </div>
             <div class="event-pill-expandable reminder-organiser-avatar">
