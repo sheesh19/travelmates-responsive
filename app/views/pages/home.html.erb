@@ -3,8 +3,12 @@
     rgba(0,0,0,0.5)),
     url('<%= image_path Activity.all.sample(1)[0].photo %>')">
   <div class="banner-container">
-    <p>Mix the best of traveling solo with group travel</p>
-    <%= render "shared/components/button", variant: "outlined", label: "Get Started", href: itineraries_path %>
+    <p>Mix the best of solo travelling with group travel</p>
+    <% if user_signed_in? %>
+      <%= render "shared/components/button", variant: "outlined", label: "Get Started", href: itineraries_path %>
+    <% else %>
+      <%= render "shared/components/button", variant: "outlined", label: "Get Started", href: new_user_registration_path %>
+    <% end %>
   </div>
 </div>
 
