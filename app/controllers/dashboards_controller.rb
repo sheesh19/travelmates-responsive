@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
 
   def show
     @users = User.all
+    @events = @user.itineraries.map(&:events).flatten
     @total_events = @user.itineraries.map { |iti| iti.events.count }.reduce(&:+)
     @favorite_itineraries = FavoriteItinerary.where(user_id: @user.id)
     @event_favorites = EventFavorite.where(user_id: @user.id)

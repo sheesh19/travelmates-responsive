@@ -1,0 +1,16 @@
+<!-- Renders if the user is the owner -->
+
+<div class="event-side-title d-flex">
+  <!-- Name title -->
+  <div class="d-flex">
+    <!-- Organiser avatar -->
+    <div class="mr-3">
+      <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
+    </div>
+    <div>
+      <!-- Organiser Name -->
+      <%= render "shared/components/event_status_pill", event: @event %>
+    </div>
+  </div>
+
+</div>

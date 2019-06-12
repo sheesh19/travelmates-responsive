@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :itineraries
   has_many :interests
+  has_many :tags, through: :interests
 
   has_many :events, through: :itineraries
   has_many :event_registrations

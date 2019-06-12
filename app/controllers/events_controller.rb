@@ -98,7 +98,8 @@ class EventsController < ApplicationController
       :end_date,
       :max_spots,
       :description,
-      :title
+      :title,
+      :photo
     )
   end
 end

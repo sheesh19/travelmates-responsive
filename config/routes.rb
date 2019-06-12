@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: :show
 
   # resources :users
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :show, :edit, :update] do
     member do
       post :follow
       post :unfollow
@@ -23,8 +23,12 @@ Rails.application.routes.draw do
     # Nested Event
     resources :events, except: [ :index ] do
       resources :event_reviews, only: [ :create, :show, :new ]
-      resources :event_registrations, only: [ :create, :show, :new, :update ]
       resources :event_favorites, only: :create
+      resources :event_registrations, only: [ :create, :show, :new, :update ] do
+        member do
+          patch :approve
+        end
+      end
 
       member do
         patch :cancel

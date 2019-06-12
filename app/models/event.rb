@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :location
   belongs_to :itinerary
   belongs_to :activity
@@ -33,6 +34,12 @@ class Event < ApplicationRecord
 
   def spots_left
     max_spots - EventRegistration.where(event_id: id).count
+  end
+
+  def list_of_mates
+    self.event_registrations.map do |registration|
+      registration
+    end
   end
 
   private
