@@ -4,7 +4,7 @@ class EventRegistration < ApplicationRecord
 
   validates :user, uniqueness: { scope: :event, message: "You've already signed up!" }
   #                 0      1        2
-  enum status: %i[pending approved cancelled]
+  enum status: %i[Pending Approved Cancelled]
 
   def approve
     update(status: :approved)

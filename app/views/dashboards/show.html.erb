@@ -12,7 +12,7 @@
       </li>
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">
-          Open listing ()
+          Open listings (<%= current_user.num_listings %>)
         </a>
       </li>
       <li class="nav-item">
@@ -23,7 +23,7 @@
       </li>
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-followers-tab" data-toggle="pill" href="#pills-followers" role="tab" aria-controls="pills-follower" aria-selected="false">
-          Followers(<%= @followers.count %>)
+          Followers (<%= @followers.count %>)
         </a>
         <!-- count will need updating once favourite events and users are added -->
       </li>

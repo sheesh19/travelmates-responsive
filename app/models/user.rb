@@ -54,6 +54,10 @@ class User < ApplicationRecord
     event_registrations.where(event: event).first
   end
 
+  def num_listings
+    self.events.map {|event| event.event_registrations.count}.reduce(&:+)
+  end
+
   def age
     today = Date.today
     age = today.year - date_of_birth.year

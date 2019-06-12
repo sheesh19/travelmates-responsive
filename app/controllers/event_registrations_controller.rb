@@ -27,7 +27,7 @@ class EventRegistrationsController < ApplicationController
   def update
     @event_registration.update(event_registration_params)
     if @event_registration.save
-      redirect_to itinerary_event_path(@event_registration.event.itinerary, @event_registration.event)
+      redirect_to dashboard_path
     else
       render :edit
     end

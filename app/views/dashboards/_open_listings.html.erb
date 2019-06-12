@@ -4,24 +4,24 @@
     <% event.list_of_mates.each do |regis| %>
       <% if regis.status.present? %>
 
-        <div class="data-table">
+        <div class="data-table listing">
           <div class="data-header">
             <div class="data-header-cell">Potential Mate</div>
-            <div class="data-header-cell-growable">Current Status</div>
+            <div class="data-header-cell">Event</div>
+            <div class="data-header-cell">Status</div>
           </div>
           <div class="data-rows">
             <div class="data-content-cell">
-
               <%= image_tag regis.user.avatar, class: "avatar" %>
               <%= regis.user.username %>
             </div>
             <div class="data-content-cell">
-              <%= regis.status %>
+              <%= regis.event.title %>
             </div>
-            <div class="data-content-cell-growable">
+            <div class="data-content-cell">
             <%= simple_form_for [regis.event.itinerary, regis.event, regis] do |f|  %>
               <!-- INPUT: START DATE -->
-              <%= f.input :status, collection: EventRegistration.statuses.keys, label_html: { class: "form-title" } %>
+              <%= f.input :status, collection: EventRegistration.statuses.keys, label_html: { class: "form-title" }, label: false %>
               <div class="data-content-cell-small">
                 <%= f.submit "Save", class: "btn btn-outlined", method: :patch %>
               </div>
