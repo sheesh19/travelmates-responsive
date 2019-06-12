@@ -7,14 +7,17 @@ class ItinerariesController < ApplicationController
 
     # add @favorite_itinerary to index
     @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
-
+    # required for search
     unless params[:query].nil?
       @query = true
       sql_query = " \
       itineraries.title ILIKE :query \
       OR itineraries.description ILIKE :query \
+      OR locations.city ILIKE :query \
+      OR locations.country ILIKE :query\
+      OR locations.state ILIKE :query\
       "
-      @itineraries = Itinerary.where(sql_query, query: "%#{params[:query]}%")
+      @itineraries = Itinerary.joins(events: :location).where(sql_query, query: "%#{params[:query]}%")
     else
       @query = false
       @itineraries = Itinerary.all
