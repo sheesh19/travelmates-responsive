@@ -13,6 +13,8 @@ class EventsController < ApplicationController
       sql_query = " \
       events.title ILIKE :query \
       OR locations.city ILIKE :query \
+      OR locations.country ILIKE :query\
+      OR locations.state ILIKE :query\
       "
       @events = Event.joins(:location).where(sql_query, query: "%#{params[:query]}%")
     else
