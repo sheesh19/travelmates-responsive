@@ -120,7 +120,7 @@
 .photo-card {
   // Dimension
   height: 180px;
-  width: 20rem;
+  width: 100%;
   background-size: cover;
   // Position
   display: flex;
@@ -149,6 +149,9 @@
 .event-card {
   // Border
   border-radius: 8px;
+  border: solid 1px $teal;
+  background-color: $almost-white;
+  width: 100%;
   h4 {
     font-size: 20px;
     font-weight: 550;
@@ -167,8 +170,9 @@
 .event-card-info {
   height: 80px;
   h2 {
-    font-size: 22px;
-    color: $dark-teal;
+    font-size: 20px;
+    color: $teal;
+    font-weight: 600;
   }
   p {
     color: $medium-gray;
@@ -241,7 +245,7 @@
   overflow: hidden;
   position: relative;
   flex: 1;
-  width: auto;
+  width: 100%;
   height: auto;
   flex-direction: column;
   min-width: 0;

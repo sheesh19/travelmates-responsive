@@ -55,3 +55,30 @@
     }
   }
 }
+
+.index-search-home {
+  width: 360px;
+  justify-item: center;
+  padding-bottom: 16px;
+  border-radius: 64px;
+
+  form {
+    background-color: $almost-white;
+    border-radius: 64px;
+    border: solid 1px $form-border-gray;
+    width: 360px;
+    height: 36px;
+  }
+  input {
+    width: 320px;
+    background-color: transparent;
+    height: 36px;
+    border: none;
+    border-radius: 64px;
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+

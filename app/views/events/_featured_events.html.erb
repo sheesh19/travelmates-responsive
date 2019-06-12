@@ -1,6 +1,6 @@
 <div class="card__grid">
   <% @events.first(3).each do |event| %>
-    <div class="card map-card p-2" style="width: 18rem;">
+    <div class="card event-card p-2">
       <div class="card-body">
         <div class= "card-date-heart d-flex justify-content-between">
           <p class="card-text">
@@ -21,7 +21,7 @@
           </p>
         </div>
         <div class="d-flex flex-row-reverse bd-highlight">
-          <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
+          <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
         </div>
       </div>
     </div>

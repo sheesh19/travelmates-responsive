@@ -1,83 +1,149 @@
-<div class="page-container">
-
-  <!-- LOCATIONS -->
-  <div class="featured-title">
-    <h2>DISCOVER DESTINATIONS</h2>
+<!-- UPCOMING EVENTS -->
+<div class="container__featured pt-4 pb-5 dark-teal-background">
+  <div class="featured-title-home-white d-flex justify-content-between align-items-center">
+    <h2>UPCOMING EVENTS</h2>
+    <%= link_to "See all", events_path, class: "btn btn-outlined" %>
   </div>
-  <div class="">
-    <!-- Card Carousel -->
-    <div class="card__grid">
-      <% @locations.sort_by_events.each do |location| %>
-        <div class="map-card">
-          <%= render "shared/mapstatic" %>
-          <div class="card-body px-4 pb-4 pt-0">
-            <h2 class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= location.city %>, <%= location.country %>
-            </h2>
-            <div class="map-card-info">
-              <i class="fas fa-info-circle"></i>
-                <!-- Number of events in this location coming up -->
-                <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
-            </div>
-          </div>
-          <%= link_to "", location_path(location), class: "make-card-clickable" %>
-        </div>
-      <% end %>
+  <!-- Search bar -->
+  <!-- <div class="index-search-home justify-content-center">
+    <div class="index-search-home">
+      <%#= form_tag(events_path, method: :get, placeholder: "Search events") do %>
+        <%#= text_field_tag :query %>
+        <%#= link_to request.path do %>
+          <i class="far fa-times-circle"></i>
+        <%# end %>
+      <%# end %>
     </div>
-  </div>
+  </div> -->
+  <%= render 'events/featured_events' %>
+</div>
 
-  <!-- ACTIVITIES -->
-  <div class="featured-title">
-    <h2>DO MORE THINGS</h2>
-  </div>
-
-  <div class="card__grid">
-    <% @activities.most_popular_activities[0..2].each do |activity| %>
-      <div
-        class="photo-card"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)),
-          url('<%= image_path activity[1].photo %>')">
-        <%= activity[1].title %>
-        <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+<!-- ACTIVITIES -->
+<div class="">
+  <div class="page-container-home">
+    <div class="featured-title-home d-flex justify-content-between align-items-center">
+      <h2>FIND THINGS TO DO</h2>
+      <%= link_to "See all", activities_path, class: "btn btn-outlined" %>
+    </div>
+    <!-- Search bar -->
+<!--     <div class="index-search-home justify-content-center">
+      <div class="index-search-home">
+        <%#= form_tag(activities_path, method: :get, placeholder: "Search activities") do %>
+          <%#= text_field_tag :query %>
+          <%#= link_to request.path do %>
+            <i class="far fa-times-circle"></i>
+          <%# end %>
+        <%# end %>
       </div>
-    <% end %>
-  </div>
+    </div> -->
 
-  <!-- ITINERARY -->
-  <div class="featured-title">
-    <h2>GET INSPIRED BY OTHERS</h2>
-  </div>
-  <div class="">
-    <!-- Card Carousel (?) -->
     <div class="card__grid">
-      <% @itineraries.most_popular_itineraries[0..5].each do |itinerary| %>
-        <div class="card map-card">
-          <div>
-            <%= render "shared/mapstatic" %>
-          </div>
-          <div class="card-body px-4 pb-4 pt-0">
-            <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-              <div><%= itinerary[1].total_time %> day plan</div>
-                <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                  400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
-              </div>
-            </div>
-            <h2 class="card-title">
-              <%= itinerary[1].title %>
-            </h2>
-            <span class="tag-filled">Scuba diving</span>
-            <span class="tag-filled">Shark</span>
-            <span class="tag-filled">Amazing</span>
-            <span class="tag-filled">Scuba diving</span>
-            <span class="tag-filled">Shark</span>
-            <span class="tag-filled">Amazing</span>
-          </div>
-          <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
+      <% @activities.most_popular_activities[0..2].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity[1].photo %>')">
+          <%= activity[1].title %>
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
         </div>
       <% end %>
     </div>
   </div>
+</div>
 
+<div class="horizontal-page-divider"></div>
+
+
+<!-- LOCATIONS -->
+<div class="almost-white-background">
+  <div class="page-container-home">
+    <div class="featured-title-home d-flex justify-content-between align-items-center">
+      <h2>DISCOVER DESTINATIONS</h2>
+      <%= link_to "See all", locations_path, class: "btn btn-outlined" %>
+    </div>
+    <!-- Search bar -->
+    <!-- <div class="index-search-home justify-content-center">
+      <div class="index-search-home">
+        <%#= form_tag(locations_path, method: :get, placeholder: "Search locations") do %>
+          <%#= text_field_tag :query %>
+          <%#= link_to request.path do %>
+            <i class="far fa-times-circle"></i>
+          <%# end %>
+        <%# end %>
+      </div>
+    </div> -->
+    <div class="">
+      <!-- Card Carousel -->
+      <div class="card__grid">
+        <% @locations.sort_by_events.first(3).each do |location| %>
+          <div class="map-card">
+            <%= render "shared/mapstatic" %>
+            <div class="card-body px-4 pb-4 pt-0">
+              <h2 class="card-title">
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= location.city %>, <%= location.country %>
+              </h2>
+            </div>
+            <%= link_to "", location_path(location), class: "make-card-clickable" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="horizontal-page-divider almost-white-background"></div>
+
+<div class="">
+  <!-- ITINERARY -->
+  <div class="page-container-home">
+    <div class="featured-title-home d-flex justify-content-between align-items-center">
+      <h2>CHECK OUT TRAVEL PLANS</h2>
+      <%= link_to "See all", itineraries_path, class: "btn btn-outlined" %>
+    </div>
+    <!-- Search bar -->
+    <!-- <div class="index-search-home justify-content-center">
+      <div class="index-search-home">
+        <%#= form_tag(itineraries_path, method: :get, placeholder: "Search") do %>
+          <%#= text_field_tag :query %>
+          <%#= submit_tag 'Search' %>
+          <%#= link_to request.path do %>
+            <i class="far fa-times-circle"></i>
+          <%# end %>
+        <%# end %>
+      </div>
+    </div> -->
+    <div class="">
+      <!-- Card Carousel (?) -->
+      <div class="card__grid">
+        <% @itineraries.most_popular_itineraries[0..2].each do |itinerary| %>
+          <div class="card map-card">
+            <div>
+              <%= render "shared/map" %>
+            </div>
+            <div class="card-body px-4 pb-4 pt-0">
+              <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+                <div><%= itinerary[1].total_time %> day plan</div>
+                  <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
+                    400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
+                </div>
+              </div>
+              <h2 class="card-title">
+                <%= itinerary[1].title %>
+              </h2>
+              <span class="tag-filled">Scuba diving</span>
+              <span class="tag-filled">Shark</span>
+              <span class="tag-filled">Amazing</span>
+              <span class="tag-filled">Scuba diving</span>
+              <span class="tag-filled">Shark</span>
+              <span class="tag-filled">Amazing</span>
+            </div>
+            <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 </div>
