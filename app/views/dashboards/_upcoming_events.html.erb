@@ -1,48 +1,48 @@
 <div class="itinerary">
 
 
-<% @user.itineraries.each do |itinerary| %>
-  <div class="container__dashboard">
-    <div class="display__itinerary">
-      <h5><%= itinerary.title %></h5>
+  <% @user.itineraries.each do |itinerary| %>
+    <div class="container__dashboard">
+      <div class="display__itinerary">
+        <h5><%= itinerary.title %></h5>
 
-      <% itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
-      <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
-        <% eventgroup[1].each do |event| %>
-          <% if event.start_date >= Date.today %>
-            <div class="card reminder-card-with-location d-flex">
-              <div class="reminder-text d-flex">
-                <div class="reminder-time pt-4 pl-4 pb-4">
-                  <%= event.start_date.strftime("%l:%M %P") %>
-                </div>
-                <div class="reminder-details p-4">
-                  <h5><%= event.title %></h5>
-                  <div class="reminder-travel-plan"><p><%= itinerary.title %></p></div>
-                  <div class="reminder-location d-flex">
-                    <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
-                    <div class="reminder-address">
-                      <p><%= event.location.city %>, <%= event.location.country %></p>
+        <% itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
+        <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
+          <% eventgroup[1].each do |event| %>
+            <% if event.start_date >= Date.today %>
+              <div class="card reminder-card-with-location d-flex">
+                <div class="reminder-text d-flex">
+                  <div class="reminder-time pt-4 pl-4 pb-4">
+                    <%= event.start_date.strftime("%l:%M %P") %>
+                  </div>
+                  <div class="reminder-details p-4">
+                    <h5><%= event.title %></h5>
+                    <div class="reminder-travel-plan"><p><%= itinerary.title %></p></div>
+                    <div class="reminder-location d-flex">
+                      <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+                      <div class="reminder-address">
+                        <p><%= event.location.city %>, <%= event.location.country %></p>
+                      </div>
                     </div>
                   </div>
+                  <div class="reminder-map">
+                    <%= render "shared/mapstatic" %>
+                  </div>
                 </div>
-                <div class="reminder-map">
-                  <%= render "shared/mapstatic" %>
+                <div class="event-pill-expandable reminder-organiser-avatar">
+                  <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                  <div class="event-pill-text">
+                    <p><%= event.itinerary.user.first_name %></p>
+                  </div>
                 </div>
+                <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
               </div>
-              <div class="event-pill-expandable reminder-organiser-avatar">
-                <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
-                <div class="event-pill-text">
-                  <p><%= event.itinerary.user.first_name %></p>
-                </div>
-              </div>
-              <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
 
 

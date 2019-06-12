@@ -1,75 +1,52 @@
-<div class="container__featured">
-  <div class="featured-title">
-    <h2>UPCOMING EVENTS</h2>
-  </div>
-    <div class="card__grid_x4">
-      <% @events.first(3).each do |event| %>
-        <div class="card map-card p-2" style="width: 18rem;">
-          <div class="card-body">
-            <div class= "card-date-heart d-flex justify-content-between">
-              <p class="card-text">
-                <%= event.start_date.strftime("%d %b %Y") %>
-              </p>
-              <div data-event-id="<%= event.id %>" class="event-heart-icon">
-                <%= render 'heart', event: event %>
-              </div>
-            </div>
-            <div class="event-card-info">
-              <h2 class="card-title"><%= event.title %></h2>
-              <p class="card-location">
-                <i class="fas fa-map-marker-alt pr-1"></i>
-                <%= event.location.city%>, <%= event.location.country %>
-              </p>
-            </div>
-            <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-</div>
 
 <div>
   <%= render 'shared/search/search_events' %>
 </div>
 
-<div class="map">
-  <%= render 'shared/map' %>
-</div>
 
 <div class="container__body">
   <div class="featured-title">
     <h2>CHECK OUT OTHER EVENTS</h2>
   </div>
-  <div class="card__grid_x4">
-    <% @all_events.each do |event| %>
-      <div class="card map-card p-2" style="width: 18rem;">
-        <div class="card-body">
-          <div class= "card-date-heart d-flex justify-content-between">
-            <p class="card-text">
-              <%= event.start_date.strftime("%d %b %Y") %>
-            </p>
-            <div data-event-id="<%= event.id %>" class="event-heart-icon">
-              <%= render 'heart', event: event %>
+
+
+    <% @events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
+    <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
+      <% eventgroup[1].each do |event| %>
+        <% if event.start_date >= Date.today %>
+          <div class="card reminder-card-with-location d-flex">
+            <div class="reminder-text d-flex">
+              <div class="reminder-time pt-4 pl-4 pb-4">
+                <%= event.start_date.strftime("%l:%M %P") %>
+              </div>
+              <div class="reminder-details p-4">
+                <h5><%= event.title %></h5>
+                <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
+                <div class="reminder-location d-flex">
+                  <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+                  <div class="reminder-address">
+                    <p><%= event.location.city %>, <%= event.location.country %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="reminder-map">
+                <%= render "shared/mapstatic" %>
+              </div>
             </div>
+            <div class="event-pill-expandable reminder-organiser-avatar">
+              <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+              <div class="event-pill-text">
+                <p><%= event.itinerary.user.first_name %></p>
+              </div>
+            </div>
+            <%= link_to "", itinerary_path(event.itinerary), class: 'make-card-clickable'%>
           </div>
-          <div class="event-card-info">
-            <h2 class="card-title">
-              <%= event.title %>
-            </h2>
-            <p class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>, <%= event.location.country %>
-            </p>
-          </div>
-          <div class="d-flex flex-row-reverse bd-highlight">
-            <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-          </div>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     <% end %>
-  </div>
 </div>
 
 <div class="page-bottom-spacer"></div>
+<div class="map">
+  <%= render 'shared/map' %>
+</div>
