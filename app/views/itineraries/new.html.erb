@@ -1,5 +1,6 @@
 <div class="main-title-width-reduced">
-  <h1>Make a new travel plan</h1>
+  <h1>Create a new travel plan</h1>
+  <p>You are about to go on the most amazing journey</p>
   <div class="breadcrumb">
     <%= link_to user_itineraries_itineraries_path do %>
       <i class="fas fa-angle-left"></i>
@@ -9,147 +10,70 @@
 </div>
 <div class="form-container">
   <div>
-      <ul class="stepper">
-        <!-- FORM SECTION 1: BASIC TRIP DETAILS -->
-        <li class="step step-connection-line">
-          <div class="step-title">
-            <h5>Trip details</h5>
-            <div class="step-number">
-              1
-            </div>
-          </div>
-          <div class="step-content">
-            <div class="step-form">
-              <%= simple_form_for @itinerary do |f|  %>
-                <%= f.input :title,
-                  label: 'Name',
-                  error: 'Enter a trip name',
-                  placeholder: 'Give a name to your amazing trip',
-                  label_html: { class: "form-title" },
-                  input_html: { class: "form-border" }
-                  %>
-                <div class="form-date-range">
-                  <%= f.input :start_date,
-                    as: :date,
-                    html5: true,
-                    required: true,
-                    error: 'Start date can not be in the past',
-                    input_html: { class: "form-border" },
-                    wrapper_html: { class: "form-title form-date-range-item" }
-                    %>
-                  <%= f.input :end_date,
-                    as: :date,
-                    html5: true,
-                    required: true,
-                    error: 'End date can not be before start date',
-                    input_html: { class: "form-border" },
-                    wrapper_html: { class: "form-title form-date-range-item" }
-                    %>
-                </div>
-                <%= f.input :description,
-                  error: 'Enter trip description',
-                  placeholder: 'Describe what you are planning to do',
-                  label_html: { class: "form-title"},
-                  input_html: {
-                    class: "form-border",
-                    rows: 5
-                    }
-                  %>
-            </div>
-            <div class="step-action">
-              <%= f.submit "Continue", class: 'btn btn-filled' %>
-              <% end %>
-            </div>
-          </div>
-        </li>
-        <!-- FORM SECTION 2: TRIP QUESTIONS -->
-        <li class="step step-connection-line">
-          <div class="step-title">
-            <h5>Couple of quick questions</h5>
-            <div class="step-number">
-              2
-            </div>
-          </div>
-          <div class="step-content">
-            <div class="step-form">
-              <div class="step-question">
-                <div class="form-title">Will you be travelling alone?</div>
-                <div class="toggle-cta">
-                  <span class="form-title toggle-label">No</span>
-                  <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
-                  <span class="form-title toggle-label">Yes</span>
-                </div>
-              </div>
-              <div class="step-question">
-                <div class="form-title">Do you wish to allow other users to view this travel plan?</div>
-                <div class="toggle-cta-last">
-                  <span class="form-title toggle-label">No</span>
-                  <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
-                  <span class="form-title toggle-label">Yes</span>
-                </div>
-              </div>
-            </div>
-            <div class="step-action">
-              <%= render "shared/components/button", variant: "filled", label: "Continue", href: "#" %>
-            </div>
-          </div>
-        </li>
-      </ul>
+
+    <h5>Trip details</h5>
+    <%= simple_form_for @itinerary do |f|  %>
+      <%= f.input :title,
+        label: 'Name',
+        error: 'Enter a trip name',
+        placeholder: 'Give a name to your amazing trip',
+        label_html: { class: "form-title" },
+        input_html: { class: "form-border" }
+        %>
+      <div class="form-date-range">
+        <%= f.input :start_date,
+          as: :date,
+          html5: true,
+          required: true,
+          error: 'Start date can not be in the past',
+          input_html: { class: "form-border" },
+          wrapper_html: { class: "form-title form-date-range-item" }
+          %>
+        <%= f.input :end_date,
+          as: :date,
+          html5: true,
+          required: true,
+          error: 'End date can not be before start date',
+          input_html: { class: "form-border" },
+          wrapper_html: { class: "form-title form-date-range-item" }
+          %>
+      </div>
+      <%= f.input :description,
+        error: 'Enter trip description',
+        placeholder: 'Describe what you are planning to do',
+        label_html: { class: "form-title"},
+        input_html: {
+          class: "form-border",
+          rows: 3
+          }
+        %>
+      <%= f.input :trip_type,
+        as: :radio_buttons,
+        collection: [['0', 'No'], ['1', 'Yes']],
+        label_method: :second, value_method: :first,
+        label: "Will you be travelling alone?",
+        label_html: { class: "form-title" }
+        %>
+      <%= f.input :visibility,
+        as: :radio_buttons,
+        collection: [['0', 'No'], ['1', 'Yes']],
+        label_method: :second, value_method: :first,
+        label: "Do you wish to allow other users to view this travel plan?",
+        label_html: { class: "form-title" }
+        %>
+    <%= f.submit "Save and create", class: 'btn btn-filled' %>
+    <% end %>
+
   </div>
-
-
-
-<!--   <div class="">
-    <p><strong>Trip name</strong></p>
-    <p>Start with a great name for your trip</p>
-  </div>
-    <%#= simple_form_for @itinerary do |f|  %>
-      <%#= f.input :title, error: 'Please provide a trip name', label_html: { class: "form-title"} %>
-        <p><strong>When do you wish to go?</strong></p>
-          <%#= f.input :start_date, as: :date, order: [:day, :month, :year], required: true, start_year: Date.today.year, error: 'Start date can not be in the past'%>
-        <%#= f.input :end_date, as: :date, order: [:day, :month, :year], required: true, start_year: Date.today.year, error: 'End date can not be earlier than start date' %>
-    <%#= f.button :button, 'Reset dates', type: 'reset', class: 'btn btn-primary' %>
-    <%#= f.submit "Ready to make it", class: 'btn btn-primary' %>
-    <%# end %>
-  </div> -->
-
-<!--     <div>
-    <h2>2. Trip Confirmation</h2>
-      <p><strong>Have you confirmed that you are going on this trip?</strong></p>
-      <p>No/Yes</p>
-        <div class="btn btn-secondary">toggle to be added</div>
-      <p><strong>Are you travelling alone?</strong></p>
-          <p>No/Yes</p>
-                <div class="btn btn-secondary">toggle to be added</div>
-        <div class="btn btn-primary">Confirm (placeholder)</div>
-    </div>
- -->
-  <!-- <div>
-    <h2>3. Add photos (optional)</h2>
-    <div class="d-flex flex-column">
-  <div class="card__event mb-2">Photo.jpg</div>
-  <div class="card__event mb-2">+ Add another photo</div>
-  </div>
-  </div>
-
-  <div>
-    <h2>4. Add events (optional)</h2>
-      <div class="d-flex flex-column">
-  <div class="card__event mb-2">Going to Queen Victoria Night market</div>
-  <div class="card__event mb-2">+ Add another event</div>
-  </div>
-  </div>
-
-
-
-    <div>
-        <div class="btn btn-primary">Ready to make it (placeholder)</div>
-    </div> -->
-
 </div>
+
+<div class="page-bottom-spacer"></div>
+
+<!-- <div class="toggle-cta">
+  <span class="form-title toggle-label">No</span>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  <span class="form-title toggle-label">Yes</span>
+</div> -->

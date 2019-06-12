@@ -10,7 +10,7 @@ class Itinerary < ApplicationRecord
 
                   #  0     1
   enum status: %i[draft confirmed]
-  enum trip_type: %i[solo grouped]
+  enum trip_type: %i[grouped solo]
   enum visibility: %i[hidden visible]
 
   def start_time
