@@ -11,9 +11,26 @@
   }
 }
 
+.navbar-brand {
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.sidebar-welcome {
+  text-align: center;
+  padding-bottom: .8rem;
+  padding-left: .8rem;
+  // Font
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: $medium-gray;
+}
+
 .bd-sidebar {
   position: sticky;
-  top: 4rem;
+  top: 1rem;
   z-index: 1000;
   height: calc(100vh - 4rem);
 }

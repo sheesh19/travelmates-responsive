@@ -1,7 +1,46 @@
 <ul class="nav flex-column bd-sidebar" id="sidebar">
-  <div class="sidebar-primary-button">
-    <%= render "shared/components/button", variant: "filled", label: "+ NEW TRAVEL PLAN", href: new_itinerary_path %>
-  </div>
+<!-- TravelMates Logo -->
+
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <span class="logo-start">travel</span>
+    <span id="logo-end">mates</span>
+  <% end %>
+
+  <!-- DIVIDER -->
+  <div class="side-bar-divider"></div>
+
+  <!-- Avatar & Welcome -->
+  <ul class="navbar-nav mr-auto sidebar-welcome flex-column">
+    <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+        <span id="navbar__welcome">Welcome back, <%= current_user.first_name %>!</span>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <!-- DISPLAY BUTTON -->
+  <% if user_signed_in? %>
+    <div class="sidebar-primary-button">
+      <%= render "shared/components/button", variant: "filled", label: "+ NEW TRAVEL PLAN", href: new_itinerary_path %>
+    </div>
+  <% else %>
+    <div class="sidebar-primary-button">
+      <%= render "shared/components/button", variant: "filled", label: "SIGN UP", href:  new_user_registration_path %>
+    </div>
+  <% end %>
+
+  <!-- DIVIDER -->
+  <div class="side-bar-divider"></div>
+
 
   <!-- FIND A MATE -->
   <% if current_page? events_path %>
@@ -9,7 +48,7 @@
   <% else %>
     <li class='nav-item nav-item-highlighht'>
   <% end %>
-    <%= link_to "FIND A MATE", events_path, class: "nav-link" %>
+    <%= link_to "FIND MATES", events_path, class: "nav-link" %>
   </li>
 
   <!-- TRAVEL PLANNER -->
@@ -18,7 +57,7 @@
   <% else %>
     <li class='nav-item nav-item-highlighht'>
   <% end %>
-    <%= link_to "TRAVEL PLANNER", user_itineraries_itineraries_path, class: "nav-link" %>
+    <%= link_to "SEE YOUR TRIPS", user_itineraries_itineraries_path, class: "nav-link" %>
   </li>
 
   <!-- DASHBOARD -->
@@ -27,7 +66,7 @@
   <% else %>
     <li class='nav-item nav-item-highlighht'>
   <% end %>
-    <%= link_to "DASHBOARD", dashboard_path, class: "nav-link" %>
+    <%= link_to "MANAGE YOUR TRIPS", dashboard_path, class: "nav-link" %>
   </li>
 
   <!-- DIVIDER -->
@@ -39,34 +78,36 @@
   <% else %>
     <li class='nav-item nav-item-highlighht'>
   <% end %>
-    <%= link_to "SUGGESTIONS", pages_explore_path, class: "nav-link" %>
+    <%= link_to "EXPLORE MORE", pages_explore_path, class: "nav-link" %>
   </li>
 
+<!-- SPECIFIC PAGES; CONSOLIDATED -->
   <!-- ACTVITIES -->
-  <% if current_page? activities_path %>
-    <li class='nav-item active-bar'>
-  <% else %>
-    <li class='nav-item nav-item-highlighht'>
-  <% end %>
-    <%= link_to "ACTIVITIES", activities_path, class: "nav-link" %>
-  </li>
-
+  <%# if current_page? activities_path %>
+<!--     <li class='nav-item active-bar'>
+ -->  <%# else %>
+<!--     <li class='nav-item nav-item-highlighht'>
+ -->  <%# end %>
+    <%#= link_to "ACTIVITIES", activities_path, class: "nav-link" %>
+<!--   </li>
+ -->
   <!-- ITINERARY -->
-  <% if current_page? itineraries_path %>
-    <li class='nav-item active-bar'>
-  <% else %>
-    <li class='nav-item nav-item-highlighht'>
-  <% end %>
-    <%= link_to "ITINERARIES", itineraries_path, class: "nav-link" %>
-  </li>
-
+  <%# if current_page? itineraries_path %>
+<!--     <li class='nav-item active-bar'>
+ -->  <%# else %>
+<!--     <li class='nav-item nav-item-highlighht'>
+ -->  <%# end %>
+    <%#= link_to "ITINERARIES", itineraries_path, class: "nav-link" %>
+<!--   </li>
+ -->
   <!-- DESTINATIONS -->
-  <% if current_page? locations_path %>
-    <li class='nav-item active-bar'>
-  <% else %>
-    <li class='nav-item nav-item-highlighht'>
-  <% end %>
-    <%= link_to "DESTINATIONS", locations_path, class: "nav-link" %>
-  </li>
+  <%# if current_page? locations_path %>
+<!--     <li class='nav-item active-bar'>
+ -->  <%# else %>
+<!--     <li class='nav-item nav-item-highlighht'>
+ -->  <%# end %>
+    <%#= link_to "DESTINATIONS", locations_path, class: "nav-link" %>
+<!--   </li>
+ -->
 </ul>
 
