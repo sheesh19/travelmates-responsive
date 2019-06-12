@@ -1,0 +1,28 @@
+<!-- FEATURE LOCATION -->
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>FEATURED DESTINATIONS</h2>
+  </div>
+  <div class="">
+    <!-- Card Carousel -->
+    <div class="card__grid">
+      <% @locations.sort_by_events.first(3).each do |location| %>
+        <div class="map-card">
+          <%= render "shared/mapstatic" %>
+          <div class="card-body px-4 pb-4 pt-0">
+            <h2 class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= location.city %>, <%= location.country %>
+            </h2>
+            <div class="map-card-info">
+              <i class="fas fa-info-circle"></i>
+                <!-- Number of events in this location coming up -->
+                <%= Event.all.select{|e| e.location_id == location.id}.map.count %> travel mates going here
+            </div>
+          </div>
+          <%= link_to "", location_path(location), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,9 @@ class PagesController < ApplicationController
 
   def home
     @itineraries = Itinerary.all
+    @events = Event.all
+    @all_activities = Activity.all
+    @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
   end
 
   def explore
