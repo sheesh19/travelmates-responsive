@@ -1,38 +1,5 @@
-<div class="container__featured">
-  <div class="featured-title">
-    <h2>MOST FAVOURITED</h2>
-  </div>
-  <div class="">
-    <div class="card__grid">
-        <%# @itineraries.each do |itinerary| %>
-        <% @itineraries.most_popular_itineraries[0..2].each do |itinerary| %>
-          <div class="map-card">
-            <div>
-              <%= render "shared/mapstatic" %>
-            </div>
-            <div class="card-body px-4 pb-4 pt-0">
-              <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-                <div>
-                  <%= itinerary[1].total_time %> day plan
-                </div>
-                  <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                    400 <%= render 'heart', itinerary: itinerary[1] %>
-                </div>
-              </div>
-              <h2 class="card-title">
-                <%= itinerary[1].title %>
-              </h2>
-              <span class="tag-outline">Scuba diving</span>
-              <span class="tag-outline">Shark</span>
-              <span class="tag-outline">Amazing</span>
-              <span class="tag-outline">Shark</span>
-              <span class="tag-outline">Amazing</span>
-            </div>
-            <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
-          </div>
-      <% end %>
-    </div>
-  </div>
+<div class="search__box">
+  <%= render 'featured_itineraries' %>
 </div>
 
 <div class="search__box">

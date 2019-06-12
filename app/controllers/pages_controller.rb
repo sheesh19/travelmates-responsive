@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @itineraries = Itinerary.all
     @events = Event.all
     @all_activities = Activity.all
+    @activities = Activity.all
+    @locations = Location.all
     @favorite_itinerary = FavoriteItinerary.find_by(itinerary_id: params[:itinerary_id], user_id: current_user)
   end
 
