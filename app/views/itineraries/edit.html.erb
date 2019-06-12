@@ -1,0 +1,70 @@
+<div class="main-title-width-reduced">
+  <h1>Update this travel plan</h1>
+  <p>You are about to go on the most amazing journey</p>
+  <div class="breadcrumb">
+    <%= link_to itinerary_path do %>
+      <i class="fas fa-angle-left"></i>
+      Back
+    <% end %>
+  </div>
+</div>
+<div class="form-container">
+  <div>
+
+    <h5>Trip details</h5>
+    <%= simple_form_for @itinerary do |f|  %>
+      <%= f.input :title,
+        label: 'Name',
+        error: 'Enter a trip name',
+        placeholder: 'Give a name to your amazing trip',
+        label_html: { class: "form-title" },
+        input_html: { class: "form-border" }
+        %>
+      <div class="form-date-range">
+        <%= f.input :start_date,
+          as: :date,
+          html5: true,
+          required: true,
+          error: 'Start date can not be in the past',
+          input_html: { class: "form-border" },
+          wrapper_html: { class: "form-title form-date-range-item" }
+          %>
+        <%= f.input :end_date,
+          as: :date,
+          html5: true,
+          required: true,
+          error: 'End date can not be before start date',
+          input_html: { class: "form-border" },
+          wrapper_html: { class: "form-title form-date-range-item" }
+          %>
+      </div>
+      <%= f.input :description,
+        error: 'Enter trip description',
+        placeholder: 'Describe what you are planning to do',
+        label_html: { class: "form-title"},
+        input_html: {
+          class: "form-border",
+          rows: 3
+          }
+        %>
+      <%= f.input :trip_type,
+        as: :radio_buttons,
+        collection: [['0', 'No'], ['1', 'Yes']],
+        label_method: :second, value_method: :first,
+        label: "Will you be travelling alone?",
+        label_html: { class: "form-title" }
+        %>
+      <%= f.input :visibility,
+        as: :radio_buttons,
+        collection: [['0', 'No'], ['1', 'Yes']],
+        label_method: :second, value_method: :first,
+        label: "Do you wish to allow other users to view this travel plan?",
+        label_html: { class: "form-title" }
+        %>
+    <%= f.submit "Save changes", class: 'btn btn-filled' %>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="page-bottom-spacer"></div>
