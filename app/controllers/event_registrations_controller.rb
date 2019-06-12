@@ -1,5 +1,5 @@
 class EventRegistrationsController < ApplicationController
-  before_action :set_event_registration, only: %i[show cancel]
+  before_action :set_event_registration, only: %i[show cancel update]
   before_action :set_event, only: :create
 
   def new
@@ -24,6 +24,15 @@ class EventRegistrationsController < ApplicationController
     end
   end
 
+  def update
+    @event_registration.update(event_registration_params)
+    if @event_registration.save
+      redirect_to itinerary_event_path(@event_registration.event.itinerary, @event_registration.event)
+    else
+      render :edit
+    end
+  end
+
   def cancel
     @event_registration.cancelled!
     redirect_to dashboard_path
@@ -40,7 +49,6 @@ class EventRegistrationsController < ApplicationController
   end
 
   def event_registration_params
-    #params.require(:event_registration).permit({ user_id: current_user.id}, :event_id, { status: :pending })
+    params.require(:event_registration).permit(:status)
   end
-
 end
