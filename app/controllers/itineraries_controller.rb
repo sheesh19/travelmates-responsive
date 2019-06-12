@@ -61,6 +61,12 @@ class ItinerariesController < ApplicationController
   end
 
   def update
+    @itinerary.update(itinerary_params)
+    if @itinerary.save
+      redirect_to itinerary_path(@itinerary)
+    else
+      render :edit
+    end
   end
 
   def destroy

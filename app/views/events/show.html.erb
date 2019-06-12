@@ -2,12 +2,12 @@
   <!-- EVENT TITLE -->
   <div class="main-title">
     <h1><%= @event.title %></h1>
-    <div class="breadcrumb">
-      <%= link_to request.referer.present? ? request.referer : default_path do %>
+      <div class="breadcrumb">
+        <%= link_to itinerary_path(@event.itinerary) do %>
         <i class="fas fa-angle-left"></i>
         Back
-      <% end %>
-    </div>
+        <% end %>
+      </div>
   </div>
 
   <div class="container__dashboard">
@@ -16,14 +16,18 @@
       <div class="event-description-block">
         <% if @event.photo.present? %>
           <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= cl_image_path @event.photo %>')">
+          url('<%= image_path @event.photo %>')">
+          </div>
         <% else %>
           <div class="event-banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
           url('<%= image_path @event.activity.photo %>')">
+          </div>
         <% end %>
         <!-- Placeholder! Carousel of Event Images -->
-        </div>
         <h4>Event description</h4>
+        <% if current_user == @event&.itinerary&.user %>
+          <%= link_to "Edit", edit_itinerary_event_path(@event.itinerary, @event), class: "btn btn-outlined" %>
+        <% end %>
         <p><%= @event.description %></p>
         <div class="">
           <p>
@@ -75,13 +79,13 @@
             </div>
           </div>
         </div>
-        <div class="organiser-about-me">
+        <div class="organiser-about-me mb-5">
           <%= @event.itinerary.user.description  %>
         </div>
       </div>
-      <div class="horizontal-divider"></div>
+
       <div>
-        <h6>Reviews from previous travel mates</h6>
+        <%= render 'shared/event_reviews' %>
       </div>
     </div>
 

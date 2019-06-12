@@ -56,7 +56,14 @@ class EventsController < ApplicationController
   end
 
   def update
+    @location = Location.event_geocoder(params[:event][:location])
     @event.update(event_params)
+    @event.location = @location
+    if @event.save
+      redirect_to itinerary_event_path(@event.itinerary, @event)
+    else
+      render :edit
+    end
   end
 
   def destroy

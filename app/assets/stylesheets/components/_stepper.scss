@@ -42,6 +42,13 @@
 .step-content {
   display: block;
   margin-left: 72px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.step-content-active {
+  max-height: 1000px;
 }
 
 .step-action {
@@ -51,10 +58,6 @@
 }
 
 .step-question {}
-
-
-
-
 
 
 .step-number:first-child {
@@ -70,7 +73,7 @@
   left: 20px;
   z-index: 1;
   top: 64px;
-  bottom: -10px;
+  bottom: 32px;
 }
 
 .step-number:first-child:before {

@@ -1,8 +1,8 @@
 <div class="main-title-width-reduced">
-  <h1>Create a new travel plan</h1>
+  <h1>Update this travel plan</h1>
   <p>You are about to go on the most amazing journey</p>
   <div class="breadcrumb">
-    <%= link_to user_itineraries_itineraries_path do %>
+    <%= link_to itinerary_path do %>
       <i class="fas fa-angle-left"></i>
       Back
     <% end %>
@@ -61,19 +61,10 @@
         label: "Do you wish to allow other users to view this travel plan?",
         label_html: { class: "form-title" }
         %>
-    <%= f.submit "Save and create", class: 'btn btn-filled' %>
+    <%= f.submit "Save changes", class: 'btn btn-filled' %>
     <% end %>
 
   </div>
 </div>
 
 <div class="page-bottom-spacer"></div>
-
-<!-- <div class="toggle-cta">
-  <span class="form-title toggle-label">No</span>
-  <label class="switch">
-    <input type="checkbox">
-    <span class="slider round"></span>
-  </label>
-  <span class="form-title toggle-label">Yes</span>
-</div> -->

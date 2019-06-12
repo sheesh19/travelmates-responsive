@@ -11,9 +11,34 @@
   }
 }
 
+.navbar-brand {
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.sidebar-welcome {
+  text-align: center;
+  padding-left: 2rem;
+  // Font
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: $medium-gray;
+}
+
+#sidebar__name {
+  color: $teal;
+  height: 24px;
+  color: $travelmate-gray;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
 .bd-sidebar {
   position: sticky;
-  top: 4rem;
+  top: 1rem;
   z-index: 1000;
   height: calc(100vh - 4rem);
 }
