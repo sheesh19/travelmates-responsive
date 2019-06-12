@@ -1,6 +1,6 @@
 <div class="container__featured">
   <div class="featured-title">
-    <h2>FEATURED EVENTS</h2>
+    <h2>UPCOMING EVENTS</h2>
   </div>
     <div class="card__grid_x4">
       <% @events.first(3).each do |event| %>
@@ -14,13 +14,13 @@
                 <%= render 'heart', event: event %>
               </div>
             </div>
-            <h4 class="card-title">
-              <%= event.title %>
-            </h4>
-            <p class="card-location">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>, <%= event.location.country %>
-            </p>
+            <div class="event-card-info">
+              <h2 class="card-title"><%= event.title %></h2>
+              <p class="card-location">
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= event.location.city%>, <%= event.location.country %>
+              </p>
+            </div>
             <div class="d-flex flex-row-reverse bd-highlight">
               <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
             </div>
@@ -30,85 +30,18 @@
     </div>
 </div>
 
-<div class="search__box">
+<div>
   <%= render 'shared/search/search_events' %>
 </div>
-<!-- Displays search results dynamically -->
-<% if @query %>
-  <div>
-    <h4>Search results</h4>
-      <div class="card__grid">
-        <% if @events.any? %>
-          <% @events[0..@events.count].each do |event| %>
-        <div class="card map-card p-2" style="width: 18rem;">
-          <div class="card-body">
-            <div class= "card-date-heart d-flex justify-content-between">
-              <p class="card-text">
-                <%= event.start_date.strftime("%d %b %Y") %>
-              </p>
-              <div data-event-id="<%= event.id %>" class="event-heart-icon">
-                <%= render 'heart', event: event %>
-              </div>
-            </div>
-            <h4 class="card-title">
-              <%= event.title %>
-            </h4>
-            <p class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>, <%= event.location.country %>
-            </p>
-            <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <div>
-      <span>No results found</span>
-    </div>
-  <% end %>
-  </div>
-<% end %>
 
 <div class="map">
   <%= render 'shared/map' %>
 </div>
 
-<div class="events__upcoming">
-  <h4>Upcoming Events</h4>
-    <div class="card__grid_x4">
-      <% @all_events.each do |event| %>
-
-        <div class="card map-card p-2" style="width: 18rem;">
-          <div class="card-body">
-            <div class= "card-date-heart d-flex justify-content-between">
-              <p class="card-text">
-                <%= event.start_date.strftime("%d %b %Y") %>
-              </p>
-              <div data-event-id="<%= event.id %>" class="event-heart-icon">
-                <%= render 'heart', event: event %>
-              </div>
-            </div>
-            <h4 class="card-title">
-              <%= event.title %>
-            </h4>
-            <p class="card-location">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>, <%= event.location.country %>
-            </p>
-            <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See more", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-</div>
-
-<div class="events__upcoming">
-  <h4>All Events</h4>
+<div class="container__body">
+  <div class="featured-title">
+    <h2>CHECK OUT OTHER EVENTS</h2>
+  </div>
   <div class="card__grid_x4">
     <% @all_events.each do |event| %>
       <div class="card map-card p-2" style="width: 18rem;">
@@ -121,13 +54,15 @@
               <%= render 'heart', event: event %>
             </div>
           </div>
-          <h4 class="card-title">
-            <%= event.title %>
-          </h4>
-          <p class="card-title">
-            <i class="fas fa-map-marker-alt pr-1"></i>
-            <%= event.location.city%>, <%= event.location.country %>
-          </p>
+          <div class="event-card-info">
+            <h2 class="card-title">
+              <%= event.title %>
+            </h2>
+            <p class="card-title">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+              <%= event.location.city%>, <%= event.location.country %>
+            </p>
+          </div>
           <div class="d-flex flex-row-reverse bd-highlight">
             <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
           </div>
@@ -136,3 +71,5 @@
     <% end %>
   </div>
 </div>
+
+<div class="page-bottom-spacer"></div>

@@ -10,7 +10,7 @@
           <% if event.start_date >= Date.today %>
             <div class="card reminder-card-with-location d-flex">
               <div class="reminder-text d-flex">
-                <div class="reminder-time p-4">
+                <div class="reminder-time pt-4 pl-4 pb-4">
                   <%= event.start_date.strftime("%l:%M %P") %>
                 </div>
                 <div class="reminder-details p-4">
