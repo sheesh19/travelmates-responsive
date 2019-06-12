@@ -6,6 +6,10 @@ class EventRegistration < ApplicationRecord
   #                 0      1        2
   enum status: %i[pending approved cancelled]
 
+  def approve
+    update(status: :approved)
+  end
+
   private
 
   def cancel

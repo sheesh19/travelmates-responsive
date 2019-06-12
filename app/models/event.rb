@@ -37,7 +37,7 @@ class Event < ApplicationRecord
 
   def list_of_mates
     self.event_registrations.map do |registration|
-      [registration.user.username, registration.status]
+      registration
     end
   end
 

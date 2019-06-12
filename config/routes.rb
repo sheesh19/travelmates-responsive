@@ -23,8 +23,12 @@ Rails.application.routes.draw do
     # Nested Event
     resources :events, except: [ :index ] do
       resources :event_reviews, only: [ :create, :show, :new ]
-      resources :event_registrations, only: [ :create, :show, :new, :update ]
       resources :event_favorites, only: :create
+      resources :event_registrations, only: [ :create, :show, :new, :update ] do
+        member do
+          patch :approve
+        end
+      end
 
       member do
         patch :cancel
