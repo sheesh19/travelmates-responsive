@@ -31,7 +31,7 @@
   <!-- DISPLAY BUTTON -->
   <% if user_signed_in? %>
     <div class="sidebar-primary-button">
-      <%= render "shared/components/button", variant: "filled", label: "+ NEW TRAVEL PLAN", href: new_itinerary_path %>
+      <%= render "shared/components/button", variant: "filled", label: "CREATE NEW TRIP", href: new_itinerary_path %>
     </div>
   <% else %>
     <div class="sidebar-primary-button">
@@ -42,6 +42,14 @@
   <!-- DIVIDER -->
   <div class="side-bar-divider"></div>
 
+  <!-- EXPLORE -->
+  <% if current_page? root_path %>
+    <li class='nav-item active-bar'>
+  <% else %>
+    <li class='nav-item nav-item-highlighht'>
+  <% end %>
+    <%= link_to "EXPLORE", root_path, class: "nav-link" %>
+  </li>
 
   <!-- FIND A MATE -->
   <% if current_page? events_path %>
@@ -58,7 +66,7 @@
   <% else %>
     <li class='nav-item nav-item-highlighht'>
   <% end %>
-    <%= link_to "SEE YOUR TRIPS", user_itineraries_itineraries_path, class: "nav-link" %>
+    <%= link_to "PLAN YOUR TRIP", user_itineraries_itineraries_path, class: "nav-link" %>
   </li>
 
   <!-- DASHBOARD -->
@@ -70,17 +78,6 @@
     <%= link_to "MANAGE YOUR TRIPS", dashboard_path, class: "nav-link" %>
   </li>
 
-  <!-- DIVIDER -->
-  <div class="side-bar-divider"></div>
-
-  <!-- SUGGESTIONS -->
-  <% if current_page? pages_explore_path %>
-    <li class='nav-item active-bar'>
-  <% else %>
-    <li class='nav-item nav-item-highlighht'>
-  <% end %>
-    <%= link_to "EXPLORE MORE", pages_explore_path, class: "nav-link" %>
-  </li>
 
 <!-- SPECIFIC PAGES; CONSOLIDATED -->
   <!-- ACTVITIES -->

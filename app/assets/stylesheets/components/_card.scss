@@ -79,7 +79,7 @@
 }
 
 .card-title {
-  // margin-bottom: 8px;
+  margin-bottom: 4px;
   height: auto;
   // margin-top: 8px;
   font-size: 14px;
@@ -89,26 +89,88 @@
   }
 }
 
+.card-title-itinerary {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  height: auto;
+  // margin-top: 8px;
+  color: $teal;
+  font-size: 18px;
+  font-weight: 600;
+  i {
+    color: $darkish-gray
+  }
+  h6 {
+    color: $teal;
+  }
+}
+
 .card-body {
   height: auto;
 }
 
 .card-location {
-  margin-bottom: 8px;
-  height: 24px;
-  margin-top: 8px;
+  margin-bottom: 12px;
+  // height: 24px;
+  margin-top: 4px;
   color: $medium-gray;
-}
-
-#travel-plan-card-title {
-  // margin-bottom: 24px;
-  color: $medium-gray;
-  font-size: 14px;
   i {
     color: $medium-gray;
   }
 }
 
+.card-title-location {
+  display: inline-flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 8px 8px 8px 8px;
+  height: auto;
+  // margin-top: 8px;
+  background-color: $teal;
+  opacity: 0.9;
+  border: solid 1px $teal;
+  // opacity: 0.9;
+  border-radius: 2em;
+  padding: 4px 16px 4px 16px;
+  i {
+    color: $darkest-teal;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: $light-gray;
+  }
+}
+
+#travel-plan-card-title {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  color: $gray;
+  font-weight: 400;
+  font-size: 12px;
+  i {
+    color: $gray;
+  }
+}
+
+.card-text {
+  font-weight: 600;
+  margin-bottom: 8px;
+  p {
+    font-size: 10px;
+    color: $gray;
+  }
+}
+
+.card-date-heart {
+  p {
+    font-size: 10px;
+  }
+}
 
 
 //////////////////////////////////////////////////
@@ -122,6 +184,7 @@
   height: 180px;
   width: 100%;
   background-size: cover;
+  background-color: $teal;
   // Position
   display: flex;
   justify-content: center;
@@ -145,6 +208,10 @@
   }
 }
 
+.photo-card-location {
+  position: relative;
+}
+
 // Card applied to event index (listing)
 .event-card {
   // Border
@@ -158,8 +225,8 @@
     color: $teal;
   }
   p {
-    font-size: 14px;
-    color: $almost-black;
+    font-size: 12px;
+    color: $darkish-gray;
   }
   &:hover {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
@@ -168,7 +235,7 @@
 }
 
 .event-card-info {
-  height: 80px;
+  height: 64px;
   h2 {
     font-size: 20px;
     color: $teal;
@@ -177,6 +244,13 @@
   p {
     color: $medium-gray;
   }
+}
+
+.event-spot-left-text {
+  color: $gray;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0;
 }
 
 // Reminder card with location
@@ -236,6 +310,7 @@
 .reminder-organiser-avatar {
   position: absolute;
   right: 0;
+  top: 0;
   margin-right: 16px;
   margin-top: 16px;
 }

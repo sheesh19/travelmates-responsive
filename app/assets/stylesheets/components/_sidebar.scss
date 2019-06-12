@@ -48,7 +48,7 @@
   padding-left: 28px;
   height: 56px;
   color: $medium-gray;
-  font-weight: 600;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   &:hover {
@@ -65,6 +65,7 @@
   background-color: $lighest-teal;
   a {
     color: $teal;
+    font-weight: 600;
   }
 }
 
