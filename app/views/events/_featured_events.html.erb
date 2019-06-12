@@ -1,0 +1,41 @@
+<div class="card__grid">
+  <% @events.first(3).each do |event| %>
+    <div class="card event-card p-2">
+      <div class="card-body">
+        <div class= "card-date-heart d-flex justify-content-between">
+          <p class="card-text">
+            <%= event.start_date.strftime("%^a, %d %^b %Y") %>,
+            <%= event.start_time.strftime("%l:%M%p") %>
+          </p>
+          <div data-event-id="<%= event.id %>" class="event-heart-icon">
+            <% if current_page? root_path %>
+              <div class="event-pill-expandable reminder-organiser-avatar">
+                <div class="event-pill-inner">
+                  <%= image_tag "captain_cat.jpg", class: "avatar-small" %>
+                  <div class="event-pill-text">
+                    <p>Captain Cat</p>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <%= render 'heart', event: event %>
+            <% end %>
+          </div>
+        </div>
+        <div class="event-card-info">
+          <h2 class="card-title"><%= event.title %></h2>
+          <p class="card-location">
+            <i class="fas fa-map-marker-alt pr-1"></i>
+            <%= event.location.city%>, <%= event.location.country %>
+          </p>
+          <h6 class="event-spot-left-text">
+            <%= pluralize(event.spots_left, "spot") %> left
+          </h6>
+        </div>
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

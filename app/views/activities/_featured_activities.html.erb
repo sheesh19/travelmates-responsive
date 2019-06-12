@@ -1,0 +1,17 @@
+<div class="container__featured">
+  <div class="featured-title">
+    <h2>TOP ACTIVITIES</h2>
+  </div>
+    <div class="card__grid">
+      <% @all_activities.most_popular_activities[0..2].each do |activity| %>
+        <div
+          class="photo-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= image_path activity[1].photo %>')">
+          <%= activity[1].title %>
+          <%= link_to "", activity_path(activity[1]), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
+</div>

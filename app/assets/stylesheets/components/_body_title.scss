@@ -23,6 +23,38 @@
   }
 }
 
+.featured-title-home {
+  padding-top: 8px;
+  padding-bottom: 16px;
+  h2 {
+    color: $dark-teal;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: $teal;
+    text-decoration: none;
+  }
+}
+
+.featured-title-home-white {
+  padding-top: 8px;
+  padding-bottom: 16px;
+  h2 {
+    color: $almost-white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: $teal;
+    text-decoration: none;
+  }
+}
+
 .breadcrumb {
   // background-color: white;
   background: transparent;
