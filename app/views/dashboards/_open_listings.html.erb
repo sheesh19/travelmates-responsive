@@ -4,16 +4,17 @@
     <% event.list_of_mates.each do |regis| %>
       <p id="event-join-organiser-label" class="mb-0">Potential Mates:</p>
       <% if regis.status == 0 %>
+        <span><%= regis.user.username %></span>
+        <span><%= regis.status %></span>
         <span>
           <%= button_to "Approve?", approve_itinerary_event_event_registration_path(@event.itinerary, @event, @event_registration), method: :patch, class: "btn btn-outlined" %>
         </span>
       <% else %>
-        <span><%= link_to regis.status, itinerary_event_event_registrations_path(event.itinerary, event), method: :patch, class: "btn btn-outlined" %>
-
-          /span>
+        <span><h5>You have no open events!</h5></span>
+        <span><%= regis.user.username %></span>
+        <span><%= regis.status %></span>
       <% end %>
-      <span><%= regis.user.username %></span>
-      <span><%= regis.status %></span>
+
     <% end %>
 
   <% end %>
