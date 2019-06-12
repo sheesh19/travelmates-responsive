@@ -57,6 +57,11 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
+    if @event.save
+      redirect_to itinerary_event_path(@event.itinerary, @event)
+    else
+      render :edit
+    end
   end
 
   def destroy
