@@ -1,16 +1,20 @@
 <!-- Renders if the user is the owner -->
 
-<div class="event-side-title d-flex">
+<div class="event-side-title d-flex justify-content-between">
   <!-- Name title -->
   <div class="d-flex">
     <!-- Organiser avatar -->
     <div class="mr-3">
       <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
     </div>
-    <div>
+    <div class="">
       <!-- Organiser Name -->
-      <%= render "shared/components/event_status_pill", event: @event %>
+      <p id="event-join-organiser-label" class="mb-0">Organised by</p>
+      <p id="event-join-name" class="mb-0"><%= @event.itinerary.user.username %></p>
     </div>
-  </div>
 
+  </div>
+  <% if current_user == @event&.itinerary&.user %>
+    <%= link_to "Edit event", edit_itinerary_event_path(@event.itinerary, @event), class: "btn btn-outlined" %>
+  <% end %>
 </div>
