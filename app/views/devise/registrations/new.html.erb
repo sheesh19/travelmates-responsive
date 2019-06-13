@@ -10,27 +10,22 @@
                   required: true,
                   autofocus: true,
                   label_html: { class: "form-title" },
-                  input_html: { autocomplete: "First Name" }%>
+                  input_html: { autocomplete: "First Name" } %>
       <%= f.input :last_name,
                   required: true,
                   autofocus: true,
                   label_html: { class: "form-title" },
-                  input_html: { autocomplete: "Last Name" }%>
-
-      <%= f.file_field :avatar,
-                  input_html: { autocomplete: "Profile Picture" },
-                  label_html: { class: "form-title" }%>
-      <br><br>
+                  input_html: { autocomplete: "Last Name" } %>
       <%= f.input :username,
                   required: true,
                   autofocus: true,
                   label_html: { class: "form-title" },
-                  input_html: { autocomplete: "username" }%>
+                  input_html: { autocomplete: "username" } %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
                   label_html: { class: "form-title" },
-                  input_html: { autocomplete: "email" }%>
+                  input_html: { autocomplete: "email" } %>
       <%= f.input :password,
                   required: true,
                   label_html: { class: "form-title" },
@@ -43,8 +38,9 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-outlined"%>
+      <%= f.button :submit, "Sign up", class: "btn btn-outlined" %>
     </div>
+
   <% end %>
   <%= render "devise/shared/links" %>
 </div>
