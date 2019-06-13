@@ -11,9 +11,23 @@
             <% if current_page? root_path %>
               <div class="event-pill-expandable reminder-organiser-avatar">
                 <div class="event-pill-inner">
-                  <%= image_tag "paal.jpg", class: "avatar-small" %>
+
+<!--             <%#= image_tag "paal.jpg", class: "avatar-small" %>
                   <div class="event-pill-text">
-                    <p>Paal</p>
+                    <p>Paal</p> -->
+
+                  <% if event.itinerary.user.avatar.present? %>
+                    <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                  <% else %>
+                    <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+                      <p><%= current_user.first_name[0].upcase %></p>
+                    </div>
+                  <% end %>
+                  <div class="event-pill-text">
+                    <p>
+                      <!-- Captain Cat -->
+                      <%= event.itinerary.user.first_name %>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -23,7 +37,7 @@
           </div>
         </div>
         <div class="event-card-info">
-          <h2 class="card-title"><%= event.title %></h2>
+          <h2 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;"><%= event.title %></h2>
           <p class="card-location">
             <i class="fas fa-map-marker-alt pr-1"></i>
             <%= event.location.city%>, <%= event.location.country %>

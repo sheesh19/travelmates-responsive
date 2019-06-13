@@ -208,6 +208,38 @@
   }
 }
 
+.photo-card-oblong {
+  // Dimension
+  // height: 180px;
+  width: 100%;
+  position: absolute;
+  top:-100%; left:0; right: 0; bottom:-100%;
+  margin: auto;
+  background-size: cover;
+  background-color: $teal;
+  // Position
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  position: relative;
+  // Colour
+  color: $almost-white;
+  // Font
+  font-size: 24px;
+  font-weight: bold;
+  // Border
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // Animation
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 19px 43px;
+  transform: scale3d(1.006, 1.006, 1);
+  }
+}
+
 .photo-card-small {
   // Dimension
   height: 144px;
@@ -334,6 +366,12 @@
 .reminder-time {
   color: $medium-gray;
   font-weight: 600;
+}
+
+.reminder-date {
+  font-size: 10px;
+  color: $light-gray;
+  font-weight: 400;
 }
 
 .reminder-organiser-avatar {

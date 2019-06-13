@@ -1,12 +1,7 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
-</div>
-
-<div class="breadcrumb">
-  <%= link_to request.referer.present? ? request.referer : default_path do %>
-    <i class="fas fa-angle-left"></i>
-    Back
-  <% end %>
+<div class="darkest-teal-background">
+  <div class="page-container">
+    <div class="location-main-title"><h1><%= @location.city %></h1></div>
+  </div>
 </div>
 
 <div class="map">
@@ -14,8 +9,11 @@
 </div>
 
 <div class="top__ten">
-  <div class="container__featured">
-  <h4>Top Activities in <%= @location.city %></h4>
+
+  <div class="container__featured pt-3">
+  <div class="featured-title-home">
+    <h2>TOP ACTIVITIES IN <%= @location.city.upcase %></h2>
+  </div>
   <!-- Carousel Top 10 -->
     <div class="card__grid">
       <% @location.top_ten_activities.each do |activity| %>
@@ -32,38 +30,44 @@
   </div>
 </div>
 
-<div class="container__dashboard">
-  <div class="display__itinerary">
-    <h4>Upcoming Events in <%= @location.city %></h4>
-    <% @location.location_events.each do |event| %>
-      <!-- Events must be in the future to be displayed -->
-      <% if event.start_date >= Date.today %>
-
-        <div class="card reminder-card-with-location d-flex">
-          <div class="reminder-text d-flex">
-            <div class="reminder-time pt-4 pl-4 pb-4">
-              <%= event.start_date.strftime("%l:%M %P") %> | <%= event.start_date.strftime("%d %b %Y") %>
-            </div>
-            <div class="reminder-details p-4">
-              <h5><%= event.title %></h5>
-              <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
-            </div>
-          </div>
-          <div class="event-pill-expandable reminder-organiser-avatar">
-            <div class="event-pill-inner">
-              <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
-              <div class="event-pill-text">
-                <p><%= event.itinerary.user.first_name %></p>
+<div class="page-container">
+  <div class="upcoming-event-title">
+    <h2>Upcoming events in <%= @location.city %></h2>
+  </div>
+  <div class="container__dashboard">
+    <div class="display__itinerary">
+      <% @location.location_events.each do |event| %>
+        <!-- Events must be in the future to be displayed -->
+        <% if event.start_date >= Date.today %>
+          <div class="card reminder-card-with-location d-flex">
+            <div class="reminder-text d-flex">
+              <div class="reminder-time pt-4 pl-4 pb-4">
+                <%= event.start_date.strftime("%l:%M %P") %>
+                <div class="reminder-date">
+                  <p><%= event.start_date.strftime("%d %b %Y") %></p>
+                </div>
+              </div>
+              <div class="reminder-details p-4">
+                <h5><%= event.title %></h5>
+                <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
               </div>
             </div>
+            <div class="event-pill-expandable reminder-organiser-avatar">
+              <div class="event-pill-inner">
+                <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                <div class="event-pill-text">
+                  <p><%= event.itinerary.user.first_name %></p>
+                </div>
+              </div>
+            </div>
+            <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
           </div>
-          <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
-        </div>
 
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="dash__calendar">
-    <%= render 'calendar_locations' %>
+    </div>
+    <div class="dash__calendar">
+      <%= render 'calendar_locations' %>
+    </div>
   </div>
 </div>

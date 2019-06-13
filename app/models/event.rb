@@ -33,15 +33,25 @@ class Event < ApplicationRecord
   end
 
   def spots_left
-    approved = EventRegistration.where(event_id: id) && EventRegistration.where(status: 1)
-    total = max_spots - approved.count
-    total < 0 ? 0 : total
+    if !max_spots.nil?
+      approved = EventRegistration.where(event_id: id) && EventRegistration.where(status: 1).count
+      total = max_spots - approved
+      total > 0 ? total : 0
+    end
   end
 
   def list_of_mates
     self.event_registrations.map do |registration|
       registration
     end
+  end
+
+  def self.upcomings(user)
+    # count event that current user is the event creater
+    # count event that current user has joined
+    user_created_count = Event.joins(:itinerary).where("itineraries.user_id = ? AND events.start_date > ?", user.id, Date.today).count
+    user_joined_count = Event.joins(:event_registrations).where("event_registrations.user_id = ? AND events.start_date > ?", user.id, Date.today).count
+    return user_joined_count + user_created_count
   end
 
   private

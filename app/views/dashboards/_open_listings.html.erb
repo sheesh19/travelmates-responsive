@@ -1,43 +1,74 @@
+<div class="row approval-row align-items-center mt-5">
+  <div class="col-2 table-header"><p>Requester</p></div>
+  <div class="col-4 table-header"><p>Event</p></div>
+  <div class="col-2 table-header"><p>Requested Date</p></div>
+  <div class="col-2 table-header"><p>Status</p></div>
+  <div class="col-2 table-header"><p></p></div>
+</div>
+
 <% @events.each do |event| %>
   <% if event.solo? == false %>
-
     <% event.list_of_mates.each do |regis| %>
       <% if regis.status.present? %>
+          <div class="row approval-row align-items-center">
 
-        <div class="data-table listing">
-          <div class="data-header">
-            <div class="data-header-cell">Potential Mate</div>
-            <div class="data-header-cell">Event</div>
-            <div class="data-header-cell">Status</div>
+            <!-- REQUESTER -->
+            <div class="col-2 d-flex align-items-center">
+              <% if regis.user.avatar.present? %>
+                <%= image_tag regis.user.avatar, class: "avatar" %>
+              <% else %>
+                <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+                  <p><%= current_user.first_name[0].upcase %></p>
+                </div>
+              <% end %>
+              <p class="mb-0 pl-2"><%= regis.user.first_name %> <%= regis.user.last_name %></p>
+            </div>
+
+            <!-- EVENT NAME -->
+            <div class="col-4">
+                <%= regis.event.title %> -
+                <%= regis.event.start_date.strftime("%d %b %Y") %>
+            </div>
+
+            <!-- EVENT REQUEST DATE -->
+            <div class="col-2">
+              <%= regis.event.created_at.strftime("%d %b %Y") %>
+            </div>
+
+            <!-- STATUS -->
+            <div class="col-2">
+              <%= regis.status %>
+            </div>
+
+            <!-- EXPANDABLE BUTTON -->
+            <div class="col-2 expand-btn">
+              <a data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview"><span class="btn btn-outlined">Expand</span></a>
+            </div>
           </div>
-          <div class="data-rows">
-            <div class="data-content-cell">
-              <%= image_tag regis.user.avatar, class: "avatar" %>
-              <%= regis.user.username %>
-              <p><%= regis.user.first_name %> <%= regis.user.last_name %></p>
-            </div>
-            <div class="data-content-cell">
-              <div class="reminder-details"><%= regis.event.title %></div>
-              <p><%= regis.event.start_date.strftime("%d %b %Y") %> - <%= regis.event.end_date.strftime("%d %b %Y") %> </p>
-            </div>
-            <div class="data-content-cell">
-            <%= simple_form_for [regis.event.itinerary, regis.event, regis] do |f|  %>
-              <!-- INPUT: START DATE -->
-              <%= f.input :status, collection: EventRegistration.statuses.keys, label_html: { class: "form-title" }, label: false %>
-              <div class="data-content-cell-small">
-                <%= f.submit "Save", class: "btn btn-outlined", method: :patch %>
-              </div>
-            <% end %>
+          <!-- HIDDEN FORM -->
+          <div id="collapseReview" class=" collapse">
+            <div class="col-3">
+              <%= simple_form_for [regis.event.itinerary, regis.event, regis] do |f|  %>
+                <%= f.input :status,
+                  collection: EventRegistration.statuses.keys,
+                  label_html: { class: "form-title mt-3" },
+                  label: "Approve the request"
+                  %>
+                <div class="data-content-cell-small">
+                  <%= f.submit "Save", class: "btn btn-outlined", method: :patch %>
+                </div>
+              <% end %>
             </div>
           </div>
-        </div>
+
+      <!-- SHOW EMPTY STATE IF NO EVENTS -->
       <% else %>
-        <span><h5>You have no open events!</h5></span>
+        <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+          <p><strong>You have no open events!</strong></p>
+        </div>
       <% end %>
+
     <% end %>
   <% else %>
   <% end %>
 <% end %>
-
-
-

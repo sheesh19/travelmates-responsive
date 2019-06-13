@@ -69,7 +69,7 @@
 
 .container__dashboard {
   display: grid;
-  grid-template-columns: 7fr 5fr;
+  grid-template-columns: 7fr 3fr;
   flex-grow: 1;
   grid-gap: 16px;
 }
@@ -102,6 +102,21 @@
       background-color: $almost-white;
       z-index: -1;
     }
+  }
+}
+
+.empty-state {
+  height: 100%;
+  border: dashed 1px $gray-ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  p {
+    margin: 0;
+    color: $medium-gray;
   }
 }
 

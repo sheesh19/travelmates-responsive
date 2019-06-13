@@ -16,8 +16,8 @@ class EventRegistrationsController < ApplicationController
 
     if @event_registration.save
       # trigger email notification
-      mail = UserMailer.with(user: current_user, event: @event).event_mate_up
-      mail.deliver_now
+      # mail = UserMailer.with(user: current_user, event: @event).event_mate_up error with heroku
+      # mail.deliver_now error with heroku
       redirect_to itinerary_event_path(@event.itinerary, @event)#, #flash[:notice] = 'Your mate up request is pending!'
     else
       render "events/show"

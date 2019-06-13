@@ -7,6 +7,7 @@
     cursor: pointer;
   }
 }
+
 .avatar-large {
   width: 56px;
   max-width: 56px;
@@ -15,6 +16,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.avatar-large-itinerary {
+  width: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
 }
 
 .avatar-xlarge {
@@ -54,5 +62,34 @@
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+.no-image-avatar-itinerary {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 24px;
+    margin: 0;
+  }
+}
+
+.no-image-avatar-small {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
   }
 }
