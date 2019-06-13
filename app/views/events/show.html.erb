@@ -25,9 +25,6 @@
         <% end %>
         <!-- Placeholder! Carousel of Event Images -->
         <h4>Event description</h4>
-        <% if current_user == @event&.itinerary&.user %>
-          <%= link_to "Edit", edit_itinerary_event_path(@event.itinerary, @event), class: "btn btn-outlined" %>
-        <% end %>
         <p><%= @event.description %></p>
         <div class="">
           <p>
