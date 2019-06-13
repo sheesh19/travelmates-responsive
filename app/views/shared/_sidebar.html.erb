@@ -17,7 +17,7 @@
         </div>
       </div>
       <div>
-        <span id="navbar__welcome">WELCOME BACK, </span>
+        <span id="navbar__welcome">WELCOME BACK</span>
         <p id="sidebar__name"><%= current_user.first_name.downcase.capitalize %></p>
       </div>
     <% elsif user_signed_in? && current_user.avatar.nil? %>
