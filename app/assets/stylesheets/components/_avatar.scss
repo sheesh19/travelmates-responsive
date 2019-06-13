@@ -56,3 +56,18 @@
     cursor: pointer;
   }
 }
+
+.no-image-avatar-small {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+}
