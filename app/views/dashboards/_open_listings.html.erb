@@ -14,9 +14,11 @@
             <div class="data-content-cell">
               <%= image_tag regis.user.avatar, class: "avatar" %>
               <%= regis.user.username %>
+              <p><%= regis.user.first_name %> <%= regis.user.last_name %></p>
             </div>
             <div class="data-content-cell">
-              <%= regis.event.title %>
+              <div class="reminder-details"><%= regis.event.title %></div>
+              <p><%= regis.event.start_date.strftime("%d %b %Y") %> - <%= regis.event.end_date.strftime("%d %b %Y") %> </p>
             </div>
             <div class="data-content-cell">
             <%= simple_form_for [regis.event.itinerary, regis.event, regis] do |f|  %>
