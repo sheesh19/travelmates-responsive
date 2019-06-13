@@ -551,6 +551,26 @@ event_list = [
   max_spots: 4
 },
 {
+  location_id: Location.find_by(city: "London").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Food Markets").id,
+  title: "Kick off the Italian Cultural Tour with Italian Food in Shoreditch",
+  start_date: "2019-08-05 17:00:00",
+  end_date: "2019-08-05 22:00:00",
+  description: "Have some delicate Italian food tastings in Shoreditch.",
+  max_spots: 0
+},
+{
+  location_id: Location.find_by(city: "Florence").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Night Life").id,
+  title: "Visit a Stunning Winery",
+  start_date: "2019-08-06 17:00:00",
+  end_date: "2019-08-06 22:00:00",
+  description: "Visit the most incredible wineries in Florence on a massive winery tour.",
+  max_spots: 3
+},
+{
   location_id: Location.find_by(city: "Florence").id,
   itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
@@ -581,7 +601,7 @@ event_list = [
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
-},
+}
 ]
 Event.create!(event_list)
 puts "Created #{Event.count} event(s)"
