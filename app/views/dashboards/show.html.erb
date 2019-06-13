@@ -12,7 +12,7 @@
       </li>
       <li class="nav-item">
         <a class="dash-inner-nav" id="pills-open-tab" data-toggle="pill" href="#pills-open" role="tab" aria-controls="pills-open" aria-selected="false">
-          Open listings (<%= current_user.num_listings %>)
+          Open listings (<%= current_user.num_listings.present? ? current_user.num_listings : 0 %>)
         </a>
       </li>
       <li class="nav-item">
