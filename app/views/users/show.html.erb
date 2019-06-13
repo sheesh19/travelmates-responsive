@@ -2,7 +2,14 @@
   <div class="user-description">
     <div>
       <div>
-        <%= image_tag current_user.avatar, class: "rounded-circle", style: "width: 150px" %>
+        <div class="no-image-avatar d-flex align-items-center justify-content-center dropdown-toggle" id="navbarDropdown" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+          <% if current_user.first_name.present? %>
+            <p><%= current_user.first_name[0].upcase %></p>
+          <% else %>
+            <p>M</p>
+          <% end %>
+        </div>
+        <%= image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
         <div>
           <h4>
             <%= current_user.first_name %>
