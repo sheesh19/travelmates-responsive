@@ -30,7 +30,7 @@ user_list = [
   password: "password",
   first_name: "Paal",
   last_name: "Ringstad",
-  username: "paal",
+  username: "Paal",
   description: "Avid traveller, sailor, and cat enthusiast.",
   gender: "Male",
   date_of_birth: "1989-04-15",
@@ -58,7 +58,7 @@ user_list = [
   date_of_birth: "1991-04-09",
   avatar: "gabby.jpg"
 }]
-]
+
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
 
@@ -325,6 +325,30 @@ location_list = [
   latitude: -36.851782,
   longitude: 174.763151,
   photo: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+},
+{
+  city: "Bogota",
+  country: "Colombia",
+  state: "Capital District",
+  latitude: 4.7110,
+  longitude: 74.0721,
+  photo: "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+},
+{
+  city: "Willemstad, Curacao",
+  country: "Netherlands",
+  state: "",
+  latitude: 12.1224,
+  longitude: 68.8824,
+  photo: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80"
+},
+{
+  city: "Kralendijk, Bonaire",
+  country: "Netherlands",
+  state: "",
+  latitude: 12.1443,
+  longitude: 68.2655,
+  photo: "https://images.unsplash.com/photo-1495127466322-72b03a266c4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 }
 ]
 Location.create!(location_list)
@@ -476,7 +500,7 @@ puts "Creating itineraries"
 itinerary_list = [
 {
   user_id: User.find_by(username: "Paal").id,
-  title: "An ozzie adventure",
+  title: "Greatest Ozzie Adventure",
   start_date: "2019-04-15",
   end_date: "2019-06-23",
   description: "A trip across Australia",
@@ -485,8 +509,8 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Paal").id,
-  title: "An asian food tour",
+  user_id: User.find_by(username: "gabby").id,
+  title: "Asian Food Tour",
   start_date: "2019-06-20",
   end_date: "2019-06-25",
   description: "A culinary tour of asia",
@@ -495,7 +519,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "gabby").id,
   title: "Thai Scuba Adventure",
   start_date: "2019-06-26",
   end_date: "2019-06-30",
@@ -505,8 +529,8 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
-  title: "Hong Kong Shopping",
+  user_id: User.find_by(username: "sophisophi").id,
+  title: "Best of Hong Kong",
   start_date: "2019-07-01",
   end_date: "2019-07-05",
   description: "Tasty Dim Sum and shopping fun!",
@@ -516,7 +540,7 @@ itinerary_list = [
 },
 {
   user_id: User.find_by(username: "Paal").id,
-  title: "Cherry Blossoms",
+  title: "Cherry Blossoms in Japan",
   start_date: "2019-07-08",
   end_date: "2019-07-12",
   description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
@@ -526,16 +550,16 @@ itinerary_list = [
 },
 {
   user_id: User.find_by(username: "Paal").id,
-  title: "Sightseeing in San Francisco",
+  title: "California Dreaming",
   start_date: "2019-07-15",
   end_date: "2019-07-19",
-  description: "Golden Gate Bridge and networking in Silicon Valley",
+  description: "Golden Gate Bridge, networking in Silicon Valley, and National Parks",
   status: 0,
   visibility: 0,
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "sophisophi").id,
   title: "New York New York",
   start_date: "2019-07-22",
   end_date: "2019-07-26",
@@ -545,11 +569,11 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "gabby").id,
   title: "My Fair London",
   start_date: "2019-07-29",
   end_date: "2019-08-02",
-  description: "Afternoon tea in Mayfair",
+  description: "Explore the London markets and tea in Mayfair",
   status: 0,
   visibility: 1,
   trip_type: 0
@@ -563,6 +587,16 @@ itinerary_list = [
   status: 0,
   visibility: 0,
   trip_type: 0
+},
+{
+  user_id: User.find_by(username: "sheilz").id,
+  title: "ABC Islands & Colombia Extravaganza",
+  start_date: "2019-03-20",
+  end_date: "2019-04-09",
+  description: "Snorkeling, Hiking, and Exploring: the ABC's of Travel",
+  status: 1,
+  visibility: 1,
+  trip_type: 0
 }
 ]
 Itinerary.create!(itinerary_list)
@@ -573,7 +607,7 @@ puts "Creating events"
 event_list = [
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Tech").id,
   title: "Le Wagon Demo Day",
   start_date: "2019-06-14 18:00:00",
@@ -583,7 +617,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Festival").id,
   title: "Bottomless G&Tea Party",
   start_date: "2019-06-18 14:00:00",
@@ -593,7 +627,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "QVM Winter Night Market",
   start_date: "2019-06-19 17:00:00",
@@ -603,7 +637,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Sydney").id,
-  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Cultural Events").id,
   title: "Sydney Opera House",
   start_date: "2019-06-21 17:00:00",
@@ -613,7 +647,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Perth").id,
-  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Snorkeling off the Perth coast",
   start_date: "2019-06-23 09:00:00",
@@ -653,7 +687,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Singapore").id,
-  itinerary_id: Itinerary.find_by(title: "An asian food tour").id,
+  itinerary_id: Itinerary.find_by(title: "Asian Food Tour").id,
   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "Chinatown Complex Food Centre",
   start_date: "2019-06-20 17:00:00",
@@ -663,7 +697,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Hong Kong").id,
-  itinerary_id: Itinerary.find_by(title: "An asian food tour").id,
+  itinerary_id: Itinerary.find_by(title: "Asian Food Tour").id,
   activity_id: Activity.find_by(title: "Night Markets").id,
   title: "Temple Street night market",
   start_date: "2019-06-22 20:30:00",
@@ -683,7 +717,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Hong Kong").id,
-  itinerary_id: Itinerary.find_by(title: "Hong Kong Shopping").id,
+  itinerary_id: Itinerary.find_by(title: "Best of Hong Kong").id,
   activity_id: Activity.find_by(title: "Shopping").id,
   title: "Elements Shopping Mall",
   start_date: "2019-07-01 09:30:00",
@@ -693,7 +727,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "Matsuno").id,
-  itinerary_id: Itinerary.find_by(title: "Cherry Blossoms").id,
+  itinerary_id: Itinerary.find_by(title: "Cherry Blossoms in Japan").id,
   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Cherry Blossoms in Matsuno",
   start_date: "2019-07-08 09:30:00",
@@ -703,7 +737,7 @@ event_list = [
 },
 {
   location_id: Location.find_by(city: "San Francisco").id,
-  itinerary_id: Itinerary.find_by(title: "Sightseeing in San Francisco").id,
+  itinerary_id: Itinerary.find_by(title: "California Dreaming").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Checking out the Golden Gate Bridge",
   start_date: "2019-07-15 09:30:00",
@@ -731,6 +765,36 @@ event_list = [
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Kralendijk").id,
+  itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
+  activity_id: Activity.find_by(title: "Snorkeling").id,
+  title: "Bonaire Nation Park - Snorkeling",
+  start_date: "2019-03-23 08:30:00",
+  end_date: "2019-03-23 17:00:00",
+  description: "Have the most incredible experience snorkeling in the Bonaire National Park. See turtles, squid, tons of coral and fish!",
+  max_spots: 7
+},
+{
+  location_id: Location.find_by(city: "Willemstad").id,
+  itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
+  activity_id: Activity.find_by(title: "Night Life").id,
+  title: "Blue Curacao Experience",
+  start_date: "2019-03-25 14:30:00",
+  end_date: "2019-03-25 17:00:00",
+  description: "Groupon for two to have a blue Curacao experience.",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "Bogota").id,
+  itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
+  activity_id: Activity.find_by(title: "Hiking").id,
+  title: "Hike in the Colombian Cloud Rainforest",
+  start_date: "2019-03-30 07:30:00",
+  end_date: "2019-03-30 20:00:00",
+  description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
+  max_spots: 0
 }
 ]
 Event.create!(event_list)
