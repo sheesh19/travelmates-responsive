@@ -31,6 +31,12 @@ class Itinerary < ApplicationRecord
     Itinerary.all.map{ |x| [FavoriteItinerary.where(itinerary_id: x.id).count, x] }.sort.reverse!
   end
 
+
+  def self.most_popular_itineraries_events
+    # Top ten itineraries by number of favs
+    Itinerary.all.map{ |x| [Event.where(itinerary_id: x.id).count, x] }.sort.reverse!
+  end
+
   private
 
   def start_date_cannot_be_in_the_past

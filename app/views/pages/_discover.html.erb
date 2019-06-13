@@ -118,7 +118,7 @@
     <div class="">
       <!-- Card Carousel (?) -->
       <div class="card__grid">
-        <% @itineraries.most_popular_itineraries[0..2].each do |itinerary| %>
+        <% @itineraries.most_popular_itineraries_events[0..2].each do |itinerary| %>
           <div class="card map-card">
             <div>
               <%= render "shared/itinerary_static_map", itinerary: itinerary[1]  %>
