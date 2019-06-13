@@ -28,7 +28,7 @@
                     </div>
                   </div>
                   <div class="reminder-map">
-                    <%= render "shared/mapstatic" %>
+                    <%= image_tag event.photo.present? ? event.photo : event.location.photo %>
                   </div>
                 </div>
                 <div class="event-pill-expandable reminder-organiser-avatar">
