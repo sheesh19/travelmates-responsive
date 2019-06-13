@@ -15,17 +15,6 @@ User.destroy_all #parent (normally child should be destroyed before parent unles
 puts "Creating users"
 user_list = [
 {
-  email: "capt.cat@gmail.com",
-  password: "password",
-  first_name: "Capt.",
-  last_name: "Cat",
-  username: "Captain_Cat",
-  description: "An adventurous kitty who is at home at sea.",
-  gender: "Male",
-  date_of_birth: "2010-05-15",
-  avatar: "captain_cat.jpg"
-},
-{
   email: "sheila.crikey@gmail.com",
   password: "password",
   first_name: "Sheila",
@@ -35,7 +24,19 @@ user_list = [
   gender: "Female",
   date_of_birth: "1994-04-09",
   avatar: "sheila-avatar.jpg"
-}]
+},
+{
+  email: "paal@gmail.com",
+  password: "password",
+  first_name: "Paal",
+  last_name: "Ringstad",
+  username: "Paal",
+  description: "Manager at Le Wagon Melbourne",
+  gender: "Male",
+  date_of_birth: "1989-04-15",
+  avatar: "paal.jpg"
+}
+]
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
 
@@ -278,6 +279,30 @@ location_list = [
   latitude: 43.776935,
   longitude: 11.258739,
   photo: "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+},
+{
+  city: "Paris",
+  country: "France",
+  state: "France",
+  latitude: 48.864854,
+  longitude: 2.379853,
+  photo: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
+},
+{
+  city: "Perth",
+  country: "Australia",
+  state: "Western Australia",
+  latitude: -31.941764,
+  longitude: 115.861205,
+  photo: "https://images.unsplash.com/photo-1539867462940-bc733134d96e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
+},
+{
+  city: "Auckland",
+  country: "New Zealand",
+  state: "North Island",
+  latitude: -36.851782,
+  longitude: 174.763151,
+  photo: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
 }
 ]
 Location.create!(location_list)
@@ -414,6 +439,10 @@ activity_list = [
 {
   title: "Cultural Festival",
   photo: "https://images.unsplash.com/photo-1559760434-0981df057e83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+},
+{
+  title: "Tech",
+  photo: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 }
 ]
 
@@ -424,27 +453,27 @@ puts "Created #{Activity.count} activit(y/ies)"
 puts "Creating itineraries"
 itinerary_list = [
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
-  title: "Le Wagon Full Stack Bootcamp",
+  user_id: User.find_by(username: "Paal").id,
+  title: "An ozzie adventure",
   start_date: "2019-04-15",
-  end_date: "2019-06-19",
-  description: "A Melbourne coding adventure",
+  end_date: "2019-06-23",
+  description: "A trip across Australia",
   status: 1,
   visibility: 1,
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
-  title: "Singapore Foodie Feast",
+  user_id: User.find_by(username: "Paal").id,
+  title: "An asian food tour",
   start_date: "2019-06-20",
   end_date: "2019-06-25",
-  description: "A culinary tour of Singapore's finest hawker markets",
+  description: "A culinary tour of asia",
   status: 0,
   visibility: 1,
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "Thai Scuba Adventure",
   start_date: "2019-06-26",
   end_date: "2019-06-30",
@@ -454,7 +483,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "Hong Kong Shopping",
   start_date: "2019-07-01",
   end_date: "2019-07-05",
@@ -464,7 +493,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "Cherry Blossoms",
   start_date: "2019-07-08",
   end_date: "2019-07-12",
@@ -474,7 +503,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "Sightseeing in San Francisco",
   start_date: "2019-07-15",
   end_date: "2019-07-19",
@@ -484,7 +513,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "New York New York",
   start_date: "2019-07-22",
   end_date: "2019-07-26",
@@ -494,7 +523,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
+  user_id: User.find_by(username: "Paal").id,
   title: "My Fair London",
   start_date: "2019-07-29",
   end_date: "2019-08-02",
@@ -504,8 +533,8 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Captain_Cat").id,
-  title: "Italian Cultural Tour",
+  user_id: User.find_by(username: "Paal").id,
+  title: "Euro Trip",
   start_date: "2019-08-05",
   end_date: "2019-08-09",
   description: "Food, Museums and Shopping",
@@ -522,27 +551,17 @@ puts "Creating events"
 event_list = [
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
-  activity_id: Activity.find_by(title: "Food Markets").id,
-  title: "QVM Winter Night Market",
-  start_date: "2019-06-19 17:00:00",
-  end_date: "2019-06-19 22:00:00",
-  description: "A foodie feast",
-  max_spots: 3
+  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  activity_id: Activity.find_by(title: "Tech").id,
+  title: "Le Wagon Demo Day",
+  start_date: "2019-06-14 18:00:00",
+  end_date: "2019-06-14 20:00:00",
+  description: "Pushing boundaries in education through tech.",
+  max_spots: 18
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
-  activity_id: Activity.find_by(title: "Festival").id,
-  title: "Gin Tasting",
-  start_date: "2019-06-17 19:00:00",
-  end_date: "2019-06-17 23:00:00",
-  description: "A fun filled event of bespoke G&Ts, DIY cocktails, and gin-themed park parties.",
-  max_spots: 2
-},
-{
-  location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
+  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
   activity_id: Activity.find_by(title: "Festival").id,
   title: "Bottomless G&Tea Party",
   start_date: "2019-06-18 14:00:00",
@@ -551,45 +570,134 @@ event_list = [
   max_spots: 4
 },
 {
-  location_id: Location.find_by(city: "London").id,
-  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  location_id: Location.find_by(city: "Melbourne").id,
+  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
   activity_id: Activity.find_by(title: "Food Markets").id,
-  title: "Kick off the Italian Cultural Tour with Italian Food in Shoreditch",
-  start_date: "2019-08-05 17:00:00",
-  end_date: "2019-08-05 22:00:00",
-  description: "Have some delicate Italian food tastings in Shoreditch.",
-  max_spots: 0
+  title: "QVM Winter Night Market",
+  start_date: "2019-06-19 17:00:00",
+  end_date: "2019-06-19 22:00:00",
+  description: "A foodie feast",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Sydney").id,
+  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  activity_id: Activity.find_by(title: "Cultural Events").id,
+  title: "Sydney Opera House",
+  start_date: "2019-06-21 17:00:00",
+  end_date: "2019-06-21 22:00:00",
+  description: "A night at the Opera",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "Perth").id,
+  itinerary_id: Itinerary.find_by(title: "An ozzie adventure").id,
+  activity_id: Activity.find_by(title: "Snorkeling").id,
+  title: "Snorkeling off the Perth coast",
+  start_date: "2019-06-23 09:00:00",
+  end_date: "2019-06-23 18:00:00",
+  description: "snorkeling around Rottnest Island",
+  max_spots: 2
 },
 {
   location_id: Location.find_by(city: "Florence").id,
-  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
-  activity_id: Activity.find_by(title: "Night Life").id,
+  itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
+  activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Visit a Stunning Winery",
-  start_date: "2019-08-06 17:00:00",
-  end_date: "2019-08-06 22:00:00",
+  start_date: "2019-08-05 09:00:00",
+  end_date: "2019-08-05 17:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
   max_spots: 3
 },
 {
   location_id: Location.find_by(city: "Florence").id,
-  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "David by Michelangelo",
-  start_date: "2019-08-05 09:00:00",
-  end_date: "2019-08-05 17:00:00",
+  start_date: "2019-08-06 09:00:00",
+  end_date: "2019-08-06 17:00:00",
   description: "Michelangelo’s defiant David statue has captivated the world for centuries. Considered one of art history’s major masterpieces, the marble sculpture showcases both the artist’s skill and the fine art focus that defines the Renaissance.",
   max_spots: 2
 },
 {
-  location_id: Location.find_by(city: "London").id,
-  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
-  activity_id: Activity.find_by(title: "Sightseeing").id,
-  title: "Traditional Afternoon Tea at The Ritz, Mayfair",
-  start_date: "2019-07-29 15:30:00",
-  end_date: "2019-08-05 17:00:00",
-  description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
-  The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
+  location_id: Location.find_by(city: "Paris").id,
+  itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
+  activity_id: Activity.find_by(title: "Tech").id,
+  title: "Le Wagon reunion",
+  start_date: "2019-08-07 15:30:00",
+  end_date: "2019-08-07 17:00:00",
+  description: "A total geek fest!",
   max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Singapore").id,
+  itinerary_id: Itinerary.find_by(title: "An asian food tour").id,
+  activity_id: Activity.find_by(title: "Food Markets").id,
+  title: "Chinatown Complex Food Centre",
+  start_date: "2019-06-20 17:00:00",
+  end_date: "2019-06-20 22:00:00",
+  description: "largest hawker centre in Singapore with over 260 food stalls.",
+  max_spots: 4
+},
+{
+  location_id: Location.find_by(city: "Hong Kong").id,
+  itinerary_id: Itinerary.find_by(title: "An asian food tour").id,
+  activity_id: Activity.find_by(title: "Night Markets").id,
+  title: "Temple Street night market",
+  start_date: "2019-06-22 20:30:00",
+  end_date: "2019-06-22 22:00:00",
+  description: "Temple Street is the largest and most popular night market in Hong Kong",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Koh Tao").id,
+  itinerary_id: Itinerary.find_by(title: "Thai Scuba Adventure").id,
+  activity_id: Activity.find_by(title: "Scuba Diving").id,
+  title: "Diving with Big Blue",
+  start_date: "2019-06-26 08:30:00",
+  end_date: "2019-06-30 22:00:00",
+  description: "Best diving round the island",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Hong Kong").id,
+  itinerary_id: Itinerary.find_by(title: "Hong Kong Shopping").id,
+  activity_id: Activity.find_by(title: "Shopping").id,
+  title: "Elements Shopping Mall",
+  start_date: "2019-07-01 09:30:00",
+  end_date: "2019-07-05 23:00:00",
+  description: "Elements Hong Kong brings together a host of high-end brands with 123 stores selling accessories from the likes of Mulberry, shoes from Jimmy Choo, fashion from Max Mara, and watches from ROLEX.",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Matsuno").id,
+  itinerary_id: Itinerary.find_by(title: "Cherry Blossoms").id,
+  activity_id: Activity.find_by(title: "Nature Tours").id,
+  title: "Cherry Blossoms in Matsuno",
+  start_date: "2019-07-08 09:30:00",
+  end_date: "2019-07-12 23:00:00",
+  description: "Cherry Blossoms bloom over Meguro River",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "San Francisco").id,
+  itinerary_id: Itinerary.find_by(title: "Sightseeing in San Francisco").id,
+  activity_id: Activity.find_by(title: "Sightseeing").id,
+  title: "Checking out the Golden Gate Bridge",
+  start_date: "2019-07-15 09:30:00",
+  end_date: "2019-07-19 23:00:00",
+  description: "Fantastic views of the GG Bridge",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "New York").id,
+  itinerary_id: Itinerary.find_by(title: "New York New York").id,
+  activity_id: Activity.find_by(title: "Clubbing").id,
+  title: "K-Pop Karaoke in Korea Town",
+  start_date: "2019-07-22 20:30:00",
+  end_date: "2019-07-22 23:00:00",
+  description: "Getting it on, Gangnam Style!",
+  max_spots: 2
 },
 {
   location_id: Location.find_by(city: "London").id,
@@ -605,6 +713,8 @@ event_list = [
 ]
 Event.create!(event_list)
 puts "Created #{Event.count} event(s)"
+
+
 
 
 

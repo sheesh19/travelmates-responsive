@@ -32,7 +32,17 @@
                 <% if event.photo.present? %>
                   <%= cl_image_tag event.photo, class: "photo-card-oblong"%>
                 <% else %>
-                  <%= render "shared/map_oblong_itinerary", event: event %>
+
+                  <!-- LEFT HERE IN CASE WE WANT TO USE MAPS AGAIN -->
+                  <%#= render "shared/map_oblong_itinerary", event: event %>
+
+                  <% if event.location.photo.present? %>
+                    <%= image_tag event.location.photo, class: "photo-card" %>
+                  <% else %>
+                    <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+                   <% end %>
+
+
                 <% end %>
               </div>
             </div>

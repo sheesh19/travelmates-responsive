@@ -19,7 +19,9 @@
     <!-- Button logic for Mate Up from NON OWNER perspective -->
     <% if @event.start_date >= Date.today %>
       <% if current_user.registered?(@event)%>
-        <%= render "shared/components/button", variant: "outlined", label: @event.event_registrations.where(user_id: current_user).last.status.capitalize, href: "" %>
+        <div class="badge badge-secondary pending-info">
+          Request <%= @event.event_registrations.where(user_id: current_user).last.status.downcase%>
+        </div>
       <% else %>
         <%= link_to "Mate up", itinerary_event_event_registrations_path(@event.itinerary, @event), method: :post, class: "btn btn-outlined" %>
       <% end %>
