@@ -31,18 +31,24 @@
             error: 'Please provide an event name',
             label_html: { class: "form-title" }
             %>
-          <%= f.input :start_date,
-            as: :datetime, order: [:day, :month, :year, :hour, :minute],
-            required: true, start_year: Date.today.year,
-            error: 'Start date can not be in the past',
-            label_html: { class: "form-title" }
-            %>
-          <%= f.input :end_date,
-            as: :datetime, order: [:day, :month, :year, :hour, :minute],
-            required: true, start_year: Date.today.year,
-            error: 'End date can not be earlier than start date',
-            label_html: { class: "form-title" }
-            %>
+          <div class="form-date-range">
+            <%= f.input :start_date,
+              as: :datetime,
+              html5: true,
+              required: true, start_year: Date.today.year,
+              error: 'Start date can not be in the past',
+              label_html: { class: "form-title" },
+              wrapper_html: { class: "form-title form-date-range-item" }
+              %>
+            <%= f.input :end_date,
+              as: :datetime,
+              html5: true,
+              required: true, start_year: Date.today.year,
+              error: 'End date can not be earlier than start date',
+              label_html: { class: "form-title" },
+              wrapper_html: { class: "form-title form-date-range-item" }
+              %>
+          </div>
           <div class="step-action">
             <%= render "shared/components/button", variant: "outlined", label: "Continue", href: "#" %>
           </div>
@@ -110,9 +116,8 @@
           </div>
           <div class="step-content">
             <%= f.input :photo,
-              label: "Select and upload a file",
+              label: "Select an image file to upload",
               label_html: { class: "form-title" },
-              input_html: { class: "" },
               wrapper_html: { class: "empty-state-container" }
               %>
             <%= f.input :photo_cache, as: :hidden %>

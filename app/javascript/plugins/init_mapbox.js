@@ -45,8 +45,8 @@ const initMapbox = () => {
         map.fitBounds(bounds, { padding: 70, maxZoom: 14 });
 
       }
+      map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     };
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
 };
 
 export { initMapbox };

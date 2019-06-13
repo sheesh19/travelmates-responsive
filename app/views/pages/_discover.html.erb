@@ -18,6 +18,47 @@
   <%= render 'events/featured_events' %>
 </div>
 
+<!-- BENEFITS SECTION -->
+<div class="darkest-teal-background">
+  <div class="page-container-home">
+    <div class="benefits-title">
+      FEATURES AND BENEFITS
+    </div>
+    <div class="d-flex justify-content-around">
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-plane"></i>
+        </div>
+        <div class="benefits-text-header">Plan trips easily</div>
+        <div class="benefits-text">Trip planning has never been such a breeze</div>
+        <div>
+          <%= link_to "Create a trip", new_itinerary_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="benefits-text-header">Share experiences</div>
+        <div class="benefits-text">Grow and learn with other solo travellers</div>
+        <div>
+          <%= link_to "Find a mate", events_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="far fa-grin-stars"></i>
+        </div>
+        <div class="benefits-text-header">Itinerary inspiration</div>
+        <div class="benefits-text">Use other traveller's intinerary for ideas</div>
+        <div>
+          <%= link_to "See itineraries", itineraries_path, class: "btn btn-outlined" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ACTIVITIES -->
 <div class="">
   <div class="page-container-home">
@@ -53,7 +94,6 @@
 </div>
 
 <div class="horizontal-page-divider"></div>
-
 
 <!-- LOCATIONS -->
 <div class="almost-white-background">
