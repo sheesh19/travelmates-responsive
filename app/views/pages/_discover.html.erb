@@ -21,21 +21,39 @@
 <!-- BENEFITS SECTION -->
 <div class="darkest-teal-background">
   <div class="page-container-home">
+    <div class="benefits-title">
+      FEATURES AND BENEFITS
+    </div>
     <div class="d-flex justify-content-around">
-      <div>
-        <div>[ICON HERE]</div>
-        <div>Trip planning becomes a breeze</div>
-        <div>[CTA HERE]</div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-plane"></i>
+        </div>
+        <div class="benefits-text-header">Plan trips easily</div>
+        <div class="benefits-text">Trip planning has never been such a breeze</div>
+        <div>
+          <%= link_to "Create a trip", new_itinerary_path, class: "btn btn-outlined" %>
+        </div>
       </div>
-      <div>
-        <div>[ICON HERE]</div>
-        <div>Share experiences with other travellers</div>
-        <div>[CTA HERE]</div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="benefits-text-header">Share experiences</div>
+        <div class="benefits-text">Grow and learn with other solo travellers</div>
+        <div>
+          <%= link_to "Find a mate", events_path, class: "btn btn-outlined" %>
+        </div>
       </div>
-      <div>
-        <div>[ICON HERE]</div>
-        <div>Travel economically across the globe</div>
-        <div>[CTA HERE]</div>
+      <div class="benefit-card">
+        <div class="benefits-icon">
+          <i class="far fa-grin-stars"></i>
+        </div>
+        <div class="benefits-text-header">Itinerary inspiration</div>
+        <div class="benefits-text">Use other traveller's intinerary for ideas</div>
+        <div>
+          <%= link_to "See itineraries", itineraries_path, class: "btn btn-outlined" %>
+        </div>
       </div>
     </div>
   </div>
