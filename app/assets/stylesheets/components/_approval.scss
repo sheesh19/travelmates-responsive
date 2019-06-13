@@ -1,0 +1,23 @@
+.approval-row {
+  border-bottom: 0.5px solid $lightish-gray;
+  height: 64px;
+  p {
+    margin: 0;
+  }
+}
+
+.approval-row-form {
+  border-bottom: 0.5px solid $lightish-gray;
+}
+
+.expand-btn {
+  align-items: right;
+}
+
+.table-header {
+  p {
+  font-size: 16px;
+  font-weight: 600;
+  color: $gray;
+  }
+}

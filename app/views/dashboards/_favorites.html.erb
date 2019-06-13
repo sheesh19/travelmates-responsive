@@ -1,28 +1,37 @@
-<div>
-<p>Favourite Itineraries (<%= @favorite_itineraries.count %>)</p>
-  <% @favorite_itineraries.each do |favourite_itinerary| %>
-  <div class="d-flex flex-column">
-    <h2><strong><%= favourite_itinerary.itinerary.title %></strong></h2>
-      <p>Details: <%= favourite_itinerary.itinerary.description %></p>
-        <p>Dates:
-        <%= favourite_itinerary.itinerary.start_date.strftime("%d %b %Y") %> to
-        <%= favourite_itinerary.itinerary.end_date.strftime("%d %b %Y") %>
-        </p>
+<% if @favorite_itineraries.count + @event_favorites.count == 0 %>
+  <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+    <p><strong>You have 0 favourites</strong></p>
   </div>
-  <% end %>
-</div>
-<br>
-<div>
-  <p>Favourite Events (<%= @event_favorites.count %>)</p>
-  <% @event_favorites.each do |event_favourite| %>
-  <div class="d-flex flex-column">
-    <h2><strong>Event Name: <%= event_favourite.event.title %></strong></h2>
-      <p>Details: <%= event_favourite.event.description %></p>
-        <p>Dates:
-        <%= event_favourite.event.start_date.strftime("%d %b %Y") %> to
-        <%= event_favourite.event.end_date.strftime("%d %b %Y") %>
+<% else %>
+  <div>
+    <p>Travel plan (<%= @favorite_itineraries.count %>)</p>
+    <% @favorite_itineraries.each do |favourite_itinerary| %>
+      <div class="d-flex flex-column">
+        <h2><strong><%= favourite_itinerary.itinerary.title %></strong></h2>
+        <p>Details: <%= favourite_itinerary.itinerary.description %></p>
+        <p>
+          Dates:
+          <%= favourite_itinerary.itinerary.start_date.strftime("%d %b %Y") %> to
+          <%= favourite_itinerary.itinerary.end_date.strftime("%d %b %Y") %>
         </p>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 
+  <br>
+
+  <div>
+    <p>Event (<%= @event_favorites.count %>)</p>
+    <% @event_favorites.each do |event_favourite| %>
+      <div class="d-flex flex-column">
+        <h2><strong>Event Name: <%= event_favourite.event.title %></strong></h2>
+        <p>Details: <%= event_favourite.event.description %></p>
+        <p>
+          Dates:
+          <%= event_favourite.event.start_date.strftime("%d %b %Y") %> to
+          <%= event_favourite.event.end_date.strftime("%d %b %Y") %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
