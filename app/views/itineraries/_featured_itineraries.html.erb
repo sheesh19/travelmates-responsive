@@ -3,37 +3,32 @@
     <h2>MOST FAVOURITED</h2>
   </div>
   <div class="">
-    <div class="card__grid">
-        <%# @itineraries.each do |itinerary| %>
+      <!-- Card Carousel (?) -->
+      <div class="card__grid">
         <% @itineraries.most_popular_itineraries[0..2].each do |itinerary| %>
-          <div class="map-card">
+          <div class="card map-card">
             <div>
-              <%= render "shared/mapstatic" %>
+              <%= render "shared/itinerary_static_map", itinerary: itinerary[1]  %>
             </div>
             <div class="card-body px-4 pb-4 pt-0">
               <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-                <div>
-                  <%= itinerary[1].total_time %> day plan
-                </div>
+                <div><%= itinerary[1].total_time %> day plan</div>
                   <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                    <% if current_page? root_path %>
-                    <% else %>
-                      400 <%= render 'heart', itinerary: itinerary[1] %>
-                    <% end %>
+                    400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
                 </div>
               </div>
-              <h2 class="card-title">
+              <h6 class="card-title-itinerary">
                 <%= itinerary[1].title %>
-              </h2>
-              <span class="tag-outline">Scuba diving</span>
-              <span class="tag-outline">Shark</span>
-              <span class="tag-outline">Amazing</span>
-              <span class="tag-outline">Shark</span>
-              <span class="tag-outline">Amazing</span>
+              </h6>
+              <span class="tag-filled">Scuba diving</span>
+              <span class="tag-filled">Shark</span>
+              <span class="tag-filled">Amazing</span>
             </div>
             <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
           </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
+
+
