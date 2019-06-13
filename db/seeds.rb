@@ -767,7 +767,7 @@ event_list = [
   max_spots: 3
 },
 {
-  location_id: Location.find_by(city: "Kralendijk").id,
+  location_id: Location.find_by(city: "Kralendijk, Bonaire").id,
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Bonaire Nation Park - Snorkeling",
@@ -777,7 +777,7 @@ event_list = [
   max_spots: 7
 },
 {
-  location_id: Location.find_by(city: "Willemstad").id,
+  location_id: Location.find_by(city: "Willemstad, Curacao").id,
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Blue Curacao Experience",
