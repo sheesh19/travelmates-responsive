@@ -117,8 +117,7 @@
           <div class="step-content">
             <%= f.input :photo,
               label: "Select an image file to upload",
-              label_html: { class: "form-title" },
-              wrapper_html: { class: "empty-state-container" }
+              label_html: { class: "form-title empty-state-container" }
               %>
             <%= f.input :photo_cache, as: :hidden %>
             <!-- Display Event Photo: <%#= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %> -->

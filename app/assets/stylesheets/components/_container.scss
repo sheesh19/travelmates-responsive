@@ -84,14 +84,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+
   p {
     margin: 0;
     color: $medium-gray;
   }
   &:hover {
-    background-color: $almost-white;
-    border-color: $light-gray;
-    padding: -16px;
+    &:after {
+      border-radius: 8px;
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      bottom: 8px;
+      left: 8px;
+      background-color: $almost-white;
+      z-index: -1;
+    }
   }
 }
 
