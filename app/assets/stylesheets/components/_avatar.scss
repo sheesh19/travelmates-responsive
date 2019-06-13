@@ -7,6 +7,7 @@
     cursor: pointer;
   }
 }
+
 .avatar-large {
   width: 56px;
   max-width: 56px;
@@ -15,6 +16,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.avatar-large-itinerary {
+  width: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
 }
 
 .avatar-xlarge {
