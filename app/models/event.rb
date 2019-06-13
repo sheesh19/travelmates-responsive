@@ -33,7 +33,9 @@ class Event < ApplicationRecord
   end
 
   def spots_left
-    max_spots - EventRegistration.where(event_id: id).count
+    approved = EventRegistration.where(event_id: id) && EventRegistration.where(status: 1)
+    total = max_spots - approved.count
+    total < 0 ? 0 : total
   end
 
   def list_of_mates
