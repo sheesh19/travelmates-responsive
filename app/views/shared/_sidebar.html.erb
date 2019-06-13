@@ -10,7 +10,19 @@
   <div class="sidebar-welcome d-flex align-items-center">
     <% if user_signed_in? %>
         <div>
-          <%= image_tag current_user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.avatar.present? %>
+            <%= image_tag current_user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <% if current_user.first_name.nil? %>
+              <div class="no-image-avatar d-flex align-items-center justify-content-center">
+                <p>U</p>
+              </div>
+            <% else %>
+              <div class="no-image-avatar d-flex align-items-center justify-content-center">
+                <p><%= current_user.first_name[0].upcase %></p>
+              </div>
+            <% end %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", user_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -18,7 +30,11 @@
         </div>
         <div>
           <span id="navbar__welcome">WELCOME BACK, </span>
-          <p id="sidebar__name"><%= current_user.first_name %></p>
+          <% if current_user.first_name.nil? %>
+            <p id="sidebar__name">Unknown</p>
+          <% else %>
+            <p id="sidebar__name"><%= current_user.first_name.capitalize %></p>
+          <% end %>
         </div>
     <% else %>
     <% end %>
