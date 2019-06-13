@@ -1,9 +1,15 @@
 .badge-mates-joining {
   background-color: $teal;
   color: $almost-white;
+  max-height: 24px;
 }
 
 .badge-awaiting-mates {
   border: solid 0.5px $teal;
   color: $teal;
+  max-height: 24px;
+}
+
+.badge-awaiting-solo {
+  max-height: 24px;
 }
