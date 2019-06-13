@@ -25,3 +25,11 @@
   text-align: center;
   vertical-align: middle;
 }
+
+.pending-info {
+  padding: 8px 16px 8px 16px;
+  font-size: 14px;
+  background-color: $lightish-gray;
+  color: $medium-gray;
+  border: solid 0.5px $form-border-gray;
+}
