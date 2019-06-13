@@ -20,7 +20,7 @@ user_list = [
   first_name: "Sheila",
   last_name: "Leveille",
   username: "sheilz",
-  description: "Solo traveller starting an unexpected journey. Sam Gamgee is the character I identify with most. I trend towards adventure travel and love the outdoors.",
+  description: "Solo traveller starting an unexpected journey.",
   gender: "Female",
   date_of_birth: "1994-04-09",
   avatar: "sheila-avatar.jpg"
@@ -30,12 +30,34 @@ user_list = [
   password: "password",
   first_name: "Paal",
   last_name: "Ringstad",
-  username: "Paal",
-  description: "Manager at Le Wagon Melbourne",
+  username: "paal",
+  description: "Avid traveller, sailor, and cat enthusiast.",
   gender: "Male",
   date_of_birth: "1989-04-15",
   avatar: "paal.jpg"
-}
+},
+{
+  email: "sophia.wu@gmail.com",
+  password: "password",
+  first_name: "Sophia",
+  last_name: "Wu",
+  username: "sophisophi",
+  description: "I like cats, surfings, and cats that surf.",
+  gender: "Female",
+  date_of_birth: "1994-04-20",
+  avatar: "soph.jpg"
+},
+{
+  email: "gabby@gmail.com",
+  password: "password",
+  first_name: "Gabriel",
+  last_name: "Z",
+  username: "gabby",
+  description: "Traveller from Argentina who loves penguins. St. Kilda's are so cute!",
+  gender: "Male",
+  date_of_birth: "1991-04-09",
+  avatar: "gabby.jpg"
+}]
 ]
 User.create!(user_list)
 puts "Created #{User.count} user(s)"
