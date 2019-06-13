@@ -20,11 +20,14 @@
         <h1><%= @itinerary.title %></h1>
         <p><%= pluralize(@itinerary.total_time, "day") %> plan </p>
         <p><%= @itinerary.description %></p>
+
+        <!-- Tags on Itineraries if present-->
         <% if @itinerary.user.tags.present? %>
           <% @itinerary.user.tags.each do |tag| %>
             <span class="tag-outline"><%= tag.tag_name %></span>
           <% end %>
         <% end %>
+
       </div>
       <div>
         <div>
