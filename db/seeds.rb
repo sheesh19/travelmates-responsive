@@ -331,23 +331,23 @@ location_list = [
   country: "Colombia",
   state: "Capital District",
   latitude: 4.7110,
-  longitude: 74.0721,
+  longitude: -74.0721,
   photo: "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 },
 {
-  city: "Willemstad, Curacao",
+  city: "Willemstad",
   country: "Netherlands",
-  state: "",
-  latitude: 12.1224,
-  longitude: 68.8824,
+  state: "Curacao",
+  latitude: 12.098145,
+  longitude: -68.8824,
   photo: "https://images.unsplash.com/photo-1541748603027-cbfefa3a6c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80"
 },
 {
-  city: "Kralendijk, Bonaire",
+  city: "Kralendijk",
   country: "Netherlands",
-  state: "",
+  state: "Bonaire",
   latitude: 12.1443,
-  longitude: 68.2655,
+  longitude: -68.2655,
   photo: "https://images.unsplash.com/photo-1495127466322-72b03a266c4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 }
 ]
@@ -767,7 +767,7 @@ event_list = [
   max_spots: 3
 },
 {
-  location_id: Location.find_by(city: "Kralendijk, Bonaire").id,
+  location_id: Location.find_by(city: "Kralendijk").id,
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Bonaire Nation Park - Snorkeling",
@@ -777,7 +777,7 @@ event_list = [
   max_spots: 7
 },
 {
-  location_id: Location.find_by(city: "Willemstad, Curacao").id,
+  location_id: Location.find_by(city: "Willemstad").id,
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Blue Curacao Experience",
