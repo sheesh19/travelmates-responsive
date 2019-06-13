@@ -15,16 +15,16 @@ Array.prototype.forEach.call( inputs, function( input ) {
     }
 
     if ( fileName ) {
-      label.innerHTML = `${fileName} Change`;
+      const fileUrl = URL.createObjectURL(event.target.files[0]);
+      label.innerHTML = `<span class="file-input-preview"><img src="${fileUrl}" alt="file preview"< class="file-preview" id="file-preview" /></span> ${fileName} <br> <div class="btn btn-outlined mt-3"> Change </div> `;
       label.classList.add('file-selected');
 
-      const existingFilePreview = document.getElementById('file-preview');
-      if (existingFilePreview) {
-        existingFilePreview.remove();
-      }
+      // const existingFilePreview = document.getElementById('file-preview');
+      // if (existingFilePreview) {
+      //   existingFilePreview.remove();
+      // }
 
-      const fileUrl = URL.createObjectURL(event.target.files[0]);
-      input.insertAdjacentHTML('beforebegin', `<div><img src="${fileUrl}" alt="file preview" class="file-preview" id="file-preview" /></div>`);
+      // input.insertAdjacentHTML('beforebegin', `<div>img src="${fileUrl}" alt="file preview"< class="file-preview" id="file-preview" /></div>`);
     } else {
       label.innerHTML = labelVal;
       label.classList.remove('file-selected');

@@ -427,7 +427,7 @@ itinerary_list = [
   user_id: User.find_by(username: "Captain_Cat").id,
   title: "Le Wagon Full Stack Bootcamp",
   start_date: "2019-04-15",
-  end_date: "2019-06-14",
+  end_date: "2019-06-19",
   description: "A Melbourne coding adventure",
   status: 1,
   visibility: 1,
@@ -436,8 +436,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Captain_Cat").id,
   title: "Singapore Foodie Feast",
-  start_date: "2019-06-17",
-  end_date: "2019-06-21",
+  start_date: "2019-06-20",
+  end_date: "2019-06-25",
   description: "A culinary tour of Singapore's finest hawker markets",
   status: 0,
   visibility: 1,
@@ -446,8 +446,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Captain_Cat").id,
   title: "Thai Scuba Adventure",
-  start_date: "2019-06-24",
-  end_date: "2019-06-28",
+  start_date: "2019-06-26",
+  end_date: "2019-06-30",
   description: "Best scuba diving spots in Thailand",
   status: 1,
   visibility: 0,
@@ -568,6 +568,38 @@ event_list = [
   start_date: "2019-08-06 17:00:00",
   end_date: "2019-08-06 22:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Florence").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Sightseeing").id,
+  title: "David by Michelangelo",
+  start_date: "2019-08-05 09:00:00",
+  end_date: "2019-08-05 17:00:00",
+  description: "Michelangelo’s defiant David statue has captivated the world for centuries. Considered one of art history’s major masterpieces, the marble sculpture showcases both the artist’s skill and the fine art focus that defines the Renaissance.",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "London").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Sightseeing").id,
+  title: "Traditional Afternoon Tea at The Ritz, Mayfair",
+  start_date: "2019-07-29 15:30:00",
+  end_date: "2019-08-05 17:00:00",
+  description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
+  The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
+  max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "London").id,
+  itinerary_id: Itinerary.find_by(title: "My Fair London").id,
+  activity_id: Activity.find_by(title: "Sightseeing").id,
+  title: "Traditional Afternoon Tea at The Ritz, Mayfair",
+  start_date: "2019-07-29 15:30:00",
+  end_date: "2019-08-05 17:00:00",
+  description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
+  The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
 }
 ]
