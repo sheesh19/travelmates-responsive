@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   default_scope { order('start_date ASC') }
 
   validates_presence_of :start_date, :end_date, :title
-  validate :start_date_cannot_be_in_the_past
+  # validate :start_date_cannot_be_in_the_past
   validate :end_date_is_after_start_date
 
   enum status: %i[open full cancelled]
