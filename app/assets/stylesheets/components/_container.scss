@@ -105,6 +105,21 @@
   }
 }
 
+.empty-state {
+  height: 100%;
+  border: dashed 1px $gray-ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  p {
+    margin: 0;
+    color: $medium-gray;
+  }
+}
+
 // Profile Container
 
 .user-description {

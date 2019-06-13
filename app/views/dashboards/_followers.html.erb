@@ -1,7 +1,12 @@
-<strong>Followers <%= @followers.count %></strong><br><br>
+<% if @followers.count + @followings.count == 0 %>
+  <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+    <p><strong>You have 0 follows</strong></p>
+  </div>
+<% else %>
+  <strong>Followers <%= @followers.count %></strong><br><br>
 
-<% @followers.each do |follower| %>
-<div class="data-table">
+  <% @followers.each do |follower| %>
+  <div class="data-table">
     <div class="data-header">
       <div class="data-header-cell">People</div>
       <div class="data-header-cell-growable">Since</div>
@@ -18,10 +23,11 @@
       <div class="data-content-cell-small">
       </div>
 
+      </div>
     </div>
+  <% end %>
+
+  <div class='user-followings'>
+    <%= render 'followings', users: @users, followings: @followings %>
   </div>
 <% end %>
-
-<div class='user-followings'>
-  <%= render 'followings', users: @users, followings: @followings %>
-</div>
