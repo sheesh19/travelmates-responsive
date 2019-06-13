@@ -14,36 +14,55 @@
 </div>
 
 <!-- Displays search results dynamically -->
+<div class="container__body">
 <% if @query %>
   <div>
     <h4>Search results</h4>
-      <div class="card__grid">
+
         <% if @events.any? %>
           <% @events[0..@events.count].each do |event| %>
-        <div class="card map-card p-2" style="width: 18rem;">
-          <div class="card-body">
-            <div class= "card-date-heart d-flex justify-content-between">
-              <p class="card-text">
-                <%= event.start_date.strftime("%d %b %Y") %>
-              </p>
-              <div data-event-id="<%= event.id %>" class="event-heart-icon">
-                <%= render 'heart', event: event %>
-              </div>
-            </div>
-            <h4 class="card-title">
-              <%= event.title %>
-            </h4>
-            <p class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>, <%= event.location.country %>
-            </p>
-            <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
-            </div>
-          </div>
-        </div>
+
+
+          <% @events[0..@events.count].group_by { |e| e[:start_date] }.each do |eventgroup| %>
+          <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
+            <% eventgroup[1].each do |event| %>
+              <% if event.start_date >= Date.today %>
+                <div class="card reminder-card-with-location d-flex">
+                  <div class="reminder-text d-flex">
+                    <div class="reminder-time pt-4 pl-4 pb-4">
+                      <%= event.start_date.strftime("%l:%M %P") %>
+                    </div>
+                    <div class="reminder-details p-4">
+                      <h5><%= event.title %></h5>
+                      <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
+                      <div class="reminder-location d-flex">
+                        <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
+                        <div class="reminder-address">
+                          <p><%= event.location.city %>, <%= event.location.country %></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="reminder-map">
+                      <% if event.photo.present? %>
+                        <%= cl_image_tag event.photo, class: "photo-card"%>
+                      <% else %>
+                        <%= render "shared/mapstatic" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="event-pill-expandable reminder-organiser-avatar">
+                    <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                    <div class="event-pill-text">
+                      <p><%= event.itinerary.user.first_name %></p>
+                    </div>
+                  </div>
+                  <%= link_to "", itinerary_path(event.itinerary), class: 'make-card-clickable'%>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+
       <% end %>
-    </div>
   <% else %>
     <div>
       <span>No results found</span>
@@ -51,3 +70,4 @@
   <% end %>
   </div>
 <% end %>
+</div>
