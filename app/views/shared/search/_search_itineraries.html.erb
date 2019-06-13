@@ -16,35 +16,32 @@
 
 <!-- Displays search results dynamically -->
 <% if @query %>
-  <div>
+  <div class="page-container-home">
     <h4>Search results</h4>
       <div class="card__grid">
         <% if @itineraries.any? %>
-          <% @itineraries[0..@itineraries.count].each do |itinerary| %>
-      <div class="card map-card" style="width: 24rem;">
-        <div>
-          <%= render "shared/mapstatic" %>
-        </div>
-        <div class="card-body px-4 pb-4 pt-0">
-          <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-            <div><%= itinerary.total_time %> day plan</div>
-              <div data-itinerary-id="<%= itinerary.id %>" class="itinerary-heart-icon">
-                400 <%= render 'heart', itinerary: itinerary %>
-            </div>
+          <% @all_itineraries.most_popular_itineraries[3..@itineraries.count].each do |itinerary| %>
+        <div class="card map-card">
+          <div>
+            <%= render "shared/itinerary_static_map", itinerary: itinerary[1]  %>
           </div>
-          <h4 class="card-title">
-            <%= itinerary.title %>
-          </h4>
-          <span class="tag-outline">Scuba diving</span>
-          <span class="tag-outline">Shark</span>
-          <span class="tag-outline">Amazing</span>
-          <span class="tag-outline">Scuba diving</span>
-          <span class="tag-outline">Shark</span>
-          <span class="tag-outline">Amazing</span>
+          <div class="card-body px-4 pb-4 pt-0">
+            <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+              <div><%= itinerary[1].total_time %> day plan</div>
+                <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
+                  400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
+              </div>
+            </div>
+            <h6 class="card-title-itinerary">
+              <%= itinerary[1].title %>
+            </h6>
+            <span class="tag-filled">Scuba diving</span>
+            <span class="tag-filled">Shark</span>
+            <span class="tag-filled">Amazing</span>
+          </div>
+          <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
         </div>
-        <%= link_to "", itinerary_path(itinerary), class: "make-card-clickable" %>
-      </div>
-    <% end %>
+      <% end %>
   </div>
   <% else %>
     <div>
@@ -53,3 +50,7 @@
   <% end %>
   </div>
 <% end %>
+
+
+
+
