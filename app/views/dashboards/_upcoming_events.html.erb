@@ -4,7 +4,9 @@
   <% @user.itineraries.each do |itinerary| %>
     <div class="container__dashboard">
       <div class="display__itinerary">
-        <h5><%= itinerary.title %></h5>
+        <% if itinerary.end_date >= Date.today %>
+          <h5><%= itinerary.title %></h5>
+        <% end %>
 
         <% itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
         <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
