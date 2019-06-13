@@ -204,70 +204,80 @@ location_list = [
   country: "Australia",
   state: "Victoria",
   latitude: -37.8238,
-  longitude: 144.9913
+  longitude: 144.9913,
+  photo: "https://images.unsplash.com/photo-1514395462725-fb4566210144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80"
 },
 {
   city: "Sydney",
   country: "Australia",
   state: "NSW",
   latitude: -33.865143,
-  longitude: 151.209900
+  longitude: 151.209900,
+  photo: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
   city: "Singapore",
   country: "Singapore",
   state: "Singapore",
   latitude: 1.286025,
-  longitude: 103.860812
+  longitude: 103.860812,
+  photo: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1549&q=80"
 },
 {
   city: "London",
   country: "England",
   state: "England",
   latitude: 51.500923,
-  longitude: 0.124604
+  longitude: 0.124604,
+  photo: "https://images.unsplash.com/photo-1508711046474-2f4c2d3d30ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
   city: "New York",
   country: "USA",
   state: "NY",
   latitude: 40.783076,
-  longitude: -73.965334
+  longitude: -73.965334,
+  photo: "https://images.unsplash.com/photo-1477882244523-716124bf91a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80"
 },
 {
   city: "Koh Tao",
   country: "Thailand",
   state: "Thailand",
   latitude: 10.101695,
-  longitude: 99.827190
+  longitude: 99.827190,
+  photo: "https://images.unsplash.com/photo-1537956965359-7573183d1f57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80"
 },
 {
   city: "Hong Kong",
   country: "China",
   state: "Hong Kong",
   latitude: 22.342605,
-  longitude: 114.193774
+  longitude: 114.193774,
+  photo: "https://images.unsplash.com/photo-1517144447511-aebb25bbc5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
-  city: "Yoshinoyama",
+  city: "Matsuno",
   country: "Japan",
-  state: "Nara",
-  latitude: 34.373577,
-  longitude: 135.854152
+  state: "Shikoku",
+  latitude: 33.205563,
+  longitude: 132.711406,
+  photo: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
   city: "San Francisco",
   country: "USA",
   state: "California",
   latitude: 37.820192,
-  longitude: -122.478213
+  longitude: -122.478213,
+  photo: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
   city: "Florence",
   country: "Italy",
   state: "Italy",
   latitude: 43.776935,
-  longitude: 11.258739
+  longitude: 11.258739,
+  photo: "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 }
 ]
 Location.create!(location_list)
@@ -311,7 +321,7 @@ activity_list = [
 },
 {
   title: "Cultural Events",
-  photo: ""
+  photo: "https://images.unsplash.com/photo-1547366868-f5d6fab0440f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
 {
   title: "Street Food",
@@ -414,7 +424,7 @@ puts "Created #{Activity.count} activit(y/ies)"
 puts "Creating itineraries"
 itinerary_list = [
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Le Wagon Full Stack Bootcamp",
   start_date: "2019-04-15",
   end_date: "2019-06-14",
@@ -424,7 +434,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Singapore Foodie Feast",
   start_date: "2019-06-17",
   end_date: "2019-06-21",
@@ -434,7 +444,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Thai Scuba Adventure",
   start_date: "2019-06-24",
   end_date: "2019-06-28",
@@ -444,7 +454,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Hong Kong Shopping",
   start_date: "2019-07-01",
   end_date: "2019-07-05",
@@ -454,8 +464,8 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.first.id,
-  title: "Yoshinoyama Cherry Blossoms",
+  user_id: User.find_by(username: "Captain_Cat").id,
+  title: "Cherry Blossoms",
   start_date: "2019-07-08",
   end_date: "2019-07-12",
   description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
@@ -464,7 +474,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Sightseeing in San Francisco",
   start_date: "2019-07-15",
   end_date: "2019-07-19",
@@ -474,7 +484,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "New York New York",
   start_date: "2019-07-22",
   end_date: "2019-07-26",
@@ -484,8 +494,8 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.first.id,
-  title: "London Fare",
+  user_id: User.find_by(username: "Captain_Cat").id,
+  title: "My Fair London",
   start_date: "2019-07-29",
   end_date: "2019-08-02",
   description: "Afternoon tea in Mayfair",
@@ -494,7 +504,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.first.id,
+  user_id: User.find_by(username: "Captain_Cat").id,
   title: "Italian Cultural Tour",
   start_date: "2019-08-05",
   end_date: "2019-08-09",
@@ -511,33 +521,33 @@ puts "Created #{Itinerary.count} itinerar(y/ies)"
 puts "Creating events"
 event_list = [
 {
-  location_id: Location.pluck(:id).sample,
-  itinerary_id: Itinerary.pluck(:id).sample,
-  activity_id: Activity.pluck(:id).sample,
-  title: "Melbourne Night Market",
-  start_date: "2019-10-15",
-  end_date: "2019-10-17",
+  location_id: Location.find_by(city: "Melbourne").id,
+  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
+  activity_id: Activity.find_by(title: "Food Markets").id,
+  title: "QVM Winter Night Market",
+  start_date: "2019-06-19 17:00:00",
+  end_date: "2019-06-19 22:00:00",
   description: "A foodie feast",
   max_spots: 3
 },
 {
-  location_id: Location.pluck(:id).sample,
-  itinerary_id: Itinerary.pluck(:id).sample,
-  activity_id: Activity.pluck(:id).sample,
+  location_id: Location.find_by(city: "Melbourne").id,
+  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
+  activity_id: Activity.find_by(title: "Festival").id,
   title: "Gin Tasting",
-  start_date: "2019-10-17",
-  end_date: "2019-10-18",
+  start_date: "2019-06-17 19:00:00",
+  end_date: "2019-06-17 23:00:00",
   description: "A fun filled event of bespoke G&Ts, DIY cocktails, and gin-themed park parties.",
   max_spots: 2
 },
 {
-  location_id: Location.pluck(:id).sample,
-  itinerary_id: Itinerary.pluck(:id).sample,
-  activity_id: Activity.pluck(:id).sample,
-  title: "Melbourne Truffle Festival",
-  start_date: "2019-10-17",
-  end_date: "2019-10-21",
-  description: "Highlights include truffle cooking demos by top chefs, and a mock hunt by truffle dogs Arrow and Spice. Bring some loot, because you’ll definitely want to taste this festival. There are irresistible bites like Black Angus truffle burgers from the new Truffle Truck, truffle cocktails, cider and ale. Products to take home include truffle honey and actual fresh truffles.",
+  location_id: Location.find_by(city: "Melbourne").id,
+  itinerary_id: Itinerary.find_by(title: "Le Wagon Full Stack Bootcamp").id,
+  activity_id: Activity.find_by(title: "Festival").id,
+  title: "Bottomless G&Tea Party",
+  start_date: "2019-06-18 14:00:00",
+  end_date: "2019-06-18 17:00:00",
+  description: "Enjoy two hours of bottomless gin and tonics, matched with delicious sweet and savoury treats. Choose from house-infused gins served in quaint tea cups - find your favourite flavour!",
   max_spots: 4
 }]
 Event.create!(event_list)
