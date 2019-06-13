@@ -79,7 +79,11 @@
         <% @locations.sort_by_events.first(3).each do |location| %>
           <div class="photo-card photo-card-location">
             <%#= render "shared/mapstatic" %>
+        <% if location.photo.present? %>
             <%= image_tag location.photo, class: "photo-card" %>
+        <% else %>
+            <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+        <% end %>
             <div class="card-title-location">
               <p>
                 <i class="fas fa-map-marker-alt pr-1"></i>
@@ -133,9 +137,6 @@
               <h6 class="card-title-itinerary">
                 <%= itinerary[1].title %>
               </h6>
-              <span class="tag-filled">Scuba diving</span>
-              <span class="tag-filled">Shark</span>
-              <span class="tag-filled">Amazing</span>
               <span class="tag-filled">Scuba diving</span>
               <span class="tag-filled">Shark</span>
               <span class="tag-filled">Amazing</span>
