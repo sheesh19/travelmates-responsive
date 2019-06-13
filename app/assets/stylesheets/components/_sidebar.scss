@@ -44,6 +44,11 @@
   height: calc(100vh - 4rem);
 }
 
+#manage-your-trips-with-count {
+  display:flex;
+  align-items:center;
+}
+
 .nav-link {
   text-decoration: none;
   padding-left: 28px;

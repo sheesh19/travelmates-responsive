@@ -46,6 +46,14 @@ class Event < ApplicationRecord
     end
   end
 
+  def self.upcomings(user)
+    # count event that current user is the event creater
+    # count event that current user has joined
+    user_created_count = Event.joins(:itinerary).where("itineraries.user_id = ? AND events.start_date > ?", user.id, Date.today).count
+    user_joined_count = Event.joins(:event_registrations).where("event_registrations.user_id = ? AND events.start_date > ?", user.id, Date.today).count
+    return user_joined_count + user_created_count
+  end
+
   private
 
   def cancel
