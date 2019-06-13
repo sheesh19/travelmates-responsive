@@ -549,7 +549,28 @@ event_list = [
   end_date: "2019-06-18 17:00:00",
   description: "Enjoy two hours of bottomless gin and tonics, matched with delicious sweet and savoury treats. Choose from house-infused gins served in quaint tea cups - find your favourite flavour!",
   max_spots: 4
-}]
+},
+{
+  location_id: Location.find_by(city: "London").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Food Markets").id,
+  title: "Kick off the Italian Cultural Tour with Italian Food in Shoreditch",
+  start_date: "2019-08-05 17:00:00",
+  end_date: "2019-08-05 22:00:00",
+  description: "Have some delicate Italian food tastings in Shoreditch.",
+  max_spots: 0
+},
+{
+  location_id: Location.find_by(city: "Florence").id,
+  itinerary_id: Itinerary.find_by(title: "Italian Cultural Tour").id,
+  activity_id: Activity.find_by(title: "Night Life").id,
+  title: "Visit a Stunning Winery",
+  start_date: "2019-08-06 17:00:00",
+  end_date: "2019-08-06 22:00:00",
+  description: "Visit the most incredible wineries in Florence on a massive winery tour.",
+  max_spots: 3
+}
+]
 Event.create!(event_list)
 puts "Created #{Event.count} event(s)"
 
