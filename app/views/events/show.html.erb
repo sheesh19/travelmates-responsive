@@ -147,7 +147,7 @@
                   <% if @event.event_registrations.where(status: 1).present? %>
                     <!-- EXPANDABLE BUTTON -->
                     <div class="col-2 expand-btn">
-                      <a data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview"><span class="btn btn-outlined">Expand</span></a>
+                      <a data-toggle="collapse" href="#collapseMates" role="button" aria-expanded="false" aria-controls="collapseMates"><span class="btn btn-outlined">Expand</span></a>
                     </div>
                   <% end %>
 
@@ -160,10 +160,10 @@
           </div>
 
           <!-- HIDDEN FORM -->
-          <div id="collapseReview" class="collapse">
-            <div class="col-3">
-              <% @event.event_registrations.where(status: 1) do |regis| %>
-                <p><%= regis[0].user.first_name %> is joining!</p>
+          <div id="collapseMates" class="collapse">
+            <div class="">
+              <% @event.event_registrations.where(status: 1).each do |regis| %>
+                <p><%= regis.user.first_name %> is joining!</p>
               <% end %>
             </div>
           </div>
