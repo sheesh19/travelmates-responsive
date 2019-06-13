@@ -22,15 +22,15 @@
             <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
               <div><%= itinerary[1].total_time %> day plan</div>
                 <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                  400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
+                  <%= render 'itineraries/heart', itinerary: itinerary[1] %>
               </div>
             </div>
             <h6 class="card-title-itinerary">
               <%= itinerary[1].title %>
             </h6>
-            <span class="tag-filled">Scuba diving</span>
+<!--             <span class="tag-filled">Scuba diving</span>
             <span class="tag-filled">Shark</span>
-            <span class="tag-filled">Amazing</span>
+            <span class="tag-filled">Amazing</span> -->
           </div>
           <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
         </div>
