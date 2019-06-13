@@ -58,6 +58,12 @@ class User < ApplicationRecord
     self.events.map {|event| event.event_registrations.count}.reduce(&:+)
   end
 
+  def all_upcoming_events
+    registered = self.event_registrations.map(&:event)
+    created = self.events
+    created + registered
+  end
+
   def age
     today = Date.today
     age = today.year - date_of_birth.year
