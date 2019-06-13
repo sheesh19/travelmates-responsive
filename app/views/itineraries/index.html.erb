@@ -1,44 +1,44 @@
 <div class="search__box">
-  <%= render 'featured_itineraries' %>
+  <%= render 'shared/search/search_itineraries' %>
 </div>
 
 <div class="search__box">
-  <%= render 'shared/search/search_itineraries' %>
+  <%= render 'featured_itineraries' %>
 </div>
 
 <div class="container__body">
   <div class="featured-title">
     <h2>Latest</h2>
   </div>
-    <div class="">
-      <div class="card__grid">
-        <% @all_itineraries.most_popular_itineraries[3..@itineraries.count].each do |itinerary| %>
-          <div class="map-card">
-            <div>
-              <%= render "shared/mapstatic" %>
-            </div>
-            <div class="card-body px-4 pb-4 pt-0">
-              <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
-                <div><%= itinerary[1].total_time %> day plan</div>
-                  <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
-                    400 <%= render 'heart', itinerary: itinerary[1] %>
-                </div>
-              </div>
-              <h2 class="card-title">
-                <%= itinerary[1].title %>
-              </h2>
-              <span class="tag-filled">Scuba diving</span>
-              <span class="tag-filled">Shark</span>
-              <span class="tag-filled">Amazing</span>
-              <span class="tag-filled">Shark</span>
-              <span class="tag-filled">Amazing</span>
-            </div>
-            <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
+  <div class="">
+    <!-- Card Carousel (?) -->
+    <div class="card__grid">
+      <% @all_itineraries.most_popular_itineraries[3..@itineraries.count].each do |itinerary| %>
+        <div class="card map-card">
+          <div>
+            <%= render "shared/itinerary_static_map", itinerary: itinerary[1]  %>
           </div>
-        <% end %>
-      </div>
-
+          <div class="card-body px-4 pb-4 pt-0">
+            <div id="travel-plan-card-title" class="card-title d-flex justify-content-between">
+              <div><%= itinerary[1].total_time %> day plan</div>
+                <div data-itinerary-id="<%= itinerary[1].id %>" class="itinerary-heart-icon">
+                  400 <%= render 'itineraries/heart', itinerary: itinerary[1] %>
+              </div>
+            </div>
+            <h6 class="card-title-itinerary">
+              <%= itinerary[1].title %>
+            </h6>
+            <span class="tag-filled">Scuba diving</span>
+            <span class="tag-filled">Shark</span>
+            <span class="tag-filled">Amazing</span>
+          </div>
+          <%= link_to "", itinerary_path(itinerary[1]), class: "make-card-clickable" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
 
 
