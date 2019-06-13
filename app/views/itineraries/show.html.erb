@@ -19,14 +19,9 @@
         <p><%= pluralize(@itinerary.total_time, "day") %> plan </p>
         <p><%= @itinerary.description %></p>
         <%# (@Tag.where('id IN (?)', @itinerary.user.interests.pluck('tag_id'))).pluck('tag_name').each do |tag| %>
-          <%#= tag %>
-        <%# end %>
-        <span class="tag-outline">Scuba diving</span>
-        <span class="tag-outline">Shark</span>
-        <span class="tag-outline">Amazing</span>
-        <span class="tag-outline">Scuba diving</span>
-        <span class="tag-outline">Shark</span>
-        <span class="tag-outline">Amazing</span>
+        <% @itinerary.user.tags.each do |tag| %>
+          <span class="tag-outline"><%= tag.tag_name %></span>
+        <% end %>
       </div>
       <div>
         <div>
