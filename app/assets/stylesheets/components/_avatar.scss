@@ -38,3 +38,18 @@
   width: 32px;
   border-radius: 50%;
 }
+
+.no-image-avatar {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    color: $almost-white;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
+}
