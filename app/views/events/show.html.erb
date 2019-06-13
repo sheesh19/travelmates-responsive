@@ -140,9 +140,17 @@
             <div id="remaining-spots" class="d-flex align-items-center justify-content-between">
               <div class="mr-3">
                 <% if @event.spots_left == 0 %>
-                  "All spots taken"
+                  All spots taken
                 <% else %>
                   <%= pluralize(@event.spots_left, "spot") %> remaining
+
+                  <% if @event.event_registrations.where(status: 1).present? %>
+                    <!-- EXPANDABLE BUTTON -->
+                    <div class="col-2 expand-btn">
+                      <a data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview"><span class="btn btn-outlined">Expand</span></a>
+                    </div>
+                  <% end %>
+
                 <% end %>
               </div>
               <div>
@@ -150,11 +158,22 @@
               </div>
             </div>
           </div>
+
+          <!-- HIDDEN FORM -->
+          <div id="collapseReview" class="collapse">
+            <div class="col-3">
+              <% @event.event_registrations.where(status: 1) do |regis| %>
+                <p><%= regis[0].user.first_name %> is joining!</p>
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
