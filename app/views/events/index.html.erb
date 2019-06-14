@@ -16,9 +16,9 @@
           <div class="card reminder-card-with-location d-flex">
             <div class="reminder-text d-flex">
               <div class="reminder-time pt-4 pl-4 pb-4">
-                <%= event.start_date.strftime("%l:%M %P") %>
+                <%= event.start_date.strftime("%d %^b") %>
                 <div class="reminder-date">
-                  <%= event.start_date.strftime("%d %b %Y") %>
+                  <%= event.start_date.strftime("%l:%M %P") %>
                 </div>
               </div>
               <div class="reminder-details p-4">
