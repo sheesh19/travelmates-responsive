@@ -796,6 +796,7 @@ event_list = [
   description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
   max_spots: 6
 },
+{
   location_id: Location.find_by(city: "Kralendijk").id,
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
