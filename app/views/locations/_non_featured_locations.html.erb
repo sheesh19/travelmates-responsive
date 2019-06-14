@@ -18,7 +18,7 @@
     <div class="">
       <!-- Card Carousel -->
       <div class="card__grid">
-        <% @all_locations.sort_by_events.each do |location| %>
+        <% @all_locations.each do |location| %>
           <div class="photo-card photo-card-location">
             <%#= render "shared/mapstatic" %>
         <% if location.photo.present? %>
