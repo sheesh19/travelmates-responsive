@@ -607,6 +607,26 @@ itinerary_list = [
   status: 1,
   visibility: 1,
   trip_type: 0
+},
+{
+  user_id: User.find_by(username: "sophisophi").id,
+  title: "New Zealand Exploration",
+  start_date: "2019-06-19",
+  end_date: "2019-06-24",
+  description: "Explore the best NZ has to offer! #kiwilife",
+  status: 1,
+  visibility: 1,
+  trip_type: 0
+},
+{
+  user_id: User.find_by(username: "gabby").id,
+  title: "Kiwi Living",
+  start_date: "2019-07-20",
+  end_date: "2019-07-28",
+  description: "Experience the life of a Kiwi and explore more.",
+  status: 1,
+  visibility: 1,
+  trip_type: 1
 }
 ]
 Itinerary.create!(itinerary_list)
@@ -825,6 +845,26 @@ event_list = [
   end_date: "2019-03-30 20:00:00",
   description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
   max_spots: 0
+},
+{
+  location_id: Location.find_by(city: "Auckland").id,
+  itinerary_id: Itinerary.find_by(title: "New Zealand Exploration").id,
+  activity_id: Activity.find_by(title: "Nature Tours").id,
+  title: "Glowing Cave Exploration",
+  start_date: "2019-06-21 08:30:00",
+  end_date: "2019-06-21 14:00:00",
+  description: "Go into the glow worm cave and find something precious.",
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "Auckland").id,
+  itinerary_id: Itinerary.find_by(title: "Kiwi Living").id,
+  activity_id: Activity.find_by(title: "Kayaking").id,
+  title: "Kayaking NZ Adventures",
+  start_date: "2019-07-21 08:30:00",
+  end_date: "2019-07-21 14:00:00",
+  description: "Kayak in the stunning waters in NZ.",
+  max_spots: 4
 }
 ]
 Event.create!(event_list)
