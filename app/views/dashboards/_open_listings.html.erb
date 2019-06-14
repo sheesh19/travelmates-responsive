@@ -42,16 +42,17 @@
 
             <!-- EXPANDABLE BUTTON -->
             <div class="col-2 expand-btn">
-              <a data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview"><span class="btn btn-outlined">Expand</span></a>
+              <a data-toggle="collapse" href="#collapseReview<%= regis.id %>" role="button" aria-expanded="false" aria-controls="collapseReview<%= regis.id %>"><span class="btn btn-outlined">Expand</span></a>
             </div>
           </div>
           <!-- HIDDEN FORM -->
-          <div id="collapseReview" class=" collapse">
+          <div id="collapseReview<%= regis.id %>" class=" collapse">
             <div class="col-3">
               <%= simple_form_for [regis.event.itinerary, regis.event, regis] do |f|  %>
                 <%= f.input :status,
                   collection: EventRegistration.statuses.keys,
                   label_html: { class: "form-title mt-3" },
+                  valid_class: '',
                   label: "Approve the request"
                   %>
                 <div class="data-content-cell-small">
