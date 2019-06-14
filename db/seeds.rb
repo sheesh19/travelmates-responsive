@@ -617,6 +617,16 @@ itinerary_list = [
   status: 1,
   visibility: 1,
   trip_type: 0
+},
+{
+  user_id: User.find_by(username: "gabby").id,
+  title: "Kiwi Living",
+  start_date: "2019-07-20",
+  end_date: "2019-07-28",
+  description: "Experience the life of a Kiwi and explore more.",
+  status: 1,
+  visibility: 1,
+  trip_type: 1
 }
 ]
 Itinerary.create!(itinerary_list)
@@ -844,7 +854,17 @@ event_list = [
   start_date: "2019-06-21 08:30:00",
   end_date: "2019-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
-  max_spots: 0
+  max_spots: 2
+},
+{
+  location_id: Location.find_by(city: "Auckland").id,
+  itinerary_id: Itinerary.find_by(title: "Kiwi Living").id,
+  activity_id: Activity.find_by(title: "Kayaking").id,
+  title: "Kayaking NZ Adventures",
+  start_date: "2019-07-21 08:30:00",
+  end_date: "2019-07-21 14:00:00",
+  description: "Kayak in the stunning waters in NZ.",
+  max_spots: 4
 }
 ]
 Event.create!(event_list)
