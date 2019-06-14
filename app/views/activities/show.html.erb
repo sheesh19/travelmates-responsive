@@ -1,68 +1,169 @@
-<div>
-  <%= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
+<!-- <div>
+  <%#= render "shared/components/button", variant: "filled", label: "+ Make a Travel Plan", href: new_itinerary_path %>
 </div>
 
 <div class="breadcrumb">
-  <%= link_to request.referer.present? ? request.referer : default_path do %>
+  <%#= link_to request.referer.present? ? request.referer : default_path do %>
     <i class="fas fa-angle-left"></i>
     Back
-  <% end %>
-</div>
+  <%# end %>
+</div> -->
 
+<!-- <div class="darkest-teal-background">
+  <div class="page-container">
+    <div class="location-main-title"><h1>Upcoming <%= @activity.title %> Inspiration</h1></div>
+  </div>
+</div>
 <div class="banner__image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= image_path @activity.photo %>')">
+</div> -->
 
+<div class="banner__image"
+  style="background-image: linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url('<%= image_path @activity.photo %>')">
+  <div class="banner-container d-flex align-items-center">
+    <h1>Upcoming <%= @activity.title %> Inspiration</h1>
+  </div>
 </div>
-
 
 <!-- Add Card Carousel -->
-<h5>Upcoming <%= @activity.title %> Inspiration</h5>
+<!-- <h5>Upcoming <%= @activity.title %> Inspiration</h5> -->
 
-<div class="events__upcoming">
-  <div class="card__grid">
-      <% @events.each do |event| %>
-        <div class="card map-card p-2" style="width: 18rem;">
-          <div class="card-body">
-            <p class="card-text">
-              <%= event.start_date.strftime("%d %b %Y") %>
-            </p>
-            <h4 class="card-title">
-              <%= event.title %>
-            </h4>
-            <p class="card-title">
-              <i class="fas fa-map-marker-alt pr-1"></i>
-              <%= event.location.city%>,<%= event.location.country %>
-            </p>
-            <div class="d-flex flex-row-reverse bd-highlight">
-              <%= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
+<!--       <div class="events__upcoming">
+        <div class="card__grid">
+          <#% @events.each do |event| %>
+            <div class="card map-card p-2" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                 <%#= event.start_date.strftime("%d %b %Y") %>
+                </p>
+                  <h4 class="card-title">
+                    <%#= event.title %>
+                  </h4>
+                  <p class="card-title">
+                    <i class="fas fa-map-marker-alt pr-1"></i>
+                    <%#= event.location.city%>, <%#= event.location.country %>
+                  </p>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                  <%#= link_to "See More", itinerary_event_path(event.itinerary, event), class: "btn btn-outlined mt-3" %>
+                </div>
+              </div>
             </div>
-          </div>
+          <%# end %>
         </div>
-    <% end %>
-  </div>
-</div>
-
-
-<h5>Top Locations for <%= @activity.title %></h5>
-
-<div class="events__upcoming">
-  <div class="card__grid">
-    <% @activity.top_act_by_location.each do |location| %>
-      <div class="card map-card" style="width: 24rem;">
-        <%= render "shared/mapstatic" %>
-        <div class="card-body px-4 pb-4 pt-0">
-          <h4 class="card-title">
-            <i class="fas fa-map-marker-alt pr-1"></i>
-            <%= location[0].city %>, <%= location[0].country %>
-          </h4>
-          <div id="map-card-info">
-            <i class="fas fa-info-circle"></i>
-              88 travel mates going here (FIX ME!)
-          </div>
-        </div>
-        <%= link_to "", location_path(location), class: "make-card-clickable" %>
       </div>
-    <% end %>
   </div>
+</div> -->
+
+<div class="top__ten">
+  <div class="container__featured pt-3">
+    <div class="featured-title-home">
+      <h2>TOP <%= @activity.title.upcase %> EVENTS</h2>
+    </div>
+    <div class="card__grid">
+      <% @events.each do |event| %>
+        <div class="card event-card p-2">
+         <div class="card-body">
+          <div class= "card-date-heart d-flex justify-content-between">
+            <p class="card-text">
+              <%= event.start_date.strftime("%^a, %d %^b %Y") %>,
+              <%= event.start_time.strftime("%l:%M%p") %>
+            </p>
+             <div data-event-id="<%= event.id %>" class="event-heart-icon">
+              <% if current_page? activity_path %>
+                <div class="event-pill-expandable reminder-organiser-avatar">
+                  <div class="event-pill-inner">
+                    <% if event.itinerary.user.avatar.present? %>
+                      <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                    <% else %>
+                      <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+                        <p><%= current_user.first_name[0].upcase %></p>
+                      </div>
+                    <% end %>
+                  <div class="event-pill-text">
+                    <p><%= event.itinerary.user.first_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <%= render 'events/heart', event: event %>
+            <% end %>
+          </div>
+        </div>
+        <div class="event-card-info">
+          <h2 class="card-title" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;"><%= event.title %></h2>
+            <p class="card-location">
+              <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= event.location.city%>, <%= event.location.country %>
+            </p>
+            <h6 class="event-spot-left-text">
+              <%= pluralize(event.spots_left, "spot") %> left
+            </h6>
+        </div>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+</div>
+</div>
+
+<div class="page-container">
+  <div class="upcoming-event-title">
+    <h2>Top Locations for <%= @activity.title %></h2>
+  </div>
+    <div class="">
+      <!-- Card Carousel -->
+      <div class="card__grid">
+        <% @activity.top_act_by_location.each do |location| %>
+          <div class="photo-card photo-card-location">
+            <%#= render "shared/mapstatic" %>
+        <% if location[0].photo.present? %>
+            <%= image_tag location[0].photo, class: "photo-card" %>
+        <% else %>
+            <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
+        <% end %>
+            <div class="card-title-location">
+              <p>
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%= location[0].city %>, <%= location[0].country %>
+              </p>
+            </div>
+            <%= link_to "", location_path(location), class: "make-card-clickable" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+</div>
+<div class="page-bottom-spacer">
+  </div>
+
+
+<!--     <div class="events__upcoming">
+      <div class="card__grid">
+       <%# @activity.top_act_by_location.each do |location| %>
+         <div class="card map-card" style="width: 24rem;">
+           <%#= render "shared/mapstatic" %>
+            <div class="card-body px-4 pb-4 pt-0">
+              <h4 class="card-title">
+                <i class="fas fa-map-marker-alt pr-1"></i>
+                <%#= location[0].city %>, <%#= location[0].country %>
+              </h4>
+              <div id="map-card-info">
+                 <i class="fas fa-info-circle"></i>
+              88 travel mates going here (FIX ME!)
+              </div>
+            </div>
+          <%#= link_to "", location_path(location), class: "make-card-clickable" %>
+        </div>
+      <%# end %>
+    </div>
+  </div> -->
+
+
+
 
