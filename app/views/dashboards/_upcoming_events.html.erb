@@ -44,7 +44,7 @@
                     <p><%= event.itinerary.user.first_name %></p>
                   </div>
                 </div>
-                <%= link_to "", itinerary_path(event.itinerary), class: 'make-card-clickable'%>
+                <%= link_to "", itinerary_event_path(event.itinerary, event), class: 'make-card-clickable'%>
               </div>
             <% end %>
           <% end %>

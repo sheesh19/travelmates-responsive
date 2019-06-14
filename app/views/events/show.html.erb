@@ -148,8 +148,8 @@
             </div>
           </div>
 
-          <div class="registered-users">
-            <% if @event.event_registrations.where(status: 1).present? %>
+          <% if @event.event_registrations.where(status: 1).present? %>
+            <div class="registered-users">
               <h1>
                 Registered users ( <%= @event.event_registrations.where(status: 1).count %> )
               </h1>
@@ -162,8 +162,9 @@
                   </div>
                 </div>
               <% end %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+
 
         </div>
       </div>
