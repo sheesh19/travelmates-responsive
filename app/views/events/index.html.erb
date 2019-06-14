@@ -10,7 +10,7 @@
 
 
     <% @events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
-    <!-- <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6> -->
+    <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
       <% eventgroup[1].each do |event| %>
         <% if event.start_date >= Date.today %>
           <div class="card reminder-card-with-location d-flex">
