@@ -61,7 +61,7 @@ class User < ApplicationRecord
   def all_upcoming_events
     # registered = self.event_registrations.map(&:event)
     registered = self.event_registrations.where(status: 1).map(&:event)
-    created = self.events
+    created = self.events.where("events.start_date > '#{Date.today}'")
     created + registered
   end
 

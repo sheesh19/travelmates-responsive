@@ -590,6 +590,16 @@ itinerary_list = [
 },
 {
   user_id: User.find_by(username: "sheilz").id,
+  title: "NZ Visa Run",
+  start_date: "2019-06-17",
+  end_date: "2019-06-24",
+  description: "A journey to get the precious visa.",
+  status: 0,
+  visibility: 1,
+  trip_type: 0
+},
+{
+  user_id: User.find_by(username: "sheilz").id,
   title: "ABC Islands & Colombia Extravaganza",
   start_date: "2019-03-20",
   end_date: "2019-04-09",
@@ -765,6 +775,26 @@ event_list = [
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
+},
+{
+  location_id: Location.find_by(city: "Auckland").id,
+  itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
+  activity_id: Activity.find_by(title: "Hiking").id,
+  title: "Hiking the Lonely Mountain",
+  start_date: "2019-06-20 16:30:00",
+  end_date: "2019-06-20 20:00:00",
+  description: "Hike a mountain and potentially find a dragon.",
+  max_spots: 0
+},
+{
+  location_id: Location.find_by(city: "Melbourne").id,
+  itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
+  activity_id: Activity.find_by(title: "Night Life").id,
+  title: "Celebrate the Le Wagon End",
+  start_date: "2019-06-17 16:30:00",
+  end_date: "2019-06-17 20:00:00",
+  description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
+  max_spots: 6
 },
 {
   location_id: Location.find_by(city: "Kralendijk").id,

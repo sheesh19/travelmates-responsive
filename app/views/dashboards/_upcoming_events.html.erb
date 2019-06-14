@@ -7,14 +7,11 @@
     </div> -->
   <%# else %>
 
-  <% @user.all_upcoming_events.each do |event| %>
+  <%# @user.all_upcoming_events.each do |event| %>
     <div class="container__dashboard">
       <div class="display__itinerary">
-        <% if event.itinerary.end_date >= Date.today %>
-          <h5><%= event.itinerary.title %></h5>
-        <% end %>
 
-        <% @user.all_upcoming_events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
+      <% @user.all_upcoming_events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
         <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
           <% eventgroup[1].each do |event| %>
             <% if event.start_date >= Date.today %>
@@ -54,7 +51,7 @@
         <% end %>
       </div>
     </div>
-  <% end %>
+  <%# end %>
 
   <%# end %>
 </div>
