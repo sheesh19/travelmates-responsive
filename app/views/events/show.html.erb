@@ -10,7 +10,7 @@
       </div>
   </div>
 
-  <div class="container__dashboard">
+  <div class="container__event">
     <div class="event-description-side">
       <!-- Event Description Placeholder -->
       <div class="event-description-block">
@@ -97,7 +97,7 @@
       <div>
         <div>
           <!-- SIDE CARD -->
-          <div>
+          <div class="">
             <!-- Side title section -->
             <% if @event.itinerary.user == current_user %>
               <%= render 'event_registration_owner' %>
@@ -135,34 +135,34 @@
               </div>
             </div>
             <div id="remaining-spots" class="d-flex align-items-center justify-content-between">
-              <div class="mr-3">
+              <div class="mr-3 py-1">
                 <% if @event.spots_left == 0 %>
                   All spots taken
                 <% else %>
                   <%= pluralize(@event.spots_left, "spot") %> remaining
-
-                  <% if @event.event_registrations.where(status: 1).present? %>
-                    <!-- EXPANDABLE BUTTON -->
-                    <div class="col-2 expand-btn">
-                      <a data-toggle="collapse" href="#collapseMates" role="button" aria-expanded="false" aria-controls="collapseMates"><span class="btn btn-outlined">Expand</span></a>
-                    </div>
-                  <% end %>
-
                 <% end %>
               </div>
-              <div>
-                <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
-              </div>
+            <!--   <div>
+                <%#= image_tag @event.itinerary.user.avatar, class: "avatar" %>
+              </div> -->
             </div>
           </div>
 
-          <!-- HIDDEN FORM -->
-          <div id="collapseMates" class="collapse">
-            <div class="">
+          <div class="registered-users">
+            <% if @event.event_registrations.where(status: 1).present? %>
+              <h1>
+                Registered users ( <%= @event.event_registrations.where(status: 1).count %> )
+              </h1>
+
               <% @event.event_registrations.where(status: 1).each do |regis| %>
-                <p><%= regis.user.first_name %> is joining!</p>
+                <div class="event-pill">
+                  <%= image_tag regis.user.avatar, class: "avatar-small" %>
+                  <div class="event-pill-text">
+                    <p><%= regis.user.first_name %></p>
+                  </div>
+                </div>
               <% end %>
-            </div>
+            <% end %>
           </div>
 
         </div>
@@ -170,6 +170,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

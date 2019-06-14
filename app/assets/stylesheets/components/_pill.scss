@@ -3,10 +3,10 @@ $avatar_size: 32px;
 .event-pill {
   display: inline-flex;
   overflow: hidden;
-  background-color: $darkest-teal;
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: $darkest-teal;
+  background-color: $dark-teal;
+  // border-style: solid;
+  // border-width: 0.5px;
+  // border-color: $darkest-teal;
   border-radius: 16px;
   width: auto;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
