@@ -35,7 +35,7 @@ class Event < ApplicationRecord
   def spots_left
     if !max_spots.nil?
       approved = EventRegistration.where(event_id: id) && EventRegistration.where(status: 1).count
-      total = max_spots - approved
+      total = max_spots - approved + 1
       total > 0 ? total : 0
     end
   end
