@@ -35,3 +35,11 @@
 .location-small-map {
   max-width: 200px;
 }
+
+.map-card-dimension {
+  height: 640px;
+  overflow: hidden;
+  img {
+    width: 100%
+  }
+}
