@@ -344,8 +344,8 @@ location_list = [
 },
 {
   city: "Kralendijk",
-  country: "Netherlands",
-  state: "Bonaire",
+  country: "Bonaire",
+  state: "Netherlands",
   latitude: 12.1443,
   longitude: -68.2655,
   photo: "https://images.unsplash.com/photo-1495127466322-72b03a266c4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
