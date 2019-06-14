@@ -110,11 +110,11 @@ ActiveRecord::Schema.define(version: 2019_06_12_022651) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "description"
+    t.integer "trip_type", default: 0, null: false
+    t.integer "visibility", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "visibility", default: 0
-    t.integer "trip_type", default: 0
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
