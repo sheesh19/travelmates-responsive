@@ -1,19 +1,20 @@
 <div class="itinerary">
 
-  <% if @user.events.where('Events.start_date > ?', DateTime.now).count == 0 %>
-    <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+  <%# if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
+  <%# if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
+<!--     <div class="empty-state pt-5 pb-5 mt-5 mb-5">
       <p><strong>You have 0 travel plans</strong></p>
-    </div>
-  <% else %>
+    </div> -->
+  <%# else %>
 
-  <% @user.itineraries.each do |itinerary| %>
+  <% @user.all_upcoming_events.each do |event| %>
     <div class="container__dashboard">
       <div class="display__itinerary">
-        <% if itinerary.end_date >= Date.today %>
-          <h5><%= itinerary.title %></h5>
+        <% if event.itinerary.end_date >= Date.today %>
+          <h5><%= event.itinerary.title %></h5>
         <% end %>
 
-        <% itinerary.events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
+        <% @user.all_upcoming_events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
         <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
           <% eventgroup[1].each do |event| %>
             <% if event.start_date >= Date.today %>
@@ -24,7 +25,7 @@
                   </div>
                   <div class="reminder-details p-4">
                     <h5><%= event.title %></h5>
-                    <div class="reminder-travel-plan"><p><%= itinerary.title %></p></div>
+                    <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
                     <div class="reminder-location d-flex">
                       <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
                       <div class="reminder-address">
@@ -46,7 +47,7 @@
                     <p><%= event.itinerary.user.first_name %></p>
                   </div>
                 </div>
-                <%= link_to "", itinerary_path(itinerary), class: 'make-card-clickable'%>
+                <%= link_to "", itinerary_path(event.itinerary), class: 'make-card-clickable'%>
               </div>
             <% end %>
           <% end %>
@@ -55,7 +56,7 @@
     </div>
   <% end %>
 
-  <% end %>
+  <%# end %>
 </div>
 
 
