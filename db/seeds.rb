@@ -854,7 +854,7 @@ event_list = [
   start_date: "2019-06-21 08:30:00",
   end_date: "2019-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
-  max_spots: 2
+  max_spots: 12
 },
 {
   location_id: Location.find_by(city: "Auckland").id,
@@ -869,6 +869,50 @@ event_list = [
 ]
 Event.create!(event_list)
 puts "Created #{Event.count} event(s)"
+
+# creates eventregistrations
+puts "Creating EventRegistration"
+er_list = [
+{
+  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  user_id: User.find_by(username: "Paal").id,
+  status: 0
+},
+{
+  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  user_id: User.find_by(username: "sophisophi").id,
+  status: 0
+},
+{
+  event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
+  user_id: User.find_by(username: "gabby").id,
+  status: 1
+},
+{
+  event_id: Event.find_by(title: "Glowing Cave Exploration").id,
+  user_id: User.find_by(username: "gabby").id,
+  status: 1
+},
+{
+  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  user_id: User.find_by(username: "sheilz").id,
+  status: 1
+},
+{
+  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  user_id: User.find_by(username: "sophisophi").id,
+  status: 1
+},
+{
+  event_id: Event.find_by(title: "Le Wagon Demo Day").id,
+  user_id: User.find_by(username: "gabby").id,
+  status: 1
+}
+]
+
+EventRegistration.create!(er_list)
+puts "Created #{EventRegistration.count} eventregistration(s)"
+
 
 
 
