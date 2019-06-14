@@ -854,7 +854,7 @@ event_list = [
   start_date: "2019-06-21 08:30:00",
   end_date: "2019-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
-  max_spots: 2
+  max_spots: 12
 },
 {
   location_id: Location.find_by(city: "Auckland").id,
