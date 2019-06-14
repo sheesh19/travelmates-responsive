@@ -13,6 +13,7 @@
     border: none;
     color: $medium-gray;
     border-image-width: 0;
+    border: 0 !important;
   }
 
   thead {
@@ -26,7 +27,7 @@
     font-size: 12px;
     font-weight: 400;
     color: $medium-gray;
-    background-color: white;
+    background-color: white!important;
   }
 
   .day {
@@ -61,18 +62,23 @@
     color: $medium-gray;
   }
 
-  .has-events {}
+  .has-events, .today {
+    padding: 0;
+    border-top: 0;
 
-  .today {
-    background-color: $teal;
-    color: $almost-white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-weight: 600;
-    display: inline-block;
-    border-style: none;
-    align-content: center;
+    $circle_width: 32px;
+
+    .event-calendar__day {
+      color: $almost-white;
+      border-radius: 50%;
+      width: $circle_width;
+      height: $circle_width;
+      position: relative;
+      background-color: $teal;
+      line-height: $circle_width;
+      text-align: center;
+      margin: 0 auto 5px;
+    }
   }
 }
 
@@ -88,4 +94,8 @@
 .calendar-title {
   font-weight: bold;
   color: $medium-gray;
+}
+
+.event-calendar__event-day {
+
 }

@@ -1,3 +1,5 @@
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= month_calendar events: events do |date, events| %>
+  <div class="event-calendar__day">
+    <%= date.day %>
+  </div>
 <% end %>

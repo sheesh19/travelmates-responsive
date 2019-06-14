@@ -2,21 +2,24 @@
   <%= render 'shared/search/search_events' %>
 </div>
 
-
-<div class="container__body">
-  <div class="featured-title">
+  <div class="featured-title container__body">
     <h2>CHECK OUT OTHER EVENTS</h2>
   </div>
 
+<div class="container__body d-flex justify-content-between">
 
+  <div>
     <% @events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
-    <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
+    <h6><%#= eventgroup[0].strftime("%d %b %Y") %></h6>
       <% eventgroup[1].each do |event| %>
         <% if event.start_date >= Date.today %>
           <div class="card reminder-card-with-location d-flex">
             <div class="reminder-text d-flex">
               <div class="reminder-time pt-4 pl-4 pb-4">
-                <%= event.start_date.strftime("%l:%M %P") %>
+                <%= event.start_date.strftime("%d %^b") %>
+                <div class="reminder-date">
+                  <%= event.start_date.strftime("%l:%M %P") %>
+                </div>
               </div>
               <div class="reminder-details p-4">
                 <h5><%= event.title %></h5>
@@ -54,9 +57,17 @@
             </div>
             <%= link_to "", itinerary_event_path(event.itinerary, event), class: 'make-card-clickable'%>
           </div>
+
         <% end %>
+
       <% end %>
+
     <% end %>
+  </div>
+  <div class="">
+    <%= render 'shared/calendar_month', events: @events %>
+  </div>
+
 </div>
 
 <div class="page-bottom-spacer"></div>

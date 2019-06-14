@@ -38,9 +38,10 @@
 
 .bd-sidebar {
   position: sticky;
-  top: 1rem;
+  top: 0;
+  padding-top: 1rem;
   z-index: 1000;
-  height: calc(100vh - 4rem);
+  height: 100vh;
 }
 
 #manage-your-trips-with-count {
@@ -85,7 +86,11 @@
 }
 
 .sidebar-primary-button {
-  margin: 16px 0 24px 24px;
+  margin: 16px 24px 24px 24px;
+
+  .btn {
+    white-space: nowrap;
+  }
 }
 
 .side-bar-divider {
