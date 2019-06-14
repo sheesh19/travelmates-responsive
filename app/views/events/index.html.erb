@@ -17,6 +17,9 @@
             <div class="reminder-text d-flex">
               <div class="reminder-time pt-4 pl-4 pb-4">
                 <%= event.start_date.strftime("%l:%M %P") %>
+                <div class="reminder-date">
+                  <%= event.start_date.strftime("%d %b %Y") %>
+                </div>
               </div>
               <div class="reminder-details p-4">
                 <h5><%= event.title %></h5>
