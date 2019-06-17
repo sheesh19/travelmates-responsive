@@ -5,7 +5,7 @@
         <div>
 
         </div>
-        <%= image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
+        <%= cl_image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
         <div>
           <h4>
             <%= current_user.first_name %>
