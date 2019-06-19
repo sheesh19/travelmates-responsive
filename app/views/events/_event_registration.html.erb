@@ -6,7 +6,7 @@
   <div class="d-flex">
     <!-- Organiser avatar -->
     <div class="mr-3">
-      <%= cl_image_tag @event.itinerary.user.avatar, class: "avatar" %>
+      <%= render 'shared/components/avatar_small', event: @event %>
     </div>
     <div>
       <!-- Organiser Name -->

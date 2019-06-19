@@ -1,0 +1,16 @@
+
+
+<div class="event-pill-expandable reminder-organiser-avatar">
+  <div class="event-pill-inner">
+    <% if event.itinerary.user.avatar.present? %>
+      <%= cl_image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+    <% else %>
+      <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
+        <p><%= event.itinerary.user.first_name[0].upcase %></p>
+      </div>
+    <% end %>
+    <div class="event-pill-text">
+      <p><%= event.itinerary.user.first_name %></p>
+    </div>
+  </div>
+</div>
