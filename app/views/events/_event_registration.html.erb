@@ -6,7 +6,7 @@
   <div class="d-flex">
     <!-- Organiser avatar -->
     <div class="mr-3">
-      <%= image_tag @event.itinerary.user.avatar, class: "avatar" %>
+      <%= cl_image_tag @event.itinerary.user.avatar, class: "avatar" %>
     </div>
     <div>
       <!-- Organiser Name -->

@@ -15,7 +15,7 @@
             <!-- REQUESTER -->
             <div class="col-2 d-flex align-items-center">
               <% if regis.user.avatar.present? %>
-                <%= image_tag regis.user.avatar, class: "avatar" %>
+                <%= cl_image_tag regis.user.avatar, class: "avatar" %>
               <% else %>
                 <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
                   <p><%= current_user.first_name[0].upcase %></p>
