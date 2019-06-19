@@ -1,8 +1,10 @@
 .avatar {
   width: 40px;
+  height: 40px;
   max-width: 40px;
   max-height: 40px;
   border-radius: 50%;
+  crop: crop;
   &:hover {
     cursor: pointer;
   }
@@ -10,6 +12,7 @@
 
 .avatar-large {
   width: 56px;
+  height: 56px;
   max-width: 56px;
   max-height: 56px;
   border-radius: 50%;
@@ -27,6 +30,7 @@
 
 .avatar-xlarge {
   width: 152px;
+  height: 152px;
   border-radius: 50%;
 }
 .avatar-bordered {
@@ -44,6 +48,7 @@
 
 .avatar-small {
   width: 32px;
+  height: 32px;
   border-radius: 50%;
 }
 

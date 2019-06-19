@@ -1,54 +1,19 @@
 <div class="itinerary">
 
   <%# if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
-  <%# if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
-<!--     <div class="empty-state pt-5 pb-5 mt-5 mb-5">
+  <% if @user.events.where('Events.start_date >= ?', DateTime.now).count == 0 %>
+    <div class="empty-state pt-5 pb-5 mt-5 mb-5">
       <p><strong>You have 0 travel plans</strong></p>
-    </div> -->
-  <%# else %>
-
-  <%# @user.all_upcoming_events.each do |event| %>
+    </div>
+  <% else %>
     <div class="container__dashboard">
       <div class="display__itinerary">
-
-      <% @user.all_upcoming_events.group_by { |e| e[:start_date] }.each do |eventgroup| %>
-        <% if eventgroup[0] >= Date.today %>
-          <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
-          <% eventgroup[1].each do |event| %>
-            <div class="card reminder-card-with-location d-flex">
-              <div class="reminder-text d-flex">
-                <div class="reminder-time pt-4 pl-4 pb-4">
-                  <%= event.start_date.strftime("%l:%M %P") %>
-                </div>
-                <div class="reminder-details p-4">
-                  <h5><%= event.title %></h5>
-                  <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
-                  <div class="reminder-location d-flex">
-                    <i class="fas fa-map-marker-alt pr-2 pt-1"></i>
-                    <div class="reminder-address">
-                      <p><%= event.location.city %>, <%= event.location.country %></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="reminder-map">
-                  <% if event.location.photo.present? %>
-                    <%= image_tag event.location.photo, class: "photo-card" %>
-                  <% else %>
-                    <%= image_tag ("https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80"), class: "photo-card" %>
-                  <% end %>
-                </div>
-              </div>
-              <%= render 'shared/components/avatar_pill_expand', event: event %>
-              <%= link_to "", itinerary_event_path(event.itinerary, event), class: 'make-card-clickable'%>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= render 'shared/events/grouped_events', user: @user %>
+      </div>
     </div>
-  </div>
-  <%# end %>
+  <% end %>
 
-  <%# end %>
+
 </div>
 
 
