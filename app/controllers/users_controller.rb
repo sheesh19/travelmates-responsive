@@ -56,7 +56,8 @@ class UsersController < ApplicationController
       :date_of_birth,
       :email,
       :interest_ids,
-      :description
+      :description,
+      :avatar
     )
   end
 end
