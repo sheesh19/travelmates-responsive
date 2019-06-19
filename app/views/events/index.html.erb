@@ -49,12 +49,7 @@
                 <% end %>
               </div>
             </div>
-            <div class="event-pill-expandable reminder-organiser-avatar">
-              <%= cl_image_tag event.itinerary.user.avatar, class: "avatar-small" %>
-              <div class="event-pill-text">
-                <p><%= event.itinerary.user.first_name %></p>
-              </div>
-            </div>
+            <%= render 'shared/components/avatar_pill_expand', event: event %>
             <%= link_to "", itinerary_event_path(event.itinerary, event), class: 'make-card-clickable'%>
           </div>
 

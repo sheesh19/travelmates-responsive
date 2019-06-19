@@ -21,7 +21,7 @@
   </div>
   <!-- Carousel Top 10 -->
     <div class="card__grid">
-      <% @location.top_ten_activities.each do |activity| %>
+      <% @location.top_ten_activities[0..2].each do |activity| %>
         <div
           class="photo-card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3),
@@ -57,14 +57,8 @@
                 <div class="reminder-travel-plan"><p><%= event.itinerary.title %></p></div>
               </div>
             </div>
-            <div class="event-pill-expandable reminder-organiser-avatar">
-              <div class="event-pill-inner">
-                <%= cl_image_tag event.itinerary.user.avatar, class: "avatar-small" %>
-                <div class="event-pill-text">
-                  <p><%= event.itinerary.user.first_name %></p>
-                </div>
-              </div>
-            </div>
+            <%= render 'shared/components/avatar_pill_expand', event: event %>
+
             <%= link_to "", itinerary_event_path(event.itinerary, event), class: "make-card-clickable" %>
           </div>
 
