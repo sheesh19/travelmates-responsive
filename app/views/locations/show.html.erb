@@ -59,7 +59,7 @@
             </div>
             <div class="event-pill-expandable reminder-organiser-avatar">
               <div class="event-pill-inner">
-                <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                <%= cl_image_tag event.itinerary.user.avatar, class: "avatar-small" %>
                 <div class="event-pill-text">
                   <p><%= event.itinerary.user.first_name %></p>
                 </div>

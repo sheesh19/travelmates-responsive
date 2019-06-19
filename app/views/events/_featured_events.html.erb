@@ -17,10 +17,10 @@
                     <p>Paal</p> -->
 
                   <% if event.itinerary.user.avatar.present? %>
-                    <%= image_tag event.itinerary.user.avatar, class: "avatar-small" %>
+                    <%= cl_image_tag event.itinerary.user.avatar, class: "avatar-small" %>
                   <% else %>
                     <div class="no-image-avatar-small d-flex align-items-center justify-content-center">
-                      <p><%= current_user.first_name[0].upcase %></p>
+                      <p><%= event.itinerary.user.first_name[0].upcase %></p>
                     </div>
                   <% end %>
                   <div class="event-pill-text">

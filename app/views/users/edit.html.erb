@@ -3,7 +3,9 @@
     <div>
       <%= simple_form_for(current_user) do |f| %>
         <div>
-          <%= image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
+          <%= cl_image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
+          <%= f.input :avatar,
+              label_html: { class: "form-title" }%>
           <div>
             <h4>
               <%= f.input :first_name, placeholder: current_user.first_name, label: false %><%= f.input :last_name, placeholder: current_user.last_name, label: false %>

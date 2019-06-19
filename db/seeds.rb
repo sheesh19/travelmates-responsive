@@ -23,7 +23,7 @@ user_list = [
   description: "Solo traveller starting an unexpected journey.",
   gender: "Female",
   date_of_birth: "1994-04-09",
-  avatar: "sheila-avatar.jpg"
+  avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922242/mygbfvn3zy1ou1uvyqe6.jpg"
 },
 {
   email: "paal@gmail.com",
@@ -34,7 +34,7 @@ user_list = [
   description: "Avid traveller, sailor, and cat enthusiast.",
   gender: "Male",
   date_of_birth: "1989-04-15",
-  avatar: "paal.jpg"
+  avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922303/xl2yycfemge6qmppbxxb.png"
 },
 {
   email: "sophia.wu@gmail.com",
@@ -45,7 +45,7 @@ user_list = [
   description: "I like cats, surfings, and cats that surf.",
   gender: "Female",
   date_of_birth: "1994-04-20",
-  avatar: "soph.jpg"
+  avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922099/eomowthx1w6iqrqlxtcl.png"
 },
 {
   email: "gabby@gmail.com",

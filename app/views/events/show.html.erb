@@ -48,7 +48,7 @@
         <div class="organiser-info-header d-flex mb-3">
 
           <!-- Organiser avatar -->
-          <div><%= image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
+          <div><%= cl_image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
           <!-- Organiser info -->
           <div class="organiser-info d-flex align-items-center justify-content-between">
             <div class="organiser-details ml-5">
@@ -156,7 +156,7 @@
 
               <% @event.event_registrations.where(status: 1).each do |regis| %>
                 <div class="event-pill">
-                  <%= image_tag regis.user.avatar, class: "avatar-small" %>
+                  <%= cl_image_tag regis.user.avatar, class: "avatar-small" %>
                   <div class="event-pill-text">
                     <p><%= regis.user.first_name %></p>
                   </div>
