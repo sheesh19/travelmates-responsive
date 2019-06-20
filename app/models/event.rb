@@ -55,6 +55,10 @@ class Event < ApplicationRecord
     return user_joined_count + user_created_count
   end
 
+  def self.upcoming
+    Event.where("events.start_date > ?", Date.today)
+  end
+
   private
 
   def cancel
