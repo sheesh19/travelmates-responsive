@@ -3,9 +3,23 @@
     <div>
       <div>
         <div>
-
         </div>
-        <%= cl_image_tag current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px" %>
+        <div class="d-flex justify-content-center">
+          <% if current_user.avatar.blank? %>
+ <!--          <%#= image_tag('avatarback.jpg' , class: "rounded-circle", style: "width: 150px") %> -->
+            <div class="no-image-avatar-show d-flex align-items-center">
+              <% if current_user.first_name.present? %>
+                <p><%= current_user.first_name[0].upcase %></p>
+              <% else %>
+                <p>M</p>
+              <% end %>
+            </div>
+          <% else %>
+            <%= cl_image_tag(current_user.avatar, class: "avatar-xlarge") %>
+<!--         <%#= cl_image_tag(current_user.avatar.present? ? current_user.avatar : 'avatarback.jpg' , class: "rounded-circle", style: "width: 150px") %> -->
+          <% end %>
+        </div>
+
         <div>
           <h4>
             <%= current_user.first_name %>
