@@ -1,6 +1,6 @@
 <!-- Upcoming events grouped by dates -->
 
-<% @events.group_by_day { |e| e[:start_date] }.each do |eventgroup| %>
+<% @all_events.group_by_day { |e| e[:start_date] }.each do |eventgroup| %>
   <% if eventgroup[0] >= Date.today %>
     <h6><%= eventgroup[0].strftime("%d %b %Y") %></h6>
     <% eventgroup[1].each do |event| %>

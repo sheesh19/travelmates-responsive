@@ -198,7 +198,8 @@
   font-weight: bold;
   // Border
   text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  border-radius: 0.5em;
+  // border-radius: 0.5em;
+  border-radius: 2px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   // Animation
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

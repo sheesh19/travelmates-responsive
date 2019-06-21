@@ -17,6 +17,7 @@ class EventsController < ApplicationController
       OR locations.state ILIKE :query\
       "
       @events = Event.joins(:location).where(sql_query, query: "%#{params[:query]}%")
+      @all_events = Event.joins(:location).where.not(sql_query, query: "%#{params[:query]}%")
     else
       @query = false
       @events = Event.all
