@@ -106,9 +106,41 @@
   width: 32px;
   border-radius: 50%;
   text-align: center;
+}
+
+#no-image-avatar-small-p {
+  color: $almost-white;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.no-image-avatar-med {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#no-image-avatar-med-p {
+  color: $almost-white;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.no-image-avatar-xlarge {
+  border: solid 1px $darkest-teal;
+  background-color: $darkest-teal;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  text-align: center;
   p {
     color: $almost-white;
-    font-size: 16px;
+    font-size: 80px;
     margin: 0;
     padding: 0;
   }
