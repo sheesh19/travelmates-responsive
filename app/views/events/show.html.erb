@@ -48,7 +48,7 @@
         <div class="organiser-info-header d-flex mb-3">
 
           <!-- Organiser avatar -->
-          <div><%= cl_image_tag @event.itinerary.user.avatar, class: "avatar-xlarge" %></div>
+          <%= render 'shared/components/avatar_xlarge', event: @event%>
           <!-- Organiser info -->
           <div class="organiser-info d-flex align-items-center justify-content-between">
             <div class="organiser-details ml-5">
@@ -57,6 +57,7 @@
                 <strong><%= @event.itinerary.user.first_name %> <%= @event.itinerary.user.last_name %></strong>
               </p>
               <p><%= pluralize(@event.itinerary.user.age, "year") %> old</p>
+
               <p><%= @event.itinerary.user.gender %></p>
             </div>
             <!-- Organiser rating -->
