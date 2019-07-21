@@ -24,7 +24,7 @@
           </div>
           <div class="reminder-map">
             <% if event.photo.present? %>
-              <%= cl_image_tag event.photo, class: "photo-card-oblong"%>
+              <%= cl_image_tag event.photo, class: "photo-card"%>
             <% else %>
               <% if event.location.photo.present? %>
                 <%= image_tag event.location.photo, class: "photo-card" %>
