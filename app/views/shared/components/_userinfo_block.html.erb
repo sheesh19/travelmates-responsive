@@ -19,8 +19,9 @@
       <p class="mb-0">
         <% if @itinerary.user.date_of_birth.nil? %>
         <% else %>
-          <%= @itinerary.user.age %>
-          <%= @itinerary.user.gender.downcase %>
+          <p><%= @itinerary.user.age %> years old
+            <!-- future area to display gender -->
+            <%#= @itinerary.user.gender.capitalize unless @itinerary.user.gender.nil? %></p>
         <% end %>
       </p>
     </div>
