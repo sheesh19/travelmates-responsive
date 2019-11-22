@@ -818,7 +818,7 @@ event_list = [
 {
   location_id: Location.find_by(city: "Sydney").id,
   itinerary_id: Itinerary.find_by(title: "Australia & New Zealand - Solo Journey").id,
-  activity_id: Activity.find_by(title: "Long Walk").id,
+  activity_id: Activity.find_by(title: "Long Walks").id,
   title: "Walk around Syndey Harbor",
   start_date: "2020-06-21 8:30:00",
   end_date: "2020-06-21 20:00:00",
