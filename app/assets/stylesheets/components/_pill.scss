@@ -33,7 +33,7 @@ $avatar_size: 32px;
   width: auto;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: max-width 0.2s;
+  transition: max-width 0.5s;
   max-width: $avatar_size;
   max-height: $avatar_size;
   align-items: center;
@@ -54,6 +54,7 @@ $avatar_size: 32px;
 .event-pill-text {
   display: inline-block;
   align-items: center;
+  white-space: nowrap;
   p {
     padding-left: 8px;
     padding-right: 16px;
