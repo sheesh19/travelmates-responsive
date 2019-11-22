@@ -27,14 +27,14 @@ user_list = [
   avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922242/mygbfvn3zy1ou1uvyqe6.jpg"
 },
 {
-  email: "paal@gmail.com",
+  email: "sy@gmail.com",
   password: "password",
-  first_name: "Paal",
-  last_name: "Ringstad",
-  username: "Paal",
+  first_name: "Sy",
+  last_name: "Rashid",
+  username: "shyradish",
   description: "Avid traveller, sailor, and cat enthusiast.",
   gender: "Male",
-  date_of_birth: "1989-04-15",
+  date_of_birth: "1991-11-26",
   avatar: "https://res.cloudinary.com/sh19cloud/image/upload/v1560922303/xl2yycfemge6qmppbxxb.png"
 },
 {
@@ -360,6 +360,10 @@ puts "Creating activities"
 
 activity_list = [
 {
+  title: "Beaches",
+  photo: "https://images.unsplash.com/photo-1432889490240-84df33d47091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2978&q=80"
+},
+{
   title: "Food Markets",
   photo: "https://images.unsplash.com/photo-1531638280689-3b3cd8ac2833?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
 },
@@ -490,6 +494,10 @@ activity_list = [
 {
   title: "Tech",
   photo: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+},
+{
+  title: "Long Walks",
+  photo: "https://images.unsplash.com/photo-1482932629923-adddb33d0dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
 }
 ]
 
@@ -500,7 +508,7 @@ puts "Created #{Activity.count} activit(y/ies)"
 puts "Creating itineraries"
 itinerary_list = [
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Greatest Ozzie Adventure",
   start_date: "2020-04-15",
   end_date: "2020-06-23",
@@ -540,7 +548,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Cherry Blossoms in Japan",
   start_date: "2020-07-08",
   end_date: "2020-07-12",
@@ -550,7 +558,7 @@ itinerary_list = [
   trip_type: 1
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "California Dreaming",
   start_date: "2020-07-15",
   end_date: "2020-07-19",
@@ -580,7 +588,7 @@ itinerary_list = [
   trip_type: 0
 },
 {
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   title: "Euro Trip",
   start_date: "2020-08-05",
   end_date: "2020-08-09",
@@ -591,11 +599,11 @@ itinerary_list = [
 },
 {
   user_id: User.find_by(username: "sheilz").id,
-  title: "NZ Visa Run",
+  title: "Australia & New Zealand - Solo Journey",
   start_date: "2020-06-17",
-  end_date: "2020-06-24",
-  description: "A journey to get the precious visa.",
-  status: 0,
+  end_date: "2020-06-26",
+  description: "An unexpected solo trip.",
+  status: 1,
   visibility: 1,
   trip_type: 0
 },
@@ -798,24 +806,44 @@ event_list = [
   max_spots: 3
 },
 {
-  location_id: Location.find_by(city: "Auckland").id,
-  itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
-  activity_id: Activity.find_by(title: "Hiking").id,
-  title: "Hiking the Lonely Mountain",
-  start_date: "2020-06-20 16:30:00",
+  location_id: Location.find_by(city: "Sydney").id,
+  itinerary_id: Itinerary.find_by(title: "Australia & New Zealand - Solo Journey").id,
+  activity_id: Activity.find_by(title: "Beaches").id,
+  title: "Bondi Coastal Walk",
+  start_date: "2020-06-20 8:30:00",
   end_date: "2020-06-20 20:00:00",
-  description: "Hike a mountain and potentially find a dragon.",
-  max_spots: 0
+  description: "Wander up and down the coast walk between beaches.",
+  max_spots: 4
+},
+{
+  location_id: Location.find_by(city: "Sydney").id,
+  itinerary_id: Itinerary.find_by(title: "Australia & New Zealand - Solo Journey").id,
+  activity_id: Activity.find_by(title: "Long Walk").id,
+  title: "Walk around Syndey Harbor",
+  start_date: "2020-06-21 8:30:00",
+  end_date: "2020-06-21 20:00:00",
+  description: "Head up to Sydney Harbor and watch the boats. Walk up to the bridge for some beautiful views of Sydney.",
+  max_spots: 4
 },
 {
   location_id: Location.find_by(city: "Melbourne").id,
-  itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
+  itinerary_id: Itinerary.find_by(title: "Australia & New Zealand - Solo Journey").id,
   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Celebrate the Le Wagon End",
   start_date: "2020-06-17 16:30:00",
   end_date: "2020-06-17 20:00:00",
   description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
   max_spots: 6
+},
+{
+  location_id: Location.find_by(city: "Auckland").id,
+  itinerary_id: Itinerary.find_by(title: "Australia & New Zealand - Solo Journey").id,
+  activity_id: Activity.find_by(title: "Cultural Events").id,
+  title: "Journey to the Shire",
+  start_date: "2020-06-22 8:30:00",
+  end_date: "2020-06-22 20:00:00",
+  description: "Journey to the Shire just outside of Hobbiton. Dress up as the felllowship, of course.",
+  max_spots: 12
 },
 {
   location_id: Location.find_by(city: "Kralendijk").id,
@@ -876,7 +904,7 @@ puts "Creating EventRegistration"
 er_list = [
 {
   event_id: Event.find_by(title: "Celebrate the Le Wagon End").id,
-  user_id: User.find_by(username: "Paal").id,
+  user_id: User.find_by(username: "shyradish").id,
   status: 0
 },
 {
