@@ -53,12 +53,14 @@
             <p><#%= f.input :password, placeholder: current_user.password, label: false %></p>
           </div> -->
         </div>
+
     </div>
     <div>
       <%= f.submit "Submit Changes", class: "btn btn-outlined"%>
     </div>
     <% end %>
   </div>
+    <%= link_to 'Edit Password', edit_user_registration_path, class: "btn btn-outlined" %>
 </div>
 
 

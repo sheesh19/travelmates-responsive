@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # Resources for Active Admin
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  # Resources for Pages & Sign In
   devise_for :users
   root to: 'pages#home'
   resource :dashboard, only: :show

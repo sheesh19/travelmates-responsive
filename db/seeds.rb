@@ -6,6 +6,7 @@ EventFavorite.destroy_all
 Event.destroy_all
 Location.destroy_all
 Activity.destroy_all
+AdminUser.destroy_all
 
 FavoriteItinerary.destroy_all
 Itinerary.destroy_all #child of user, user model updated to destroy dependent when user is destroyed.
@@ -290,7 +291,7 @@ location_list = [
   city: "San Francisco",
   country: "USA",
   state: "California",
-  latitude: 37.820192,
+  latitude: 37.820202,
   longitude: -122.478213,
   photo: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
 },
@@ -412,7 +413,7 @@ activity_list = [
 },
 {
   title: "Massage & Spas",
-  photo: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+  photo: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
 },
 {
   title: "Art Events",
@@ -480,7 +481,7 @@ activity_list = [
 },
 {
   title: "Dancing",
-  photo: "https://images.unsplash.com/photo-1463592177119-bab2a00f3ccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+  photo: "https://images.unsplash.com/photo-1455072414764-a3fb958b8415?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1960&q=80"
 },
 {
   title: "Cultural Festival",
@@ -501,8 +502,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Greatest Ozzie Adventure",
-  start_date: "2019-04-15",
-  end_date: "2019-06-23",
+  start_date: "2020-04-15",
+  end_date: "2020-06-23",
   description: "A trip across Australia",
   status: 1,
   visibility: 1,
@@ -511,8 +512,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Asian Food Tour",
-  start_date: "2019-06-20",
-  end_date: "2019-06-25",
+  start_date: "2020-06-20",
+  end_date: "2020-06-25",
   description: "A culinary tour of asia",
   status: 0,
   visibility: 1,
@@ -521,8 +522,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Thai Scuba Adventure",
-  start_date: "2019-06-26",
-  end_date: "2019-06-30",
+  start_date: "2020-06-26",
+  end_date: "2020-06-30",
   description: "Best scuba diving spots in Thailand",
   status: 1,
   visibility: 0,
@@ -531,8 +532,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "Best of Hong Kong",
-  start_date: "2019-07-01",
-  end_date: "2019-07-05",
+  start_date: "2020-07-01",
+  end_date: "2020-07-05",
   description: "Tasty Dim Sum and shopping fun!",
   status: 1,
   visibility: 1,
@@ -541,8 +542,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Cherry Blossoms in Japan",
-  start_date: "2019-07-08",
-  end_date: "2019-07-12",
+  start_date: "2020-07-08",
+  end_date: "2020-07-12",
   description: "Beautiful view of many cherry blossoms and interesting historical shrines and temples.",
   status: 1,
   visibility: 0,
@@ -551,8 +552,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "California Dreaming",
-  start_date: "2019-07-15",
-  end_date: "2019-07-19",
+  start_date: "2020-07-15",
+  end_date: "2020-07-19",
   description: "Golden Gate Bridge, networking in Silicon Valley, and National Parks",
   status: 0,
   visibility: 0,
@@ -561,8 +562,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New York New York",
-  start_date: "2019-07-22",
-  end_date: "2019-07-26",
+  start_date: "2020-07-22",
+  end_date: "2020-07-26",
   description: "Relaxing in the sun in Central Park",
   status: 1,
   visibility: 1,
@@ -571,8 +572,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "My Fair London",
-  start_date: "2019-07-29",
-  end_date: "2019-08-02",
+  start_date: "2020-07-29",
+  end_date: "2020-08-02",
   description: "Explore the London markets and tea in Mayfair",
   status: 0,
   visibility: 1,
@@ -581,8 +582,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "Paal").id,
   title: "Euro Trip",
-  start_date: "2019-08-05",
-  end_date: "2019-08-09",
+  start_date: "2020-08-05",
+  end_date: "2020-08-09",
   description: "Food, Museums and Shopping",
   status: 0,
   visibility: 0,
@@ -591,8 +592,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "NZ Visa Run",
-  start_date: "2019-06-17",
-  end_date: "2019-06-24",
+  start_date: "2020-06-17",
+  end_date: "2020-06-24",
   description: "A journey to get the precious visa.",
   status: 0,
   visibility: 1,
@@ -601,8 +602,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "sheilz").id,
   title: "ABC Islands & Colombia Extravaganza",
-  start_date: "2019-03-20",
-  end_date: "2019-04-09",
+  start_date: "2020-03-20",
+  end_date: "2020-04-09",
   description: "Snorkeling, Hiking, and Exploring: the ABC's of Travel",
   status: 1,
   visibility: 1,
@@ -611,8 +612,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "sophisophi").id,
   title: "New Zealand Exploration",
-  start_date: "2019-06-19",
-  end_date: "2019-06-24",
+  start_date: "2020-06-19",
+  end_date: "2020-06-24",
   description: "Explore the best NZ has to offer! #kiwilife",
   status: 1,
   visibility: 1,
@@ -621,8 +622,8 @@ itinerary_list = [
 {
   user_id: User.find_by(username: "gabby").id,
   title: "Kiwi Living",
-  start_date: "2019-07-20",
-  end_date: "2019-07-28",
+  start_date: "2020-07-20",
+  end_date: "2020-07-28",
   description: "Experience the life of a Kiwi and explore more.",
   status: 1,
   visibility: 1,
@@ -640,8 +641,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Tech").id,
   title: "Le Wagon Demo Day",
-  start_date: "2019-06-14 18:00:00",
-  end_date: "2019-06-14 20:00:00",
+  start_date: "2020-06-14 18:00:00",
+  end_date: "2020-06-14 20:00:00",
   description: "Pushing boundaries in education through tech.",
   max_spots: 18
 },
@@ -650,8 +651,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Festival").id,
   title: "Bottomless G&Tea Party",
-  start_date: "2019-06-18 14:00:00",
-  end_date: "2019-06-18 17:00:00",
+  start_date: "2020-06-18 14:00:00",
+  end_date: "2020-06-18 17:00:00",
   description: "Enjoy two hours of bottomless gin and tonics, matched with delicious sweet and savoury treats. Choose from house-infused gins served in quaint tea cups - find your favourite flavour!",
   max_spots: 4
 },
@@ -660,8 +661,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "QVM Winter Night Market",
-  start_date: "2019-06-19 17:00:00",
-  end_date: "2019-06-19 22:00:00",
+  start_date: "2020-06-19 17:00:00",
+  end_date: "2020-06-19 22:00:00",
   description: "A foodie feast",
   max_spots: 3
 },
@@ -670,8 +671,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Cultural Events").id,
   title: "Sydney Opera House",
-  start_date: "2019-06-21 17:00:00",
-  end_date: "2019-06-21 22:00:00",
+  start_date: "2020-06-21 17:00:00",
+  end_date: "2020-06-21 22:00:00",
   description: "A night at the Opera",
   max_spots: 2
 },
@@ -680,8 +681,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Greatest Ozzie Adventure").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Snorkeling off the Perth coast",
-  start_date: "2019-06-23 09:00:00",
-  end_date: "2019-06-23 18:00:00",
+  start_date: "2020-06-23 09:00:00",
+  end_date: "2020-06-23 18:00:00",
   description: "snorkeling around Rottnest Island",
   max_spots: 2
 },
@@ -690,8 +691,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Visit a Stunning Winery",
-  start_date: "2019-08-05 09:00:00",
-  end_date: "2019-08-05 17:00:00",
+  start_date: "2020-08-05 09:00:00",
+  end_date: "2020-08-05 17:00:00",
   description: "Visit the most incredible wineries in Florence on a massive winery tour.",
   max_spots: 3
 },
@@ -700,8 +701,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "David by Michelangelo",
-  start_date: "2019-08-06 09:00:00",
-  end_date: "2019-08-06 17:00:00",
+  start_date: "2020-08-06 09:00:00",
+  end_date: "2020-08-06 17:00:00",
   description: "Michelangelo’s defiant David statue has captivated the world for centuries. Considered one of art history’s major masterpieces, the marble sculpture showcases both the artist’s skill and the fine art focus that defines the Renaissance.",
   max_spots: 2
 },
@@ -710,8 +711,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Euro Trip").id,
   activity_id: Activity.find_by(title: "Tech").id,
   title: "Le Wagon reunion",
-  start_date: "2019-08-07 15:30:00",
-  end_date: "2019-08-07 17:00:00",
+  start_date: "2020-08-07 15:30:00",
+  end_date: "2020-08-07 17:00:00",
   description: "A total geek fest!",
   max_spots: 3
 },
@@ -720,8 +721,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Asian Food Tour").id,
   activity_id: Activity.find_by(title: "Food Markets").id,
   title: "Chinatown Complex Food Centre",
-  start_date: "2019-06-20 17:00:00",
-  end_date: "2019-06-20 22:00:00",
+  start_date: "2020-06-20 17:00:00",
+  end_date: "2020-06-20 22:00:00",
   description: "largest hawker centre in Singapore with over 260 food stalls.",
   max_spots: 4
 },
@@ -730,8 +731,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Asian Food Tour").id,
   activity_id: Activity.find_by(title: "Night Markets").id,
   title: "Temple Street night market",
-  start_date: "2019-06-22 20:30:00",
-  end_date: "2019-06-22 22:00:00",
+  start_date: "2020-06-22 20:30:00",
+  end_date: "2020-06-22 22:00:00",
   description: "Temple Street is the largest and most popular night market in Hong Kong",
   max_spots: 3
 },
@@ -740,8 +741,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Thai Scuba Adventure").id,
   activity_id: Activity.find_by(title: "Scuba Diving").id,
   title: "Diving with Big Blue",
-  start_date: "2019-06-26 08:30:00",
-  end_date: "2019-06-30 22:00:00",
+  start_date: "2020-06-26 08:30:00",
+  end_date: "2020-06-30 22:00:00",
   description: "Best diving round the island",
   max_spots: 3
 },
@@ -750,8 +751,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Best of Hong Kong").id,
   activity_id: Activity.find_by(title: "Shopping").id,
   title: "Elements Shopping Mall",
-  start_date: "2019-07-01 09:30:00",
-  end_date: "2019-07-05 23:00:00",
+  start_date: "2020-07-01 09:30:00",
+  end_date: "2020-07-05 23:00:00",
   description: "Elements Hong Kong brings together a host of high-end brands with 123 stores selling accessories from the likes of Mulberry, shoes from Jimmy Choo, fashion from Max Mara, and watches from ROLEX.",
   max_spots: 3
 },
@@ -760,8 +761,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Cherry Blossoms in Japan").id,
   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Cherry Blossoms in Matsuno",
-  start_date: "2019-07-08 09:30:00",
-  end_date: "2019-07-12 23:00:00",
+  start_date: "2020-07-08 09:30:00",
+  end_date: "2020-07-12 23:00:00",
   description: "Cherry Blossoms bloom over Meguro River",
   max_spots: 2
 },
@@ -770,8 +771,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "California Dreaming").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Checking out the Golden Gate Bridge",
-  start_date: "2019-07-15 09:30:00",
-  end_date: "2019-07-19 23:00:00",
+  start_date: "2020-07-15 09:30:00",
+  end_date: "2020-07-19 23:00:00",
   description: "Fantastic views of the GG Bridge",
   max_spots: 2
 },
@@ -780,8 +781,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "New York New York").id,
   activity_id: Activity.find_by(title: "Clubbing").id,
   title: "K-Pop Karaoke in Korea Town",
-  start_date: "2019-07-22 20:30:00",
-  end_date: "2019-07-22 23:00:00",
+  start_date: "2020-07-22 20:30:00",
+  end_date: "2020-07-22 23:00:00",
   description: "Getting it on, Gangnam Style!",
   max_spots: 2
 },
@@ -790,8 +791,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "My Fair London").id,
   activity_id: Activity.find_by(title: "Sightseeing").id,
   title: "Traditional Afternoon Tea at The Ritz, Mayfair",
-  start_date: "2019-07-29 15:30:00",
-  end_date: "2019-08-05 17:00:00",
+  start_date: "2020-07-29 15:30:00",
+  end_date: "2020-08-05 17:00:00",
   description: "This most charming traditional Afternoon Tea in Mayfair, is served in the spectacular Palm Court, with glittering chandeliers and elegant mirrors, which add a light and stylish flourish to the room.
   The Ritz London is the only hotel in the UK to have a certified Tea Sommelier, Giandomenico Scanu, who travels around the world to various tea plantations to source our wonderful teas.",
   max_spots: 3
@@ -801,8 +802,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hiking the Lonely Mountain",
-  start_date: "2019-06-20 16:30:00",
-  end_date: "2019-06-20 20:00:00",
+  start_date: "2020-06-20 16:30:00",
+  end_date: "2020-06-20 20:00:00",
   description: "Hike a mountain and potentially find a dragon.",
   max_spots: 0
 },
@@ -811,8 +812,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "NZ Visa Run").id,
   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Celebrate the Le Wagon End",
-  start_date: "2019-06-17 16:30:00",
-  end_date: "2019-06-17 20:00:00",
+  start_date: "2020-06-17 16:30:00",
+  end_date: "2020-06-17 20:00:00",
   description: "Have a blast in the Drunken Pony with the rest of the class before the beginning of the visa run.",
   max_spots: 6
 },
@@ -821,8 +822,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Snorkeling").id,
   title: "Bonaire Nation Park - Snorkeling",
-  start_date: "2019-03-23 08:30:00",
-  end_date: "2019-03-23 17:00:00",
+  start_date: "2020-03-23 08:30:00",
+  end_date: "2020-03-23 17:00:00",
   description: "Have the most incredible experience snorkeling in the Bonaire National Park. See turtles, squid, tons of coral and fish!",
   max_spots: 7
 },
@@ -831,8 +832,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Night Life").id,
   title: "Blue Curacao Experience",
-  start_date: "2019-03-25 14:30:00",
-  end_date: "2019-03-25 17:00:00",
+  start_date: "2020-03-25 14:30:00",
+  end_date: "2020-03-25 17:00:00",
   description: "Groupon for two to have a blue Curacao experience.",
   max_spots: 2
 },
@@ -841,8 +842,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "ABC Islands & Colombia Extravaganza").id,
   activity_id: Activity.find_by(title: "Hiking").id,
   title: "Hike in the Colombian Cloud Rainforest",
-  start_date: "2019-03-30 07:30:00",
-  end_date: "2019-03-30 20:00:00",
+  start_date: "2020-03-30 07:30:00",
+  end_date: "2020-03-30 20:00:00",
   description: "Hike in a cloud rainforest, round trip 14km. Waterfalls, alpacas, and clouds.",
   max_spots: 0
 },
@@ -851,8 +852,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "New Zealand Exploration").id,
   activity_id: Activity.find_by(title: "Nature Tours").id,
   title: "Glowing Cave Exploration",
-  start_date: "2019-06-21 08:30:00",
-  end_date: "2019-06-21 14:00:00",
+  start_date: "2020-06-21 08:30:00",
+  end_date: "2020-06-21 14:00:00",
   description: "Go into the glow worm cave and find something precious.",
   max_spots: 12
 },
@@ -861,8 +862,8 @@ event_list = [
   itinerary_id: Itinerary.find_by(title: "Kiwi Living").id,
   activity_id: Activity.find_by(title: "Kayaking").id,
   title: "Kayaking NZ Adventures",
-  start_date: "2019-07-21 08:30:00",
-  end_date: "2019-07-21 14:00:00",
+  start_date: "2020-07-21 08:30:00",
+  end_date: "2020-07-21 14:00:00",
   description: "Kayak in the stunning waters in NZ.",
   max_spots: 4
 }
@@ -913,10 +914,11 @@ er_list = [
 EventRegistration.create!(er_list)
 puts "Created #{EventRegistration.count} eventregistration(s)"
 
+puts "Creating an Admin User"
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-
-
+puts "Created #{AdminUser.count} admins"
 
 
 
