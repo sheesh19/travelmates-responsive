@@ -22,20 +22,20 @@
         %>
       <div class="form-date-range">
         <%= f.input :start_date,
-          as: :date,
+          as: :string,
           html5: true,
           required: true,
           error: 'Start date can not be in the past',
           input_html: { class: "form-border" },
-          wrapper_html: { class: "form-title form-date-range-item" }
+          wrapper_html: { class: "form-title form-date-range-item date-picker" }
           %>
         <%= f.input :end_date,
-          as: :date,
+          as: :string,
           html5: true,
           required: true,
           error: 'End date can not be before start date',
           input_html: { class: "form-border" },
-          wrapper_html: { class: "form-title form-date-range-item" }
+          wrapper_html: { class: "form-title form-date-range-item date-picker" }
           %>
       </div>
       <%= f.input :description,
