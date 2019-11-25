@@ -36,7 +36,7 @@
             </div>
           <div class="p-2">
             <p><strong>Date of birth</strong></p>
-              <p><%= f.input :date_of_birth, placeholder: current_user.date_of_birth, label: false %></p>
+              <%= f.input :date_of_birth, as: :string, placeholder: current_user.date_of_birth, label: false, wrapper_html: { class: "date-picker" } %>
           </div>
           <div class="p-2">
             <p><strong>Email address</strong></p>
@@ -62,7 +62,6 @@
   </div>
     <%= link_to 'Edit Password', edit_user_registration_path, class: "btn btn-outlined" %>
 </div>
-
 
 
 
