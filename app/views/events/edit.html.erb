@@ -56,7 +56,7 @@
       wrapper_html: { class: "form-date-range-item date-picker-time" }
       %>
     <%= f.input :end_date,
-      as: :datetime, order: [:day, :month, :year, :hour, :minute],
+      as: :string, order: [:day, :month, :year, :hour, :minute],
       required: true, start_year: Date.today.year,
       error: 'End date can not be earlier than start date',
       label_html: { class: "form-title date-picker-time" }

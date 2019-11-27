@@ -1,7 +1,12 @@
 class Location < ApplicationRecord
   has_many :events
   geocoded_by :address
+  include AlgoliaSearch
   # after_validation :geocode, if: :will_save_change_to_address?
+
+  algoliasearch do
+    attributes :city, :country
+  end
 
   def address
     [street, city, state, country].compact.join(', ')

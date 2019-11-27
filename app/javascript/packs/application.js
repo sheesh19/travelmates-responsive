@@ -13,4 +13,8 @@ import "../plugins/date-picker";
 
 import "../plugins/multi-step-form";
 
+import "../plugins/places";
+
+
+
 
