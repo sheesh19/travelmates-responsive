@@ -34,6 +34,7 @@ class EventsController < ApplicationController
     @activity = Activity.find(params[:event][:activity_id])
     @location = Location.event_geocoder(params[:event][:location])
     @event = Event.new(event_params)
+    
     @event.location = @location
     @event.itinerary = @itinerary
 
@@ -98,16 +99,16 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(
-      :activity_id,
-      :location_id,
-      :itinerary_id,
-      :start_date,
-      :end_date,
-      :max_spots,
-      :description,
-      :title,
-      :photo
-    )
+    params.require(:event).permit!
+    #   :activity_id,
+    #   :location_id,
+    #   :itinerary_id,
+    #   :start_date,
+    #   :end_date,
+    #   :max_spots,
+    #   :description,
+    #   :title,
+    #   :photo
+    # )
   end
 end

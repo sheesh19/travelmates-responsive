@@ -1,9 +1,17 @@
-var client = algoliasearch(ApplicationID, Search-Only-API-Key);
-var index = client.initIndex('YourIndexName');
-index.search('something', { hitsPerPage: 10, page: 0 })
-  .then(function searchDone(content) {
-    console.log(content)
-  })
-  .catch(function searchFailure(err) {
-    console.error(err);
+import places from 'places.js';
+
+export const initAutoCompleteField = (selector) => {  
+  var placesAutocomplete = places({
+    appId: 'plVEFGQAEIH9',
+    apiKey: '9928c38263c2f4b47dca5e9ff29b738a',
+    container: document.querySelector('#event_location'),
+    routing: true,
+    templates: {
+      value: function(suggestion) {
+        return suggestion;
+      }
+    }
   });
+  // placesAutocomplete.search();
+  placesAutocomplete.on('change', e => console.log(e.suggestion));
+};

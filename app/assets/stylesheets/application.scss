@@ -1,3 +1,6 @@
+/* *= selectize.css */
+
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -7,6 +10,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "selectize/dist/css/selectize";
+
 
 body, html {
   height: 100%;
@@ -15,3 +20,5 @@ body, html {
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
