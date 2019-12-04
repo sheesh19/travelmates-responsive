@@ -1,5 +1,4 @@
 import "bootstrap";
-
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
@@ -11,6 +10,18 @@ initMapbox();
 
 import "../plugins/date-picker";
 
-import "../plugins/multi-step-form";
+import { initAutoCompleteField } from '../plugins/places';
+
+initAutoCompleteField('#event_location');
+
+import { selectize } from '../plugins/select';
+
+selectize('#event_activity_id');
+
+import { initMultiStep } from '../plugins/multi-step-form'
+
+initMultiStep('js-location');
+
+
 
 

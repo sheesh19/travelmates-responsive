@@ -13,7 +13,7 @@
 <!-- FORMS -->
 <div class="form-container d-flex flex-column">
   <div>
-    <ul class="stepper">
+    <ul class="stepper js-location">
       <!-- FORM SECTION 1: BASIC EVENT DETAILS -->
       <li class="step step-connection-line">
         <div class="step-title">
@@ -30,6 +30,10 @@
             placeholder: 'Give a name to your amazing event',
             error: 'Please provide an event name',
             label_html: { class: "form-title" }
+            %>
+            <%= f.input :location,
+                label_html: { class: "form-title" },
+                wrapper_html: { class: "form-flex-1 mr-2" }
             %>
           <div class="form-date-range">
             <%= f.input :start_date,
@@ -48,6 +52,7 @@
               label_html: { class: "form-title" },
               wrapper_html: { class: "form-title form-date-range-item" }
               %>
+
           </div>
           <div class="step-action">
             <%= render "shared/components/button", variant: "outlined", label: "Continue", href: "#" %>
@@ -63,15 +68,7 @@
           </div>
         </div>
         <div class="step-content">
-          <div class="d-inline-flex w-100">
-            <!-- LOCATION -->
-              <!-- Adding location geocoder -->
-              <%= f.input :location,
-                input_html: { value: @event&.location&.city },
-                label_html: { class: "form-title" },
-                wrapper_html: { class: "form-flex-1 mr-2" }
-                %>
-              <%#= f.collection_select :location, Location.all, :id, :city %>
+          <div class="d-inline-flex w-100">              
             <!-- ACTIVITY -->
             <%= f.input :activity_id,
               collection: Activity.all,
@@ -81,7 +78,8 @@
               label_html: { class: "form-title" },
               wrapper_html: { class: "form-flex-1" },
               include_blank: false
-              %>
+            %>
+
             <%= f.input :max_spots,
               error: 'Please provide number of mates required',
               label: "Number of spots available",
@@ -91,7 +89,7 @@
                 min: '0',
                 step: '1'
               }
-              %>
+            %>
           </div>
 
           <%= f.input :description, error: 'Please provide a description',

@@ -33,10 +33,11 @@ class EventsController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity = Activity.find(params[:event][:activity_id])
     @location = Location.event_geocoder(params[:event][:location])
-    @event = Event.new(event_params)
-    @event.location = @location
+    clean_event_params = event_params
+    clean_event_params[:location] = Location.event_geocoder(params[:event][:location])
+    
+    @event = Event.new(clean_event_params)
     @event.itinerary = @itinerary
-
     if @location && @event.save
       redirect_to itinerary_path(@itinerary)
     elsif @location.nil?
@@ -57,9 +58,10 @@ class EventsController < ApplicationController
   end
 
   def update
-    @location = Location.event_geocoder(params[:event][:location])
-    @event.update(event_params)
-    @event.location = @location
+    clean_event_params = event_params
+    clean_event_params[:location] = Location.event_geocoder(params[:event][:location])
+    
+    @event.update(clean_event_params)
     if @event.save
       redirect_to itinerary_event_path(@event.itinerary, @event)
     else
@@ -98,16 +100,17 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(
-      :activity_id,
-      :location_id,
-      :itinerary_id,
-      :start_date,
-      :end_date,
-      :max_spots,
-      :description,
-      :title,
-      :photo
-    )
+    params.require(:event).permit! 
+    # (
+    #   :activity_id,
+    #   :itinerary_id,
+    #   :start_date,
+    #   :end_date,
+    #   :max_spots,
+    #   :description,
+    #   :title,
+    #   :photo,
+    #   location_attributes: { :city }
+    # )
   end
 end

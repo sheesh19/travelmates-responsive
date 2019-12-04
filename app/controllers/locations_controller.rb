@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   before_action :set_location, only: :show
 
   def index
+    Location.reindex
     @all_locations = Location.all
     @locations_sorted = @all_locations.sort_by_events
     # required for search

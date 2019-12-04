@@ -15,11 +15,11 @@ flatpickr("#itinerary_end_date", {
 });
 
 flatpickr("#event_start_date", {
-
+  enableTime: true,
 });
 
 flatpickr("#event_end_date", {
-
+  enableTime: true,
 });
 
 // flatpickr(".date-time-picker", {

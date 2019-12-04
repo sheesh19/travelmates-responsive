@@ -1,6 +1,5 @@
-const stepContentEls = document.querySelectorAll('.step-content');
-
-if (stepContentEls) {
+export const initMultiStep = (selector) => {
+  const stepContentEls = document.querySelectorAll('.step-content');
   let activeStep = 0;
   const actionButtonEls = document.querySelectorAll('.step-action .btn');
 
@@ -15,10 +14,10 @@ if (stepContentEls) {
   }
 
   actionButtonEls.forEach((actionButtonEl) => {
-    actionButtonEl.addEventListener("click", (event) => {
-      event.preventDefault();
+    actionButtonEl.addEventListener('click', (e) => {
+      e.preventDefault();
 
       selectStep(activeStep + 1);
     });
   });
-}
+};

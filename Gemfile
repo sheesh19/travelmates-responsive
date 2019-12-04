@@ -22,6 +22,8 @@ gem "simple_calendar", "~> 2.0"
 gem 'traveller', '~> 0.0.010'
 gem 'groupdate'
 gem 'activeadmin'
+gem "algoliasearch-rails"
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
